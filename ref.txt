@@ -1,0 +1,217 @@
+package main
+
+import (
+	"context"
+	"crypto/hmac"
+	"crypto/sha512"
+	"encoding/hex"
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"net/url"
+	"os"
+	"sort"
+	"strconv"
+	"strings"
+	"time"
+
+	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
+	"github.com/jackc/pgx/v5/pgxpool"
+)
+
+var (
+	dbPool        *pgxpool.Pool
+	vnpTmnCode    = "YOUR_TMN_CODE"      // Từ VNPay
+	vnpHashSecret = "YOUR_HASH_SECRET"   // Từ VNPay
+	vnpUrl        = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html"
+	vnpReturnUrl  = "https://yourdomain.com/vnpay/return"
+	vnpIpnUrl     = "https://yourdomain.com/vnpay/ipn" // Cấu hình trên VNPay
+)
+
+func main() {
+	// Kết nối Neon Postgres
+	ctx := context.Background()
+	connStr := os.Getenv("DATABASE_URL") // Set env từ Vercel/Neon
+	var err error
+	dbPool, err = pgxpool.New(ctx, connStr)
+	if err != nil {
+		panic(err)
+	}
+	defer dbPool.Close()
+
+	// Khởi tạo Gin router
+	r := gin.Default()
+
+	// Endpoint tạo đơn hàng
+	r.POST("/create-order", createOrder)
+
+	// Handle return URL (GET)
+	r.GET("/vnpay/return", handleReturn)
+
+	// Handle IPN (POST)
+	r.POST("/vnpay/ipn", handleIPN)
+
+	// Chạy server
+	r.Run(":8080") // Hoặc os.Getenv("PORT") cho Vercel
+}
+
+// Tạo đơn hàng và URL thanh toán
+func createOrder(c *gin.Context) {
+	var req struct {
+		Amount    int64  `json:"amount"`     // VND, chưa nhân 100
+		OrderInfo string `json:"order_info"`
+	}
+	if err := c.BindJSON(&req); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
+		return
+	}
+
+	// Tạo txn_ref unique
+	txnRef := uuid.New().String()
+
+	// Lưu vào DB
+	_, err := dbPool.Exec(context.Background(),
+		"INSERT INTO orders (id, txn_ref, amount, order_info, status) VALUES ($1, $2, $3, $4, 'pending')",
+		uuid.New(), txnRef, req.Amount*100, req.OrderInfo)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Lỗi lưu đơn hàng"})
+		return
+	}
+
+	// Tạo params cho VNPay
+	params := map[string]string{
+		"vnp_Version":    "2.1.0",
+		"vnp_Command":    "pay",
+		"vnp_TmnCode":    vnpTmnCode,
+		"vnp_Amount":     strconv.FormatInt(req.Amount*100, 10),
+		"vnp_CreateDate": time.Now().Format("20060102150405"),
+		"vnp_CurrCode":   "VND",
+		"vnp_IpAddr":     getClientIP(c.Request),
+		"vnp_Locale":     "vn",
+		"vnp_OrderInfo":  req.OrderInfo,
+		"vnp_OrderType":  "other",
+		"vnp_ReturnUrl":  vnpReturnUrl,
+		"vnp_TxnRef":     txnRef,
+	}
+
+	// Tính checksum
+	secureHash := calculateChecksum(params)
+
+	// Build URL
+	query := url.Values{}
+	for k, v := range params {
+		query.Add(k, v)
+	}
+	query.Add("vnp_SecureHash", secureHash)
+	paymentUrl := vnpUrl + "?" + query.Encode()
+
+	c.JSON(http.StatusOK, gin.H{"payment_url": paymentUrl})
+}
+
+// Xử lý return URL (redirect user)
+func handleReturn(c *gin.Context) {
+	params := c.Request.URL.Query()
+	if verifyChecksum(params) {
+		txnRef := params.Get("vnp_TxnRef")
+		respCode := params.Get("vnp_ResponseCode")
+
+		status := "failed"
+		if respCode == "00" {
+			status = "success"
+		}
+
+		// Update DB (nên dùng IPN chính, return chỉ để hiển thị)
+		_, _ = dbPool.Exec(context.Background(), "UPDATE orders SET status = $1 WHERE txn_ref = $2", status, txnRef)
+
+		c.String(http.StatusOK, "Thanh toán %s! Mã giao dịch: %s", status, txnRef)
+	} else {
+		c.String(http.StatusBadRequest, "Checksum không hợp lệ")
+	}
+}
+
+// Xử lý IPN (VNPay POST)
+func handleIPN(c *gin.Context) {
+	if err := c.Request.ParseForm(); err != nil {
+		c.String(http.StatusBadRequest, "Lỗi parse form")
+		return
+	}
+	params := c.Request.Form
+
+	if verifyChecksum(params) {
+		txnRef := params.Get("vnp_TxnRef")
+		respCode := params.Get("vnp_ResponseCode")
+
+		status := "failed"
+		if respCode == "00" {
+			status = "success"
+		}
+
+		// Update DB
+		_, err := dbPool.Exec(context.Background(), "UPDATE orders SET status = $1 WHERE txn_ref = $2", status, txnRef)
+		if err != nil {
+			c.String(http.StatusInternalServerError, "99|Update DB failed")
+			return
+		}
+
+		c.String(http.StatusOK, "00|OK")
+	} else {
+		c.String(http.StatusBadRequest, "97|Checksum failed")
+	}
+}
+
+// Tính checksum
+func calculateChecksum(params map[string]string) string {
+	var keys []string
+	for k := range params {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+
+	var parts []string
+	for _, k := range keys {
+		if strings.HasPrefix(k, "vnp_") && params[k] != "" {
+			parts = append(parts, k+"="+url.QueryEscape(params[k]))
+		}
+	}
+	data := strings.Join(parts, "&")
+
+	h := hmac.New(sha512.New, []byte(vnpHashSecret))
+	h.Write([]byte(data))
+	return hex.EncodeToString(h.Sum(nil))
+}
+
+// Verify checksum
+func verifyChecksum(params url.Values) bool {
+	receivedHash := params.Get("vnp_SecureHash")
+	params.Del("vnp_SecureHash") // Loại bỏ để tính lại
+
+	var keys []string
+	for k := range params {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+
+	var parts []string
+	for _, k := range keys {
+		if strings.HasPrefix(k, "vnp_") && params.Get(k) != "" {
+			parts = append(parts, k+"="+url.QueryEscape(params.Get(k)))
+		}
+	}
+	data := strings.Join(parts, "&")
+
+	h := hmac.New(sha512.New, []byte(vnpHashSecret))
+	h.Write([]byte(data))
+	calculatedHash := hex.EncodeToString(h.Sum(nil))
+
+	return receivedHash == calculatedHash
+}
+
+// Lấy IP client
+func getClientIP(r *http.Request) string {
+	ip := r.Header.Get("X-Forwarded-For")
+	if ip == "" {
+		ip = r.RemoteAddr
+	}
+	return ip
+}
