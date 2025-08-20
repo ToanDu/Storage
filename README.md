@@ -1,0 +1,2 @@
+# Storage
+Shared database storage
