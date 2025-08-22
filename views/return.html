@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kết quả thanh toán</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px #ccc;
+      text-align: center;
+    }
+    .success { color: green; }
+    .fail { color: red; }
+    .txn-ref { margin-top: 10px; font-weight: bold; }
+    .home-link {
+      margin-top: 20px;
+      display: inline-block;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    {{ if eq .Status "success" }}
+      <h2 class="success">🎉 Thanh toán thành công!</h2>
+    {{ else }}
+      <h2 class="fail">❌ Thanh toán thất bại!</h2>
+    {{ end }}
+
+    <p class="txn-ref">Mã giao dịch: {{ .TxnRef }}</p>
+    <a href="/" class="home-link">Quay về trang chủ</a>
+  </div>
+</body>
+</html>
