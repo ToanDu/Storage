@@ -1,4 +1,4 @@
-module Go_API
+module storage-main
 
 go 1.24.5
 
