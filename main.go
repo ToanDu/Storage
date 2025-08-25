@@ -18,13 +18,17 @@ func main() {
 	// Load templates from views folder
 	router.LoadHTMLGlob("views/*")
 
-	// Routes
+	// Payment Routes
 	router.GET("/", controllers.PaymentPage)
 	router.POST("/createorders", controllers.CreateOrders(db))
 	router.GET("/vnpay/return", controllers.ReturnPage(db))
 	router.POST("/vnpay/ipn", controllers.HandleIPN(db))
-	// after router := gin.Default() and db := config.InitDB()
 	router.GET("/vnpay/query", controllers.QueryTransaction(db))
+
+	// Refund Routes
+	router.GET("/refund", controllers.RefundPage)
+	router.POST("/refund", controllers.ProcessRefund(db))
+	router.GET("/refund/result", controllers.GetRefundResult(db))
 
 	log.Println("🚀 Server running on http://localhost:8080")
 	router.Run("localhost:8080")

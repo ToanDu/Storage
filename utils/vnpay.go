@@ -11,6 +11,7 @@ import (
 	"net/http"
 	"net/url"
 	"sort"
+	"strconv"
 	"strings"
 	"time"
 
@@ -193,4 +194,99 @@ func CallQueryDR(params map[string]string) (*QueryDRResponse, int, error) {
 	fmt.Printf(">>> VNPay Response (HTTP %d): %+v\n", res.StatusCode, out)
 
 	return &out, res.StatusCode, nil
+}
+
+// ---------- Refund Transaction ----------
+
+// SignRefund creates the secure hash for refund requests using the pipe-separated format
+func SignRefund(
+	requestId, version, command, tmnCode, transactionType, txnRef,
+	amount, transactionNo, transactionDate, createdby, createDate, ipAddr, orderInfo string) string {
+	signData := strings.Join([]string{
+		requestId,
+		version,
+		command,
+		tmnCode,
+		transactionType,
+		txnRef,
+		amount,
+		transactionNo, // leave empty if not available, but keep the position
+		transactionDate,
+		createdby,
+		createDate,
+		ipAddr,
+		orderInfo,
+	}, "|")
+
+	mac := hmac.New(sha512.New, []byte(VnpHashSecret))
+	mac.Write([]byte(signData))
+	return strings.ToUpper(hex.EncodeToString(mac.Sum(nil)))
+}
+
+// BuildRefundParams creates the refund request parameters
+func BuildRefundParams(
+	txnRef string,
+	transactionType string,
+	amount int64,
+	transactionNo string,
+	transactionDate string,
+	orderInfo string,
+	ip string) map[string]string {
+
+	requestID := uuid.NewString()[:12]
+	createDate := time.Now().Format("20060102150405")
+	amountStr := strconv.FormatInt(amount, 10)
+
+	payload := map[string]string{
+		"vnp_RequestId":       requestID,
+		"vnp_Version":         "2.1.0",
+		"vnp_Command":         "refund",
+		"vnp_TmnCode":         VnpTmnCode,
+		"vnp_TransactionType": transactionType, // "02" full, "03" partial
+		"vnp_TxnRef":          txnRef,
+		"vnp_Amount":          amountStr, // amount * 100
+		"vnp_OrderInfo":       orderInfo,
+		"vnp_TransactionNo":   transactionNo,   // optional, can be ""
+		"vnp_TransactionDate": transactionDate, // createDate of the original payment
+		"vnp_CreateBy":        "admin",
+		"vnp_CreateDate":      createDate, // time of refund request
+		"vnp_IpAddr":          ip,
+	}
+
+	payload["vnp_SecureHash"] = SignRefund(
+		requestID, "2.1.0", "refund", VnpTmnCode, transactionType, txnRef,
+		amountStr, transactionNo, transactionDate, "admin", createDate, ip, orderInfo)
+
+	return payload
+}
+
+// CallRefund sends the refund request to VNPay and returns the response
+func CallRefund(params map[string]string) (map[string]interface{}, int, error) {
+	body, _ := json.Marshal(params)
+
+	// Log outgoing request payload
+	fmt.Println(">>> Sending Refund payload:", string(body))
+
+	req, err := http.NewRequest(http.MethodPost, VnpApiURL, bytes.NewReader(body))
+	if err != nil {
+		return nil, 0, err
+	}
+	req.Header.Set("Content-Type", "application/json")
+
+	client := &http.Client{Timeout: 15 * time.Second}
+	res, err := client.Do(req)
+	if err != nil {
+		return nil, 0, err
+	}
+	defer res.Body.Close()
+
+	var out map[string]interface{}
+	if err := json.NewDecoder(res.Body).Decode(&out); err != nil {
+		return nil, res.StatusCode, fmt.Errorf("decode response: %w", err)
+	}
+
+	// Log incoming response
+	fmt.Printf(">>> VNPay Refund Response (HTTP %d): %+v\n", res.StatusCode, out)
+
+	return out, res.StatusCode, nil
 }

@@ -25,6 +25,7 @@
     }
     .success { color: green; }
     .fail { color: red; }
+    .warn { color: #ff9800; }
     table {
       margin: 20px auto;
       border-collapse: collapse;
@@ -42,28 +43,76 @@
       color: #007bff;
       font-weight: bold;
     }
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .button-container a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+    .refund-btn {
+      background-color: #28a745;
+      color: white !important;
+      padding: 8px 15px;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    {{ if eq .Status "00" }}
-      <h2 class="success">{{ .StatusText }}</h2>
-    {{ else if eq .Status "success" }}
-      <h2 class="success">{{ .StatusText }}</h2>
+    {{ if .IsRefund }}
+      <!-- Refund Result Display -->
+      {{ if eq .Status "refunded" }}
+        <h2 class="success">{{ .StatusText }}</h2>
+      {{ else if eq .Status "partially_refunded" }}
+        <h2 class="success">{{ .StatusText }}</h2>
+      {{ else if eq .Status "refund_pending" }}
+        <h2 class="warn">{{ .StatusText }}</h2>
+      {{ else }}
+        <h2 class="fail">{{ .StatusText }}</h2>
+      {{ end }}
+      
+      <table>
+        <tr><td><b>Mã giao dịch:</b></td><td>{{ .TxnRef }}</td></tr>
+        <tr><td><b>Số tiền gốc:</b></td><td>{{ .Amount }}</td></tr>
+        <tr><td><b>Nội dung:</b></td><td>{{ .OrderInfo }}</td></tr>
+        <tr><td><b>Trạng thái:</b></td><td>{{ .Status }}</td></tr>
+      </table>
     {{ else }}
-      <h2 class="fail">{{ .StatusText }}</h2>
+      <!-- Payment Result Display -->
+      {{ if eq .Status "00" }}
+        <h2 class="success">{{ .StatusText }}</h2>
+      {{ else if eq .Status "success" }}
+        <h2 class="success">{{ .StatusText }}</h2>
+      {{ else }}
+        <h2 class="fail">{{ .StatusText }}</h2>
+      {{ end }}
+
+      <table>
+        <tr><td><b>Mã giao dịch:</b></td><td>{{ .TxnRef }}</td></tr>
+        <tr><td><b>Số tiền:</b></td><td>{{ .Amount }}</td></tr>
+        <tr><td><b>Ngân hàng:</b></td><td>{{ .BankCode }}</td></tr>
+        <tr><td><b>Ngày thanh toán:</b></td><td>{{ .PayDate }}</td></tr>
+        <tr><td><b>Mã phản hồi:</b></td><td>{{ .ResponseCode }}</td></tr>
+        <tr><td><b>Trạng thái GD:</b></td><td>{{ .Status }}</td></tr>
+      </table>
+      
+      {{ if or (eq .Status "00") (eq .Status "success") }}
+      <div class="button-container">
+        <a href="/" class="home-link">⬅ Quay về trang chủ</a>
+        <a href="/refund?txnRef={{ .TxnRef }}" class="refund-btn">Hoàn tiền</a>
+      </div>
+      {{ else }}
+      <a href="/" class="home-link">⬅ Quay về trang chủ</a>
+      {{ end }}
     {{ end }}
-
-    <table>
-      <tr><td><b>Mã giao dịch:</b></td><td>{{ .TxnRef }}</td></tr>
-      <tr><td><b>Số tiền:</b></td><td>{{ .Amount }}</td></tr>
-      <tr><td><b>Ngân hàng:</b></td><td>{{ .BankCode }}</td></tr>
-      <tr><td><b>Ngày thanh toán:</b></td><td>{{ .PayDate }}</td></tr>
-      <tr><td><b>Mã phản hồi:</b></td><td>{{ .ResponseCode }}</td></tr>
-      <tr><td><b>Trạng thái GD:</b></td><td>{{ .Status }}</td></tr>
-    </table>
-
+    
+    {{ if not .button_container }}
     <a href="/" class="home-link">⬅ Quay về trang chủ</a>
+    {{ end }}
   </div>
 </body>
 </html>

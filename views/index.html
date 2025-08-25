@@ -96,5 +96,17 @@
     <button type="submit">Tra cứu</button>
     <p class="note">Nhập mã giao dịch để kiểm tra trạng thái thanh toán từ VNPay.</p>
   </form>
+  
+  <hr>
+  
+  <h2>Hoàn tiền giao dịch</h2>
+  <!-- Refund Form -->
+  <form action="/refund" method="GET">
+    <label for="refundTxnRef">Mã giao dịch cần hoàn tiền:</label>
+    <input type="text" name="txnRef" id="refundTxnRef" required placeholder="VD: 123e4567-e89b-12d3-a456-426614174000">
+
+    <button type="submit">Yêu cầu hoàn tiền</button>
+    <p class="note">Nhập mã giao dịch để tạo yêu cầu hoàn tiền từ VNPay.</p>
+  </form>
 </body>
 </html>

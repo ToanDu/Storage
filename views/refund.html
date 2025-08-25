@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VNPay Hoàn Tiền</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 40px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #333;
+    }
+    .container {
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .refund-type {
+      display: flex;
+      margin-bottom: 15px;
+    }
+    .refund-type label {
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    .refund-type input {
+      width: auto;
+      margin-right: 5px;
+    }
+    #amountField {
+      display: none;
+    }
+    .error {
+      color: red;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 4px;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    .failure {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+    .home-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #007BFF;
+      text-decoration: none;
+    }
+    pre {
+      background: #f8f8f8;
+      padding: 10px;
+      overflow-x: auto;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <h1>VNPay Hoàn Tiền</h1>
+
+  <div class="container">
+    <div id="refundForm">
+      <h2>Yêu Cầu Hoàn Tiền</h2>
+      
+      <div class="form-group">
+        <label for="txnRef">Mã Giao Dịch:</label>
+        <input type="text" id="txnRef" value="{{ .TxnRef }}" placeholder="Nhập mã giao dịch cần hoàn tiền">
+      </div>
+
+      <div class="refund-type">
+        <label>
+          <input type="radio" name="refundType" value="02" checked> Hoàn toàn bộ
+        </label>
+        <label>
+          <input type="radio" name="refundType" value="03"> Hoàn một phần
+        </label>
+      </div>
+
+      <div class="form-group" id="amountField">
+        <label for="amount">Số Tiền Hoàn (VNĐ):</label>
+        <input type="number" id="amount" placeholder="Nhập số tiền cần hoàn">
+      </div>
+
+      <div class="form-group">
+        <label for="orderInfo">Nội Dung:</label>
+        <textarea id="orderInfo" rows="3" placeholder="Nhập lý do hoàn tiền"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="transactionNo">Mã Giao Dịch Ngân Hàng (không bắt buộc):</label>
+        <input type="text" id="transactionNo" placeholder="Nhập mã giao dịch ngân hàng (nếu có)">
+      </div>
+
+      <div class="error" id="errorMessage"></div>
+
+      <button type="button" id="submitRefund">Gửi Yêu Cầu Hoàn Tiền</button>
+      <a href="/" class="home-link">⬅ Quay về trang chủ</a>
+    </div>
+
+    <div id="result" style="display: none;"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Show/hide amount field based on refund type
+      const refundTypeRadios = document.querySelectorAll('input[name="refundType"]');
+      const amountField = document.getElementById('amountField');
+
+      refundTypeRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+          if (this.value === '03') {
+            amountField.style.display = 'block';
+          } else {
+            amountField.style.display = 'none';
+          }
+        });
+      });
+
+      // Handle form submission
+      document.getElementById('submitRefund').addEventListener('click', function() {
+        const txnRef = document.getElementById('txnRef').value.trim();
+        const refundType = document.querySelector('input[name="refundType"]:checked').value;
+        const amount = document.getElementById('amount').value;
+        const orderInfo = document.getElementById('orderInfo').value;
+        const transactionNo = document.getElementById('transactionNo').value;
+        const errorElement = document.getElementById('errorMessage');
+        
+        // Validation
+        if (!txnRef) {
+          errorElement.textContent = 'Vui lòng nhập mã giao dịch';
+          return;
+        }
+
+        if (refundType === '03' && (!amount || parseInt(amount) <= 0)) {
+          errorElement.textContent = 'Vui lòng nhập số tiền hợp lệ';
+          return;
+        }
+
+        // Clear previous errors
+        errorElement.textContent = '';
+        
+        // Prepare payload
+        const payload = {
+          transaction_code: txnRef,
+          transaction_type: refundType,
+          order_info: orderInfo,
+          transaction_no: transactionNo
+        };
+
+        if (refundType === '03') {
+          payload.refund_amount = parseInt(amount);
+        }
+
+        // Send refund request
+        fetch('/refund', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        })
+        .then(response => response.json())
+        .then(data => {
+          const resultDiv = document.getElementById('result');
+          document.getElementById('refundForm').style.display = 'none';
+          resultDiv.style.display = 'block';
+          
+          let resultHtml = '';
+          
+          if (data.api_success) {
+            resultHtml = `
+              <div class="result success">
+                <h3>Yêu Cầu Hoàn Tiền Thành Công!</h3>
+                <p>Mã giao dịch: ${txnRef}</p>
+                <p>Trạng thái: Thành công</p>
+              </div>
+              <a href="/refund/result?txnRef=${txnRef}&success=true" class="home-link">Xem Chi Tiết</a>
+            `;
+          } else {
+            resultHtml = `
+              <div class="result failure">
+                <h3>Yêu Cầu Hoàn Tiền Thất Bại!</h3>
+                <p>Mã giao dịch: ${txnRef}</p>
+                <p>Mã lỗi: ${data.vnp_response?.vnp_ResponseCode || 'Unknown'}</p>
+              </div>
+              <pre>${JSON.stringify(data, null, 2)}</pre>
+              <a href="/refund/result?txnRef=${txnRef}&success=false" class="home-link">Xem Chi Tiết</a>
+            `;
+          }
+          
+          resultHtml += `<a href="/" class="home-link">⬅ Quay về trang chủ</a>`;
+          resultDiv.innerHTML = resultHtml;
+        })
+        .catch(error => {
+          errorElement.textContent = 'Lỗi kết nối: ' + error.message;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
