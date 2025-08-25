@@ -143,7 +143,7 @@ func QueryTransaction(db *pgxpool.Pool) gin.HandlerFunc {
 			return
 		}
 
-		// lookup order in DB
+		// 🔎 lookup order in DB
 		order, err := models.GetOrderByTxnRef(db, txnRef)
 		if err != nil {
 			c.HTML(http.StatusNotFound, "return.html", gin.H{
@@ -161,28 +161,46 @@ func QueryTransaction(db *pgxpool.Pool) gin.HandlerFunc {
 		resp, _, err := utils.CallQueryDR(params)
 		if err != nil {
 			log.Printf("❌ QueryDR error: %v", err)
-			c.HTML(http.StatusInternalServerError, "return.html", gin.H{
-				"Status":       "failed",
-				"StatusText":   "❌ Lỗi khi gọi QueryDR",
-				"TxnRef":       txnRef,
+			// fallback to DB order status if VNPay query fails
+			c.HTML(http.StatusOK, "return.html", gin.H{
+				"TxnRef":       order.TxnRef,
 				"ResponseCode": "99",
+				"Status":       order.Status,
+				"StatusText":   "⚠️ Không thể truy vấn VNPay, hiển thị trạng thái lưu trong hệ thống",
+				"Amount":       strconv.FormatInt(order.Amount, 10),
+				"BankCode":     "N/A",
+				"PayDate":      order.TxnDate,
 			})
 			return
 		}
 
-		// Map VNPay TransactionStatus for user clarity
+		// ⚠️ If VNPay returns duplicate request code
+		if resp.ResponseCode == "94" {
+			log.Printf("⚠️ VNPay duplicate query, using cached DB result")
+			c.HTML(http.StatusOK, "return.html", gin.H{
+				"TxnRef":       order.TxnRef,
+				"ResponseCode": "94",
+				"Status":       order.Status,
+				"StatusText":   "⚠️ Giao dịch đã được truy vấn gần đây (hiển thị trạng thái hệ thống)",
+				"Amount":       strconv.FormatInt(order.Amount, 10),
+				"BankCode":     "N/A",
+				"PayDate":      order.TxnDate,
+			})
+			return
+		}
+
+		// ✅ Normal case: VNPay gave valid response
 		status := "failed"
 		statusText := "❌ Giao dịch thất bại"
-		if resp.TransactionStatus == "00" {
+		if resp.TransactionStatus == "00" && resp.ResponseCode == "00" {
 			status = "success"
 			statusText = "🎉 Giao dịch thành công"
 		}
 
-		// Pass response to template
 		c.HTML(http.StatusOK, "return.html", gin.H{
 			"TxnRef":       resp.TxnRef,
 			"ResponseCode": resp.ResponseCode,
-			"Status":       status, // "00" = success
+			"Status":       status,
 			"StatusText":   statusText,
 			"Amount":       resp.Amount,
 			"BankCode":     resp.BankCode,
