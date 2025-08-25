@@ -34,7 +34,7 @@ func CreateOrders(db *pgxpool.Pool) gin.HandlerFunc {
 		}
 
 		txnRef := uuid.NewString()
-		txnDate := time.Now().Format("20060102150405") // ✅ must be stored for later QueryDR
+		txnDate := time.Now().Format("20060102150405") // must be stored for later QueryDR
 
 		if err := models.CreateOrder(db, txnRef, amount*100, orderInfo, txnDate); err != nil {
 			c.HTML(http.StatusInternalServerError, "index.html", gin.H{
@@ -72,12 +72,16 @@ func CreateOrders(db *pgxpool.Pool) gin.HandlerFunc {
 	}
 }
 
-// GET /vnpay/return
+// GET /vnpay/return (after payment redirect)
 func ReturnPage(db *pgxpool.Pool) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		txnRef := c.Query("vnp_TxnRef")
 		respCode := c.Query("vnp_ResponseCode")
+		bankCode := c.Query("vnp_BankCode")
+		amount := c.Query("vnp_Amount")
+		payDate := c.Query("vnp_PayDate")
 
+		// Default fail
 		status := "failed"
 		if respCode == "00" {
 			status = "success"
@@ -86,10 +90,14 @@ func ReturnPage(db *pgxpool.Pool) gin.HandlerFunc {
 		// Update DB
 		_ = models.UpdateOrderStatus(db, txnRef, status)
 
-		// Render return.html with dynamic values
+		// Render return.html with unified fields
 		c.HTML(http.StatusOK, "return.html", gin.H{
-			"TxnRef": txnRef,
-			"Status": status,
+			"TxnRef":            txnRef,
+			"ResponseCode":      respCode,
+			"TransactionStatus": respCode, // treat ResponseCode as status here
+			"Amount":            amount,
+			"BankCode":          bankCode,
+			"PayDate":           payDate,
 		})
 	}
 }
@@ -123,31 +131,40 @@ func QueryTransaction(db *pgxpool.Pool) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		txnRef := c.Query("txnRef")
 		if txnRef == "" {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "txnRef is required"})
+			c.HTML(http.StatusBadRequest, "return.html", gin.H{
+				"ResponseCode":      "99",
+				"TransactionStatus": "fail",
+				"TxnRef":            "",
+			})
 			return
 		}
 
-		// 🔎 lookup order in DB
+		// lookup order in DB
 		order, err := models.GetOrderByTxnRef(db, txnRef)
 		if err != nil {
-			c.JSON(http.StatusNotFound, gin.H{"error": "Order not found"})
+			c.HTML(http.StatusNotFound, "return.html", gin.H{
+				"ResponseCode":      "01",
+				"TransactionStatus": "fail",
+				"TxnRef":            txnRef,
+			})
 			return
 		}
 
-		ip := utils.GetClientIP(c.Request)
-
-		// 🔎 build params for QueryDR
+		ip := utils.GetServerIP()
 		params := utils.BuildQueryDRParams(order.TxnRef, order.TxnDate, order.OrderInfo, ip)
 
-		// 🔎 call VNPay API
-		resp, status, err := utils.CallQueryDR(params)
+		resp, _, err := utils.CallQueryDR(params)
 		if err != nil {
 			log.Printf("❌ QueryDR error: %v", err)
-			c.JSON(status, gin.H{"error": err.Error()})
+			c.HTML(http.StatusInternalServerError, "return.html", gin.H{
+				"ResponseCode":      "99",
+				"TransactionStatus": "fail",
+				"TxnRef":            txnRef,
+			})
 			return
 		}
 
-		// 🔎 render return.html with *utils.QueryDRResponse
+		// Pass full VNPay response to template
 		c.HTML(http.StatusOK, "return.html", resp)
 	}
 }
