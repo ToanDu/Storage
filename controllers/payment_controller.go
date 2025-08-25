@@ -83,21 +83,24 @@ func ReturnPage(db *pgxpool.Pool) gin.HandlerFunc {
 
 		// Default fail
 		status := "failed"
+		statusText := "❌ Giao dịch thất bại"
 		if respCode == "00" {
 			status = "success"
+			statusText = "🎉 Giao dịch thành công"
 		}
 
 		// Update DB
 		_ = models.UpdateOrderStatus(db, txnRef, status)
 
-		// Render return.html with unified fields
+		// Render return.html with clear fields
 		c.HTML(http.StatusOK, "return.html", gin.H{
-			"TxnRef":            txnRef,
-			"ResponseCode":      respCode,
-			"TransactionStatus": respCode, // treat ResponseCode as status here
-			"Amount":            amount,
-			"BankCode":          bankCode,
-			"PayDate":           payDate,
+			"TxnRef":       txnRef,
+			"ResponseCode": respCode,
+			"Status":       status,     // success | failed
+			"StatusText":   statusText, // pretty text
+			"Amount":       amount,
+			"BankCode":     bankCode,
+			"PayDate":      payDate,
 		})
 	}
 }
@@ -132,9 +135,10 @@ func QueryTransaction(db *pgxpool.Pool) gin.HandlerFunc {
 		txnRef := c.Query("txnRef")
 		if txnRef == "" {
 			c.HTML(http.StatusBadRequest, "return.html", gin.H{
-				"ResponseCode":      "99",
-				"TransactionStatus": "fail",
-				"TxnRef":            "",
+				"Status":       "failed",
+				"StatusText":   "❌ Thiếu mã giao dịch",
+				"TxnRef":       "",
+				"ResponseCode": "99",
 			})
 			return
 		}
@@ -143,9 +147,10 @@ func QueryTransaction(db *pgxpool.Pool) gin.HandlerFunc {
 		order, err := models.GetOrderByTxnRef(db, txnRef)
 		if err != nil {
 			c.HTML(http.StatusNotFound, "return.html", gin.H{
-				"ResponseCode":      "01",
-				"TransactionStatus": "fail",
-				"TxnRef":            txnRef,
+				"Status":       "failed",
+				"StatusText":   "❌ Không tìm thấy đơn hàng",
+				"TxnRef":       txnRef,
+				"ResponseCode": "01",
 			})
 			return
 		}
@@ -157,14 +162,29 @@ func QueryTransaction(db *pgxpool.Pool) gin.HandlerFunc {
 		if err != nil {
 			log.Printf("❌ QueryDR error: %v", err)
 			c.HTML(http.StatusInternalServerError, "return.html", gin.H{
-				"ResponseCode":      "99",
-				"TransactionStatus": "fail",
-				"TxnRef":            txnRef,
+				"Status":       "failed",
+				"StatusText":   "❌ Lỗi khi gọi QueryDR",
+				"TxnRef":       txnRef,
+				"ResponseCode": "99",
 			})
 			return
 		}
 
-		// Pass full VNPay response to template
-		c.HTML(http.StatusOK, "return.html", resp)
+		// Map VNPay TransactionStatus for user clarity
+		statusText := "❌ Giao dịch thất bại"
+		if resp.TransactionStatus == "00" {
+			statusText = "🎉 Giao dịch thành công"
+		}
+
+		// Pass response to template
+		c.HTML(http.StatusOK, "return.html", gin.H{
+			"TxnRef":       resp.TxnRef,
+			"ResponseCode": resp.ResponseCode,
+			"Status":       resp.TransactionStatus, // "00" = success
+			"StatusText":   statusText,
+			"Amount":       resp.Amount,
+			"BankCode":     resp.BankCode,
+			"PayDate":      resp.PayDate,
+		})
 	}
 }

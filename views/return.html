@@ -11,7 +11,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
+      padding: 20px;
     }
     .container {
       background: white;
@@ -19,18 +20,11 @@
       border-radius: 10px;
       box-shadow: 0px 0px 10px #ccc;
       text-align: center;
-      width: 400px;
+      width: 100%;
+      max-width: 420px;
     }
     .success { color: green; }
     .fail { color: red; }
-    .txn-ref { margin-top: 10px; font-weight: bold; }
-    .home-link {
-      margin-top: 20px;
-      display: inline-block;
-      text-decoration: none;
-      color: #007bff;
-      font-weight: bold;
-    }
     table {
       margin: 20px auto;
       border-collapse: collapse;
@@ -41,14 +35,23 @@
       border-bottom: 1px solid #eee;
       text-align: left;
     }
+    .home-link {
+      margin-top: 20px;
+      display: inline-block;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    {{ if and (eq .ResponseCode "00") (eq .TransactionStatus "00") }}
-      <h2 class="success">🎉 Giao dịch thành công!</h2>
+    {{ if eq .Status "00" }}
+      <h2 class="success">{{ .StatusText }}</h2>
+    {{ else if eq .Status "success" }}
+      <h2 class="success">{{ .StatusText }}</h2>
     {{ else }}
-      <h2 class="fail">❌ Giao dịch thất bại!</h2>
+      <h2 class="fail">{{ .StatusText }}</h2>
     {{ end }}
 
     <table>
@@ -57,7 +60,7 @@
       <tr><td><b>Ngân hàng:</b></td><td>{{ .BankCode }}</td></tr>
       <tr><td><b>Ngày thanh toán:</b></td><td>{{ .PayDate }}</td></tr>
       <tr><td><b>Mã phản hồi:</b></td><td>{{ .ResponseCode }}</td></tr>
-      <tr><td><b>Trạng thái GD:</b></td><td>{{ .TransactionStatus }}</td></tr>
+      <tr><td><b>Trạng thái GD:</b></td><td>{{ .Status }}</td></tr>
     </table>
 
     <a href="/" class="home-link">⬅ Quay về trang chủ</a>
