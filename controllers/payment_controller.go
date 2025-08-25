@@ -171,8 +171,10 @@ func QueryTransaction(db *pgxpool.Pool) gin.HandlerFunc {
 		}
 
 		// Map VNPay TransactionStatus for user clarity
+		status := "failed"
 		statusText := "❌ Giao dịch thất bại"
 		if resp.TransactionStatus == "00" {
+			status = "success"
 			statusText = "🎉 Giao dịch thành công"
 		}
 
@@ -180,7 +182,7 @@ func QueryTransaction(db *pgxpool.Pool) gin.HandlerFunc {
 		c.HTML(http.StatusOK, "return.html", gin.H{
 			"TxnRef":       resp.TxnRef,
 			"ResponseCode": resp.ResponseCode,
-			"Status":       resp.TransactionStatus, // "00" = success
+			"Status":       status, // "00" = success
 			"StatusText":   statusText,
 			"Amount":       resp.Amount,
 			"BankCode":     resp.BankCode,
