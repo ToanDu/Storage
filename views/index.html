@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VNPay Thanh Toán</title>
+  <title>VNPay Thanh Toán & Tra Cứu</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f5f5f5;
       padding: 40px;
     }
-    h1 {
+    h1, h2 {
       text-align: center;
       color: #333;
     }
@@ -24,6 +24,8 @@
     }
     label {
       font-weight: bold;
+      display: block;
+      margin-top: 10px;
     }
     input {
       width: 100%;
@@ -57,11 +59,17 @@
       text-align: center;
       margin-bottom: 15px;
     }
+    hr {
+      margin: 50px 0;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
   </style>
 </head>
 <body>
   <h1>VNPay Payment Demo</h1>
 
+  <!-- Payment Form -->
   <form action="/createorders" method="POST">
     {{ if .Error }}
       <p class="error">{{ .Error }}</p>
@@ -75,6 +83,18 @@
 
     <button type="submit">Xác nhận & Thanh toán</button>
     <p class="note">Bạn sẽ được chuyển đến cổng thanh toán VNPay sau khi xác nhận.</p>
+  </form>
+
+  <hr>
+
+  <h2>Tra cứu giao dịch</h2>
+  <!-- Transaction Lookup Form -->
+  <form action="/vnpay/query" method="GET">
+    <label for="txnRef">Mã giao dịch (TxnRef):</label>
+    <input type="text" name="txnRef" id="txnRef" required placeholder="VD: 123e4567-e89b-12d3-a456-426614174000">
+
+    <button type="submit">Tra cứu</button>
+    <p class="note">Nhập mã giao dịch để kiểm tra trạng thái thanh toán từ VNPay.</p>
   </form>
 </body>
 </html>

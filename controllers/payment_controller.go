@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"log"
 	"net/http"
 	"net/url"
 	"storage-main/models"
@@ -33,7 +34,9 @@ func CreateOrders(db *pgxpool.Pool) gin.HandlerFunc {
 		}
 
 		txnRef := uuid.NewString()
-		if err := models.CreateOrder(db, txnRef, amount*100, orderInfo); err != nil {
+		txnDate := time.Now().Format("20060102150405") // ✅ must be stored for later QueryDR
+
+		if err := models.CreateOrder(db, txnRef, amount*100, orderInfo, txnDate); err != nil {
 			c.HTML(http.StatusInternalServerError, "index.html", gin.H{
 				"Error": "Không thể lưu đơn hàng",
 			})
@@ -53,7 +56,7 @@ func CreateOrders(db *pgxpool.Pool) gin.HandlerFunc {
 			"vnp_Amount":     strconv.FormatInt(amount*100, 10),
 			"vnp_ReturnUrl":  utils.VnpReturnURL,
 			"vnp_IpAddr":     utils.GetClientIP(c.Request),
-			"vnp_CreateDate": time.Now().Format("20060102150405"),
+			"vnp_CreateDate": txnDate,
 			"vnp_ExpireDate": time.Now().Add(15 * time.Minute).Format("20060102150405"),
 		}
 
@@ -112,5 +115,39 @@ func HandleIPN(db *pgxpool.Pool) gin.HandlerFunc {
 			return
 		}
 		c.String(http.StatusOK, "00|OK")
+	}
+}
+
+// GET /vnpay/query?txnRef=xxxx
+func QueryTransaction(db *pgxpool.Pool) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		txnRef := c.Query("txnRef")
+		if txnRef == "" {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "txnRef is required"})
+			return
+		}
+
+		// 🔎 lookup order in DB
+		order, err := models.GetOrderByTxnRef(db, txnRef)
+		if err != nil {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Order not found"})
+			return
+		}
+
+		ip := utils.GetClientIP(c.Request)
+
+		// 🔎 build params for QueryDR
+		params := utils.BuildQueryDRParams(order.TxnRef, order.TxnDate, order.OrderInfo, ip)
+
+		// 🔎 call VNPay API
+		resp, status, err := utils.CallQueryDR(params)
+		if err != nil {
+			log.Printf("❌ QueryDR error: %v", err)
+			c.JSON(status, gin.H{"error": err.Error()})
+			return
+		}
+
+		// 🔎 render return.html with *utils.QueryDRResponse
+		c.HTML(http.StatusOK, "return.html", resp)
 	}
 }

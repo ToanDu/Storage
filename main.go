@@ -23,6 +23,8 @@ func main() {
 	router.POST("/createorders", controllers.CreateOrders(db))
 	router.GET("/vnpay/return", controllers.ReturnPage(db))
 	router.POST("/vnpay/ipn", controllers.HandleIPN(db))
+	// after router := gin.Default() and db := config.InitDB()
+	router.GET("/vnpay/query", controllers.QueryTransaction(db))
 
 	log.Println("🚀 Server running on http://localhost:8080")
 	router.Run("localhost:8080")

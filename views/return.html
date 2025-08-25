@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kết quả thanh toán</title>
+  <title>Kết quả giao dịch</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -18,11 +18,25 @@
       padding: 30px 40px;
       border-radius: 10px;
       box-shadow: 0px 0px 10px #ccc;
+      max-width: 600px;
       text-align: center;
     }
     .success { color: green; }
     .fail { color: red; }
     .txn-ref { margin-top: 10px; font-weight: bold; }
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    table th, table td {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    table th {
+      background-color: #f7f7f7;
+    }
     .home-link {
       margin-top: 20px;
       display: inline-block;
@@ -34,14 +48,26 @@
 </head>
 <body>
   <div class="container">
-    {{ if eq .Status "success" }}
-      <h2 class="success">🎉 Thanh toán thành công!</h2>
+    {{ if eq .ResponseCode "00" }}
+      <h2 class="success">🎉 Giao dịch thành công!</h2>
     {{ else }}
-      <h2 class="fail">❌ Thanh toán thất bại!</h2>
+      <h2 class="fail">❌ Giao dịch thất bại (Mã: {{.ResponseCode}})</h2>
     {{ end }}
 
-    <p class="txn-ref">Mã giao dịch: {{ .TxnRef }}</p>
-    <a href="/" class="home-link">Quay về trang chủ</a>
+    <table>
+      <tr><th>Mã phản hồi</th><td>{{.ResponseCode}}</td></tr>
+      <tr><th>Thông điệp</th><td>{{.Message}}</td></tr>
+      <tr><th>Mã giao dịch</th><td>{{.TxnRef}}</td></tr>
+      <tr><th>Số tiền</th><td>{{.Amount}}</td></tr>
+      <tr><th>Ngân hàng</th><td>{{.BankCode}}</td></tr>
+      <tr><th>Ngày thanh toán</th><td>{{.PayDate}}</td></tr>
+      <tr><th>Số giao dịch VNPay</th><td>{{.TransactionNo}}</td></tr>
+      <tr><th>Loại giao dịch</th><td>{{.TransactionType}}</td></tr>
+      <tr><th>Trạng thái</th><td>{{.TransactionStatus}}</td></tr>
+      <tr><th>Thông tin đơn hàng</th><td>{{.OrderInfo}}</td></tr>
+    </table>
+
+    <a href="/" class="home-link">⬅️ Quay về trang chủ</a>
   </div>
 </body>
 </html>
