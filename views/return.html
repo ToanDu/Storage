@@ -19,10 +19,11 @@
       border-radius: 10px;
       box-shadow: 0px 0px 10px #ccc;
       text-align: center;
-      width: 420px;
+      width: 400px;
     }
     .success { color: green; }
     .fail { color: red; }
+    .txn-ref { margin-top: 10px; font-weight: bold; }
     .home-link {
       margin-top: 20px;
       display: inline-block;
@@ -44,32 +45,20 @@
 </head>
 <body>
   <div class="container">
-    {{/* Case 1: return from payment (has .Status) */}}
-    {{ if .Status }}
-      {{ if eq .Status "success" }}
-        <h2 class="success">🎉 Thanh toán thành công!</h2>
-      {{ else }}
-        <h2 class="fail">❌ Thanh toán thất bại!</h2>
-      {{ end }}
-      <p><b>Mã giao dịch:</b> {{ .TxnRef }}</p>
-
-    {{/* Case 2: lookup result (has ResponseCode + TransactionStatus) */}}
-    {{ else if .ResponseCode }}
-      {{ if and (eq .ResponseCode "00") (eq .TransactionStatus "00") }}
-        <h2 class="success">🎉 Giao dịch thành công!</h2>
-      {{ else }}
-        <h2 class="fail">❌ Giao dịch thất bại!</h2>
-      {{ end }}
-
-      <table>
-        <tr><td><b>Mã giao dịch:</b></td><td>{{ .TxnRef }}</td></tr>
-        <tr><td><b>Số tiền:</b></td><td>{{ .Amount }}</td></tr>
-        <tr><td><b>Ngân hàng:</b></td><td>{{ .BankCode }}</td></tr>
-        <tr><td><b>Ngày thanh toán:</b></td><td>{{ .PayDate }}</td></tr>
-        <tr><td><b>Mã phản hồi:</b></td><td>{{ .ResponseCode }}</td></tr>
-        <tr><td><b>Trạng thái GD:</b></td><td>{{ .TransactionStatus }}</td></tr>
-      </table>
+    {{ if and (eq .ResponseCode "00") (eq .TransactionStatus "00") }}
+      <h2 class="success">🎉 Giao dịch thành công!</h2>
+    {{ else }}
+      <h2 class="fail">❌ Giao dịch thất bại!</h2>
     {{ end }}
+
+    <table>
+      <tr><td><b>Mã giao dịch:</b></td><td>{{ .TxnRef }}</td></tr>
+      <tr><td><b>Số tiền:</b></td><td>{{ .Amount }}</td></tr>
+      <tr><td><b>Ngân hàng:</b></td><td>{{ .BankCode }}</td></tr>
+      <tr><td><b>Ngày thanh toán:</b></td><td>{{ .PayDate }}</td></tr>
+      <tr><td><b>Mã phản hồi:</b></td><td>{{ .ResponseCode }}</td></tr>
+      <tr><td><b>Trạng thái GD:</b></td><td>{{ .TransactionStatus }}</td></tr>
+    </table>
 
     <a href="/" class="home-link">⬅ Quay về trang chủ</a>
   </div>
