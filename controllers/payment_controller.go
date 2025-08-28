@@ -1,12 +1,20 @@
 package controllers
 
 import (
+	"bytes"
+	"context"
+	"crypto/hmac"
+	"crypto/sha512"
+	"encoding/hex"
+	"encoding/json"
+	"io"
 	"log"
 	"net/http"
 	"net/url"
 	"storage-main/models"
 	"storage-main/utils"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -130,81 +138,105 @@ func HandleIPN(db *pgxpool.Pool) gin.HandlerFunc {
 }
 
 // GET /vnpay/query?txnRef=xxxx
-func QueryTransaction(db *pgxpool.Pool) gin.HandlerFunc {
+func Query_request(dbPool *pgxpool.Pool) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		txnRef := c.Query("txnRef")
-		if txnRef == "" {
-			c.HTML(http.StatusBadRequest, "return.html", gin.H{
-				"Status":       "failed",
-				"StatusText":   "❌ Thiếu mã giao dịch",
-				"TxnRef":       "",
-				"ResponseCode": "99",
-			})
+		var req struct {
+			TransactionCode string `json:"transaction_code" binding:"required"`
+			OrderInfo       string `json:"order_info"`
+		}
+		if err := c.BindJSON(&req); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
+			log.Printf("Error invalid request: %v", err)
 			return
 		}
 
-		// 🔎 lookup order in DB
-		order, err := models.GetOrderByTxnRef(db, txnRef)
+		// Lấy thời điểm tạo đơn (giả định chính là thời điểm vnp_CreateDate khi pay)
+		// Khuyến nghị: lưu riêng "vnp_create_date" khi tạo thanh toán để đảm bảo trùng 100% với lệnh pay
+		var createdTime time.Time
+		if err := dbPool.QueryRow(context.Background(),
+			"SELECT created_at FROM orders WHERE txn_ref = $1", req.TransactionCode).Scan(&createdTime); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Transaction not found"})
+			log.Printf("Error querying txn_ref: %v", err)
+			return
+		}
+
+		// Chuẩn bị payload querydr
+		requestID := uuid.NewString()[:12]                      // đủ tính duy nhất trong ngày, có thể thay đổi theo yêu cầu của bạn
+		transactionDate := createdTime.Format("20060102150405") // phải là yyyyMMddHHmmss
+		createDate := time.Now().Format("20060102150405")
+		ip := utils.GetClientIP(c.Request)
+		orderInfo := strings.TrimSpace(req.OrderInfo)
+		if orderInfo == "" {
+			orderInfo = "Query transaction result"
+		}
+
+		payload := map[string]string{
+			"vnp_RequestId":       requestID,
+			"vnp_Version":         "2.1.0",
+			"vnp_Command":         "querydr",
+			"vnp_TmnCode":         utils.VnpTmnCode,
+			"vnp_TxnRef":          req.TransactionCode,
+			"vnp_TransactionDate": transactionDate,
+			"vnp_CreateDate":      createDate,
+			"vnp_IpAddr":          ip,
+			"vnp_OrderInfo":       orderInfo,
+		}
+
+		// Ký đúng quy tắc của querydr (KHÔNG sort key, KHÔNG URL-encode, dùng dấu "|")
+		payload["vnp_SecureHash"] = signQueryDR(
+			requestID, "2.1.0", "querydr", utils.VnpTmnCode, req.TransactionCode, transactionDate, createDate, ip, orderInfo,
+		)
+
+		// Gọi VNPay
+		b, _ := json.Marshal(payload)
+		resp, err := http.Post(utils.VnpApiURL, "application/json", bytes.NewBuffer(b))
 		if err != nil {
-			c.HTML(http.StatusNotFound, "return.html", gin.H{
-				"Status":       "failed",
-				"StatusText":   "❌ Không tìm thấy đơn hàng",
-				"TxnRef":       txnRef,
-				"ResponseCode": "01",
-			})
+			c.JSON(http.StatusBadGateway, gin.H{"error": "Failed to call VNPay API"})
 			return
 		}
+		defer resp.Body.Close()
 
-		ip := utils.GetServerIP()
-		params := utils.BuildQueryDRParams(order.TxnRef, order.TxnDate, order.OrderInfo, ip)
-
-		resp, _, err := utils.CallQueryDR(params)
+		body, err := io.ReadAll(resp.Body)
 		if err != nil {
-			log.Printf("❌ QueryDR error: %v", err)
-			// fallback to DB order status if VNPay query fails
-			c.HTML(http.StatusOK, "return.html", gin.H{
-				"TxnRef":       order.TxnRef,
-				"ResponseCode": "99",
-				"Status":       order.Status,
-				"StatusText":   "⚠️ Không thể truy vấn VNPay, hiển thị trạng thái lưu trong hệ thống",
-				"Amount":       strconv.FormatInt(order.Amount, 10),
-				"BankCode":     "N/A",
-				"PayDate":      order.TxnDate,
-			})
+			c.JSON(http.StatusBadGateway, gin.H{"error": "Failed to read response"})
 			return
 		}
 
-		// ⚠️ If VNPay returns duplicate request code
-		if resp.ResponseCode == "94" {
-			log.Printf("⚠️ VNPay duplicate query, using cached DB result")
-			c.HTML(http.StatusOK, "return.html", gin.H{
-				"TxnRef":       order.TxnRef,
-				"ResponseCode": "94",
-				"Status":       order.Status,
-				"StatusText":   "⚠️ Giao dịch đã được truy vấn gần đây (hiển thị trạng thái hệ thống)",
-				"Amount":       strconv.FormatInt(order.Amount, 10),
-				"BankCode":     "N/A",
-				"PayDate":      order.TxnDate,
-			})
+		var vnpResp map[string]any
+		if err := json.Unmarshal(body, &vnpResp); err != nil {
+			c.JSON(http.StatusBadGateway, gin.H{"error": "Failed to parse response"})
 			return
 		}
 
-		// ✅ Normal case: VNPay gave valid response
-		status := "failed"
-		statusText := "❌ Giao dịch thất bại"
-		if resp.TransactionStatus == "00" && resp.ResponseCode == "00" {
-			status = "success"
-			statusText = "🎉 Giao dịch thành công"
-		}
+		// Đánh giá nhanh kết quả
+		isAPISuccess := vnpResp["vnp_ResponseCode"] == "00"
+		isTxnSuccess := vnpResp["vnp_TransactionStatus"] == "00"
 
-		c.HTML(http.StatusOK, "return.html", gin.H{
-			"TxnRef":       resp.TxnRef,
-			"ResponseCode": resp.ResponseCode,
-			"Status":       status,
-			"StatusText":   statusText,
-			"Amount":       resp.Amount,
-			"BankCode":     resp.BankCode,
-			"PayDate":      resp.PayDate,
+		c.JSON(http.StatusOK, gin.H{
+			"request":      payload,
+			"vnp_response": vnpResp,
+			"isSuccess":    isAPISuccess && isTxnSuccess,
+			"http_status":  resp.StatusCode,
 		})
 	}
+}
+
+func signQueryDR(
+	requestId, version, command, tmnCode, txnRef, transactionDate, createDate, ipAddr, orderInfo string,
+) string {
+	signData := strings.Join([]string{
+		requestId,
+		version,
+		command,
+		tmnCode,
+		txnRef,
+		transactionDate,
+		createDate,
+		ipAddr,
+		orderInfo,
+	}, "|")
+
+	mac := hmac.New(sha512.New, []byte(utils.VnpHashSecret))
+	mac.Write([]byte(signData))
+	return strings.ToUpper(hex.EncodeToString(mac.Sum(nil)))
 }

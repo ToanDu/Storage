@@ -31,16 +31,15 @@ var (
 
 // ---------- Common helpers ----------
 
-// Calculate secure hash for key=value&... style (used in "pay" URL build)
 func CalculateChecksum(params map[string]string) string {
 	var keys []string
-	for k := range params {
+	for k := range params { //key, value := range map (đầy đủ)
 		keys = append(keys, k)
 	}
 	sort.Strings(keys)
 
 	var parts []string
-	for _, k := range keys {
+	for _, k := range keys { //index, value := range slice (đầy đủ)
 		if strings.HasPrefix(k, "vnp_") && params[k] != "" {
 			parts = append(parts, k+"="+url.QueryEscape(params[k]))
 		}
@@ -49,18 +48,10 @@ func CalculateChecksum(params map[string]string) string {
 	data := strings.Join(parts, "&")
 	h := hmac.New(sha512.New, []byte(VnpHashSecret))
 	h.Write([]byte(data))
-	// VNPay is tolerant here, but keep it upper to be consistent.
 	return strings.ToUpper(hex.EncodeToString(h.Sum(nil)))
 }
 
-// ---- QueryDR-specific checksum (STRICT order, NO url-escape) ----
-// Techspec 2.1.0, §2.5.4 (querydr):
-// data = vnp_RequestId + "|" + vnp_Version + "|" + vnp_Command + "|" +
-//
-//	vnp_TmnCode + "|" + vnp_TxnRef + "|" + vnp_TransactionDate + "|" +
-//	vnp_CreateDate + "|" + vnp_IpAddr + "|" + vnp_OrderInfo
 func calculateQueryDRChecksum(req map[string]string) string {
-	// Ensure all required keys exist (use empty string if not set to avoid nil map lookups)
 	ordered := []string{
 		req["vnp_RequestId"],
 		req["vnp_Version"],
@@ -198,7 +189,6 @@ func CallQueryDR(params map[string]string) (*QueryDRResponse, int, error) {
 
 // ---------- Refund Transaction ----------
 
-// SignRefund creates the secure hash for refund requests using the pipe-separated format
 func SignRefund(
 	requestId, version, command, tmnCode, transactionType, txnRef,
 	amount, transactionNo, transactionDate, createdby, createDate, ipAddr, orderInfo string) string {
@@ -249,7 +239,7 @@ func BuildRefundParams(
 		"vnp_TransactionNo":   transactionNo,   // optional, can be ""
 		"vnp_TransactionDate": transactionDate, // createDate of the original payment
 		"vnp_CreateBy":        "admin",
-		"vnp_CreateDate":      createDate, // time of refund request
+		"vnp_CreateDate":      createDate,
 		"vnp_IpAddr":          ip,
 	}
 
@@ -264,7 +254,6 @@ func BuildRefundParams(
 func CallRefund(params map[string]string) (map[string]interface{}, int, error) {
 	body, _ := json.Marshal(params)
 
-	// Log outgoing request payload
 	fmt.Println(">>> Sending Refund payload:", string(body))
 
 	req, err := http.NewRequest(http.MethodPost, VnpApiURL, bytes.NewReader(body))
@@ -285,7 +274,6 @@ func CallRefund(params map[string]string) (map[string]interface{}, int, error) {
 		return nil, res.StatusCode, fmt.Errorf("decode response: %w", err)
 	}
 
-	// Log incoming response
 	fmt.Printf(">>> VNPay Refund Response (HTTP %d): %+v\n", res.StatusCode, out)
 
 	return out, res.StatusCode, nil

@@ -23,7 +23,7 @@ func main() {
 	router.POST("/createorders", controllers.CreateOrders(db))
 	router.GET("/vnpay/return", controllers.ReturnPage(db))
 	router.POST("/vnpay/ipn", controllers.HandleIPN(db))
-	router.GET("/vnpay/query", controllers.QueryTransaction(db))
+	router.POST("/query_transaction", controllers.Query_request(db))
 
 	// Refund Routes
 	router.GET("/refund", controllers.RefundPage)
