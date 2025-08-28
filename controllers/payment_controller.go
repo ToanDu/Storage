@@ -29,54 +29,66 @@ func PaymentPage(c *gin.Context) {
 
 // POST /createorders
 func CreateOrders(db *pgxpool.Pool) gin.HandlerFunc {
-	return func(c *gin.Context) {
-		amountStr := c.PostForm("amount")
-		orderInfo := c.PostForm("info")
+	return func(c *gin.Context) { // Lấy tham số từ query
+		amountStr := "10000"
+		orderInfo := "order_info"
 
-		amount, err := strconv.ParseInt(amountStr, 10, 64)
-		if err != nil || amount <= 0 {
-			c.HTML(http.StatusBadRequest, "index.html", gin.H{
-				"Error": "Số tiền không hợp lệ",
+		// Validate đầu vào
+		if strings.TrimSpace(amountStr) == "" || strings.TrimSpace(orderInfo) == "" {
+			c.JSON(http.StatusBadRequest, gin.H{
+				"error": "amount and order_info are required (query params)",
 			})
 			return
 		}
 
-		txnRef := uuid.NewString()
-		txnDate := time.Now().Format("20060102150405") // must be stored for later QueryDR
-
-		if err := models.CreateOrder(db, txnRef, amount*100, orderInfo, txnDate); err != nil {
-			c.HTML(http.StatusInternalServerError, "index.html", gin.H{
-				"Error": "Không thể lưu đơn hàng",
-			})
+		amountVND, err := strconv.ParseInt(amountStr, 10, 64)
+		if err != nil || amountVND <= 0 {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "amount must be a positive integer (VND)"})
 			return
 		}
 
-		// VNPAY params
+		// Tạo order trên DB
+		tnxRef := uuid.NewString()
+		_, err = db.Exec(context.Background(),
+			"INSERT INTO orders (id, txn_ref, amount, order_info, status) VALUES ($1, $2, $3, $4, 'pending')",
+			uuid.New(), tnxRef, amountVND*100, orderInfo)
+		if err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Cannot save orders"})
+			return
+		}
+
 		params := map[string]string{
 			"vnp_Version":    "2.1.0",
 			"vnp_Command":    "pay",
 			"vnp_TmnCode":    utils.VnpTmnCode,
 			"vnp_Locale":     "vn",
 			"vnp_CurrCode":   "VND",
-			"vnp_TxnRef":     txnRef,
+			"vnp_TxnRef":     tnxRef,
 			"vnp_OrderInfo":  orderInfo,
 			"vnp_OrderType":  "other",
-			"vnp_Amount":     strconv.FormatInt(amount*100, 10),
+			"vnp_Amount":     strconv.FormatInt(amountVND*100, 10), // x100 theo chuẩn VNPay
 			"vnp_ReturnUrl":  utils.VnpReturnURL,
 			"vnp_IpAddr":     utils.GetClientIP(c.Request),
-			"vnp_CreateDate": txnDate,
+			"vnp_CreateDate": time.Now().Format("20060102150405"),
 			"vnp_ExpireDate": time.Now().Add(15 * time.Minute).Format("20060102150405"),
 		}
 
+		// Ký HMAC-SHA512
 		secureHash := utils.CalculateChecksum(params)
-		query := url.Values{}
+		// Ghép query để redirect
+		q := url.Values{}
 		for k, v := range params {
-			query.Add(k, v)
+			q.Add(k, v)
 		}
-		query.Add("vnp_SecureHash", secureHash)
+		q.Add("vnp_SecureHash", secureHash)
 
-		paymentURL := utils.VnpURL + "?" + query.Encode()
-		c.Redirect(http.StatusSeeOther, paymentURL)
+		paymentURL := utils.VnpURL + "?" + q.Encode()
+
+		// c.JSON(http.StatusOK, gin.H{
+		// 	"payment_url": paymentURL,
+		// 	"txn_ref":     tnxRef,
+		// })
+		c.Redirect(http.StatusFound, paymentURL)
 	}
 }
 
