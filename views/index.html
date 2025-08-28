@@ -70,7 +70,7 @@
   <h1>VNPay Payment Demo</h1>
 
   <!-- Payment Form -->
-  <form action="/createorders" method="POST">
+  <form action="/createorders" method="GET">
     {{ if .Error }}
       <p class="error">{{ .Error }}</p>
     {{ end }}
@@ -78,8 +78,8 @@
     <label for="amount">Số tiền (VNĐ):</label>
     <input type="number" name="amount" id="amount" required placeholder="VD: 100000">
 
-    <label for="info">Nội dung chuyển khoản:</label>
-    <input type="text" name="info" id="info" required placeholder="VD: Mua bánh mì">
+    <label for="order_info">Nội dung chuyển khoản:</label>
+    <input type="text" name="order_info" id="order_info" required placeholder="VD: Mua bánh mì">
 
     <button type="submit">Xác nhận & Thanh toán</button>
     <p class="note">Bạn sẽ được chuyển đến cổng thanh toán VNPay sau khi xác nhận.</p>

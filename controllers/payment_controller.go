@@ -30,8 +30,8 @@ func PaymentPage(c *gin.Context) {
 // POST /createorders
 func CreateOrders(db *pgxpool.Pool) gin.HandlerFunc {
 	return func(c *gin.Context) { // Lấy tham số từ query
-		amountStr := "10000"
-		orderInfo := "order_info"
+		amountStr := c.Query("amount")
+		orderInfo := c.Query("order_info")
 
 		// Validate đầu vào
 		if strings.TrimSpace(amountStr) == "" || strings.TrimSpace(orderInfo) == "" {
