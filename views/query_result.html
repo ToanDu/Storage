@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kết Quả Tra Cứu Giao Dịch - VNPay</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #2c7be5;
+      --secondary-color: #34d399;
+      --success-color: #10b981;
+      --error-color: #ef4444;
+      --warning-color: #f59e0b;
+      --text-color: #333;
+      --light-gray: #f3f4f6;
+      --border-color: #e5e7eb;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    header {
+      background-color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    
+    .logo i {
+      margin-right: 0.5rem;
+    }
+    
+    .result-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+    
+    .card-header {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+      color: white;
+      text-align: center;
+    }
+    
+    .card-header h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .card-body {
+      padding: 1.5rem;
+    }
+    
+    .transaction-details {
+      margin-bottom: 1.5rem;
+    }
+    
+    .transaction-status {
+      text-align: center;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    .status-success {
+      background-color: rgba(16, 185, 129, 0.1);
+      color: var(--success-color);
+      border: 1px solid var(--success-color);
+    }
+    
+    .status-pending {
+      background-color: rgba(245, 158, 11, 0.1);
+      color: var(--warning-color);
+      border: 1px solid var(--warning-color);
+    }
+    
+    .status-failed {
+      background-color: rgba(239, 68, 68, 0.1);
+      color: var(--error-color);
+      border: 1px solid var(--error-color);
+    }
+    
+    .detail-row {
+      display: flex;
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.8rem 0;
+    }
+    
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+    
+    .detail-label {
+      flex: 0 0 200px;
+      font-weight: 500;
+      color: #6b7280;
+    }
+    
+    .detail-value {
+      flex: 1;
+      font-weight: 500;
+    }
+    
+    .highlight {
+      color: var(--primary-color);
+    }
+    
+    .query-info {
+      background-color: var(--light-gray);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+    
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+    
+    .btn {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: #2563eb;
+    }
+    
+    .btn-secondary {
+      background-color: #e5e7eb;
+      color: #6b7280;
+    }
+    
+    .btn-secondary:hover {
+      background-color: #d1d5db;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: white;
+      padding: 1.5rem 0;
+      margin-top: 3rem;
+      box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .footer-links a {
+      text-decoration: none;
+      color: #6b7280;
+      transition: color 0.2s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    .copyright {
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .detail-row {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .detail-label {
+        flex: none;
+      }
+      
+      .button-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+      
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <a href="/" class="logo">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <span>Storage Services</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="result-card">
+      <div class="card-header">
+        <h2>Kết Quả Tra Cứu Giao Dịch</h2>
+        <p>Thông tin chi tiết về giao dịch của bạn</p>
+      </div>
+      
+      <div class="card-body">
+        <div class="transaction-status {{ if eq .StatusClass "success" }}status-success{{ else if eq .StatusClass "pending" }}status-pending{{ else }}status-failed{{ end }}">
+          {{ .StatusMessage }}
+        </div>
+        
+        <div class="transaction-details">
+          <div class="detail-row">
+            <div class="detail-label">Mã giao dịch:</div>
+            <div class="detail-value highlight">{{ .TxnRef }}</div>
+          </div>
+          
+          <div class="detail-row">
+            <div class="detail-label">Số tiền:</div>
+            <div class="detail-value">{{ .Amount }} VNĐ</div>
+          </div>
+          
+          <div class="detail-row">
+            <div class="detail-label">Ngân hàng:</div>
+            <div class="detail-value">{{ .BankCode }}</div>
+          </div>
+          
+          <div class="detail-row">
+            <div class="detail-label">Thời gian giao dịch:</div>
+            <div class="detail-value">{{ .TransactionTime }}</div>
+          </div>
+          
+          <div class="detail-row">
+            <div class="detail-label">Thời gian truy vấn:</div>
+            <div class="detail-value">{{ .QueryTime }}</div>
+          </div>
+          
+          <div class="detail-row">
+            <div class="detail-label">Trạng thái giao dịch:</div>
+            <div class="detail-value {{ if eq .StatusClass "success" }}highlight{{ end }}">{{ .TransactionStatus }}</div>
+          </div>
+          
+          {{ if .OrderInfo }}
+          <div class="detail-row">
+            <div class="detail-label">Nội dung:</div>
+            <div class="detail-value">{{ .OrderInfo }}</div>
+          </div>
+          {{ end }}
+        </div>
+        
+        <div class="query-info">
+          <p>Mã phản hồi: {{ .ResponseCode }}</p>
+          <p>ID truy vấn: {{ .RequestId }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="button-container">
+      <a href="/" class="btn btn-secondary">Quay về trang chủ</a>
+      {{ if eq .StatusClass "success" }}
+      <a href="/refund?txnRef={{ .TxnRef }}" class="btn btn-primary">Yêu cầu hoàn tiền</a>
+      {{ end }}
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-links">
+        <a href="#">Điều khoản</a>
+        <a href="#">Chính sách</a>
+        <a href="#">Hỗ trợ</a>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Storage Services. All rights reserved.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

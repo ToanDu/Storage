@@ -20,23 +20,59 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v5/pgxpool"
-)
+) // GET /
+func PaymentPage(db *pgxpool.Pool) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		// Fetch services from database
+		rows, err := db.Query(context.Background(), "SELECT id, txn_ref, amount, description, duration FROM services ORDER BY amount")
+		if err != nil {
+			log.Printf("Error fetching services: %v", err)
+			c.HTML(http.StatusOK, "index.html", gin.H{
+				"Error": "Không thể tải danh sách dịch vụ",
+			})
+			return
+		}
+		defer rows.Close()
 
-// GET /
-func PaymentPage(c *gin.Context) {
-	c.HTML(http.StatusOK, "index.html", nil)
+		var services []gin.H
+		for rows.Next() {
+			var id int
+			var txnRef string
+			var amount int64
+			var description, duration string
+
+			if err := rows.Scan(&id, &txnRef, &amount, &description, &duration); err != nil {
+				log.Printf("Error scanning service row: %v", err)
+				continue
+			}
+
+			services = append(services, gin.H{
+				"ID":          id,
+				"TxnRef":      txnRef,
+				"Amount":      amount,
+				"Description": description,
+				"Duration":    duration,
+				"AmountStr":   strconv.FormatInt(amount, 10),
+			})
+		}
+
+		c.HTML(http.StatusOK, "index.html", gin.H{
+			"Services": services,
+		})
+	}
 }
 
 // POST /createorders
 func CreateOrders(db *pgxpool.Pool) gin.HandlerFunc {
-	return func(c *gin.Context) { // Lấy tham số từ query
-		amountStr := "10000"
-		orderInfo := "order_info"
+	return func(c *gin.Context) {
+		// Get parameters from form post data
+		amountStr := c.PostForm("amount")
+		orderInfo := c.PostForm("txn_ref") // Now using txn_ref as orderInfo
 
-		// Validate đầu vào
+		// Validate input
 		if strings.TrimSpace(amountStr) == "" || strings.TrimSpace(orderInfo) == "" {
 			c.JSON(http.StatusBadRequest, gin.H{
-				"error": "amount and order_info are required (query params)",
+				"error": "amount and txn_ref are required",
 			})
 			return
 		}
@@ -46,16 +82,11 @@ func CreateOrders(db *pgxpool.Pool) gin.HandlerFunc {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "amount must be a positive integer (VND)"})
 			return
 		}
+		txnDate := time.Now().Format("20060102150405") // must be stored for later QueryDR
 
 		// Tạo order trên DB
 		tnxRef := uuid.NewString()
-		_, err = db.Exec(context.Background(),
-			"INSERT INTO orders (id, txn_ref, amount, order_info, status) VALUES ($1, $2, $3, $4, 'pending')",
-			uuid.New(), tnxRef, amountVND*100, orderInfo)
-		if err != nil {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "Cannot save orders"})
-			return
-		}
+		models.CreateOrder(db, tnxRef, amountVND, orderInfo, txnDate)
 
 		params := map[string]string{
 			"vnp_Version":    "2.1.0",
@@ -149,36 +180,59 @@ func HandleIPN(db *pgxpool.Pool) gin.HandlerFunc {
 	}
 }
 
-// GET /vnpay/query?txnRef=xxxx
+// POST /query_transaction
 func Query_request(dbPool *pgxpool.Pool) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var req struct {
-			TransactionCode string `json:"transaction_code" binding:"required"`
-			OrderInfo       string `json:"order_info"`
-		}
-		if err := c.BindJSON(&req); err != nil {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
-			log.Printf("Error invalid request: %v", err)
-			return
+			TransactionCode string `form:"transaction_code" json:"transaction_code" binding:"required"`
+			OrderInfo       string `form:"order_info" json:"order_info"`
 		}
 
-		// Lấy thời điểm tạo đơn (giả định chính là thời điểm vnp_CreateDate khi pay)
-		// Khuyến nghị: lưu riêng "vnp_create_date" khi tạo thanh toán để đảm bảo trùng 100% với lệnh pay
+		// Try to bind from form data first, then from JSON if that fails
+		if err := c.ShouldBind(&req); err != nil {
+			if err2 := c.ShouldBindJSON(&req); err2 != nil {
+				c.HTML(http.StatusBadRequest, "query_result.html", gin.H{
+					"StatusClass":   "failed",
+					"StatusMessage": "❌ Yêu cầu không hợp lệ",
+					"TxnRef":        "",
+					"ResponseCode":  "97",
+				})
+				log.Printf("Error invalid request: %v", err)
+				return
+			}
+		}
+
+		// Lấy thông tin giao dịch từ database
 		var createdTime time.Time
-		if err := dbPool.QueryRow(context.Background(),
-			"SELECT created_at FROM orders WHERE txn_ref = $1", req.TransactionCode).Scan(&createdTime); err != nil {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "Transaction not found"})
+		var orderAmount int64
+		var orderStatus, orderInfo string
+
+		err := dbPool.QueryRow(context.Background(),
+			"SELECT created_at, amount, status, order_info FROM orders WHERE txn_ref = $1",
+			req.TransactionCode).Scan(&createdTime, &orderAmount, &orderStatus, &orderInfo)
+
+		if err != nil {
+			c.HTML(http.StatusNotFound, "query_result.html", gin.H{
+				"StatusClass":   "failed",
+				"StatusMessage": "❌ Không tìm thấy giao dịch",
+				"TxnRef":        req.TransactionCode,
+				"ResponseCode":  "01",
+				"QueryTime":     time.Now().Format("02.01.2006 15:04:05"),
+			})
 			log.Printf("Error querying txn_ref: %v", err)
 			return
 		}
 
 		// Chuẩn bị payload querydr
-		requestID := uuid.NewString()[:12]                      // đủ tính duy nhất trong ngày, có thể thay đổi theo yêu cầu của bạn
+		requestID := uuid.NewString()[:12]                      // đủ tính duy nhất trong ngày
 		transactionDate := createdTime.Format("20060102150405") // phải là yyyyMMddHHmmss
-		createDate := time.Now().Format("20060102150405")
+		queryTime := time.Now()
+		createDate := queryTime.Format("20060102150405")
 		ip := utils.GetClientIP(c.Request)
-		orderInfo := strings.TrimSpace(req.OrderInfo)
-		if orderInfo == "" {
+
+		if strings.TrimSpace(req.OrderInfo) != "" {
+			orderInfo = strings.TrimSpace(req.OrderInfo)
+		} else if orderInfo == "" {
 			orderInfo = "Query transaction result"
 		}
 
@@ -194,41 +248,122 @@ func Query_request(dbPool *pgxpool.Pool) gin.HandlerFunc {
 			"vnp_OrderInfo":       orderInfo,
 		}
 
-		// Ký đúng quy tắc của querydr (KHÔNG sort key, KHÔNG URL-encode, dùng dấu "|")
+		// Ký đúng quy tắc của querydr
 		payload["vnp_SecureHash"] = signQueryDR(
-			requestID, "2.1.0", "querydr", utils.VnpTmnCode, req.TransactionCode, transactionDate, createDate, ip, orderInfo,
+			requestID, "2.1.0", "querydr", utils.VnpTmnCode, req.TransactionCode,
+			transactionDate, createDate, ip, orderInfo,
 		)
 
 		// Gọi VNPay
 		b, _ := json.Marshal(payload)
 		resp, err := http.Post(utils.VnpApiURL, "application/json", bytes.NewBuffer(b))
 		if err != nil {
-			c.JSON(http.StatusBadGateway, gin.H{"error": "Failed to call VNPay API"})
+			c.HTML(http.StatusBadGateway, "query_result.html", gin.H{
+				"StatusClass":       "failed",
+				"StatusMessage":     "❌ Không thể kết nối đến VNPay",
+				"TxnRef":            req.TransactionCode,
+				"Amount":            orderAmount / 100, // Convert from VNPay format
+				"TransactionTime":   createdTime.Format("02.01.2006 15:04:05"),
+				"QueryTime":         queryTime.Format("02.01.2006 15:04:05"),
+				"TransactionStatus": orderStatus,
+				"OrderInfo":         orderInfo,
+				"ResponseCode":      "99",
+				"RequestId":         requestID,
+			})
 			return
 		}
 		defer resp.Body.Close()
 
 		body, err := io.ReadAll(resp.Body)
 		if err != nil {
-			c.JSON(http.StatusBadGateway, gin.H{"error": "Failed to read response"})
+			c.HTML(http.StatusBadGateway, "query_result.html", gin.H{
+				"StatusClass":       "failed",
+				"StatusMessage":     "❌ Lỗi đọc phản hồi từ VNPay",
+				"TxnRef":            req.TransactionCode,
+				"Amount":            orderAmount / 100,
+				"TransactionTime":   createdTime.Format("02.01.2006 15:04:05"),
+				"QueryTime":         queryTime.Format("02.01.2006 15:04:05"),
+				"TransactionStatus": orderStatus,
+				"OrderInfo":         orderInfo,
+				"ResponseCode":      "99",
+				"RequestId":         requestID,
+			})
 			return
 		}
 
 		var vnpResp map[string]any
 		if err := json.Unmarshal(body, &vnpResp); err != nil {
-			c.JSON(http.StatusBadGateway, gin.H{"error": "Failed to parse response"})
+			c.HTML(http.StatusBadGateway, "query_result.html", gin.H{
+				"StatusClass":       "failed",
+				"StatusMessage":     "❌ Lỗi phân tích phản hồi từ VNPay",
+				"TxnRef":            req.TransactionCode,
+				"Amount":            orderAmount / 100,
+				"TransactionTime":   createdTime.Format("02.01.2006 15:04:05"),
+				"QueryTime":         queryTime.Format("02.01.2006 15:04:05"),
+				"TransactionStatus": orderStatus,
+				"OrderInfo":         orderInfo,
+				"ResponseCode":      "99",
+				"RequestId":         requestID,
+			})
 			return
 		}
 
-		// Đánh giá nhanh kết quả
-		isAPISuccess := vnpResp["vnp_ResponseCode"] == "00"
-		isTxnSuccess := vnpResp["vnp_TransactionStatus"] == "00"
+		// Đánh giá kết quả
+		responseCode, _ := vnpResp["vnp_ResponseCode"].(string)
+		transactionStatus, _ := vnpResp["vnp_TransactionStatus"].(string)
+		bankCode, _ := vnpResp["vnp_BankCode"].(string)
+		amount, _ := vnpResp["vnp_Amount"].(string)
 
-		c.JSON(http.StatusOK, gin.H{
-			"request":      payload,
-			"vnp_response": vnpResp,
-			"isSuccess":    isAPISuccess && isTxnSuccess,
-			"http_status":  resp.StatusCode,
+		var statusClass, statusMessage, displayTransactionStatus string
+		var amountValue int64
+
+		// Parse amount if available, otherwise use the one from the database
+		if amount != "" {
+			amountValue, err = strconv.ParseInt(amount, 10, 64)
+			if err == nil {
+				amountValue = amountValue / 100 // Convert from VNPay format
+			} else {
+				amountValue = orderAmount / 100
+			}
+		} else {
+			amountValue = orderAmount / 100
+		}
+
+		// Luôn sử dụng createdTime từ database làm thời gian giao dịch
+		transactionTime := createdTime.Format("02.01.2006 15:04:05")
+
+		// Determine status display
+		if responseCode == "00" && transactionStatus == "00" {
+			statusClass = "success"
+			statusMessage = "✅ Giao dịch thành công"
+			displayTransactionStatus = "Thành công"
+		} else if responseCode == "00" && transactionStatus != "00" {
+			statusClass = "failed"
+			statusMessage = "❌ Giao dịch thất bại"
+			displayTransactionStatus = "Thất bại"
+		} else if responseCode == "91" {
+			statusClass = "pending"
+			statusMessage = "⏳ Giao dịch đang xử lý hoặc đã hết hạn truy vấn"
+			displayTransactionStatus = "Đang xử lý"
+		} else {
+			statusClass = "failed"
+			statusMessage = "❌ Truy vấn thất bại"
+			displayTransactionStatus = "Không xác định"
+		}
+
+		// Render the result template
+		c.HTML(http.StatusOK, "query_result.html", gin.H{
+			"StatusClass":       statusClass,
+			"StatusMessage":     statusMessage,
+			"TxnRef":            req.TransactionCode,
+			"Amount":            amountValue,
+			"BankCode":          bankCode,
+			"TransactionTime":   transactionTime,
+			"QueryTime":         queryTime.Format("02.01.2006 15:04:05"),
+			"TransactionStatus": displayTransactionStatus,
+			"OrderInfo":         orderInfo,
+			"ResponseCode":      responseCode,
+			"RequestId":         requestID,
 		})
 	}
 }

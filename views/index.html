@@ -3,110 +3,630 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VNPay Thanh Toán & Tra Cứu</title>
+  <title>Chọn Gói Dịch Vụ - VNPay</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
+    :root {
+      --primary-color: #2c7be5;
+      --secondary-color: #34d399;
+      --highlight-color: #f59e0b;
+      --text-color: #333;
+      --light-gray: #f3f4f6;
+      --border-color: #e5e7eb;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      padding: 40px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: var(--text-color);
+      line-height: 1.6;
     }
-    h1, h2 {
-      text-align: center;
-      color: #333;
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
     }
-    form {
-      max-width: 400px;
-      margin: 30px auto;
-      padding: 30px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    
+    header {
+      background-color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      padding: 1rem 0;
     }
-    label {
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
       font-weight: bold;
-      display: block;
-      margin-top: 10px;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
     }
-    input {
-      width: 100%;
-      padding: 8px 12px;
-      margin-top: 6px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+    
+    .logo i {
+      margin-right: 0.5rem;
     }
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #007BFF;
-      border: none;
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    .hero {
+      padding: 3rem 0;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+    
+    /* Services Section */
+    .services-section {
+      padding: 3rem 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--text-color);
+      margin-bottom: 0.5rem;
+    }
+    
+    .section-title p {
+      color: #666;
+    }
+    
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    
+    .service-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 300px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-popular {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: var(--highlight-color);
       color: white;
-      font-size: 16px;
-      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      font-weight: bold;
+      border-radius: 0 0 0 10px;
+    }
+    
+    .card-header {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+      color: white;
+      text-align: center;
+    }
+    
+    .card-header h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .card-price {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    
+    .card-duration {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    .card-body {
+      padding: 1.5rem;
+    }
+    
+    .feature-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-list li {
+      padding: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .feature-list i {
+      color: var(--secondary-color);
+      margin-right: 0.5rem;
+    }
+    
+    .card-footer {
+      padding: 0 1.5rem 1.5rem;
+      text-align: center;
+    }
+    
+    .btn-select {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .btn-select:hover {
+      background-color: #2563eb;
+    }
+    
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      overflow: auto;
+    }
+    
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 2rem;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+    
+    .close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #0056b3;
-    }
-    .note {
-      font-size: 14px;
+    
+    .modal-header {
+      margin-bottom: 1.5rem;
       text-align: center;
-      color: #888;
-      margin-top: 20px;
     }
-    .error {
-      color: red;
-      text-align: center;
-      margin-bottom: 15px;
+    
+    .modal-header h2 {
+      font-size: 1.8rem;
+      color: var(--primary-color);
     }
-    hr {
-      margin: 50px 0;
+    
+    .confirmation-details {
+      margin-bottom: 2rem;
+    }
+    
+    .confirmation-details p {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .confirmation-details .highlight {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    
+    .confirm-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .btn-cancel {
+      padding: 0.8rem 1.5rem;
+      background-color: #e5e7eb;
+      color: #6b7280;
       border: none;
-      border-top: 1px solid #ccc;
+      border-radius: 5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .btn-cancel:hover {
+      background-color: #d1d5db;
+    }
+    
+    .btn-confirm {
+      padding: 0.8rem 1.5rem;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .btn-confirm:hover {
+      background-color: #2563eb;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+      box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .footer-links a {
+      text-decoration: none;
+      color: #6b7280;
+      transition: color 0.2s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    .copyright {
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .service-card {
+        width: 100%;
+        max-width: 350px;
+      }
+      
+      .header-content, .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+      
+      .nav-links, .footer-links {
+        justify-content: center;
+      }
+    }
+    
+    /* Tools section */
+    .tools-section {
+      padding: 2rem 0;
+      background-color: var(--light-gray);
+      border-radius: 10px;
+      margin-top: 3rem;
+    }
+    
+    .tools-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    
+    .tool-card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 300px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tool-card h3 {
+      background-color: #e5e7eb;
+      padding: 0.8rem;
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--text-color);
+    }
+    
+    .tool-body {
+      padding: 1.5rem;
+    }
+    
+    .tool-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .form-group label {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .form-group input {
+      padding: 0.8rem;
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+    }
+    
+    .btn-tool {
+      padding: 0.8rem;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .btn-tool:hover {
+      background-color: #2563eb;
     }
   </style>
 </head>
 <body>
-  <h1>VNPay Payment Demo</h1>
-
-  <!-- Payment Form -->
-  <form action="/createorders" method="POST">
-    {{ if .Error }}
-      <p class="error">{{ .Error }}</p>
-    {{ end }}
-
-    <label for="amount">Số tiền (VNĐ):</label>
-    <input type="number" name="amount" id="amount" required placeholder="VD: 100000">
-
-    <label for="info">Nội dung chuyển khoản:</label>
-    <input type="text" name="info" id="info" required placeholder="VD: Mua bánh mì">
-
-    <button type="submit">Xác nhận & Thanh toán</button>
-    <p class="note">Bạn sẽ được chuyển đến cổng thanh toán VNPay sau khi xác nhận.</p>
+  <!-- Hidden form for payment submission -->
+  <form id="paymentForm" action="/createorders" method="POST" style="display:none;">
+    <input type="hidden" name="amount" id="selected_amount">
+    <input type="hidden" name="txn_ref" id="selected_txn_ref">
   </form>
 
-  <hr>
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <span>Storage Services</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#services">Gói dịch vụ</a>
+        <a href="#tools">Công cụ</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+    </div>
+  </header>
 
-  <h2>Tra cứu giao dịch</h2>
-  <!-- Transaction Lookup Form -->
-  <form action="/vnpay/query" method="GET">
-    <label for="txnRef">Mã giao dịch (TxnRef):</label>
-    <input type="text" name="txnRef" id="txnRef" required placeholder="VD: 123e4567-e89b-12d3-a456-426614174000">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Dịch Vụ Lưu Trữ Chuyên Nghiệp</h1>
+      <p>Chọn gói dịch vụ phù hợp với nhu cầu của bạn và thanh toán nhanh chóng qua VNPay</p>
+    </div>
+  </section>
 
-    <button type="submit">Tra cứu</button>
-    <p class="note">Nhập mã giao dịch để kiểm tra trạng thái thanh toán từ VNPay.</p>
-  </form>
-  
-  <hr>
-  
-  <h2>Hoàn tiền giao dịch</h2>
-  <!-- Refund Form -->
-  <form action="/refund" method="GET">
-    <label for="refundTxnRef">Mã giao dịch cần hoàn tiền:</label>
-    <input type="text" name="txnRef" id="refundTxnRef" required placeholder="VD: 123e4567-e89b-12d3-a456-426614174000">
+  <!-- Services Section -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Gói Dịch Vụ</h2>
+        <p>Lựa chọn gói dịch vụ phù hợp với nhu cầu của bạn</p>
+      </div>
 
-    <button type="submit">Yêu cầu hoàn tiền</button>
-    <p class="note">Nhập mã giao dịch để tạo yêu cầu hoàn tiền từ VNPay.</p>
-  </form>
+      <div class="services">
+        {{ if .Services }}
+          {{ range $index, $service := .Services }}
+            <div class="service-card" data-amount="{{ $service.AmountStr }}" data-txnref="{{ $service.TxnRef }}">
+              {{ if eq $index 1 }}
+              <div class="card-popular">Phổ biến</div>
+              {{ end }}
+              
+              <div class="card-header">
+                <h3>{{ $service.Description }}</h3>
+                <div class="card-price">{{ $service.Amount | printf "%d VNĐ" }}</div>
+                <div class="card-duration">{{ $service.Duration }}</div>
+              </div>
+              
+              <div class="card-body">
+                <ul class="feature-list">
+                  <li><i class="fas fa-check-circle"></i> Lưu trữ an toàn</li>
+                  <li><i class="fas fa-check-circle"></i> Truy cập 24/7</li>
+                  <li><i class="fas fa-check-circle"></i> Bảo mật cao</li>
+                  <li><i class="fas fa-check-circle"></i> Hỗ trợ kỹ thuật</li>
+                </ul>
+              </div>
+              
+              <div class="card-footer">
+                <button class="btn-select" onclick="selectService('{{ $service.AmountStr }}', '{{ $service.TxnRef }}', '{{ $service.Description }}')">
+                  Chọn gói này
+                </button>
+              </div>
+            </div>
+          {{ end }}
+        {{ else }}
+          <p>Không tìm thấy gói dịch vụ nào.</p>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools Section -->
+  <section id="tools" class="tools-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Công Cụ</h2>
+        <p>Tra cứu và quản lý giao dịch của bạn</p>
+      </div>
+
+      <div class="tools-container">
+        <!-- Transaction Query Tool -->
+        <div class="tool-card">
+          <h3>Tra Cứu Giao Dịch</h3>
+          <div class="tool-body">
+            <form class="tool-form" id="queryForm" action="/query_transaction" method="POST">
+              <div class="form-group">
+                <label for="txnRef">Mã giao dịch:</label>
+                <input type="text" id="txnRef" name="transaction_code" placeholder="Nhập mã giao dịch" required>
+              </div>
+              <button type="submit" class="btn-tool">Tra cứu</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Refund Tool -->
+        <div class="tool-card">
+          <h3>Hoàn Tiền</h3>
+          <div class="tool-body">
+            <form class="tool-form" action="/refund" method="GET">
+              <div class="form-group">
+                <label for="refundTxnRef">Mã giao dịch cần hoàn tiền:</label>
+                <input type="text" id="refundTxnRef" name="txnRef" placeholder="Nhập mã giao dịch" required>
+              </div>
+              <button type="submit" class="btn-tool">Yêu cầu hoàn tiền</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="modal-header">
+        <h2>Xác Nhận Thanh Toán</h2>
+      </div>
+      <div class="confirmation-details">
+        <p>Bạn đã chọn: <span id="confirm-package" class="highlight"></span></p>
+        <p>Số tiền: <span id="confirm-amount" class="highlight"></span> VNĐ</p>
+        <p>Mã gói: <span id="confirm-txnref" class="highlight"></span></p>
+      </div>
+      <div class="confirm-buttons">
+        <button class="btn-cancel" onclick="closeModal()">Hủy</button>
+        <button class="btn-confirm" onclick="confirmPayment()">Xác nhận thanh toán</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container footer-content">
+      <div class="footer-links">
+        <a href="#">Điều khoản</a>
+        <a href="#">Chính sách</a>
+        <a href="#">Hỗ trợ</a>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Storage Services. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Variables to store selected service information
+    let selectedAmount = '';
+    let selectedTxnRef = '';
+    let selectedDescription = '';
+    
+    // Function to open the confirmation modal
+    function selectService(amount, txnRef, description) {
+      selectedAmount = amount;
+      selectedTxnRef = txnRef;
+      selectedDescription = description;
+      
+      // Update modal content
+      document.getElementById('confirm-package').textContent = description;
+      document.getElementById('confirm-amount').textContent = amount;
+      document.getElementById('confirm-txnref').textContent = txnRef;
+      
+      // Show modal
+      document.getElementById('confirmModal').style.display = 'block';
+    }
+    
+    // Function to close the modal
+    function closeModal() {
+      document.getElementById('confirmModal').style.display = 'none';
+    }
+    
+    // Function to handle payment confirmation
+    function confirmPayment() {
+      // Set values in hidden form
+      document.getElementById('selected_amount').value = selectedAmount;
+      document.getElementById('selected_txn_ref').value = selectedTxnRef;
+      
+      // Submit form
+      document.getElementById('paymentForm').submit();
+    }
+    
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+      if (event.target == document.getElementById('confirmModal')) {
+        closeModal();
+      }
+    }
+  </script>
 </body>
 </html>

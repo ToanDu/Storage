@@ -19,8 +19,8 @@ func main() {
 	router.LoadHTMLGlob("views/*")
 
 	// Payment Routes
-	router.GET("/", controllers.PaymentPage)
-	router.GET("/createorders", controllers.CreateOrders(db))
+	router.GET("/", controllers.PaymentPage(db))
+	router.POST("/createorders", controllers.CreateOrders(db))
 	router.GET("/vnpay/return", controllers.ReturnPage(db))
 	router.POST("/vnpay/ipn", controllers.HandleIPN(db))
 	router.POST("/query_transaction", controllers.Query_request(db))
