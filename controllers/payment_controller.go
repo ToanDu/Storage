@@ -1,13 +1,10 @@
 package controllers
 
 import (
-	"bytes"
 	"context"
 	"crypto/hmac"
 	"crypto/sha512"
 	"encoding/hex"
-	"encoding/json"
-	"io"
 	"log"
 	"net/http"
 	"net/url"
@@ -223,11 +220,9 @@ func Query_request(dbPool *pgxpool.Pool) gin.HandlerFunc {
 			return
 		}
 
-		// Chuẩn bị payload querydr
-		requestID := uuid.NewString()[:12]                      // đủ tính duy nhất trong ngày
-		transactionDate := createdTime.Format("20060102150405") // phải là yyyyMMddHHmmss
+		// Prepare fields for query
+		transactionDate := createdTime.Format("20060102150405") // original payment date (vnp_CreateDate)
 		queryTime := time.Now()
-		createDate := queryTime.Format("20060102150405")
 		ip := utils.GetClientIP(c.Request)
 
 		if strings.TrimSpace(req.OrderInfo) != "" {
@@ -236,27 +231,11 @@ func Query_request(dbPool *pgxpool.Pool) gin.HandlerFunc {
 			orderInfo = "Query transaction result"
 		}
 
-		payload := map[string]string{
-			"vnp_RequestId":       requestID,
-			"vnp_Version":         "2.1.0",
-			"vnp_Command":         "querydr",
-			"vnp_TmnCode":         utils.VnpTmnCode,
-			"vnp_TxnRef":          req.TransactionCode,
-			"vnp_TransactionDate": transactionDate,
-			"vnp_CreateDate":      createDate,
-			"vnp_IpAddr":          ip,
-			"vnp_OrderInfo":       orderInfo,
-		}
+		// Build signed payload using shared helper (ensures proper RequestId and signature)
+		payload := utils.BuildQueryDRParams(req.TransactionCode, transactionDate, orderInfo, ip)
 
-		// Ký đúng quy tắc của querydr
-		payload["vnp_SecureHash"] = signQueryDR(
-			requestID, "2.1.0", "querydr", utils.VnpTmnCode, req.TransactionCode,
-			transactionDate, createDate, ip, orderInfo,
-		)
-
-		// Gọi VNPay
-		b, _ := json.Marshal(payload)
-		resp, err := http.Post(utils.VnpApiURL, "application/json", bytes.NewBuffer(b))
+		// Call VNPay via shared helper
+		vnpResp, statusCode, err := utils.CallQueryDR(payload)
 		if err != nil {
 			c.HTML(http.StatusBadGateway, "query_result.html", gin.H{
 				"StatusClass":       "failed",
@@ -268,60 +247,27 @@ func Query_request(dbPool *pgxpool.Pool) gin.HandlerFunc {
 				"TransactionStatus": orderStatus,
 				"OrderInfo":         orderInfo,
 				"ResponseCode":      "99",
-				"RequestId":         requestID,
-			})
-			return
-		}
-		defer resp.Body.Close()
-
-		body, err := io.ReadAll(resp.Body)
-		if err != nil {
-			c.HTML(http.StatusBadGateway, "query_result.html", gin.H{
-				"StatusClass":       "failed",
-				"StatusMessage":     "❌ Lỗi đọc phản hồi từ VNPay",
-				"TxnRef":            req.TransactionCode,
-				"Amount":            orderAmount / 100,
-				"TransactionTime":   createdTime.Format("02.01.2006 15:04:05"),
-				"QueryTime":         queryTime.Format("02.01.2006 15:04:05"),
-				"TransactionStatus": orderStatus,
-				"OrderInfo":         orderInfo,
-				"ResponseCode":      "99",
-				"RequestId":         requestID,
+				"RequestId":         payload["vnp_RequestId"],
+				"HttpStatus":        statusCode,
 			})
 			return
 		}
 
-		var vnpResp map[string]any
-		if err := json.Unmarshal(body, &vnpResp); err != nil {
-			c.HTML(http.StatusBadGateway, "query_result.html", gin.H{
-				"StatusClass":       "failed",
-				"StatusMessage":     "❌ Lỗi phân tích phản hồi từ VNPay",
-				"TxnRef":            req.TransactionCode,
-				"Amount":            orderAmount / 100,
-				"TransactionTime":   createdTime.Format("02.01.2006 15:04:05"),
-				"QueryTime":         queryTime.Format("02.01.2006 15:04:05"),
-				"TransactionStatus": orderStatus,
-				"OrderInfo":         orderInfo,
-				"ResponseCode":      "99",
-				"RequestId":         requestID,
-			})
-			return
-		}
-
-		// Đánh giá kết quả
-		responseCode, _ := vnpResp["vnp_ResponseCode"].(string)
-		transactionStatus, _ := vnpResp["vnp_TransactionStatus"].(string)
-		bankCode, _ := vnpResp["vnp_BankCode"].(string)
-		amount, _ := vnpResp["vnp_Amount"].(string)
+		// Evaluate result from typed QueryDRResponse
+		responseCode := vnpResp.ResponseCode
+		transactionStatus := vnpResp.TransactionStatus
+		bankCode := vnpResp.BankCode
+		amountStr := vnpResp.Amount
 
 		var statusClass, statusMessage, displayTransactionStatus string
 		var amountValue int64
+		var parseErr error
 
-		// Parse amount if available, otherwise use the one from the database
-		if amount != "" {
-			amountValue, err = strconv.ParseInt(amount, 10, 64)
-			if err == nil {
-				amountValue = amountValue / 100 // Convert from VNPay format
+		// Parse amount if available, otherwise use DB amount
+		if amountStr != "" {
+			amountValue, parseErr = strconv.ParseInt(amountStr, 10, 64)
+			if parseErr == nil {
+				amountValue = amountValue / 100
 			} else {
 				amountValue = orderAmount / 100
 			}
@@ -329,8 +275,20 @@ func Query_request(dbPool *pgxpool.Pool) gin.HandlerFunc {
 			amountValue = orderAmount / 100
 		}
 
-		// Luôn sử dụng createdTime từ database làm thời gian giao dịch
+		// Prefer VNPay PayDate when available (parse in VN timezone), otherwise fallback to DB created time.
 		transactionTime := createdTime.Format("02.01.2006 15:04:05")
+		if strings.TrimSpace(vnpResp.PayDate) != "" {
+			loc, err := time.LoadLocation("Asia/Ho_Chi_Minh")
+			if err != nil {
+				log.Printf("Warning: cannot load Asia/Ho_Chi_Minh location: %v", err)
+			} else {
+				if payT, err := time.ParseInLocation("20060102150405", vnpResp.PayDate, loc); err == nil {
+					transactionTime = payT.Format("02.01.2006 15:04:05")
+				} else {
+					log.Printf("Failed to parse VNPay PayDate %q: %v", vnpResp.PayDate, err)
+				}
+			}
+		}
 
 		// Determine status display
 		if responseCode == "00" && transactionStatus == "00" {
@@ -345,6 +303,11 @@ func Query_request(dbPool *pgxpool.Pool) gin.HandlerFunc {
 			statusClass = "pending"
 			statusMessage = "⏳ Giao dịch đang xử lý hoặc đã hết hạn truy vấn"
 			displayTransactionStatus = "Đang xử lý"
+		} else if responseCode == "94" {
+			// Duplicate request detected by VNPay
+			statusClass = "failed"
+			statusMessage = "❌ Yêu cầu trùng lặp (duplicate request) – vui lòng thử lại sau một khoảng thời gian"
+			displayTransactionStatus = "Không xác định"
 		} else {
 			statusClass = "failed"
 			statusMessage = "❌ Truy vấn thất bại"
@@ -363,7 +326,7 @@ func Query_request(dbPool *pgxpool.Pool) gin.HandlerFunc {
 			"TransactionStatus": displayTransactionStatus,
 			"OrderInfo":         orderInfo,
 			"ResponseCode":      responseCode,
-			"RequestId":         requestID,
+			"RequestId":         payload["vnp_RequestId"],
 		})
 	}
 }
