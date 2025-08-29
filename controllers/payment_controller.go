@@ -63,8 +63,8 @@ func PaymentPage(db *pgxpool.Pool) gin.HandlerFunc {
 func CreateOrders(db *pgxpool.Pool) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// Get parameters from form post data
-		amountStr := c.PostForm("amount")
-		orderInfo := c.PostForm("txn_ref") // Now using txn_ref as orderInfo
+		amountStr := c.Query("amount")
+		orderInfo := c.Query("txn_ref") // Now using txn_ref as orderInfo
 
 		// Validate input
 		if strings.TrimSpace(amountStr) == "" || strings.TrimSpace(orderInfo) == "" {
