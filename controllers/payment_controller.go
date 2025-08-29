@@ -27,7 +27,7 @@ func PaymentPage(c *gin.Context) {
 	c.HTML(http.StatusOK, "index.html", nil)
 }
 
-// POST /createorders
+// GET /createorders
 func CreateOrders(db *pgxpool.Pool) gin.HandlerFunc {
 	return func(c *gin.Context) { // Lấy tham số từ query
 		amountStr := c.Query("amount")
@@ -49,9 +49,13 @@ func CreateOrders(db *pgxpool.Pool) gin.HandlerFunc {
 
 		// Tạo order trên DB
 		tnxRef := uuid.NewString()
+
+		// ensure we store the vnp_CreateDate (txn_date) so QueryDR/refund can use the exact timestamp
+		createDate := time.Now().Format("20060102150405")
+
 		_, err = db.Exec(context.Background(),
-			"INSERT INTO orders (id, txn_ref, amount, order_info, status) VALUES ($1, $2, $3, $4, 'pending')",
-			uuid.New(), tnxRef, amountVND*100, orderInfo)
+			"INSERT INTO orders (id, txn_ref, amount, order_info, status, txn_date) VALUES ($1, $2, $3, $4, 'pending', $5)",
+			uuid.New(), tnxRef, amountVND*100, orderInfo, createDate)
 		if err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Cannot save orders"})
 			return
@@ -69,7 +73,7 @@ func CreateOrders(db *pgxpool.Pool) gin.HandlerFunc {
 			"vnp_Amount":     strconv.FormatInt(amountVND*100, 10), // x100 theo chuẩn VNPay
 			"vnp_ReturnUrl":  utils.VnpReturnURL,
 			"vnp_IpAddr":     utils.GetClientIP(c.Request),
-			"vnp_CreateDate": time.Now().Format("20060102150405"),
+			"vnp_CreateDate": createDate,
 			"vnp_ExpireDate": time.Now().Add(15 * time.Minute).Format("20060102150405"),
 		}
 
@@ -149,33 +153,70 @@ func HandleIPN(db *pgxpool.Pool) gin.HandlerFunc {
 	}
 }
 
-// GET /vnpay/query?txnRef=xxxx
+// GET /vnpay/query?txnRef=xxxx  (also supports POST JSON {"transaction_code": "..."})
 func Query_request(dbPool *pgxpool.Pool) gin.HandlerFunc {
 	return func(c *gin.Context) {
+		ctx := context.Background()
+
+		// Support both GET (query param) and POST (JSON body)
+		var txnRef string
 		var req struct {
-			TransactionCode string `json:"transaction_code" binding:"required"`
+			TransactionCode string `json:"transaction_code"`
 			OrderInfo       string `json:"order_info"`
 		}
-		if err := c.BindJSON(&req); err != nil {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
-			log.Printf("Error invalid request: %v", err)
+
+		if c.Request.Method == http.MethodGet {
+			// common query param names used in templates / links
+			txnRef = c.Query("txnRef")
+			if txnRef == "" {
+				txnRef = c.Query("transaction_code")
+			}
+		} else {
+			// try JSON body
+			if err := c.BindJSON(&req); err != nil {
+				c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
+				log.Printf("Error invalid request: %v", err)
+				return
+			}
+			txnRef = strings.TrimSpace(req.TransactionCode)
+		}
+
+		if txnRef == "" {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "transaction code is required (txnRef or JSON)"})
 			return
 		}
 
-		// Lấy thời điểm tạo đơn (giả định chính là thời điểm vnp_CreateDate khi pay)
-		// Khuyến nghị: lưu riêng "vnp_create_date" khi tạo thanh toán để đảm bảo trùng 100% với lệnh pay
-		var createdTime time.Time
-		if err := dbPool.QueryRow(context.Background(),
-			"SELECT created_at FROM orders WHERE txn_ref = $1", req.TransactionCode).Scan(&createdTime); err != nil {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "Transaction not found"})
-			log.Printf("Error querying txn_ref: %v", err)
-			return
+		// Try to read the stored create date. The app may store it as:
+		// - txn_date (string formatted yyyyMMddHHmmss) OR
+		// - created_at (timestamp)
+		var txnDateStr string
+		err := dbPool.QueryRow(ctx, "SELECT txn_date FROM orders WHERE txn_ref = $1", txnRef).Scan(&txnDateStr)
+		if err != nil {
+			// fallback to created_at timestamp
+			var createdTime time.Time
+			if err2 := dbPool.QueryRow(ctx, "SELECT created_at FROM orders WHERE txn_ref = $1", txnRef).Scan(&createdTime); err2 != nil {
+				c.JSON(http.StatusNotFound, gin.H{"error": "Transaction not found"})
+				log.Printf("Transaction not found for txn_ref=%s: %v / %v", txnRef, err, err2)
+				return
+			}
+			txnDateStr = createdTime.Format("20060102150405")
+		} else {
+			// txn_date exists; normalize it to yyyyMMddHHmmss if needed
+			txnDateStr = strings.TrimSpace(txnDateStr)
+			if len(txnDateStr) != 14 {
+				// try to parse common time formats and reformat
+				if t, err := time.Parse(time.RFC3339, txnDateStr); err == nil {
+					txnDateStr = t.Format("20060102150405")
+				} else if t, err := time.Parse("2006-01-02 15:04:05", txnDateStr); err == nil {
+					txnDateStr = t.Format("20060102150405")
+				} // else leave as-is; VNPay requires exact format, but we attempted common parses
+			}
 		}
 
-		// Chuẩn bị payload querydr
-		requestID := uuid.NewString()[:12]                      // đủ tính duy nhất trong ngày, có thể thay đổi theo yêu cầu của bạn
-		transactionDate := createdTime.Format("20060102150405") // phải là yyyyMMddHHmmss
-		createDate := time.Now().Format("20060102150405")
+		// Prepare payload querydr
+		requestID := uuid.NewString()[:12]
+		transactionDate := txnDateStr                     // must be yyyyMMddHHmmss
+		createDate := time.Now().Format("20060102150405") // request create date
 		ip := utils.GetClientIP(c.Request)
 		orderInfo := strings.TrimSpace(req.OrderInfo)
 		if orderInfo == "" {
@@ -187,19 +228,19 @@ func Query_request(dbPool *pgxpool.Pool) gin.HandlerFunc {
 			"vnp_Version":         "2.1.0",
 			"vnp_Command":         "querydr",
 			"vnp_TmnCode":         utils.VnpTmnCode,
-			"vnp_TxnRef":          req.TransactionCode,
+			"vnp_TxnRef":          txnRef,
 			"vnp_TransactionDate": transactionDate,
 			"vnp_CreateDate":      createDate,
 			"vnp_IpAddr":          ip,
 			"vnp_OrderInfo":       orderInfo,
 		}
 
-		// Ký đúng quy tắc của querydr (KHÔNG sort key, KHÔNG URL-encode, dùng dấu "|")
+		// Sign according to VNPay querydr rules
 		payload["vnp_SecureHash"] = signQueryDR(
-			requestID, "2.1.0", "querydr", utils.VnpTmnCode, req.TransactionCode, transactionDate, createDate, ip, orderInfo,
+			requestID, "2.1.0", "querydr", utils.VnpTmnCode, txnRef, transactionDate, createDate, ip, orderInfo,
 		)
 
-		// Gọi VNPay
+		// Call VNPay
 		b, _ := json.Marshal(payload)
 		resp, err := http.Post(utils.VnpApiURL, "application/json", bytes.NewBuffer(b))
 		if err != nil {
@@ -220,7 +261,6 @@ func Query_request(dbPool *pgxpool.Pool) gin.HandlerFunc {
 			return
 		}
 
-		// Đánh giá nhanh kết quả
 		isAPISuccess := vnpResp["vnp_ResponseCode"] == "00"
 		isTxnSuccess := vnpResp["vnp_TransactionStatus"] == "00"
 

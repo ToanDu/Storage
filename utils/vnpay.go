@@ -22,8 +22,8 @@ var (
 	VnpTmnCode    = "DGWQRL1A"
 	VnpHashSecret = "AF76H8AKX85KUBM7GCB7TN1MZ64NNI4P"
 	VnpURL        = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html"
-	VnpReturnURL  = "https://f8f518137d47.ngrok-free.app/vnpay/return"
-	VnpIpnURL     = "https://f8f518137d47.ngrok-free.app/vnpay/ipn"
+	VnpReturnURL  = "https://737babd131d8.ngrok-free.app/vnpay/return"
+	VnpIpnURL     = "https://737babd131d8.ngrok-free.app/vnpay/ipn"
 
 	// VNPay Merchant API (Query/Refund)
 	VnpApiURL = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction"
