@@ -22,8 +22,8 @@ var (
 	VnpTmnCode    = "DGWQRL1A"
 	VnpHashSecret = "AF76H8AKX85KUBM7GCB7TN1MZ64NNI4P"
 	VnpURL        = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html"
-	VnpReturnURL  = "https://737babd131d8.ngrok-free.app/vnpay/return"
-	VnpIpnURL     = "https://737babd131d8.ngrok-free.app/vnpay/ipn"
+	VnpReturnURL  = "https://88195d36a18b.ngrok-free.app/vnpay/return"
+	VnpIpnURL     = "https://88195d36a18b.ngrok-free.app/vnpay/ipn"
 
 	// VNPay Merchant API (Query/Refund)
 	VnpApiURL = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction"
@@ -225,7 +225,7 @@ func BuildRefundParams(
 
 	requestID := uuid.NewString()[:12]
 	createDate := time.Now().Format("20060102150405")
-	amountStr := strconv.FormatInt(amount, 10)
+	amountStr := strconv.FormatInt(amount*100, 10)
 
 	payload := map[string]string{
 		"vnp_RequestId":       requestID,

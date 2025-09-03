@@ -64,7 +64,7 @@ func ProcessRefund(db *pgxpool.Pool) gin.HandlerFunc {
 				c.JSON(http.StatusBadRequest, gin.H{"error": "refund_amount must be > 0 for partial refund"})
 				return
 			}
-			refundAmount100 = req.RefundAmount * 100
+			refundAmount100 = req.RefundAmount
 			// Check refund amount doesn't exceed original amount
 			if refundAmount100 > storedAmount100 {
 				c.JSON(http.StatusBadRequest, gin.H{"error": "refund_amount exceeds original payment amount"})
