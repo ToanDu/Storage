@@ -22,8 +22,8 @@ var (
 	VnpTmnCode    = "DGWQRL1A"
 	VnpHashSecret = "AF76H8AKX85KUBM7GCB7TN1MZ64NNI4P"
 	VnpURL        = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html"
-	VnpReturnURL  = "https://88195d36a18b.ngrok-free.app/vnpay/return"
-	VnpIpnURL     = "https://88195d36a18b.ngrok-free.app/vnpay/ipn"
+	VnpReturnURL  = "https://6ce0ee7178f3.ngrok-free.app/ReturnURL"
+	VnpIpnURL     = "https://6ce0ee7178f3.ngrok-free.app/IPN"
 
 	// VNPay Merchant API (Query/Refund)
 	VnpApiURL = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction"
@@ -277,4 +277,25 @@ func CallRefund(params map[string]string) (map[string]interface{}, int, error) {
 	fmt.Printf(">>> VNPay Refund Response (HTTP %d): %+v\n", res.StatusCode, out)
 
 	return out, res.StatusCode, nil
+}
+
+// VerifyIncomingChecksum: build rawData từ toàn bộ query (trừ vnp_SecureHash) theo thứ tự key ASC
+func VerifyIncomingChecksum(q url.Values) bool {
+	keys := make([]string, 0, len(q))
+	for k := range q {
+		if strings.EqualFold(k, "vnp_SecureHash") {
+			continue
+		}
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	parts := make([]string, 0, len(keys))
+	for _, k := range keys {
+		parts = append(parts, url.QueryEscape(k)+"="+url.QueryEscape(q.Get(k)))
+	}
+	data := strings.Join(parts, "&")
+	mac := hmac.New(sha512.New, []byte(VnpHashSecret))
+	mac.Write([]byte(data))
+	calc := strings.ToUpper(hex.EncodeToString(mac.Sum(nil)))
+	return strings.EqualFold(calc, q.Get("vnp_SecureHash"))
 }

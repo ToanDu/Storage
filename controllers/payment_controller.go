@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"sort"
 	"storage-main/models"
 	"storage-main/utils"
 	"strconv"
@@ -128,7 +129,11 @@ func ReturnPage(db *pgxpool.Pool) gin.HandlerFunc {
 		bankCode := c.Query("vnp_BankCode")
 		amount := c.Query("vnp_Amount")
 		payDate := c.Query("vnp_PayDate")
+		if v, err := strconv.ParseInt(amount, 10, 64); err == nil {
+			amount = strconv.FormatInt(v/100, 10)
+		}
 
+		// Return chỉ để hiển thị — KHÔNG cập nhật DB. Trạng thái cuối lấy theo IPN.
 		// Default fail
 		status := "failed"
 		statusText := "❌ Giao dịch thất bại"
@@ -136,9 +141,6 @@ func ReturnPage(db *pgxpool.Pool) gin.HandlerFunc {
 			status = "success"
 			statusText = "🎉 Giao dịch thành công"
 		}
-
-		// Update DB
-		_ = models.UpdateOrderStatus(db, txnRef, status)
 
 		// Render return.html with clear fields
 		c.HTML(http.StatusOK, "return.html", gin.H{
@@ -154,26 +156,114 @@ func ReturnPage(db *pgxpool.Pool) gin.HandlerFunc {
 }
 
 // POST /vnpay/ipn
+// func HandleIPN(db *pgxpool.Pool) gin.HandlerFunc {
+// 	return func(c *gin.Context) {
+
+// 		txnRef := c.Query("vnp_TxnRef")
+// 		respCode := c.Query("vnp_ResponseCode")
+
+// 		status := "failed"
+// 		if respCode == "00" {
+// 			status = "success"
+// 		}
+
+//			if err := models.UpdateOrderStatus(db, txnRef, status); err != nil {
+//				c.String(http.StatusInternalServerError, "99|Update DB failed")
+//				return
+//			}
+//			c.String(http.StatusOK, "00|OK")
+//		}
+//	}
+
+// GET /vnpay/ipn
 func HandleIPN(db *pgxpool.Pool) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		if err := c.Request.ParseForm(); err != nil {
-			c.String(http.StatusBadRequest, "Lỗi parse form")
+		q := c.Request.URL.Query()
+
+		// 1) Verify signature
+		secureHash := c.Query("vnp_SecureHash")
+		if secureHash == "" {
+			c.JSON(http.StatusOK, gin.H{"RspCode": "97", "Message": "Invalid signature"})
+			return
+		}
+		// build rawData from all keys except vnp_SecureHash (sorted ASC, url-encoded)
+		keys := make([]string, 0, len(q))
+		for k := range q {
+			if strings.EqualFold(k, "vnp_SecureHash") {
+				continue
+			}
+			keys = append(keys, k)
+		}
+		sort.Strings(keys)
+		var b strings.Builder
+		for i, k := range keys {
+			if i > 0 {
+				b.WriteByte('&')
+			}
+			b.WriteString(url.QueryEscape(k))
+			b.WriteByte('=')
+			b.WriteString(url.QueryEscape(q.Get(k)))
+		}
+		raw := b.String()
+
+		mac := hmac.New(sha512.New, []byte(utils.VnpHashSecret))
+		mac.Write([]byte(raw))
+		calculated := strings.ToUpper(hex.EncodeToString(mac.Sum(nil)))
+		if !strings.EqualFold(calculated, secureHash) {
+			c.JSON(http.StatusOK, gin.H{"RspCode": "97", "Message": "Invalid signature"})
 			return
 		}
 
-		txnRef := c.Request.Form.Get("vnp_TxnRef")
-		respCode := c.Request.Form.Get("vnp_ResponseCode")
+		// 2) Lấy trường bắt buộc
+		txnRef := c.Query("vnp_TxnRef")
+		amountStr := c.Query("vnp_Amount") // *100 so với VND gốc
+		respCode := c.Query("vnp_ResponseCode")
+		txnStatus := c.Query("vnp_TransactionStatus") // có thể trống
 
-		status := "failed"
-		if respCode == "00" {
-			status = "success"
-		}
-
-		if err := models.UpdateOrderStatus(db, txnRef, status); err != nil {
-			c.String(http.StatusInternalServerError, "99|Update DB failed")
+		if txnRef == "" {
+			c.JSON(http.StatusOK, gin.H{"RspCode": "01", "Message": "Order Not Found"})
 			return
 		}
-		c.String(http.StatusOK, "00|OK")
+		if amountStr == "" {
+			c.JSON(http.StatusOK, gin.H{"RspCode": "04", "Message": "Invalid amount"})
+			return
+		}
+
+		// 3) Tìm order
+		order, err := models.GetOrderByTxnRef(db, txnRef)
+		if err != nil {
+			c.JSON(http.StatusOK, gin.H{"RspCode": "01", "Message": "Order Not Found"})
+			return
+		}
+
+		// 4) Đối chiếu số tiền (DB lưu VND chuẩn; VNPay gửi *100)
+		if amountStr != strconv.FormatInt(order.Amount*100, 10) {
+			c.JSON(http.StatusOK, gin.H{"RspCode": "04", "Message": "Invalid amount"})
+			return
+		}
+
+		// 5) Idempotent – đơn đã chốt thì không chốt lại
+		if order.Status == "success" || order.Status == "failed" {
+			c.JSON(http.StatusOK, gin.H{"RspCode": "02", "Message": "Order already confirmed"})
+			return
+		}
+
+		// 6) Xác định trạng thái lưu DB
+		paidOK := (respCode == "00") && (txnStatus == "" || txnStatus == "00")
+		newStatus := "failed"
+		if paidOK {
+			newStatus = "success"
+		}
+
+		// 7) Cập nhật DB
+		if err := models.UpdateOrderStatus(db, txnRef, newStatus); err != nil {
+			// ví dụ update lỗi kết nối, deadlock, v.v.
+			c.JSON(http.StatusOK, gin.H{"RspCode": "99", "Message": "DB error"})
+			return
+		}
+
+		// 8) Phản hồi đúng đặc tả IPN (luôn 00 nếu đã xử lý xong)
+		c.JSON(http.StatusOK, gin.H{"RspCode": "00", "Message": "Confirm Success"})
 	}
 }
 
