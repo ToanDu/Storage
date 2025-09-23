@@ -1,0 +1,244 @@
+@import helper._
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("account.title")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @*<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@@400;500&display=swap" rel="stylesheet">*@
+
+    <link href="@routes.Assets.versioned("stylesheets/landingPage/argon-design-system.css?v=1.2.2")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("assets/plugins/notifications/css/lobibox.min.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("assets/css/icons.css")" rel="stylesheet">
+
+    <link href="@routes.Assets.versioned("stylesheets/views/telco/account/account.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("stylesheets/views/telco/telco2.css")" rel="stylesheet" />
+
+  </head>
+
+  <body class="landing-page">
+
+    @views.html.telco.Navbar(currentUser)
+
+    <div class="wrapper">
+
+      <div class="section features-1">
+        <div class="container">
+
+        </div>
+      </div>
+
+      <div class="section features-1">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 mx-auto text-center">
+              <span class="display-3 title-section">@Messages("account.updateBusinessInfo")</span>
+              @*<hr style="border-top: 4px solid #ee0033; width: 84px; margin-top: 1rem;">*@
+            </div>
+            <div class="col-md-12 m-t-4">
+              <span class="display-4 title-section-1">@Messages("account.personalInfo")</span>
+            </div>
+            <div class="col-md-6 m-t-3">
+              <div class="row m-b-4">
+                <label class="col-sm-4 col-form-label title-section-2">@Messages("account.fullName")<span class="text-red">@Messages("account.required")</span></label>
+                <div class="col-sm-8">
+                  <input id="nameAccount" type="text" class="form-control input-form" maxlength="50" autocomplete="off" required>
+                </div>
+              </div>
+              <div class="row m-b-4">
+                <label class="col-sm-4 col-form-label title-section-2">@Messages("account.email")</label>
+                <div class="col-sm-8">
+                  <input id="emailAccount" type="email" class="form-control input-form" maxlength="255" autocomplete="off" value="@currentUser.getUsername" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 m-t-3">
+              <div class="row m-b-4">
+                <label class="col-sm-4 col-form-label title-section-2">@Messages("account.phoneNumber")<span class="text-red">@Messages("account.required")</span></label>
+                <div class="col-sm-8">
+                  <input id="phoneAccount" type="number" class="form-control input-form" maxlength="14" autocomplete="off" value="@currentUser.getPhone">
+                </div>
+              </div>
+              <div class="row m-b-4">
+                <label class="col-sm-4 col-form-label title-section-2">@Messages("account.idNumber")<span class="text-red">@Messages("account.required")</span></label>
+                <div class="col-sm-8">
+                  <input id="cmndAccount" type="text" class="form-control input-form" maxlength="15" autocomplete="off" required>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <hr style="border-top: 1px solid #DEDEDE;">
+
+          <div class="row">
+            <div class="col-md-12">
+              <span class="display-4 title-section-1">@Messages("account.businessInfo")</span>
+            </div>
+            <div class="col-md-6 m-t-3">
+              <div class="row m-b-4">
+                <label class="col-sm-4 col-form-label title-section-2">@Messages("account.businessName")<span class="text-red">@Messages("account.required")</span></label>
+                <div class="col-sm-8">
+                  <input id="nameCompanyAccount" type="text" class="form-control input-form" maxlength="50" autocomplete="off" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 m-t-3">
+              <div class="row m-b-4">
+                <label class="col-sm-4 col-form-label title-section-2">@Messages("account.businessLicense")<span class="text-red">@Messages("account.required")</span></label>
+                <div class="col-sm-8">
+                  <input id="gpkdAccount" type="email" class="form-control input-form" maxlength="255" autocomplete="off" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="row m-b-4">
+                <label class="col-sm-2 col-form-label title-section-2">@Messages("account.companyAddress")<span class="text-red">@Messages("account.required")</span></label>
+                <div class="col-sm-10">
+                  <input id="addressAccount" type="text" class="form-control input-form" maxlength="255" autocomplete="off" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 m-t-3">
+              <div class="row m-b-4">
+                <label class="col-sm-4 col-form-label title-section-2">@Messages("account.idCardPhoto")</label>
+                <div class="col-sm-8">
+                  <div class="row">
+                    <div class="col-md-4 position-relative">
+                      <input id="imgOld1" type="text" class="form-control" hidden>
+                      <input id="changeImg1" type="checkbox" hidden>
+                      <div class="d-flex flex-column align-items-center text-center square-item" >
+                        <img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview1" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">
+                        <input id="wizard-picture-1" name="avatar" type="file" hidden/>
+                        <div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg1" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(1)"></i></div>
+                      </div>
+                    </div>
+                    <div class="col-md-8 position-relative">
+                      <label class="form-label ">@Messages("account.uploadImage")</label><br>
+                      <label class="form-label ">@Messages("account.dragDropFile")<a onclick="$('#wizard-picture-1').click();" class="cursor-pointer text-danger">@Messages("account.here")</a></label>
+                    </div>
+                    <div class="col-md-12 position-relative">
+                      <small class="form-label ">@Messages("account.fileRequirement")</small>
+                    </div>
+                  </div>
+                  <div class="row m-t-5">
+                    <div class="col-md-4 position-relative">
+                      <input id="imgOld2" type="text" class="form-control" hidden>
+                      <input id="changeImg2" type="checkbox" hidden>
+                      <div class="d-flex flex-column align-items-center text-center square-item">
+                        <img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview2" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">
+                        <input id="wizard-picture-2" name="avatar" type="file" hidden/>
+                        <div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg2" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(2)"></i></div>
+                      </div>
+                    </div>
+                    <div class="col-md-8 position-relative">
+                      <label class="form-label ">@Messages("account.uploadImage")</label><br>
+                      <label class="form-label ">@Messages("account.dragDropFile")<a onclick="$('#wizard-picture-2').click();" class="cursor-pointer text-danger">@Messages("account.here")</a></label>
+                    </div>
+                    <div class="col-md-12 position-relative">
+                      <small class="form-label ">@Messages("account.fileRequirement")</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 m-t-3">
+              <div class="row m-b-4">
+                <label class="col-sm-4 col-form-label ">@Messages("account.businessLicensePhoto")</label>
+                <div class="col-sm-8">
+                  <div class="row">
+                    <div class="col-md-4 position-relative">
+                      <input id="imgOld3" type="text" class="form-control" hidden>
+                      <input id="changeImg3" type="checkbox" hidden>
+                      <div class="d-flex flex-column align-items-center text-center square-item">
+                        <img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview3" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">
+                        <input id="wizard-picture-3" name="avatar" type="file" hidden/>
+                        <div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg3" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(3)"></i></div>
+                      </div>
+                    </div>
+                    <div class="col-md-8 position-relative">
+                      <label class="form-label ">@Messages("account.uploadImage")</label><br>
+                      <label class="form-label ">@Messages("account.dragDropFile")<a onclick="$('#wizard-picture-3').click();" class="cursor-pointer text-danger">@Messages("account.here")</a></label>
+                    </div>
+                    <div class="col-md-12 position-relative">
+                      <small class="form-label ">@Messages("account.fileRequirement")</small>
+                    </div>
+                  </div>
+                  <div class="row m-t-5">
+                    <div class="col-md-4 position-relative">
+                      <input id="imgOld4" type="text" class="form-control" hidden>
+                      <input id="changeImg4" type="checkbox" hidden>
+                      <div class="d-flex flex-column align-items-center text-center square-item">
+                        <img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview4" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">
+                        <input id="wizard-picture-4" name="avatar" type="file" hidden/>
+                        <div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg4" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(4)"></i></div>
+                      </div>
+                    </div>
+                    <div class="col-md-8 position-relative">
+                      <label class="form-label ">@Messages("account.uploadImage")</label><br>
+                      <label class="form-label ">@Messages("account.dragDropFile")<a onclick="$('#wizard-picture-4').click();" class="cursor-pointer text-danger">@Messages("account.here")</a></label>
+                    </div>
+                    <div class="col-md-12 position-relative">
+                      <small class="form-label ">@Messages("account.fileRequirement")</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr style="border-top: 1px solid #DEDEDE;">
+
+          <div class="row">
+            <label class="col-sm-2 col-form-label text-center">
+              <input class="form-check-input" type="checkbox" id="agreeDksdAccount" onchange="agreeDksd(this)">
+            </label>
+            <div class="col-sm-10">
+              <label>@Messages("account.agreementText")</label>
+              <br>
+              <label>@Messages("account.termsDetail")<a href="#" style="color: #00a5bb; font-style: italic;">@Messages("account.here")</a></label>
+            </div>
+          </div>
+          <div class="row m-t-3">
+            <div class="col-md-12 mx-auto text-center">
+              <button id="buttonVerifyAccount" type="button" class="btn btn-telco" style="background: #EA0033; color: #FFFFFF;" onclick="otpPhone()" disabled>@Messages("common.confirm")</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      @views.html.telco.account.Account_otp()
+      @views.html.telco.account.Account_zoomImg()
+
+      @views.html.telco.Footer()
+
+      @views.html.Loading()
+
+    </div>
+  </body>
+  <script type="text/javascript" src="@routes.JsController.jsMessages()"></script>
+  <script type="text/javascript" src="@routes.JsController.javascriptRoutes"></script>
+  <script src="@routes.Assets.versioned("javascripts/js/core/jquery.min.js")" type="text/javascript"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/landingPage/jquery.min.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/landingPage/popper.min.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/landingPage/bootstrap.min.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("assets/js/bootstrap.bundle.min.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/landingPage/argon-design-system.js?v=1.2.2")" type="text/javascript"></script>
+
+  <script src="@routes.Assets.versioned("assets/plugins/notifications/js/lobibox.min.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/notifications/js/notifications.min.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/notifications/js/notification-custom-script.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/ShowNotification.js")" type="text/javascript"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/views/telco/account/account.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/account/account_verify.js")" type="text/javascript"></script>
+
+  @views.html.BackToTop()
+
+</html>

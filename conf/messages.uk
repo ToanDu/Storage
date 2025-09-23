@@ -1,0 +1,2573 @@
+title=Title
+project=Project
+orginazation=Organization
+Admin.Filters.apply=Apply
+Admin.Filters.rowvisible=Rows visible
+
+cmp=System CMP
+
+filter.id=ID
+filter.username=Username
+Admin.Filters=Search: {0}
+Admin.expande=(+)
+Admin.collapse=(-)
+filter.createDate=Created Date
+filter.lastModified=Expired
+filter.advancedSearch=Advanced Search
+filter.ip=IP
+filter.success=Result
+filter.logDate=Time
+filter.code=Code
+filter.name=Name
+filter.groupName=Group
+filter.statusApprove=Approval Status
+filter.groupID=Group ID
+filter.currentLat=Latitude
+filter.currentLong=Longitude
+filter.dateTracking=Date Tracking
+filter.orgId=Organization
+filter.organization=Organization
+filter.organizationName=Organization
+filter.role=Role
+filter.type=Type
+filter.typeName=Type
+filter.connect=Connection
+filter.message=Message
+filter.group=Group
+filter.sendMetadata=Update metadata for device
+filter.sendMessToDevice=Control device via message
+filter.action=Action
+filter.nameCompany=Company
+filter.email=Email
+filter.phone=Phone
+filter.field=Field
+filter.company=Company
+filter.content=Content
+filter.productName=Product
+filter.countDevice=Number of devices
+filter.countUser=Number of users
+filter.status=Status
+
+Prev=Previous
+Next=Next
+Last=Last
+First=First
+Search=Search:
+tableNoData=No data available
+Total=Total
+entries=Entries
+
+btnCancle=Cancel
+btnAdd=Create new
+btnAddGroupRoot=Create new organization
+btnBack=Back
+btnBrowse=Browse
+btnCancel=Cancel
+btnChangePass=Change password
+btnClose=Close
+btnComfirm=Confirm
+btnDelete=Delete
+btnDetail=Details
+btnEdit=Edit
+btnExisted=Already exists
+btnFinish=Finish
+btnHome=Go to homepage
+btnNext=Next
+btnPrev=Previous
+btnNo=No
+btnOk=OK
+btnPrevious=Back
+btnReloadCache=Reload Cache
+btnResend=Resend
+btnSave=Save
+btnShow=Show
+btnStop=Stop
+btnSubmit=Submit
+btnUpdate=Update
+btnView=View
+btnCreate=Create new
+btnWakeUp=Wake Up
+btnYES=Yes
+btnExport=Export
+btnRollback=Restore
+btnSelectFile=Select file
+btnRole=Role
+btnSms=Send message
+btnUpdate.org=Update organization
+btnActiveEvent=Activate Event
+btnDeActiveEvent=Deactivate Event
+btnAction=Action
+btnDate=Date/Time
+btnCopy=Copy
+btnCopySuccess=Copied successfully
+btnAttr=Attribute
+btnSearch=Search
+
+
+update.success=Update successful!
+register.success=Registration successful!
+
+Home=Home
+
+noti.notLogin=You are not logged in
+noti.errorLogin=Login failed
+noti.notFoundUser=User not found
+noti.notPermit=You do not have permission to perform this action
+noti.notFoundData=Data not found
+noti.inputFormError=Please fill in all required information
+noti.inputProfile=Please update your personal information
+noti.disconnect=Connection error
+noti.validation=Please complete all required information
+noti.donthavepermission=You do not have permission to perform this action
+noti.Addsuccess=Created successfully
+noti.AddFalse=Creation failed
+noti.Getsuccess=Data retrieved successfully
+noti.Getfalse=Failed to retrieve data
+noti.Sendsuccess=Data sent successfully
+noti.SendFalse=Failed to send data
+noti.Updatesuccess=Update successful
+noti.Updatefalse=Update failed
+noti.Update.nothing=No changes were made
+noti.confirmDeletebody=Are you sure you want to proceed?
+noti.Deletesuccess=Deleted successfully
+noti.Deletefalse=Deletion failed
+noti.form.error=Form error
+noti.chooseGroupIdNew=Please search and select the group to transfer
+noti.sessionTimeOut=Session expired, please log in again
+noti.valid.id=ID cannot be empty
+noti.valid.name=Name cannot be empty
+noti.valid.description=Description cannot be empty
+noti.valid.email=Invalid email format
+noti.valid.PasswordNotComplicated=Password must be complex (at least 8 characters including numbers, lowercase, uppercase, and special characters)
+noti.valid.repeatpass=Passwords do not match
+noti.valid.phone=Invalid phone number format
+noti.valid.emptyPhone=Phone number cannot be empty
+noti.valid.content=Please fill in all content
+noti.valid.chooseInfoUpdateDevice=Please select update information for the device
+noti.valid.chooseInfoVariable=Please enter all variables
+noti.valid.notVariableSame=Duplicate selections are not allowed
+noti.ChangeSuccess=Organization updated successfully
+noti.ChangeFalse=Organization update failed
+noti.removeSuccess=Organization removed successfully
+noti.removeFalse=Organization removal failed
+noti.notDeviceToken=You have not created a device token, please create one before use
+noti.confirmCreateDeviceToken=Are you sure you want to create a new device token?
+noti.copySuccess=Copy {0} successful
+noti.chooseFile=Please select a file
+noti.errror.fileWrongFormat=Invalid file format
+noti.wrongBig5000=File too large > 5000 rows
+noti.fileWrongTemplate=Invalid file template, please check the sample file
+noti.dateTimeFromTo=Start time must be earlier than end time
+ais.socket.NotiOpenConnect=Socket connected
+ais.socket.NotiLostConnect=Socket connection lost
+ais.socket.NotiErrorConnect=Socket connection error
+
+success=Success
+error=Error {0} - 
+connection.failed=Connection failed
+error.authen=Incorrect username or password. Please check again!
+error.exitsName=Name already exists
+error.forbidden=Authentication cannot access this resource
+error.notFound=Data not found
+error.methodNotAllowed=Entity already exists
+error.errorServer=System error
+
+
+#landing page
+landing.gioithieu=Overview
+landing.gioithieu1=IoT (Internet of Things) Platform
+landing.usecase=Use Cases
+landing.usecase1=Key highlights of InnoWay
+landing.huongdan=Guide
+landing.huongdan1=User guide for InnoWay
+landing.lienhe=Contact
+landing.lienhe1=Send us your contact information
+landing.download=Download
+landing.download1=Download Android and iOS apps
+landing.dangnhap=Login
+landing.dangnhap1=Already have an account?
+landing.dangki=Register
+landing.dangki1=Don’t have an account yet?
+landing.title1=InnoWay IoT Platform
+landing.title2=Comprehensive IoT solution for Vietnam’s digital transformation
+landing2.title1=InnoWay is an IoT (Internet of Things) platform
+landing2.title2=InnoWay supports collecting, transmitting, analyzing, storing, and visualizing connected data from user devices.
+landing2.title3=Provides global IoT connectivity protocols such as MQTT, HTTP, CoAP, enabling real-time data exchange for up to 10 million devices and sensors.
+landing2.title4=Acts as middleware managing devices, users, and integrating built-in processing and analytics (anomaly detection, alerts, etc.).
+landing2.title5=Helps developers easily build custom applications at lower cost, delivering high added value.
+landing3.title1=Key Features
+landing3.title2=Graphic-based drag-and-drop programming interface
+landing3.title3=Microservices architecture for flexible scalability
+landing3.title4=On-premise and cloud storage options
+landing3.title5=Visual, diverse dashboards
+landing3.title6=Ensured security and performance
+landing4.title1=vTag - Personal tracking device
+landing4.title2=The vTag personal tracker uses the MQTT protocol to send location data to InnoWay via NB-IoT and GSM. InnoWay immediately processes the data, converts it into geographic coordinates, analyzes alerts if any, and sends them to the vTag mobile app. At the same time, users can remotely control and configure device operation modes directly in the app.
+landing6.title1=Basic InnoWay user guide
+landing6.title2=For detailed experience, contact us now!
+landing7.title1=Contact Us
+landing7.title2=Please provide your information for InnoWay consultation
+landing7.name=Full Name
+landing7.email=Email
+landing7.phone=Phone Number
+landing7.select=Field
+landing7.select1=Smart Agriculture
+landing7.select2=Smart Home
+landing7.select3=Logistics
+landing7.select4=Other
+landing7.content=Content
+landing7.Sendsuccess=Information sent successfully
+landing8.title1=InnoWay is developed by Viettel High Technology (VHT), a subsidiary of Viettel Military Industry and Telecoms Group.
+landing8.title2=Address
+landing8.title3=380 Lac Long Quan, Nhat Tan, Tay Ho, Hanoi
+landing8.title4=Hotline
+
+login.username=Login Email
+login.email=Email
+login.Password=Password
+login.RePassword=Re-enter password
+login.registerNow=Register
+login.fogotPass=Forgot password
+login.login=Login
+login.youMustRegister=Please register first if you don’t have an account!
+login.errorUsernameOrPass=Incorrect username or password. Please try again!
+login.loginSuccess=Login successful!
+login.errorUsernameHasLock=Your account has been locked due to policy violations
+logout.logoutSuccess=Logout successful!
+logout.logout=Logout
+login.register=Don’t have an account? Register now.
+login.notFoundUser=User not found
+login.emptyUsernameOrPass=Username and password cannot be empty
+
+register.title=Register an account
+register.username=Username
+register.email=Email
+register.Password=Password
+register.PasswordAgain=Re-enter password
+register.PasswordNew=New password
+register.PasswordAgainNew=Re-enter new password
+register.codeReferral=Referral code (*)
+register.register=Register
+register.usernameNotEmpty=Username cannot be empty
+register.emailNotEmpty=Email cannot be empty
+register.emailExists=Account already exists, please choose another
+register.validateEmail=Invalid email format
+register.validatePassword=Password must be at least 8 characters, including one uppercase, one lowercase, and one number
+register.passNotEmpty=Password cannot be empty
+register.phoneNotValid=Invalid phone number format
+register.codeReferralNotEmpty=Referral code cannot be empty
+register.usernameExited=Username already exists
+register.passAgainNotFound=Passwords do not match
+register.registerSuccess=Account registration successful!
+pass.passSuccess=Password changed successfully!
+register.codeReferralError=Invalid referral code
+register.checkbox=You must agree to our terms
+register.emptyIpError=IP not found error
+register.errorCoincideIp=You are not allowed to create multiple accounts
+register.login=Already have an account? Go back to login page.
+
+forgot.passSuccess=Password changed successfully
+forgot.emailError=Invalid email
+forgot.fogetPass=Change password
+forgot.Password=New password
+forgot.RePassword=Re-enter new password
+forgot.sendCode=Get verification code
+forgot.code=Receive code
+forgot.usernameEmpty=Please enter your email
+forgot.sendSmsSuccess=Verification code has been sent to your email
+ChangePass.registerSuccess=Password changed successfully.
+
+
+dashboard.add=Create New
+dashboard.name=Dashboard Name
+dashboard.content=Description
+dashboard.edit=Edit Information
+dashboard.del=Delete Dashboard
+dashboard.map=Map
+dashboard.table=Device List
+dashboard.totalUser=Users
+dashboard.totalDevice=Devices
+dashboard.totalMessage=Messages
+dashboard.kpiDeviceOnline=KPI Device Online
+dashboard.lastDateTracking=Last Message
+dashboard.totalDeviceTracking=Tracking Devices
+dashboard.totalUserToDay=New Users Today
+dashboard.totalDeviceToDay=New Connected Devices Today
+dashboard.reportDeviceWithArea=Number of Devices connected to IoT Platform
+dashboard.chart=Statistics
+dashboard.chartContent=Battery Duration Chart
+dashboard.deviceNotTracking=Devices without tracking coordinates
+dashboard.chartColumn=Column Chart
+
+dashboard.design=Dashboard Design
+dashboard.design.add=Create New
+dashboard.design.addRow=Create Row
+dashboard.design.create=Add More
+dashboard.design.reset=Reset
+dashboard.design.addCol=Create Columns
+dashboard.design.countCol=Number of Columns
+dashboard.design.heightCol=Height
+dashboard.design.dvHeightCol=Unit
+dashboard.design.map=Map
+dashboard.design.chart=Chart
+dashboard.design.chartColumn=Column Chart
+dashboard.design.chartLine=Line Chart
+dashboard.design.chartCircle=Pie Chart
+dashboard.design.statistical=Statistics
+dashboard.design.table=List
+dashboard.design.resetConfirm=Are you sure you want to delete all actions?
+
+widget.add=Widget
+widget.edit=Edit
+widget.back=Back
+widget.save=Save
+widget.choose=Create widget for dashboard
+widget.map.chooseOrg=Select device group
+widget.map.all=All devices
+widget.youNoCreateWidget=You haven’t created any widgets yet
+widget.notFound=Please create more widgets for your dashboard
+widget.editWidgetMap=Edit map widget
+widget.editMap=Select devices to display on the map
+widget.editChartColumn=Select attributes for column chart
+widget.editChartLine=Select attributes for line chart
+widget.editData=Select one attribute to display data
+widget.editGause=Select one attribute to display data
+widget.editRoundSwitch=Select one device to toggle
+widget.editTable=Select attributes for data table
+widget.chartLine=Line Chart
+
+manage.manage=MANAGE
+manage.home=Overview
+manage.cloud=Cloud
+manage.device=Devices
+manage.app=Applications
+manage.debug=Vsmart Debug
+manage.appSdk=App SDK
+manage.integrated=Integration
+manage.pay=Payment
+manage.group.packData=Package Management
+manage.group.customer=Customer Management
+manage.group.bill=Invoice Management
+manage.group.sim=Subscriber Management
+manage.group.subs=Subscription Management
+manage.group.billUser=Invoice List
+manage.group.pay=Temporary Charges
+manage.dashboard=Dashboard
+manage.statisticalReport=STATISTICAL
+manage.ruleEngine=RULE ENGINE
+manage.ruleChain=Flow Engine
+manage.qrCodeList=QR Code Management
+manage.qrCodeHistory=QR Code History
+manage.logout=Logout
+manage.statistical=Statistics
+manage.logMessages=Device Message Logs
+manage.report=Report
+manage.variable=Device Attributes
+manage.stt=No.
+manage.user.username=Username
+manage.user.group=Group
+manage.user.role=Role
+manage.user.email=Email
+manage.user.repeatpassword=Re-enter Password
+manage.user.password=Password
+manage.user.phone=Phone Number
+manage.user.editRole=Change
+manage.user.choose=Action
+manage.user.usernameExisted=Username already exists
+manage.user.emailExisted=Email already exists
+manage.user.cannotdeleteyourself=You cannot delete yourself
+manage.customer=Customer
+
+manage.deviceIot.id=ID
+manage.deviceIot.deviceName=Device Name
+manage.deviceIot.imei=IMEI
+manage.deviceIot.type=Type
+manage.deviceIot.action=Action
+manage.deviceIot.list=Device List
+manage.deviceIot.latitude=Latitude
+manage.deviceIot.longitude=Longitude
+manage.deviceIot.successCreate=New device created successfully
+manage.deviceIot.existsName=Device name already exists
+manage.deviceIot.invalidName=Invalid device name, please try again
+manage.deviceIot.chooseOrg=You haven’t chosen an organization for the device
+manage.deviceIot.updateOrg=Device organization updated successfully
+manage.deviceIot.sendMess=Send message to device
+manage.deviceIot.groupName=Group
+manage.deviceIot.template=Device Template
+
+manage.group.list=Organization List
+manage.group.orgView=Organization Chart
+manage.group.title=Organization Management
+manage.group.device=Devices
+manage.group.group=Groups
+manage.group.user=Users
+manage.group.user.new=Create New User
+manage.group.role=Roles
+manage.group.type=Device Type Management
+manage.group.event=Events
+manage.group.infoOrg=Organization
+manage.org.addAttr=Create New Attribute
+manage.org.attr.name=Attribute Name
+manage.org.attr.type=Attribute Type
+manage.org.attr.value=Value Type
+manage.org.attr.default=Default Value
+manage.org.attr.history=Save History
+manage.org.attr.del=Delete Attribute
+manage.org.editAttr=Edit Attribute
+manage.org.overview=Overview
+manage.org.group=Group Management
+manage.org.device=Device Management
+manage.org.user=User Management
+manage.org.event=Event Management
+manage.org.role=Role Management
+
+manage.group.addNew=Add New Group
+manage.groupmanage.group.orgid=ID
+manage.group.org=Organization Name
+manage.group.orgId=ID Code
+manage.group.orgIdContent=The system generates a default ID code for the organization which cannot be changed.
+manage.group.org.30char=Please choose a name with a maximum of 30 characters
+manage.group.org.pass=Password must be at least 6 characters long, including letters, numbers, and special characters.
+manage.group.tructhuoc=Belongs to
+manage.group.templateDevice=Device Template
+manage.group.flow=Flow
+manage.group.content=Description
+manage.group.img=Avatar
+manage.group.imgChooseDefault=Choose default image
+manage.group.upImage=Upload Image
+manage.group.upImageNote=Please choose an image with a maximum size of 5 MB
+manage.group.name=Group Name
+manage.group.phone=Phone
+manage.group.address=Address
+manage.group.email=Email
+manage.group.groupnotfound=Group not found!
+manage.group.existgroupchild=Please delete subgroups first!
+manage.group.existuser=Please remove users from the group first!
+manage.group.existDevice=Please remove devices from the group first!
+manage.group.max.number.child=Cannot create more subgroups
+manage.user.moveSuccess=User moved successfully
+manage.device.moveSuccess=Device moved successfully
+manage.group.noMoveDeviceToRoot=Devices cannot be moved to root group
+manage.group.exitedNameGroup=Group name already exists in the system
+manage.groupList.group.titleSelectGroup=Select or search group from the list
+iot.manage.groupAis.name=Group Name
+iot.manage.groupAis.email=Email
+iot.manage.groupAis.phone=Phone
+iot.manage.groupAis.address=Address
+iot.manage.groupAis.select=Select
+iot.manage.groupAis.createDate=Creation Date
+iot.manage.groupAis.addGroupRoot=Create Organization
+iot.manage.groupAis.UpdateGroupInfo=Update Information
+iot.manage.groupAis.addGroupChild=Add Subgroup
+iot.manage.groupAis.AddRemoveUser=Add/Remove User
+iot.manage.groupAis.AddRemoveDevice=Add/Remove Device
+iot.manage.groupAis.AddUser=Create New Account
+iot.manage.moveUsersToGroup=Move User
+iot.manage.moveDevicesToGroup=Move Device
+iot.manage.removeUsers=Delete User
+iot.manage.org.AddDevice=Add Device
+iot.manage.org.AddDeviceToOrg=Add Device to Organization
+iot.manage.removeDevices=Delete Device
+iot.manage.removeGroup=Delete Group
+iot.manage.groupAis.AddContact=Add Contact
+iot.manage.groupAis.AddRemoveContact=Add/Remove Contact
+
+group.addNew=Create New Group
+group.delete=Delete Group
+group.idEmpty=Empty Group ID Error
+group.edit=Edit Group Information
+group.haveNotOrg=You don’t have an organization, please create one
+group.updateOrg=Select Organization
+group.chooseOrg=You haven’t chosen an organization
+group.editOrg=Edit Organization Information
+group.removeOrg=Delete Organization
+group.id=ID
+group.name=Group Name
+group.type=Type
+group.type.org=Organization
+group.type.user=User
+group.type.device=Device
+group.type.event=Event
+group.role.name=Role Name
+group.role.del=Delete Role
+group.event.name=Event Name
+group.event.del=Delete Event
+group.event.groupName=Group
+
+device.addNew=Create Device
+device.add.name=Device Name
+device.delete=Delete Device
+device.idEmpty=Empty Device ID Error
+device.edit=Edit Device
+device.update=Update Device
+device.updateOrg.success=Organization updated successfully
+device.updateOrg.false=Organization update failed
+device.updateGroup.success=Group updated successfully
+device.updateGroup.false=Group update failed
+device.updateType.success=Type updated successfully
+device.updateType.false=Type update failed
+device.connectSuccess=Device connected successfully
+device.connectFalse=Device connection failed
+device.paidDevice=Paid Device
+device.step1=Use Device ID and Device Token in firmware and pay for your device
+device.sendMessage=Send Message
+device.step2=Send message to platform or test with JSON message as follows
+device.checkConnect=Check Connection
+
+device.variable.manage=Manage Device Attributes
+device.variable.title=Device Attributes
+device.variable.addNew=Create New
+device.variable.name=Name
+device.variable.type=Type
+device.variable.value=Value
+device.variable.time=Time
+device.variable.choose=Select Type
+device.variable.configGps=GPS Configuration
+device.variable.notFoundConfig=Device configuration not found
+device.variable.chart=Attribute Statistics
+device.variable.chart.column=Column Chart
+device.variable.chart.line=Line Chart
+device.variable.id=Device ID
+device.variable.total=Total Attributes
+
+deviceType.addNew=Create Device Type
+deviceType.add.name=Device Type Name
+deviceType.idEmpty=Empty Type ID Error
+deviceType.delete=Delete Device Type
+deviceType.edit=Edit Device Type Name
+
+deviceTemplate.title=Device Template
+deviceTemplate.list=List
+deviceTemplate.create=Create New Device Template
+deviceTemplate.name=Device Template Name
+deviceTemplate.listFlow=Flow List
+deviceTemplate.id=ID
+deviceTemplate.nameFlow=Name
+deviceTemplate.del=Delete Device Template
+
+user.addNew=Create User
+user.add.email=Email
+user.link=Password Creation Link
+user.idEmpty=Empty User ID Error
+user.delete=Delete User
+user.createDeviceToken=Create Device Token
+user.deviceToken=Copy Device Token
+
+message.title=Device Message Management
+message.sendMetadata=Send Metadata
+message.chooseTypeMessage=Please choose message type
+message.sendMessToDevice=Send to Device
+message.sendTopic=Send via Topic
+message.sendMess=Send Message
+
+role.addNew=Create New Role
+role.name=Role Name
+role.existName=This name already exists, please choose another
+role.resources=Resources
+role.resources.devices=Devices
+role.resources.groups=Groups
+role.resources.devicetypes=Device Types
+role.resources.topics=Topics
+role.resources.devicetokens=Device Tokens
+role.resources.events=Events
+role.permission.create=Create
+role.permission.read=Read
+role.permission.modify=Modify
+role.permission.delete=Delete
+role.select=Select Role
+role.title=Role
+role.service.organizations=Organizations
+role.service.devices=Devices
+role.service.users=Users
+role.service.groups=Groups
+role.service.devicetypes=Device Types
+role.service.topics=Topics
+role.service.devicetokens=Device Tokens
+role.service.events=Events
+role.title.delete=Delete Role
+role.editRole=Edit Role
+role.title.detail=Detail
+role.groupManage=Group Management
+role.group.org=Organization Group
+role.group.user=User Group
+role.group.device=Device Group
+role.group.event=Event Group
+role.group.role=Permissions
+
+event.title.device=Device
+event.title.attr=Attribute
+event.title.condition=Condition
+event.title.condition1=Trigger Condition
+event.title.action=Action
+event.title.addNewEvent=Create Event
+event.title.editNewEvent=Edit Event
+event.title.detailEvent=Event Details
+event.title.interval=Interval
+event.title.value=Comparison Value
+event.column.title.device=Device ID
+event.column.title.organization=Organization
+event.column.title.action=Action
+event.column.title.time=Condition Check Time
+event.column.title.status=Status
+event.column.title.hd=Operation
+event.column.title.address=Address
+event.column.title.title=Title
+event.column.title.content=Content
+event.title.default=Basic Information
+event.title.delete=Delete Event
+event.title.name=Event Name
+event.title.editEvent=Edit Event
+event.title.status=Status
+event.title.under=Belongs to
+event.title.combinationConditions=Combination Conditions
+event.operator.equal=Equal to
+event.operator.greater=Greater than
+event.operator.less=Less than
+event.operator.notEqual=Not equal to
+event.title.org.change=Change Organization
+event.activeSuccess=Event activated successfully
+event.activeFalse=Event activation failed
+event.deactiveSuccess=Event deactivated successfully
+event.deactiveFalse=Event deactivation failed
+event.start=Start
+event.end=End
+event.choose.device=Select Device
+event.deviceNotFoundAttribute=Device has no attributes
+event.choose.var=Select Attribute
+event.title.statusActive=Active
+event.title.statusUnactive=Inactive
+event.validateTime=Start time must be earlier than end time
+
+report.message.log=Device Message List
+
+project.manage=Project Management
+project.title=Project
+project.addNew=Create New Project
+project.name=Project Name
+project.content=Description
+project.notFoundProject=You don’t have any projects, please create one
+project.list=Project List
+project.edit=Edit Project Information
+project.del=Delete Project
+project.maxlength=Maximum 100 characters
+
+overview.title=Overview
+overview.youNotDashboard=You don’t have any dashboards, start with a template or create your own
+overview.monitor=Dashboard
+overview.app=Application
+overview.youNotApp=You don’t have any applications, start with a template or create your own
+overview.overviewData=Connected Data Overview
+overview.infoPay=Payment Information
+overview.flow=Flow Engine
+overview.youNotFlow=You don’t have any flow engines, start creating your own
+
+qr.code.exited=This QR Code ID already exists
+qr.importComfirm=Are you sure you want to create {0} QR Codes
+qr.delete=Delete QR Code
+qr.edit=Edit QR Code Information
+qr.id=ID
+qr.Name=Name
+qr.Link=Application Link
+qr.QRCode=QR Code
+qr.LinkAndroid=Android Link
+qr.LinkIos=iOS Link
+
+packdata.add=Create New Package
+packdata.info=General Information
+packdata.name=Package Name
+packdata.data=Package Data
+packdata.countPackConnect=Maximum Connections
+packdata.countPackMax=Maximum Messages
+packdata.countPackLimit=Message Limit
+packdata.countPackDvi=Messages per additional unit
+packdata.price=Package Price
+packdata.cycle=Billing Cycle
+packdata.day=Daily
+packdata.week=Weekly
+packdata.month=Monthly
+packdata.year=Yearly
+packdata.cyclePrice=Cycle Price
+packdata.dviPrice=Unit Price per Extra Unit
+packdata.delete=Delete Package
+packdata.content=Description
+packdata.edit=Edit Package
+packdata.change=Assign Package
+packdata.chooseOrg=Select Organization
+packdata.cancel=Cancel Package
+
+manage.smarthome=Smarthome
+
+manage.tracking=Tracking
+manage.tracking.map=Map
+manage.tracking.map.title=Monitoring Map
+manage.tracking.map.name=Device
+manage.tracking.map.status=Status
+manage.tracking.map.history=History
+map.info.name=Name
+map.info.id=ID
+map.info.status=Status
+map.info.phone=Phone Number
+map.info.dateTracking=Date/Time
+map.info.latitude=Latitude
+map.info.longitude=Longitude
+
+manage.tracking.history=History
+manage.tracking.history.title=Travel History
+manage.tracking.history.start=Start
+manage.tracking.history.end=End
+manage.tracking.history.chooseDevice=Select Device
+manage.tracking.history.view=Search
+manage.tracking.history.quick=Quick Search
+history.search1Day=1 Day Ago
+history.search3Day=3 Days Ago
+history.search7Day=7 Days Ago
+history.search15Day=15 Days Ago
+history.search30Day=30 Days Ago
+history.dateTimeFromTo=Start time must be earlier than end time
+history.time31day=History time cannot exceed 1 day
+manage.tracking.history.play=Play
+manage.tracking.history.stop=Stop
+manage.tracking.history.idNull=You haven’t selected a device
+manage.tracking.history.empty=Please fill in both start and end times
+manage.tracking.history.playView=Vehicle route is being viewed
+manage.tracking.history.notHistory=No history data available
+manage.tracking.history.noGetHistory=No route data found
+fogotPass.passAgainNotFound=Passwords do not match.
+
+apn.dynamicIp=Dynamic IP
+apn.add.default.success=Default APN assigned successfully!
+apn.add.default.error=Failed to assign default APN
+apn.remove.default.success=Default APN removed successfully!
+apn.remove.default.error=Failed to remove default APN
+
+apn.add.private.error=Failed to assign APN/IP
+apn.add.private.selectIP=Please select IP
+apn.add.private.success=Private APN/IP assigned successfully!
+apn.add.private.error=Failed to assign private APN/IP
+apn.remove.private.success=Private APN/IP removed successfully!
+apn.remove.private.error=Failed to remove private APN/IP
+
+# APN Export Messages
+apn.export.title=Export list
+apn.export.subscribers=Subscribers
+apn.export.file=File
+apn.export.action=Action
+apn.export.download=Download
+apn.export.downloading=Downloading...
+apn.export.downloadAll=Download all
+apn.export.downloadComplete=Download complete
+apn.export.total=Total 
+apn.export.files= files
+apn.export.serialNumber=No.
+apn.export.error=Error exporting data
+
+# APN Table Column Headers
+apn.table.stt=No.
+apn.table.subscriberNumber=Subscriber number
+apn.table.simSerial=SIM serial
+apn.table.serviceType=Service type
+apn.table.servicePackage=Service package
+apn.table.contractCode=Contract code
+apn.table.customerCode=Customer code
+apn.table.defaultAPN=Default APN
+apn.table.privateAPNIP=Private APN/IP name
+apn.table.startEndDate=Start date - End date
+
+# Utilities Messages
+utilities.title=Utilities
+utilities.addDataPackage=Register additional data package
+utilities.cancelDataPackage=Cancel data package
+utilities.cancelRenewal=Cancel package renewal
+utilities.changePackage=Change package
+utilities.loadSubscriberList=Load subscriber list
+utilities.register=Register
+utilities.cancelPackage=Cancel package
+utilities.cancelRenewalDataPackage=Cancel data package renewal
+utilities.cancelRenewalAction=Cancel renewal
+
+# Utilities Detailed Messages
+utilities.postpaid=Postpaid
+utilities.prepaid=Prepaid
+utilities.packageName=Package name
+utilities.type=Type
+utilities.details=Details
+utilities.select=Select
+utilities.code=Code
+utilities.enterPackageName=Enter package name..
+
+# Additional utilities messages
+utilities.changeDataPackage=Change data package
+utilities.loadSubscriberList=Load subscriber list
+utilities.changePackageAction=Change package
+utilities.importSubscriberList=Import subscriber list
+utilities.uploadSubscriberList=Upload subscriber list
+utilities.importList=Import list
+utilities.downloadSampleFile=Download sample file
+utilities.validSubscribers=Valid subscribers
+utilities.invalidSubscribers=Invalid subscribers
+utilities.cancelMiAddonRenewal=Cancel renewal of MI, Add-on package
+utilities.cancelMiAddon=Cancel MI, Add-on package
+utilities.confirmCancelRenewal=Are you sure you want to cancel the renewal of MI, Add-on package?
+utilities.notification=Notification
+utilities.changePackagePlan=Change service package
+utilities.cancelOldPackage=Cancel old package
+utilities.registerNewPackage=Register new package
+utilities.continue=Continue
+utilities.confirm=Confirm
+utilities.confirmOpenTwoWay=Confirm to open 2-way for subscriber
+utilities.unregisterOldPackage=Cancel old package
+utilities.registerNewPackage=Register new package
+utilities.back=Back
+utilities.registerMiAddon=Register MI, Add-on package
+utilities.confirmRegisterMiAddon=Are you sure you want to register MI, Add-on package?
+utilities.unregisterMiAddon=Cancel MI, Add-on package
+utilities.confirmUnregisterMiAddon=Are you sure you want to cancel MI, Add-on package?
+utilities.confirmOpenSubs1=Confirm to open 1-way for subscriber
+utilities.confirmPayment=Please click confirm after you have successfully made the payment!
+utilities.recharge=Top-up
+utilities.rechargeHistory=Top-up history
+utilities.rechargeInfo=Top-up information
+utilities.account=Account
+utilities.telcoAccount=Telecom account
+utilities.amountPerSubscriber=Amount (per subscriber)
+utilities.enterAmount=Enter payment amount, minimum 5,000 VND
+utilities.loadList=Load list
+utilities.payment=Payment
+utilities.numberOfSubscribers=Number of subscribers
+utilities.confirmChangePackage=Are you sure you want to cancel/change package for
+utilities.subscribers=subscribers
+utilities.oldPackage=Old package
+utilities.newPackage=New package
+utilities.cancel=Cancel
+utilities.totalPayment=Total payment
+utilities.payNow=Pay now
+utilities.importOpenSubs2=Import list of subscribers open 2-way
+utilities.importRechargeList=Import top-up subscriber list
+utilities.rechargeSubscriber=Top-up subscriber
+utilities.note=Note
+utilities.changePackageNote=The system will cancel the selected package before registering a new one. If registering the new package fails (due to insufficient balance,...), the selected package will be canceled. Please ensure your account has enough balance to change successfully.
+utilities.subscriber=Subscriber
+utilities.action=Action
+utilities.amount=Amount
+utilities.totalAmount=Total amount
+utilities.status=Status
+utilities.description=Description
+utilities.time=Time
+
+# Block Utilities System
+blockUtilities.title=Block/Unblock subscriber
+blockUtilities.blockOneWay=Block 1-way
+blockUtilities.unblockOneWay=Unblock 1-way
+blockUtilities.unblockTwoWay=Unblock 2-way
+blockUtilities.blockSubscriber=Block subscriber
+blockUtilities.loadSubscriberList=Load subscriber list
+blockUtilities.blockOneWayAction=Block 1-way
+blockUtilities.blockTwoWayAction=Block 2-way
+blockUtilities.export=Export
+blockUtilities.unblockOneWaySubscriber=Unblock 1-way subscriber
+blockUtilities.unblockTwoWaySubscriber=Unblock 2-way subscriber
+blockUtilities.unblockOneWayAction=Unblock 1-way
+blockUtilities.unblockTwoWayAction=Unblock 2-way
+blockUtilities.importBlockSubsList=Import blocked subscriber list
+blockUtilities.importSubscriberList=Import subscriber list
+blockUtilities.downloadTemplateFile=Download template file
+blockUtilities.templateFileName=List_Subs.xlsx
+blockUtilities.validSubscribers=Valid subscribers
+blockUtilities.invalidSubscribers=Invalid subscribers
+blockUtilities.fileWrongFormat=File not in correct xlsx format
+blockUtilities.fileInsufficientData=File missing data
+blockUtilities.subscriberNumber=Subscriber number
+blockUtilities.action=Action
+blockUtilities.result=Result
+blockUtilities.reason=Reason
+blockUtilities.totalCount=Total:
+blockUtilities.confirmBlockOneWay=Confirm block 1-way subscriber
+blockUtilities.confirmBlockTwoWay=Confirm block 2-way subscriber
+blockUtilities.importUnblockOneWayList=Import list of subscribers to unblock 1-way
+blockUtilities.importUnblockTwoWayList=Import list of subscribers to unblock 2-way
+
+# Common Messages Extended
+common.stt=No.
+common.noResultsFound=No results found
+common.showingPage=Showing page _PAGE_ of _PAGES_
+common.first=First
+common.last=Last
+common.next=Next
+common.previous=Previous
+common.showEntries=Show _MENU_ entries
+common.noData=No data
+
+# Account System
+account.title=Account
+account.updateBusinessInfo=Update business information
+account.personalInfo=1. Personal information
+account.businessInfo=2. Business information
+account.fullName=Full name
+account.email=Email
+account.phoneNumber=Phone number
+account.idNumber=ID number
+account.businessName=Business name
+account.businessLicense=Business license number
+account.companyAddress=Company address
+account.idCardPhoto=Representative’s ID photo
+account.businessLicensePhoto=Business license photo
+account.uploadImage=Upload image
+account.dragDropFile=Drag & drop or open file
+account.here=here
+account.fileRequirement=File jpg, png,... max 3MB
+account.agreementText=Individuals and Businesses commit to using the account for managing subscriber information for the right purposes and take full responsibility for all information related to subscribers of the enterprise as well as usage details of subscribers registered and managed by the enterprise (as displayed in the granted account).
+account.termsDetail=Usage terms detail
+account.required=*
+account.verifyPhone=Verify phone number
+account.enterOtpCode=Enter OTP code
+account.getOtpCode=Get OTP code
+account.error.avatarWrongFormat=Profile photo file not in correct format
+account.error.avatarTooLarge=Profile photo file size exceeds 3MB
+account.error.idCardFrontWrongFormat=Front side ID file not in correct format
+account.error.idCardFrontTooLarge=Front side ID file size exceeds 3MB
+account.error.idCardBackWrongFormat=Back side ID file not in correct format
+account.error.idCardBackTooLarge=Back side ID file size exceeds 3MB
+account.error.businessLicenseWrongFormat=Business license file not in correct format
+account.error.businessLicenseTooLarge=Business license file size exceeds 3MB
+account.error.authorizationWrongFormat=Authorization document file not in correct format
+account.error.authorizationTooLarge=Authorization document file size exceeds 3MB
+account.error.registrationFormWrongFormat=Account registration form file not in correct format
+account.error.registrationFormTooLarge=Account registration form file size exceeds 3MB
+account.status.approved=*Personal information has been approved!
+
+# Common Export Message
+common.export=Export
+common.download=Download
+account.error.businessNameRequired=Please enter business name
+account.error.taxCodeRequired=Please enter tax code
+account.error.businessLicenseNumberRequired=Please enter business license number
+account.error.establishmentDateRequired=Please enter establishment date
+account.error.establishmentDateInvalid=Establishment date cannot be later than today
+account.error.businessPhoneInvalid=Invalid business phone number
+account.error.businessEmailInvalid=Invalid business email
+account.error.addressRequired=Please select Province/City, District and Ward
+account.error.detailAddressRequired=Please enter detailed address
+account.error.businessLicenseImageRequired=Please upload business license image
+account.error.businessLicenseDuplicate=Business license already exists. Please check again
+account.error.phoneInvalid=Invalid phone number
+account.error.otpRequired=You haven’t entered OTP
+account.success.businessDeleteRequest=Business delete request submitted successfully - 
+account.status.approved=*Personal information has been approved!
+account.status.pending=*Personal information is under review!
+account.status.rejected=*Account information was rejected! Please contact customer service for support!
+account.selectRepresentativePhone=Select representative subscriber number
+account.otpInstructionUpdate=Please enter the OTP sent to the enterprise’s representative subscriber to confirm update
+account.confirmDeleteEnterprise=Are you sure you want to request deletion?
+account.enterprise=Enterprise
+account.businessLicenseNumber=Business license number
+account.businessInfo=2. Business information
+
+common.confirm=Confirm
+common.enterCode=Enter code
+survey.title=Survey
+survey.description=To serve you better, we kindly ask you to provide service quality feedback
+survey.question1=1. Every month, what difficulties does your enterprise usually face?
+survey.option.topup=Top-up for SIM
+survey.option.checkStatus=Check SIM status (blocked, remaining balance...)
+survey.option.newConnection=New SIM connection
+survey.option.blockUnblock=Block/Unblock SIM operations
+survey.option.buySim=Buy new SIM
+survey.option.invoiceManagement=Invoice management
+survey.option.contractManagement=Contract management
+
+common.close=Close
+
+# APN JS Messages
+apn.js.noDataAvailable=No data available
+
+# Dashboard Telco Messages
+dashboard.telco.title=Telco Dashboard
+dashboard.telco.totalSubscribers=TOTAL SUBSCRIBERS
+dashboard.telco.increasePercent=+0%
+dashboard.telco.newThisMonth=NEW THIS MONTH
+dashboard.telco.totalDataThisMonth=TOTAL DATA THIS MONTH
+dashboard.telco.dataTooltip=Data statistics as of dd/mm/yyyy
+dashboard.telco.totalCostMonth=TOTAL COST THIS MONTH
+dashboard.telco.subscriberDistribution=SUBSCRIBER DISTRIBUTION
+dashboard.telco.activeSubscribers=ACTIVE SUBSCRIBERS
+dashboard.telco.warnings=Warnings
+dashboard.telco.cumulativeSubscribers=CUMULATIVE SUBSCRIBERS
+dashboard.telco.dataUsage=DATA USAGE
+dashboard.telco.dataUsageGB=Data used (GB)
+dashboard.telco.filterByDay=By day
+dashboard.telco.filterByMonth=By month
+dashboard.telco.postpaidStatistics=POSTPAID STATISTICS
+dashboard.telco.subscriberDistributionMap=Subscriber distribution
+dashboard.telco.topDataUsers=TOP DATA USERS THIS MONTH
+
+# Warning Messages
+dashboard.warning.redAlert=Red alert warning
+dashboard.warning.prepaidExpired=Prepaid expiry warning
+dashboard.warning.blockDebit=Block/debit warning
+dashboard.warning.packageExpired=Package expiry warning
+dashboard.warning.lowBalance=Main account < 1000 VND
+dashboard.warning.lowRemainingData=Remaining data below 20%
+dashboard.warning.subscribers=Subscribers
+dashboard.warning.details=Details
+
+# Postpaid Statistics
+dashboard.postpaid.startBalance=Total opening balance
+dashboard.postpaid.adjustAmount=Total adjustments
+dashboard.postpaid.payment=Total paid
+dashboard.postpaid.excessCash=Total excess cash
+dashboard.postpaid.remainAmount=Total remaining debt
+dashboard.postpaid.hotCharge=Temporary hot charge
+
+# Features Menu
+dashboard.features.buyDataPackage=Buy data package
+dashboard.features.topup=Top-up
+dashboard.features.blockUnblock=Block/Unblock subscriber
+dashboard.features.changePackage=Change package
+dashboard.features.cancelAutoRenewal=Cancel auto-renewal
+dashboard.features.orderSim=Order/Replace SIM
+dashboard.features.monitoringMap=Monitoring map
+
+# Table Column Headers
+dashboard.columnSTT=No.
+dashboard.columnSubscriberNumber=Subscriber number
+dashboard.columnContractCode=Contract code
+dashboard.columnExpiryDate=Contract expiry date
+dashboard.columnUpdateTime=Update time
+dashboard.columnThresholdExceeded=Usage threshold exceeded (%)
+dashboard.columnServicePackage=Service package
+dashboard.columnDataRemaining=Remaining data
+dashboard.columnExpiryDatePackage=Expiry date
+dashboard.dataLimitExceeded=Data limit exceeded
+dashboard.dataRemaining=Remaining
+
+# Dashboard Table Headers
+dashboard.table.subscriber.number=Subscriber number
+dashboard.table.usage.gb=Usage (GB)
+
+# Dashboard Modal Messages
+dashboard.modal.lowBalance.title=List of subscribers with main account < 1000 VND
+dashboard.modal.subscriber.number=Subscriber number
+dashboard.modal.root.account=Main account
+dashboard.modal.block.status=Block status
+dashboard.modal.activity.status=Activity status
+dashboard.modal.update.time=Update time
+dashboard.modal.contract.code=Contract code
+dashboard.modal.redAlert.title=List of subscribers under red alert
+dashboard.modal.redAlert.note=Note: If consumption limit reaches 95%, subscriber will be blocked 1-way (Data is updated every hour)
+dashboard.modal.consumption.threshold=Consumption threshold
+dashboard.modal.prepaidExpired.title=List of subscribers with expired prepaid contract
+dashboard.modal.prepaidExpired.note=Note: Data is reported on the 7th of each month. If you already made prepaid payment, please ignore this list!
+dashboard.modal.prepaid.expiry.date=Prepaid expiry date
+
+# Zalo Chat Widget
+zalo.welcome.message=Happy to support you!
+
+# Subscriber Export Additional Fields
+subscriber.hybridAmount=Hybrid amount
+subscriber.miAddonPromotion=MI-Addon package, Promotion program
+subscriber.debtStartPeriod=Debt at the beginning of period
+subscriber.paidCharges=Charges paid
+subscriber.remainingDebt=Remaining debt
+subscriber.adjustmentAmount=Adjustment amount
+subscriber.hotChargeEstimate=Estimated temporary charge
+subscriber.promotionName=Promotion name
+subscriber.promotionEffectiveDate=Promotion effective date
+subscriber.promotionExpiryDate=Promotion expiry date
+subscriber.promotionDescription=Promotion description
+subscriber.remainingData=Remaining data volume
+subscriber.remainingSMS=Remaining SMS volume
+subscriber.remainingVoice=Remaining voice volume
+subscriber.rootAccount=Root account
+subscriber.noDataToDisplay=No information to display
+subscriber.checkDataUsage=Check data usage
+subscriber.dataUsed=Data used
+subscriber.dataRemaining=Data remaining
+subscriber.error.dataFetchFailed=Failed to fetch data
+subscriber.status.active=Active
+subscriber.status.cancelled=Cancelled
+subscriber.promotionAccount=Promotion account
+subscriber.internalPromoAccount=Internal promotion account
+subscriber.otherAccount=Other account
+subscriber.updateDate=Update date
+subscriber.subscriberStatus=Subscriber status
+
+# Subscriber Import Messages
+subscriber.import.max.500.error=Searching more than 500 subscribers is not supported
+subscriber.import.no.valid.numbers=No valid subscriber numbers
+subscriber.import.file.format.error=Invalid xlsx file format
+subscriber.import.file.insufficient.data=File does not contain sufficient data
+subscriber.import.no.valid.contracts=No valid contract numbers
+
+# Error Messages
+dashboard.excelExportError=Error when exporting Excel file
+
+# Pie Chart Status Labels
+dashboard.pieChart.active=active
+dashboard.pieChart.block1Way=one-way blocked
+dashboard.pieChart.block2Way=two-way blocked
+dashboard.pieChart.cancelled=cancelled
+dashboard.pieChart.prepaid=prepaid
+dashboard.pieChart.postpaid=postpaid
+
+# Subscriber Status Descriptions
+dashboard.status.normal=Normal
+dashboard.status.notActivate=Not activated
+dashboard.status.blockOneWaySystem=One-way blocked by system
+dashboard.status.blockTwoWaySystem=Two-way blocked by system
+dashboard.status.blockOneWayUser=One-way blocked by customer request
+dashboard.status.blockTwoWayUser=Two-way blocked by customer request
+dashboard.status.blockOneWayUserOneWaySystem=One-way blocked by customer request, one-way blocked by system
+dashboard.status.blockOneWayUserTwoWaySystem=One-way blocked by customer request, two-way blocked by system
+dashboard.status.blockTwoWayUserOneWaySystem=Two-way blocked by customer request, one-way blocked by system
+dashboard.status.blockTwoWayUserTwoWaySystem=Two-way blocked by customer request, two-way blocked by system
+dashboard.status.blockedTelecomUsage=Blocked telecom usage
+
+# Subscriber Management
+subscriber.title=Subscriber management
+subscriber.systemAlert=CMP system is experiencing service interruptions due to CM subsystem overload in the BCCS system. The technical team is urgently handling it.
+subscriber.advancedSearch=Advanced search
+
+
+
+# Subscriber Table Headers
+subscriber.stt=No.
+subscriber.phoneNumber=Phone Number
+subscriber.servicePackage=Service Package
+subscriber.promotionCode=Promotion Code
+subscriber.contractCode=Contract Code
+subscriber.customerCode=Customer Code
+subscriber.simSerial=SIM Serial
+subscriber.blockStatus=Block Status
+subscriber.activation=Activation
+subscriber.connection=Connection
+subscriber.serviceType=Service Type
+subscriber.check=Check
+subscriber.subscriberCode=Subscriber Code
+
+# Subscriber Search Form
+subscriber.searchInfo=Search Information
+subscriber.serialLabel=Serial
+subscriber.inputPlaceholder=Enter content
+subscriber.serviceType=Service Type
+subscriber.selectOption=-- Select --
+subscriber.postpaid=Postpaid
+subscriber.prepaid=Prepaid
+subscriber.servicePackageUsing=Service Package in Use
+subscriber.blockCutStatus=Block/Cut Status
+subscriber.selectServiceType=-- Please select service type --
+subscriber.activationDate=Activation Date
+subscriber.fromDate=From Date
+subscriber.toDate=To Date
+subscriber.connectionDate=Connection Date
+subscriber.businessLicenseNumber=Business License Number
+subscriber.selectBusinessLicense=-- Select Business License Number --
+subscriber.subscriberCount=Subscribers
+subscriber.export=Export
+subscriber.reset=Reset
+subscriber.search=Search
+
+# Subscriber Status Messages  
+subscriber.status.unknown=Unknown
+subscriber.status.normal=Normal
+subscriber.status.block1WaySystem=Blocked one-way by system
+subscriber.status.block2WaySystem=Blocked two-way by system
+subscriber.status.notActivated=Not activated
+subscriber.status.block1WayCustomer=Blocked one-way by customer request
+subscriber.status.block1WayCustomer1WaySystem=Blocked one-way by customer request, blocked one-way by system
+subscriber.status.block1WayCustomer2WaySystem=Blocked one-way by customer request, blocked two-way by system
+subscriber.status.block2WayCustomer=Blocked two-way by customer request
+subscriber.status.block2WayCustomer1WaySystem=Blocked two-way by customer request, blocked one-way by system
+subscriber.status.block2WayCustomer2WaySystem=Blocked two-way by customer request, blocked two-way by system
+subscriber.status.block1WayDebt=Blocked one-way due to debt
+subscriber.status.block2WayDebt=Blocked two-way due to debt
+subscriber.status.block1WayCustomer1WayDebt=Blocked one-way by customer request, blocked one-way due to debt
+subscriber.status.block1WayCustomer2WayDebt=Blocked one-way by customer request, blocked two-way due to debt
+subscriber.status.block2WayCustomer1WayDebt=Blocked two-way by customer request, blocked one-way due to debt
+subscriber.status.block2WayCustomer2WayDebt=Blocked two-way by customer request, blocked two-way due to debt
+
+# Subscriber Validation Messages
+subscriber.error.maxPhoneNumbers=Search not supported for more than 100,000 phone numbers
+subscriber.error.maxSerials=Search not supported for more than 100,000 serial numbers
+subscriber.error.combinedSearch=Search not supported with both multiple phone numbers and multiple serial numbers at the same time
+subscriber.error.activationDateRange=You must select the activation start date earlier than the end date
+subscriber.error.connectionDateRange=You must select the connection start date earlier than the end date
+
+# Subscriber UI Messages
+subscriber.noDataToDisplay=No information to display
+subscriber.checkData=Check LL
+subscriber.dataUsed=Data Used
+subscriber.dataRemaining=Data Remaining
+subscriber.viewDetail=Detail
+subscriber.totalRecords=Total
+subscriber.records=records
+
+# Subscriber Export Messages
+subscriber.export.minMaxRecords=The minimum records per file is 1 and the maximum is 5000
+subscriber.export.selectDataType=Please select data type
+subscriber.export.selectDateRange=Please select From/To date
+subscriber.export.fromDateLessOrEqual=Please select From Date earlier than or equal to To Date
+subscriber.export.maxDateRange=Please select a date range within 31 days
+subscriber.export.fromDateLessThanCurrent=Please select From Date earlier than Current Date
+subscriber.export.toDateLessThanCurrent=Please select To Date earlier than Current Date
+subscriber.export.action=Action
+subscriber.export.download=Download
+subscriber.export.noData=No data
+subscriber.export.getDataFailed=Failed to retrieve data
+subscriber.export.status.cancelled=Cancelled
+
+# Additional Error Messages  
+subscriber.error.max10kPhoneNumbers=Search not supported for more than 10,000 phone numbers
+subscriber.error.max10kSerials=Search not supported for more than 10,000 serial numbers
+
+# Subscriber Info Messages
+subscriber.info.yes=Yes
+subscriber.info.no=No  
+subscriber.info.dynamicIP=Dynamic IP
+subscriber.info.normal=Normal
+
+# Subscriber Status Choices
+subscriber.status.choose=-- Select --
+subscriber.status.chooseServiceType=-- Please select service type --
+subscriber.status.block_2way_debt=Blocked two-way due to debt
+subscriber.status.block_1way_debt=Blocked one-way due to debt
+subscriber.status.not_activated=Not activated
+subscriber.status.block_1way_customer=Blocked one-way by customer request
+subscriber.status.block_1way_customer_1way_debt=Blocked one-way by customer request, blocked one-way due to debt
+subscriber.status.block_1way_customer_2way_debt=Blocked one-way by customer request, blocked two-way due to debt
+subscriber.status.block_2way_customer=Blocked two-way by customer request
+subscriber.status.block_2way_customer_2way_debt=Blocked two-way by customer request, blocked two-way due to debt
+subscriber.status.block_2way_customer_1way_debt=Blocked two-way by customer request, blocked one-way due to debt
+subscriber.status.block_1way_customer_1way_system=Blocked one-way by customer request, blocked one-way by system
+subscriber.status.block_1way_customer_2way_system=Blocked one-way by customer request, blocked two-way by system
+subscriber.status.block_2way_customer_1way_system=Blocked two-way by customer request, blocked one-way by system
+subscriber.status.block_2way_customer_2way_system=Blocked two-way by customer request, blocked two-way by system
+
+# Additional Option Messages
+subscriber.option.selectService=-- Please select service type --
+
+# Export Column Headers
+subscriber.export.column.hybridAmount=Hybrid Amount
+subscriber.export.column.miAddonPromo=MI-Addon Package, Promotion
+subscriber.export.column.debtBeginPeriod=Debt at Beginning of Period
+subscriber.export.column.paidAmount=Paid Amount
+subscriber.export.column.remainingDebt=Remaining Debt
+subscriber.export.column.adjustmentAmount=Adjustment Amount
+subscriber.export.column.hotChargeTemp=Temporary Hot Charge
+subscriber.export.column.promoName=Promotion Name
+subscriber.export.column.promoEffectDate=Promotion Effective Date
+subscriber.export.column.promoExpireDate=Promotion Expiration Date
+subscriber.export.column.promoDescription=Promotion Description
+subscriber.export.column.dataRemaining=Remaining Data
+subscriber.export.column.smsRemaining=Remaining SMS
+subscriber.export.column.voiceRemaining=Remaining Voice
+
+# Subscriber Modal (Export)
+subscriber.modal.export.title=Export Excel File
+subscriber.modal.export.dataType=Data Type
+subscriber.modal.export.dataType.info=Subscriber Information
+subscriber.modal.export.dataType.usage=Usage History
+subscriber.modal.export.unit=Unit
+subscriber.modal.export.recordsPerFile=Records per File
+subscriber.modal.export.recordsPerFile.note=** Maximum 5000 records per file
+subscriber.modal.export.time=Time
+subscriber.modal.export.time.note=** Within the last 31 days
+subscriber.modal.export.createFiles=Create Data Files
+subscriber.modal.export.table.index=No.
+subscriber.modal.export.table.file=File
+subscriber.modal.export.table.action=Action
+subscriber.modal.export.table.noData=No data yet
+subscriber.modal.export.placeholder.recordsPerFile=Maximum 5000 records per file
+subscriber.modal.export.placeholder.fromDate=From Date
+subscriber.modal.export.placeholder.toDate=To Date
+
+# Subscriber Modal (Advanced Search)
+subscriber.modal.advanced.title=Advanced Search
+subscriber.modal.advanced.phoneNumber=Phone Number
+subscriber.modal.advanced.serial=Serial
+subscriber.modal.advanced.activationDate=Activation Date
+subscriber.modal.advanced.activityStatus=Activity Status
+subscriber.modal.advanced.all=All
+subscriber.modal.advanced.active=Active
+subscriber.modal.advanced.block1=Blocked one-way
+subscriber.modal.advanced.block2=Blocked two-way
+subscriber.modal.advanced.debt=Debt
+
+# Subscriber Modal (Import Lists)
+subscriber.modal.import.subs.title=Search by Subscriber List
+subscriber.modal.import.subs.uploadList=Upload Subscriber List
+subscriber.modal.import.subs.sampleName=List_Subs.xlsx
+subscriber.modal.import.serial.title=Search by Serial List
+subscriber.modal.import.serial.uploadList=Upload Serial List
+subscriber.modal.import.serial.sampleName=List_Serial.xlsx
+subscriber.modal.import.account.title=Search Contracts
+subscriber.modal.import.account.uploadList=Upload Contract List
+subscriber.modal.import.account.sampleName=List_Account.xlsx
+subscriber.modal.import.sampleFile=Download Sample File
+subscriber.modal.download=Download
+
+# Subscriber Info Modal (Addon List)
+subscriber.modal.info.addonListTitle=MI, Add-on, and Promotion List
+subscriber.modal.info.addon.index=No.
+subscriber.modal.info.addon.serviceName=Service Name
+subscriber.modal.info.addon.remainingVolume=Remaining Volume
+subscriber.modal.info.addon.expireDate=Expiration Date
+subscriber.modal.info.addon.detail=Detail
+
+# Import File Messages
+subscriber.import.serialNumber=Serial Number
+subscriber.import.contractNumber=Contract Number
+subscriber.import.fileWrongFormat=File is not in correct xlsx format
+subscriber.import.fileNotEnoughData=File does not contain enough data
+subscriber.import.maxSerials=Search not supported for more than 500 serials
+subscriber.import.noValidSerial=No valid serial found
+subscriber.import.maxSubscribers=Search not supported for more than 500 subscribers
+subscriber.import.noValidSubscriber=No valid subscriber found
+
+# BuySim module keys
+order.title=Order
+order.sim=Order SIM
+order.changeSim=Change SIM
+stepContainer.notFound=Step-container not found for groupID:
+
+# Customer info
+customer.info.title=1. Customer Information
+customer.info.representative=Representative's Full Name
+customer.info.businessLicense=Business License Number
+customer.info.phone=Contact Phone Number
+customer.info.businessName=Business Name
+customer.info.support=** Viettel will contact you via this phone number to support your order.
+customer.info.supportChangeSim=** Viettel will contact you via this phone number to support SIM replacement.
+
+# SIM delivery method
+delivery.title=2. SIM Delivery Method
+delivery.store=Receive at Store
+delivery.address=Deliver to Customer's Address
+delivery.storeNote=** Select a Viettel store area to receive your SIM
+
+# Location
+location.province=Province/City
+location.district=District
+location.ward=Ward/Commune
+location.detailAddress=Detailed Address
+
+# Product info
+product.info.title=3. Product Information
+product.package=Package
+product.simQuantity=Number of SIMs
+product.reason=Connection Reason
+product.selectPackage=Select Package
+product.selectReason=Select Reason
+product.add=Add
+
+# Payment method  
+payment.title=4. Payment Method
+payment.cod=- Cash on Delivery
+
+# Terms and conditions
+terms.agreement=I agree to the purchase and payment terms.
+terms.service1=Provide other Viettel services arising after activation and/or Viettel’s partnership services
+terms.service2=Organize promotion and trade introduction activities
+terms.service3=Market research, surveys, brokerage
+
+# Order success
+order.success.title=Order Successful
+order.success.code=Order Code:
+order.success.contact=Viettel staff will contact you for delivery.
+order.success.thanks=Thank you for using Viettel's service.
+
+# Change SIM specific
+changeSim.title=3. Confirm SIM Replacement
+changeSim.infoTitle=3. Subscriber Information for SIM Replacement
+changeSim.success.title=SIM Replacement Order Successful
+
+# Step titles
+step.customerInfo=Customer Information
+step.subscriberInfo=Subscriber Information
+step.selectSimAndPlan=Select Number of SIMs and Package
+step.confirmOrder=Confirm Order
+step.confirmChangeSim=Confirm SIM Replacement
+
+# Subscriber list
+subscriber.list.title=Subscriber List
+
+# Subscriber information for change SIM
+subscriber.change.info=1. Subscriber Information for Replacement
+subscriber.change.upload=Upload Subscriber List for SIM Replacement
+subscriber.change.uploadList=Upload List
+subscriber.change.sampleFile=Download Sample File
+subscriber.change.validCount=Valid Subscribers
+subscriber.change.invalidCount=Invalid Subscribers
+
+# Subscriber selection
+subscriber.select.title=1. Select Subscribers for Package A
+subscriber.select.choose=Select Subscriber
+subscriber.select.random=Select Random Subscriber
+subscriber.select.quantityNeeded=Number of Subscribers to Buy
+subscriber.select.search=Search Subscriber
+subscriber.select.searchPlaceholder=Please enter at least 4 digits
+
+# Details modal
+detail.title=Details
+detail.stt=No.
+detail.isdn=ISDN
+detail.productName=Product Name
+detail.result=Result
+detail.reason=Reason
+
+# Finish modal
+finish.title=Order Result
+finish.productName=Product Name
+finish.quantity=Quantity
+finish.successOrders=Successful Orders
+finish.failedOrders=Failed Orders
+finish.end=Finish
+
+# Navigation
+nav.continue=Continue
+nav.back=Back
+nav.confirm=Confirm
+nav.close=Close
+
+# Notification
+notification.title=Notification
+
+# Validation messages for BuySim
+validation.representative.required=Please enter representative’s name
+validation.businessLicense.required=Please enter business license number
+validation.phone.required=Please enter contact phone number
+validation.phone.format=Invalid phone number format
+validation.businessName.required=Please enter business name
+validation.deliveryMethod.required=Please select SIM delivery method
+validation.address.required=Please select delivery address
+validation.detailAddress.required=Please enter detailed address
+validation.package.required=Please select package
+validation.simQuantity.required=Please enter number of SIMs
+validation.subscriber.quantity.invalid=Invalid number of subscribers selected
+
+# Additional option messages
+option.selectDistrict=District
+
+# Additional missing keys for order failure
+order.failure.title=Order Failed
+order.failure.message=Order was not successful. Please try again
+
+# Additional missing keys for address display
+address.prefix=- Address:
+
+# Additional missing keys for subscriber import
+subscriber.change.sampleFileName=List_Subs.xlsx
+subscriber.import.zeroCount=0
+subscriber.import.noData=No Data
+
+# Additional keys for change SIM display
+data.noData=No Data
+pagination.totalRecords=Total {0} records
+
+# Navigation buttons
+nav.continue=Continue
+nav.back=Back
+nav.confirm=Confirm
+
+# Customer information form
+customer.info.section.title=1. Customer Information
+customer.info.representative.name=Representative's Full Name
+customer.info.businessId=Business ID
+customer.info.phone=Contact Phone Number
+customer.info.businessName=Business Name
+customer.info.contact.note=** Viettel will contact you via this phone number to support the order.
+
+# Delivery method section
+delivery.section.title=2. SIM Delivery Method
+delivery.method.store=Receive at Store
+delivery.method.address=Deliver to Customer's Address
+delivery.store.note=** Select a Viettel store area to receive your SIM
+
+# Required field marker
+field.required=*
+
+# Placeholder for detailed address
+address.detail.placeholder=Detailed Address
+
+# Product information section
+product.info.section.title=1. Product Information
+product.package=Package
+product.package.select=Select Package
+product.sim.quantity=Number of SIMs
+product.connection.reason=Connection Reason
+product.connection.reason.select=Select Reason
+action.add=Add
+action.delete=Delete
+
+# Change SIM specific messages
+customer.info.changeSim.note=** Viettel will contact you via this phone number to support the SIM replacement.
+
+# Confirm Change SIM page
+confirm.changeSim.delivery.title=2. SIM Delivery Method
+confirm.changeSim.subscriber.title=3. Subscriber Information for SIM Replacement
+confirm.changeSim.subscriber.count=Number of Subscribers:
+confirm.changeSim.table.stt=No.
+confirm.changeSim.table.subscriber=Subscriber Number
+confirm.changeSim.payment.title=4. Payment Method
+confirm.changeSim.payment.cod=- Cash on Delivery
+confirm.changeSim.phone.short=Phone
+
+# Change SIM modal messages
+changeSim.success.orderId=Order ID:
+changeSim.success.message1=Viettel staff will contact you for delivery.
+changeSim.success.message2=Thank you for using Viettel’s service.
+changeSim.fail.title=SIM Replacement Order Failed
+changeSim.fail.message=The SIM replacement order was not successful. Please try again.
+action.finish=Finish
+notification.title=Notification
+
+# BuySim.js messages
+business.license.missing=The account does not have a business license or has not been approved.
+business.license.updateRequired=You do not have a business license or it has not been approved. Please update it on the Account Information page!
+address.display.prefix=- Address:
+notification.no.data=No Data
+
+# BuySim Error Messages
+buySim.error.stepContainerNotFound=Step-container not found for groupID
+
+# Common BuySim Messages
+buySim.productName=Product Name
+buySim.quantity=Quantity
+buySim.result=Result
+buySim.reason=Reason
+buySim.close=Close
+buySim.orderResult=Order Result
+buySim.successfulOrders=Successful Orders
+buySim.failedOrders=Failed Orders
+buySim.finish=Finish
+buySim.chooseSubscriber=Select Subscriber
+buySim.randomSubscriber=Select Random Subscriber
+buySim.subscribersNeeded=Number of Subscribers to Buy
+buySim.searchSubscriber=Search Subscriber Number
+buySim.searchPlaceholder=Please enter at least 4 digits
+buySim.search=Search
+buySim.chooseSubscriberForPlan=1. Select Subscriber Numbers for Plan A
+
+pagination.total.records=Total {0} records
+
+# PrepayCharges Messages
+prepayCharges.title=Prepay Charges
+prepayCharges.info=Prepay Charges Information
+prepayCharges.noData=No Data!
+prepayCharges.phoneNumber=Subscriber Number
+prepayCharges.package=Package
+prepayCharges.promotionCode=Promotion Code
+prepayCharges.monthsToPrepay=Number of Months to Prepay
+prepayCharges.priceIncludesBonus=*Price includes promotion percentage
+prepayCharges.payment=Payment
+prepayCharges.totalPayment=Total Payment:
+prepayCharges.payButton=Pay
+prepayCharges.confirmTitle=Confirm Prepay for Subscriber
+prepayCharges.confirmQuestion1=Are you sure you want to
+prepayCharges.confirmQuestion2=prepay {0} months for subscriber {1}?
+prepayCharges.cancel=Cancel
+prepayCharges.confirm=Confirm
+prepayCharges.successMessage=Please press confirm after you have successfully completed the payment!
+prepayCharges.confirmQuestion2=prepay
+prepayCharges.confirmMonths=months
+prepayCharges.confirmForSubscriber=for subscriber
+prepayCharges.months=Months
+prepayCharges.bonus=Bonus
+prepayCharges.promotion=Promotion
+prepayCharges.subtitle=Prepay for Postpaid Subscriber
+prepayCharges.search=Search
+prepayCharges.enterSubscriber=Enter Postpaid Subscriber
+prepayCharges.notePostpaid=*Note: Only applicable for postpaid subscribers.
+
+# Location System
+location.title=Monitoring Map
+location.searchPlaceholder=Enter content
+location.resetButton=Reset
+location.searchButton=Search
+location.serialNumber=No.
+location.subscriberNumber=Subscriber Number
+
+# PayPostpaidBill JavaScript Messages
+payPostpaidBill.js.enterContractCode=Please enter contract code
+payPostpaidBill.js.contractNotFound=Contract information not found!
+payPostpaidBill.js.noData=No Data!
+payPostpaidBill.js.enterPaymentAmount=Please enter payment amount
+payPostpaidBill.js.cannotPayMoreThanDebt=Cannot pay an amount greater than the total outstanding debt because the contract status is Cancelled
+payPostpaidBill.js.paymentReason=Postpaid charge payment
+payPostpaidBill.js.paymentLinkFailed=Failed to get payment link
+payPostpaidBill.js.cannotGetIsdn=Cannot retrieve ISDN
+payPostpaidBill.js.cannotGetOrderId=Cannot retrieve orderId
+payPostpaidBill.js.paymentFailed=Payment failed, please try again
+payPostpaidBill.js.statusSuccess=Success
+payPostpaidBill.js.statusFailed=Failed
+payPostpaidBill.js.zeroAmount=0 VND
+
+# PayPostpaidBill Detail Page
+payPostpaidBill.detail.title=Postpaid Bill Payment
+payPostpaidBill.detail.pageHeader=Postpaid Bill Payment
+payPostpaidBill.detail.contractNumber=Contract Number
+payPostpaidBill.detail.totalDebt=Total Outstanding Charges
+payPostpaidBill.detail.paymentAmount=Payment Amount
+payPostpaidBill.detail.status=Status
+payPostpaidBill.detail.reason=Reason
+payPostpaidBill.detail.executionTime=Execution Time
+payPostpaidBill.detail.historyButton=Payment History
+payPostpaidBill.detail.continueButton=Continue Payment
+
+# PayPostpaidBill FormSearch
+payPostpaidBill.formSearch.title=Postpaid Bill Payment
+payPostpaidBill.formSearch.contractCode=Contract Code
+payPostpaidBill.formSearch.contractPlaceholder=Enter Contract Code
+payPostpaidBill.formSearch.searchButton=Search
+payPostpaidBill.formSearch.resetButton=Reset
+
+# PayPostpaidBill Page
+payPostpaidBill.title=Postpaid Bill Payment
+payPostpaidBill.noData=No Data!
+payPostpaidBill.paymentInfo=Payment Information
+payPostpaidBill.contractNumber=Contract Number
+payPostpaidBill.totalDebt=Total Outstanding Charges
+payPostpaidBill.payment=Payment
+payPostpaidBill.paymentPlaceholder=Enter Payment Amount
+payPostpaidBill.paymentNotice=* For contracts blocked due to unpaid charges, please pay the exact required amount. Any overpaid amount will not be refunded.
+payPostpaidBill.paymentInfoBox=Payment Information
+payPostpaidBill.totalPayment=Total Payment:
+payPostpaidBill.payButton=Pay
+payPostpaidBill.confirmTitle=Confirm Bill Payment
+payPostpaidBill.confirmQuestion1=Are you sure you want to
+payPostpaidBill.confirmQuestion2=pay charges
+payPostpaidBill.confirmQuestion3=for contract number
+payPostpaidBill.confirmButton=Confirm
+payPostpaidBill.cancelButton=Cancel
+payPostpaidBill.successMessage=Please press confirm after you have successfully completed the payment!
+payPostpaidBill.confirmButtonSuccess=Confirm
+
+
+# PrepayCharges Bill Page
+prepayCharges.bill.title=Prepaid bill information for subscriber
+prepayCharges.bill.pageHeader=Prepaid bill information for subscriber
+prepayCharges.bill.subscriberNumber=Subscriber number
+prepayCharges.bill.packageCode=Package code
+prepayCharges.bill.promotionCode=Promotion code
+prepayCharges.bill.prepaidMonths=Number of prepaid months
+prepayCharges.bill.promotion=Promotion
+prepayCharges.bill.paymentAmount=Payment amount
+prepayCharges.bill.status=Status
+prepayCharges.bill.reason=Reason
+prepayCharges.bill.executionTime=Execution time
+prepayCharges.bill.historyButton=Prepaid payment history
+prepayCharges.bill.continueButton=Continue Prepaid Payment
+
+# PrepayCharges JavaScript Messages
+prepayCharges.js.enterPostpaidNumber=Please enter postpaid subscriber number
+prepayCharges.js.invalidPostpaidNumber=Invalid subscriber, please enter a postpaid number!
+prepayCharges.js.invalidSubscriber=Invalid subscriber entered
+prepayCharges.js.noPromotionProgram=No prepaid information available because the subscriber has no promotion program!
+prepayCharges.js.paymentLinkFailed=Failed to retrieve payment link
+prepayCharges.js.orderIdFailed=Failed to retrieve orderId
+prepayCharges.js.prepayFailed=Prepaid payment failed, please try again
+prepayCharges.js.month=Month
+prepayCharges.js.success=Success
+prepayCharges.js.failed=Failed
+prepayCharges.js.paymentFailed=Payment failed
+
+# BuySim PackData
+package.select.placeholder=-- Select package --
+reason.select.placeholder=Select reason
+package.item=Item
+package.unit.price=Unit price
+package.quantity=Quantity
+package.total.amount=Amount (VND)
+package.total.money=Total amount
+package.label=Package
+quantity.label=Quantity
+connection.reason.label=Connection reason
+reason.choose.package=Select package
+button.delete=Delete
+button.add=Add
+
+# BuySim ChooseSubs
+subscriber.choose.title=. Choose subscriber number for package
+subscriber.choose.label=Choose subscriber
+subscriber.random.label=Get random subscriber
+subscriber.needed.label=Number of subscribers needed
+subscriber.search.label=Search subscriber number
+subscriber.search.placeholder=Please enter at least 1 digit
+subscriber.search.button=Search
+subscriber.number.label=Subscriber number
+subscriber.stock.insufficient=Not enough subscribers in stock
+data.fetch.failed=Failed to fetch data
+subscriber.number.short=Sub no.
+subscriber.choose.column=Choose
+subscriber.not.found=No subscriber found
+search.input.required=Please enter at least 1 character to search
+subscriber.not.selected=You have not selected any subscriber
+
+# BuySim Confirm
+product.name=Product name
+unit.price=Unit price
+total.amount.vnd=Amount (VND)
+total.money=Total amount
+unit.vnd.vat=*Unit: VND, including VAT
+view.details=View details
+status.success=Success
+status.failed=Failed
+reason.unknown=Unknown
+
+# History Order/SIM Management
+history.order.sim.title=SIM order/change history
+history.table.no=No
+history.table.order.code=Order code
+history.table.order.type=Order type
+history.table.company.name=Company name
+history.table.representative=Representative
+history.table.phone.number=Phone number
+history.table.status=Status
+history.table.time=Time
+history.table.actions=Actions
+history.total=Total
+history.records=records
+history.records.per.page=Records/page
+
+# History Modal
+history.modal.order.details=Order details
+history.modal.order.code=Order code
+history.modal.order.time=Order time
+history.modal.representative=Representative
+history.modal.order.type=Order type
+history.modal.receive.method=Delivery method
+history.modal.phone.number=Phone number
+history.modal.status=Status
+history.modal.company=Company
+history.modal.delivery.address=Delivery address
+history.modal.product.list=Product list
+
+# History Search Form
+history.search.info=Search information
+history.search.order.code=Order code
+history.search.order.type=Order type
+history.search.order.type.order=Order
+history.search.order.type.change=Change SIM
+history.search.time=Time
+history.search.status=Status
+history.search.placeholder.enter.content=Enter content
+history.search.select.choose=--Select--
+history.search.placeholder.from.date=From date
+history.search.placeholder.to.date=To date
+history.search.status.success=Success
+history.search.status.failed=Failed
+history.search.button.search=Search
+history.search.button.reset=Reset
+
+# JavaScript messages for ManageOrder
+history.js.order.type.buy=Buy
+history.js.order.type.change=Change
+history.js.order.type.recharge=Recharge
+history.js.date.validation.error=Please select a valid time range (from-date must be earlier than to-date)
+history.js.no.data.display=No data to display
+history.js.no.data.found=No data found
+history.js.error.get.order.detail=Error retrieving order details
+history.js.status.success=Success
+history.js.button.detail=Details
+history.js.receive.company=Receive at company
+history.js.receive.home=Home delivery
+history.js.no.products=No products
+history.js.table.no=No
+history.js.table.package=Package
+history.js.table.sim.quantity=SIM quantity
+history.js.no.phone.numbers=No subscriber numbers
+history.js.table.phone.number=Subscriber number
+history.js.total=Total
+history.js.records=records
+history.js.receive.at.address=Receive at address
+history.js.receive.at.store=Receive at store
+
+# History Mi Addon messages
+history.miaddon.title=Mi, Add-on package history
+history.miaddon.table.gpkd=Business license
+history.miaddon.table.isdn=ISDN
+history.miaddon.table.package=Package
+history.miaddon.table.time=Time
+history.miaddon.search.info=Search information
+history.miaddon.search.gpkd.number=Business license number
+history.miaddon.search.subscriber=Subscriber
+history.miaddon.search.placeholder.content=Enter content
+history.miaddon.search.time=Time
+history.miaddon.search.from.date=From date
+history.miaddon.search.to.date=To date
+history.miaddon.search.action=Action
+history.miaddon.search.register.package=Register package
+history.miaddon.search.cancel.package=Cancel package
+history.miaddon.search.cancel.renewal=Cancel package renewal
+history.miaddon.search.change.package=Change package
+
+# JavaScript messages for HistoryMiAddon
+history.miaddon.js.date.validation.error=Start time cannot be greater than end time
+history.miaddon.js.no.data.display=No information to display
+history.miaddon.js.table.old.package=Old package
+history.miaddon.js.table.new.package=New package
+history.miaddon.js.table.description=Description
+history.miaddon.js.table.reason=Reason
+history.miaddon.js.status.failed=Failed
+history.miaddon.js.change.package.success=Package change successful
+history.miaddon.js.register.failed=Registration failed
+history.miaddon.js.unregister.failed=Unregistration failed
+history.miaddon.js.subscriber.not.eligible=Subscriber not eligible
+
+# History Prepay Charges messages
+history.prepay.title=Prepaid Charge History
+history.prepay.table.transaction.code=Transaction Code
+history.prepay.table.subscriber.number=Subscriber Number
+history.prepay.table.promotion=Promotion
+history.prepay.table.months=Number of Months
+history.prepay.table.bonus=Bonus
+history.prepay.table.amount=Amount
+history.prepay.table.description=Description
+history.prepay.search.transaction.code=Transaction Code
+
+# JavaScript messages for History Prepay Charges
+history.prepay.js.date.validation.error="From Date" must be less than or equal to "To Date"!
+history.prepay.js.status.failed=Failed
+history.prepay.js.bonus=Bonus
+history.prepay.js.months=month(s)
+history.prepay.js.promotion=Promotion
+history.prepay.js.no.data.display=No information to display
+history.prepay.js.export.error=Error retrieving data
+history.records.per.page=Records/page
+
+# History Post Paid Bill messages
+history.postpaid.title=Postpaid Bill Payment History
+history.postpaid.transaction.code=Transaction Code
+history.postpaid.contract.number=Contract Number
+history.postpaid.contract.code=Contract Code
+history.postpaid.amount=Amount
+history.postpaid.status=Status
+history.postpaid.description=Description
+history.postpaid.time=Time
+
+# JavaScript messages for History Post Paid Bill
+history.postpaid.js.no.data=No data
+history.postpaid.js.date.validation.error=Start time cannot be later than end time!
+history.postpaid.js.status.failed=Failed
+history.postpaid.js.no.data.display=No information to display
+history.postpaid.js.export.error=Error retrieving data
+history.postpaid.js.no.export.data=No data to export
+history.postpaid.js.excel.export.error=Error exporting Excel file
+
+# History Deposit messages
+history.deposit.title=Deposit History
+history.deposit.order.id=Order ID
+history.deposit.subscriber.number=Subscriber Number
+history.deposit.subscriber=Subscriber
+history.deposit.action=Action
+history.deposit.amount=Amount
+history.deposit.total.amount=Total Amount
+history.deposit.status=Status
+history.deposit.description=Description
+history.deposit.time=Time
+
+# JavaScript messages for History Deposit
+history.deposit.js.action.recharge=Recharge
+history.deposit.js.status.failed=Failed
+history.deposit.js.no.data.display=No information to display
+history.deposit.js.export.error=Error retrieving data
+history.deposit.js.no.export.data=No data to export
+history.deposit.js.excel.export.error=Error exporting Excel file
+
+# History Block/Unblock messages
+history.blockunblock.title=Block/Unblock History
+history.blockunblock.subscriber.number=Subscriber Number
+history.blockunblock.subscriber=Subscriber
+history.blockunblock.action=Action
+history.blockunblock.action.type=Action Type
+history.blockunblock.result=Result
+history.blockunblock.reason=Reason
+history.blockunblock.time=Time
+history.blockunblock.select.action.type=-- Select Action Type --
+history.blockunblock.open.one.way=One-way Unblock
+history.blockunblock.block.one.way=One-way Block
+history.blockunblock.open.two.way=Two-way Unblock
+history.blockunblock.block.two.way=Two-way Block
+
+# JavaScript messages for History Block/Unblock
+history.blockunblock.js.no.data=No data
+history.blockunblock.js.status.failed=Failed
+history.blockunblock.js.no.data.display=No information to display
+history.blockunblock.js.action.connect.sim=Connect SIM
+history.blockunblock.js.action.recharge=Recharge
+history.blockunblock.js.action.pay.contract=Contract Payment
+history.blockunblock.js.action.register.vas=Register VAS
+history.blockunblock.js.action.cancel.vas=Cancel VAS
+history.blockunblock.js.action.cancel.renewal=Cancel Renewal
+history.blockunblock.js.action.unknown=Unknown
+history.blockunblock.js.export.error=Error retrieving data
+history.blockunblock.js.no.export.data=No data to export
+history.blockunblock.js.excel.export.error=Error exporting Excel file
+
+# History APN messages
+history.apn.title=APN Assignment/Cancellation History
+history.apn.subscriber.number=Subscriber Number
+history.apn.action=Action
+history.apn.action.type=Action Type
+history.apn.apn=APN
+history.apn.ip=IP
+history.apn.start.date=Start Date
+history.apn.end.date=End Date
+history.apn.result=Result
+history.apn.failure.reason=Failure Reason
+history.apn.time=Time
+history.apn.select.action.type=-- Select Action Type --
+history.apn.assign.default.apn=Assign Default APN
+history.apn.assign.private.apn=Assign Private APN/IP
+history.apn.cancel.default.apn=Cancel Default APN
+history.apn.cancel.private.apn=Cancel Private APN/IP
+
+# JavaScript messages for History APN
+history.apn.js.date.validation.error=Start time cannot be later than end time
+history.apn.js.dynamic.ip=Dynamic IP
+history.apn.js.status.failed=Failed
+history.apn.js.no.data.display=No information to display
+history.apn.js.export.error=Error retrieving data
+history.apn.js.no.export.data=No data to export
+history.apn.js.excel.export.error=Error exporting Excel file
+
+# Feedback messages
+feedback.title=Feedback
+feedback.dear.customer=Dear Customer,
+feedback.thank.you.message=Thank you sincerely for trusting and choosing to use the CMP system. We always welcome feedback and suggestions from customers to improve system quality and serve you better.
+feedback.fullname.required=Full Name *
+feedback.company.name.required=Company Name *
+feedback.field.required=Business Field *
+feedback.comment.required=Feedback *
+feedback.satisfaction.level=Satisfaction Level
+feedback.placeholder.enter.content=Enter content
+feedback.placeholder.enter.max.chars=Enter up to 1000 characters
+feedback.select.business.field=--- Select your company’s business field ---
+feedback.field.industrial.iot=Industrial IoT
+feedback.field.ai=Artificial Intelligence (AI)
+feedback.field.smart.home=Smart Home System
+feedback.field.wearable.devices=Smart Wearable Devices
+feedback.field.healthcare=Healthcare
+feedback.field.agriculture=Agriculture
+feedback.field.utilities=Utilities (Electricity, Water)
+feedback.field.transportation=Transportation
+feedback.field.other=Other fields
+feedback.select.satisfaction.level=--- Select your satisfaction level with the CMP system ---
+feedback.very.satisfied=Very satisfied
+feedback.satisfied=Satisfied
+feedback.normal=Neutral
+feedback.somewhat.dissatisfied=Somewhat dissatisfied
+feedback.completely.dissatisfied=Completely dissatisfied
+feedback.confirm.send=Confirm Send
+
+# JavaScript messages for Feedback
+feedback.js.fullname.required=Full Name cannot be empty
+feedback.js.company.name.required=Company Name cannot be empty
+feedback.js.field.not.selected=Business field not selected
+feedback.js.content.required=Feedback content cannot be empty
+
+# Red Baring Statistical Report messages
+redbaring.title=Statistical Report
+redbaring.subscriber.number=Subscriber Number
+redbaring.contract.code=Contract Code
+redbaring.credit.limit=Credit Limit
+redbaring.incurred.charges=Incurred Charges
+redbaring.billing.period=Billing Period
+redbaring.block.type=Block Type
+redbaring.update.time=Update Time
+
+# JavaScript messages for Red Baring
+redbaring.js.block.type.normal=Normal
+redbaring.js.block.type.roaming=Roaming
+redbaring.js.subscriber.number.only=Subscriber number must contain digits only!
+redbaring.js.contract.code.only=Contract code must contain digits only!
+redbaring.js.no.export.data=No data to export
+
+# APN Cancel Modal Messages
+apn.cancel.cancelDefaultAPN=Cancel Default APN
+apn.cancel.confirmCancelDefault=Are you sure you want to cancel the default APN?
+apn.cancel.networkWarning=This action may change the current network connection of the device!
+apn.cancel.cancelPrivateAPN=Cancel Private APN
+apn.cancel.confirmCancelPrivate=Are you sure you want to cancel the following APN?
+apn.cancel.apnName=APN Name
+apn.cancel.ipAddress=IP
+apn.cancel.cancelReason=Cancellation Reason
+apn.cancel.required=*
+apn.cancel.customerRequest=Customer Request
+
+# APN Modal Messages
+apn.modal.assignDefaultAPN=Assign Default APN
+apn.modal.confirmDefaultAPN=Are you sure you want to assign the default APN?
+apn.modal.networkWarning=This action may change the current network connection of the device!
+apn.modal.assignAPNIP=Assign APN and IP
+apn.modal.cancelButton=Cancel
+apn.modal.confirmButton=Confirm
+apn.modal.apnName=APN
+apn.modal.required=*
+apn.modal.chooseAPN=Select APN
+apn.modal.fromDate=From Date
+
+# APN Management System
+apn.title=APN Management
+apn.noData=No data!
+apn.chooseAPN=Select APN
+apn.noDataAvailable=No data available
+apn.searchInfo=Search Information
+apn.subscriberNumber=Subscriber Number
+apn.searchPlaceholder=Enter content
+apn.searchButton=Lookup
+apn.exportButton=Export APN
+apn.resetButton=Reset
+apn.contractDetailInfo=Contract Details
+apn.serialSim=SIM Serial
+apn.gpkd=Business License
+apn.serviceType=Service Type
+apn.mainPackage=Main Package
+apn.blockStatus=Block Status
+apn.activationDate=Activation Date
+apn.connectionDate=Connection Date
+apn.subscriberAPNList=Subscriber’s APN List
+apn.assignDefaultAPN=+ Assign Default APN
+apn.assignAPNIP=+ Assign APN/IP
+apn.defaultAPNNote=** For default APN type, APN Name, IP, Start Date, End Date, and Reason fields will have no data.
+apn.serialNumber=No.
+apn.apnType=APN Type
+apn.apnName=APN
+apn.ipAddress=IP
+apn.startDate=Start Date
+apn.endDate=End Date
+apn.actions=Actions
+
+# APN Cancel Messages
+apn.cancel.customerRequest=Customer Request
+
+# APN Export Messages
+apn.export.title=Export Excel File
+apn.export.recordsPerFile=Number of records per file
+apn.export.maxRecordsNote=** Maximum 1000 records per file
+apn.export.createDataFile=Create Data File
+apn.export.downloadAll=Download All
+apn.export.serialNumber=No.
+apn.export.file=File
+apn.export.action=Action
+apn.export.noData=No data available
+
+# APN JavaScript Messages
+apn.js.chooseAPN=Select APN
+apn.js.chooseIP=Select IP
+apn.js.default=Default
+apn.js.private=Private
+apn.js.clickToCancelAPN=Click to cancel APN
+apn.js.dynamicIp=Dynamic IP
+apn.js.noFiles=number of files
+apn.js.noData=No data
+apn.js.getDataFailed=Failed to retrieve data
+apn.js.dataNotAvailable=Data not available
+apn.js.exportDataError=Error exporting data
+apn.js.phoneNumber=Subscriber Number
+apn.js.serialSim=SIM Serial
+apn.js.serviceType=Service Type
+apn.js.package=Package
+apn.js.contractCode=Contract Code
+apn.js.customerCode=Customer Code
+apn.js.defaultAPN=Default APN
+apn.js.privateAPNIP=Private APN Name/IP
+apn.js.dateRange=Start Date - End Date
+apn.js.yes=Yes
+apn.js.no=No
+
+# APN Validation Messages
+apn.validation.selectAPN=Please select APN
+apn.validation.selectIP=Please select IP
+apn.validation.selectStartDate=Please select Start Date
+apn.validation.startDateFuture=Please select From Date greater than current date
+apn.validation.startDateBeforeEnd=Please select From Date less than To Date
+apn.validation.selectEndDate=Please select To Date
+apn.validation.endDateFuture=Please select To Date greater than current date
+apn.validation.endDateAfterStart=Please select To Date greater than From Date
+apn.validation.selectReason=Please select a reason
+apn.validation.enterPhoneNumber=Please enter phone number
+apn.validation.invalidPhoneNumber=Invalid phone number
+apn.validation.recordsRange=Records per file must be minimum 1 and maximum 1000
+
+# Invoice Management Messages
+invoice.service.title=Service Invoice
+invoice.fee.title=Fee Payment Invoice
+invoice.search.info=Search Information
+
+# Invoice Search Form
+invoice.search.invoiceNumber=Invoice Number
+invoice.search.invoiceNumberPlaceholder=Enter invoice number
+invoice.search.serviceInvoiceType=Service Invoice Type
+invoice.search.feeInvoiceType=Fee Invoice Type
+invoice.search.selectInvoiceType=Select Invoice Type
+invoice.search.contractCode=Contract Code
+invoice.search.contractCodePlaceholder=Enter contract code
+invoice.search.invoiceDate=Invoice Date
+invoice.search.fromDate=From Date
+invoice.search.toDate=To Date
+invoice.search.lookup=Lookup
+invoice.search.reset=Reset
+
+# Invoice Types - Service
+invoice.type.service.topup=Top-up
+invoice.type.service.unblock1=Unblock One-way
+invoice.type.service.unblock2=Unblock Two-way
+
+# Invoice Types - Fee
+invoice.type.fee.generated=Generated Fee Invoice
+invoice.type.fee.surplus=Surplus Invoice
+invoice.type.fee.prepaid=Prepaid Fee Invoice
+invoice.type.fee.adjustment=Adjustment Invoice
+
+# Invoice Table Columns
+invoice.table.stt=No.
+invoice.table.invoiceNumber=Invoice Number
+invoice.table.serviceInvoiceType=Service Invoice Type
+invoice.table.feeInvoiceType=Fee Invoice Type
+invoice.table.contractCode=Contract Code
+invoice.table.totalAmount=Total Amount
+invoice.table.invoiceDate=Invoice Date
+invoice.table.actions=Actions
+invoice.table.totalRecordsPrefix=Total
+invoice.table.totalRecordsSuffix=records
+
+# Invoice JavaScript Messages
+invoice.js.dateValidation=Start date cannot be greater than end date
+invoice.js.timeValidation=Start time cannot be greater than end time
+invoice.js.convertOrderType.topup=Top-up
+invoice.js.convertOrderType.unblock1=Unblock One-way
+invoice.js.convertOrderType.unblock2=Unblock Two-way
+invoice.js.convertInvoiceType.ready=Pre-printed Invoice
+invoice.js.convertInvoiceType.surplus=Surplus Invoice
+invoice.js.convertInvoiceType.prepaid=Prepaid Fee Invoice
+invoice.js.convertInvoiceType.adjustment=Adjustment Invoice
+
+# Contract Management Messages
+contract.title=Contract Management
+contract.search.info=Search Information
+contract.search.contractNumber=Contract Number
+contract.search.contractCode=Contract Code
+contract.search.placeholder=Enter content
+contract.search.export=Export
+contract.search.reset=Reset
+contract.search.lookup=Lookup
+
+contract.table.stt=No.
+contract.table.contractCode=Contract Code
+contract.table.contractNumber=Contract Number
+contract.table.status=Status
+contract.table.effectiveDate=Effective Date
+contract.table.representativeNumber=Representative Subscriber
+contract.table.address=Address
+contract.table.actions=Actions
+contract.table.totalRecordsPrefix=Total
+contract.table.totalRecordsSuffix=records
+
+# Contract JavaScript Messages
+contract.js.dataFetchFailed=Failed to retrieve data
+contract.js.checkInvoice=Check Invoice
+
+# Contract Info Modal
+contract.info.title=Contract Details
+contract.info.detailsHeader=Contract Detailed Information
+contract.info.contractCode=Contract Code
+contract.info.contractNumber=Contract Number
+contract.info.status=Status
+contract.info.beginningDebt=Opening Debt
+contract.info.paidAmount=Paid Charges
+contract.info.adjustmentAmount=Adjustment Amount
+contract.info.remainingDebt=Remaining Debt
+contract.info.hotChargeEstimated=Estimated Hot Charges
+contract.info.contractExcessCash=Contract Surplus Cash
+
+# Invoice Contract Page
+invoice.contract.title=Contract:
+invoice.contract.listTitle=List of Contract Invoices
+invoice.contract.contractNumber=Contract Number
+invoice.contract.selectMonth=Select Month
+invoice.contract.monthPlaceholder=Select month to check invoice
+invoice.contract.exportCSV=Export CSV
+invoice.contract.lookup=Lookup
+
+# Invoice Contract Table Headers
+invoice.contract.table.stt=No.
+invoice.contract.table.invoiceNumber=Invoice Number
+invoice.contract.table.type=Type
+invoice.contract.table.beforeTax=Amount Before Tax
+invoice.contract.table.afterTax=Amount After Tax
+invoice.contract.table.assignDate=Assignment Date
+invoice.contract.table.actions=Actions
+
+# Invoice Contract JavaScript Messages
+invoice.contract.js.contractNotFound=Contract code not found
+invoice.contract.js.monthNotSelected=You have not selected a month to check invoice
+invoice.contract.js.noInvoices=No invoices
+invoice.contract.js.invoicesNotFound=Invoices not found
+invoice.contract.js.noInvoicesInMonth=No invoices in this month
+invoice.contract.js.noDownloadFile=No invoice file available for download
+invoice.contract.js.noDataToDisplay=No information to display
+
+# Invoice Types
+invoice.contract.type.unknown=Unknown
+invoice.contract.type.hdis=Generated Fee Invoice
+invoice.contract.type.hddc=Adjustment Invoice
+invoice.contract.type.hdcdt=Prepaid Fee Invoice
+invoice.contract.type.hdtt=Surplus Payment Invoice
+invoice.contract.type.hdt=Combined Invoice
+invoice.contract.type.hdktgd=Non-transaction Invoice
+
+# Statistical Report - Expired Package
+report.expirated.title=Statistical Report
+report.expirated.noData=No data!
+report.expirated.noDataTable=No data
+report.expirated.noDataExport=No data available
+
+# Statistical Report Table Headers
+report.expirated.table.stt=No.
+report.expirated.table.subscriberNumber=Subscriber Number
+report.expirated.table.contractCode=Contract Code
+report.expirated.table.subscriberType=Subscriber Type
+report.expirated.table.packageType=Package Type
+report.expirated.table.expiredDate=Package Expiration Date
+
+# Pagination
+report.expirated.totalRecordsPrefix=Total
+report.expirated.totalRecordsSuffix=records
+report.expirated.recordsPerPage=Records/page
+
+# Statistical Report JavaScript Messages
+report.expirated.js.noData=No data
+report.expirated.js.noDataToExport=No data to export
+report.expirated.js.dateRangeError=Please select From Date earlier than To Date!
+report.expirated.js.subscriberNumberError=Subscriber number must contain digits only!
+report.expirated.js.contractIdError=Contract code must contain digits only!
+report.expirated.js.subscriberTypeNormal=Normal
+
+# Account Management Messages
+account.title=Account
+account.info.tab=Account Information
+account.management.level2=Level 2 Account Management
+account.info.notice=** Please update account information to use subscriber management functions
+account.info.section1=1. Account Information
+account.info.fullName=Full Name
+account.info.idNumber=ID Number
+account.info.phone=Phone Number
+account.info.birthDate=Date of Birth
+account.info.nationality=Nationality
+account.info.vietnam=Vietnam
+account.info.address=Address
+account.info.province=Province/City
+account.info.district=District
+account.info.ward=Ward/Commune
+account.info.detailAddress=Detailed Address
+account.info.gender=Gender
+account.info.male=Male
+account.info.female=Female
+account.info.avatar=Avatar
+account.info.idCard=ID Card Image
+account.info.authorization=Authorization Document
+account.info.registrationForm=Account Registration Form
+account.info.uploadImage=Upload Image
+account.info.dragDropFile=Drag and drop or open file
+account.info.clickHere=here
+account.info.fileRequirement=File jpg, png,... file size must not exceed 3MB
+account.info.downloadTemplate=Download Template
+account.info.dragDropImageFile=Drag and drop image file or open file
+account.contact.other=***Other Contact Information
+account.contact.email=Contact Email
+account.contact.phone=Contact Phone Number
+account.contact.emailPlaceholder=Enter contact email
+account.contact.phonePlaceholder=Enter contact phone number
+account.contact.notice=Note: System alerts will be sent to the main account’s Email, Phone Number, and other contact information. Please enter contact information accurately.
+account.enterprise.section2=2. Enterprise Information
+account.enterprise.name=Enterprise Name
+account.enterprise.taxCode=Tax Code
+account.enterprise.licenseNumber=Business License Number
+account.enterprise.establishDate=Establishment Date
+account.enterprise.phone=Enterprise Phone Number
+account.enterprise.email=Enterprise Email
+account.enterprise.field=Business Field
+account.enterprise.deviceType=Device Type
+account.enterprise.licenseImage=Business License Image
+account.enterprise.add=Add Enterprise
+account.table.stt=No.
+account.table.fullName=Full Name
+account.table.email=Email
+account.table.phone=Phone Number
+account.table.permission=Permission
+account.table.resetPassword=Reset Password
+account.table.delete=Delete
+
+# Account JavaScript Error Messages
+account.error.avatarWrongFormat=Invalid avatar image format
+account.error.avatarTooLarge=Avatar image too large
+account.error.idCardFrontWrongFormat=Invalid front ID card image format
+account.error.idCardFrontTooLarge=Front ID card image too large
+account.error.idCardBackWrongFormat=Invalid back ID card image format
+account.error.idCardBackTooLarge=Back ID card image too large
+account.error.businessLicenseWrongFormat=Invalid business license image format
+account.error.businessLicenseTooLarge=Business license image too large
+account.error.authorizationWrongFormat=Invalid authorization document format
+account.error.authorizationTooLarge=Authorization document too large
+account.error.registrationFormWrongFormat=Invalid registration form format
+account.error.registrationFormTooLarge=Registration form too large
+
+# Additional Account Messages
+account.enterprise.taxCode=Tax Code
+account.enterprise.licenseNumber=Business License Number
+account.enterprise.establishDate=Establishment Date
+account.enterprise.phone=Enterprise Phone Number
+account.enterprise.email=Enterprise Email
+account.enterprise.field=Business Field
+account.enterprise.deviceType=Device Type
+account.enterprise.licenseImage=Business License Image
+account.enterprise.add=Add Enterprise
+
+landingPageTelco.clients.title=Our Partners
+landingPageTelco.clients.feedback=What customers say about us
+landingPageTelco.client1=Nguyen Van Manh
+landingPageTelco.client2=Nguyen Huyen Trang
+landingPageTelco.client3=Nguyen Van Gioi
+landingPageTelco.client4=Nguyen Thi Huong
+landingPageTelco.client5=Le Anh Hai
+landingPageTelco.client6=Le Thi Lan
+landingPageTelco.client.position=Job Position
+landingPageTelco.m2m.description=M2M is a technology that allows devices to communicate with systems via a network connection
+landingPageTelco.m2m.dataService=M2M data service: A service where data SIM is used to transmit data
+
+landingPageTelco.dathang.title=Viettel IoT Platform
+landingPageTelco.dathang.efficiency=Our platform has helped shorten the development time of Viettel's IoT solutions by up to 70% and save up to 80% of operating costs.
+landingPageTelco.dathang.offer=If you have an excellent IoT service idea and want to test quickly, we will help you for free (under 100 devices).
+landingPageTelco.dathang.solution=If your service is using imported devices and foreign software, and you cannot control customer data? Our platform will support integrating all devices with any protocol and ensure data is absolutely controlled as required.
+landingPageTelco.dathang.investment=If you are implementing a public investment project, and foreign platform providers cannot meet the requirements? Our platform, developed entirely by the Viettel team, supports unlimited customization and will accompany you throughout the product lifecycle.
+landingPageTelco.dathang.tryNow=Try Now
+landingPageTelco.dathang.userGuide=User Guide
+landingPageTelco.dathang.freeTrial=Free Trial
+landingPageTelco.dathang.m2mtitle=M2M Connection Management Platform
+landingPageTelco.dathang.m2mdescription=A pioneering platform in Vietnam providing both Connection Management Platform (CMP) and Application Enablement Platform (AEP). It fully supports IoT services using cellular technologies (2G/4G/Nb-IoT).
+landingPageTelco.dathang.m2mfeatures=Viettel's connection management platform allows enterprises to manage subscriber lists, payment status, subscriber location... and many other utilities
+landingPageTelco.dathang.m2msubscriber=Subscriber Management
+landingPageTelco.dathang.m2morder=Order Management
+landingPageTelco.dathang.m2mcontract=Contract Management
+landingPageTelco.dathang.m2mpayment=Payment Management
+landingPageTelco.dathang.m2mlocationtracking=Subscriber Location Tracking
+
+landingPageTelco.giaiphap.platformTitle=M2M/IoT Connection Management Platform
+landingPageTelco.giaiphap.valueProposition=Precise savings and delivering more value to customers
+landingPageTelco.giaiphap.subscriberManagement=Subscriber Management
+landingPageTelco.giaiphap.subscriberDescription=Manage detailed subscriber information, allowing easy lookup.
+landingPageTelco.giaiphap.contractManagement=Contract Management
+landingPageTelco.giaiphap.contractDescription=Manage all billing invoices of the enterprise, allowing query and download of e-invoices
+landingPageTelco.giaiphap.orderManagement=Order Management
+landingPageTelco.giaiphap.orderDescription=Support enterprises in managing detailed information of placed orders
+landingPageTelco.giaiphap.topupSubscriber=Subscriber Top-up
+landingPageTelco.giaiphap.topupDescription=Easily top-up large batches of subscribers with various denominations
+landingPageTelco.giaiphap.blockUnblock=Block/Unblock Subscribers
+landingPageTelco.giaiphap.blockDescription=Support one-way or two-way block/unblock of large subscriber batches via file list
+landingPageTelco.giaiphap.packageRegistration=Package Registration
+landingPageTelco.giaiphap.packageDescription=Support various package registrations/cancellations, and cancel auto-renewal for a large number of subscribers via file list
+landingPageTelco.giaiphap.subscriberConnection=Subscriber Connection
+landingPageTelco.giaiphap.connectionDescription=Support connecting a large number of subscribers provided by the enterprise via file list
+landingPageTelco.giaiphap.bulkOrdering=Bulk Ordering
+landingPageTelco.giaiphap.bulkDescription=Enterprises can select packages and subscriber numbers to connect a large number of SIMs at once.
+landingPageTelco.giaiphap.tryNow=Try Now
+
+landingPageTelco.goicuoc.packageInfo=Package Information
+landingPageTelco.goicuoc.journeyMonitoring=Journey Monitoring
+landingPageTelco.goicuoc.m2m10Package=M2M10_100MB
+landingPageTelco.goicuoc.prepaid=(TT)
+landingPageTelco.goicuoc.price10k=10.000
+landingPageTelco.goicuoc.currency30days=VNĐ/30 ngày
+landingPageTelco.goicuoc.free100mb=Free 100MB (speed ...) and 10 on-net SMS per 30-day cycle
+landingPageTelco.goicuoc.freeMonthlyFee=Free monthly subscription fee
+landingPageTelco.goicuoc.m2m15Package=M2M15_300MB
+landingPageTelco.goicuoc.price15k=15.000
+landingPageTelco.goicuoc.free300mb=Free 300MB (speed ...) and 10 on-net SMS per 30-day cycle
+
+landingPageTelco.goicuocm2m.metering=Traffic Measurement (Metering)
+landingPageTelco.goicuocm2m.tracking=Journey Monitoring
+landingPageTelco.goicuocm2m.pos=POS Machine
+landingPageTelco.goicuocm2m.smartSpeaker=Smart Speaker
+landingPageTelco.goicuocm2m.adsScreen=Advertising Screen
+landingPageTelco.goicuocm2m.camera=Camera
+landingPageTelco.goicuocm2m.car=Car
+landingPageTelco.goicuocm2m.sellDevice=Sales Device
+landingPageTelco.goicuocm2m.all=All
+
+landingPageTelco.goicuocshow.packageInfo=Package Information
+landingPageTelco.goicuocshow.metering=Traffic Measurement (Metering)
+landingPageTelco.goicuocshow.nbiot10=NBIOT_10
+landingPageTelco.goicuocshow.postpaid=(TS)
+landingPageTelco.goicuocshow.price10k=10.000
+landingPageTelco.goicuocshow.currency30days=VNĐ/30 ngày
+landingPageTelco.goicuocshow.freeBandwidth=Free bandwidth 50/50 Kbps (only on Nb-IoT infrastructure)
+landingPageTelco.goicuocshow.freeMonthlyFee=Free monthly subscription fee
+
+landingPageTelco.navbar.brandName=M2M Viettel
+landingPageTelco.navbar.introduction=Introduction
+landingPageTelco.navbar.packages=Packages
+landingPageTelco.navbar.products=Products
+landingPageTelco.navbar.iotPlatform=IoT Platform
+landingPageTelco.navbar.cmpSystem=CMP System
+landingPageTelco.navbar.simManagement=SIM Management
+landingPageTelco.navbar.projectManagement=Project Management
+landingPageTelco.navbar.productManagement=Product Management
+landingPageTelco.navbar.support=Support
+landingPageTelco.navbar.faq=FAQ
+landingPageTelco.navbar.orderTracking=Order Tracking
+landingPageTelco.navbar.forum=Forum
+landingPageTelco.navbar.catalog=Catalog
+landingPageTelco.navbar.platformAdmin=Platform Administration
+landingPageTelco.navbar.cmpAdmin=CMP Administration
+landingPageTelco.navbar.changePassword=Change Password
+landingPageTelco.navbar.logout=Logout
+landingPageTelco.navbar.login=Login
+landingPageTelco.navbar.register=Register Now
+landingPageTelco.navbar.serviceTitle=SIM Data Transmission Service
+landingPageTelco.navbar.serviceDescription=M2M is a technology that allows devices to communicate with systems through a network connection. M2M data service: A service in which data SIMs are used to transmit data.
+landingPageTelco.navbar.iotProducts=IoT Products
+landingPageTelco.navbar.iotPackages=IoT Packages
+
+landingPageTelco.ordersim.pleaseChoose=Please select to continue
+landingPageTelco.ordersim.hasSim=Customer already has a SIM
+landingPageTelco.ordersim.noSim=Customer does not have a SIM
+landingPageTelco.ordersim.cancel=Cancel 
+landingPageTelco.ordersim.continue=Continue
+
+landingPageTelco.sanpham.iotProducts=IoT Products
+landingPageTelco.sanpham.diverseProducts=Diverse products suitable for customer needs
+landingPageTelco.sanpham.smartTracking=Smart Tracking
+landingPageTelco.sanpham.vTag=vTag
+landingPageTelco.sanpham.viewDetails=View Details
+landingPageTelco.sanpham.smartWatch=Smart Watch
+landingPageTelco.sanpham.myKid=MyKID
+landingPageTelco.sanpham.smartCar=Smart Car
+landingPageTelco.sanpham.vcar=Vcar
+landingPageTelco.sanpham.assetManagement=Asset Management
+landingPageTelco.sanpham.smartMotor=Smart Motor
+landingPageTelco.sanpham.vTrackingCar=IoT V-Tracking: Car
+landingPageTelco.sanpham.personalHealth=Personal Health
+landingPageTelco.sanpham.vHealth=VHealth
+landingPageTelco.sanpham.inDevelopment=In Development
+landingPageTelco.sanpham.smartOffice=Smart Office
+landingPageTelco.sanpham.cameraAl=Camera Al
+landingPageTelco.sanpham.smartApartment=Smart Apartment
+landingPageTelco.sanpham.homeCamera=Home Camera
+
+landingPageTelco.showh2m.packageInfo=Package Information
+landingPageTelco.showh2m.humanToMachine=Human to Machine (H2M)
+landingPageTelco.showh2m.d120n=D120N
+landingPageTelco.showh2m.prepaid=(TT)
+landingPageTelco.showh2m.price10k=10.000
+landingPageTelco.showh2m.currency30days=VND/30 days
+landingPageTelco.showh2m.free6gbDaily=Free 6GB/day and 10 on-net SMS per 30-day cycle
+landingPageTelco.showh2m.freeMonthlyFee=Free monthly subscription fee
+
+landingPageTelco.showip.packageInfo=Package Information
+landingPageTelco.showip.ipAccessTracking=Journey Tracking (IP-based access)
+landingPageTelco.showip.prepaid=(TT)
+landingPageTelco.showip.freeMonthlyFee=Free monthly subscription fee
+landingPageTelco.showip.m2m30ip10gb=M2M30IP_10GB
+landingPageTelco.showip.price30k=30.000
+landingPageTelco.showip.currency30days=VND/30 days
+landingPageTelco.showip.free10gb300mb=Free 10GB (IP-based access), 300MB (multi-directional access), and 10 on-net SMS per 30-day cycle
+landingPageTelco.showip.m2m50ip25gb=M2M50IP_25GB
+landingPageTelco.showip.price15k=15.000
+landingPageTelco.showip.free25gb500mb=Free 25GB (IP-based access), 500MB (multi-directional access), and 10 on-net SMS per 30-day cycle
+landingPageTelco.showip.m2m70ip50gb=M2M70IP_50GB
+landingPageTelco.showip.price70k=70.000
+landingPageTelco.showip.free50gb1gb=Free 50GB (IP-based access), 1GB (multi-directional access), and 10 on-net SMS per 30-day cycle
+landingPageTelco.showip.m2m30ip10gb12m=12M2M30IP_10GB
+landingPageTelco.showip.price360k=360.000
+landingPageTelco.showip.currency360days=VND/360 days
+landingPageTelco.showip.m2m50ip25gb12m=12M2M50IP_25GB
+landingPageTelco.showip.price600k=600.000
+landingPageTelco.showip.m2m70ip50gb12m=12M2M70IP_50GB
+landingPageTelco.showip.price840k=840.000
+
+landingPageTelco.sosanh.comparePackages=Compare Packages
+landingPageTelco.sosanh.close=Close
+
+landingPageTelco.introduction=Introduction
+landingPageTelco.simDataService=Accurate and cost-saving SIM Data Transmission Service
+landingPageTelco.m2mTechnology=M2M is a technology that allows devices to exchange with systems via a network connection
+landingPageTelco.m2mDataService=M2M data service: A service where data SIM is used to transmit data
+landingPageTelco.iotTechnology=IoT technology is developed based on combining Internet network technologies (Wi-Fi, broadband 4G/5G) and microelectromechanical technology, helping users control everything more optimally with just one smart device.
+landingPageTelco.viewProducts=View Products
+landingPageTelco.m2mPackageProducts=M2M Package Products
+landingPageTelco.diversePackages=Various packages suitable for customer needs
+landingPageTelco.packageType=Package:
+landingPageTelco.fourGFiveG=4G/5G
+landingPageTelco.nbIot=Nb-IoT
+landingPageTelco.subscription=Subscriber:
+landingPageTelco.prepaid=Prepaid
+landingPageTelco.postpaid=Postpaid
+landingPageTelco.attractive=REGISTER NOW TO RECEIVE ATTRACTIVE OFFERS!
+landingPageTelco.comparePackages=Compare Packages
+landingPageTelco.faq=FAQ
+landingPageTelco.faq1=How can I manage information related to the subscribers my business has registered?
+landingPageTelco.faq2=Can customers manage their personal subscribers on the Telco system?
+landingPageTelco.faq3=What subscriber information of the enterprise can customers manage?
+landingPageTelco.faq4=What is the cost of using the Telco system under the Innoway IoT platform?
+landingPageTelco.customerSupport=CUSTOMER SUPPORT
+landingPageTelco.fullName=Full Name
+landingPageTelco.fullName2=Full Name:
+landingPageTelco.phoneNumber=Phone Number:
+landingPageTelco.companyName=Company Name:
+landingPageTelco.email=Email
+landingPageTelco.supportContent=Support Content
+landingPageTelco.required=* :
+landingPageTelco.send=Send
+landingPageTelco.viettelTelecom=Viettel Telecom Corporation (Viettel Telecom)
+landingPageTelco.businessCode=Business code: 0100109106-011 issued by the Hanoi Department of Planning and Investment on July 18, 2005, amended for the 15th time on December 18, 2018
+landingPageTelco.contentResponsible=Content Responsible: Mr. Cao Anh Son
+landingPageTelco.businessContact=Business: iot@viettel.com.vn
+landingPageTelco.businessPhone=18008044
+landingPageTelco.customerCare=Customer Care: cskh@viettel.com.vn
+landingPageTelco.customerCarePhone=198
+landingPageTelco.copyright=Copyright Viettel Telecom 2022
+landingPageTelco.followUs=Follow us:
+
+telco.dashboard=Dashboard
+telco.invoice=Invoice
+telco.subscriberManagement=Subscriber Management
+telco.services=Services
+telco.buySim=Order/Exchange SIM
+telco.buyDataPackage=Buy Data Package
+telco.topup=Top-up
+telco.prepayCharges=Prepay Charges
+telco.payPostpaidBill=Pay Postpaid Bill
+telco.blockUnblock=Block/Unblock Subscriber
+telco.apn=APN
+telco.monitoringMap=Monitoring Map
+telco.serviceHistory=Service History
+telco.historyBuySim=SIM Order/Exchange History
+telco.historyMiAddon=Mi Packages, Add-ons History
+telco.historyPrepayCharges=Prepay Charges History
+telco.historyPostpaidBill=Postpay Charges History
+telco.historyTopup=Top-ups History
+telco.historyBlockUnblock=Block/Unblock Subs History
+telco.historyApn=APN Assignment/Removal History
+telco.invoiceManagement=Invoice Management
+telco.contractManagement=Contract Management
+telco.deviceManagement=Device Management
+telco.extendService=Extended Services
+telco.reportStatistics=Reports - Statistics
+telco.exceedConsumptionLimit=Subscriber blocked due to exceeding consumption limit
+telco.accountInfo=Account Information
+telco.feedback=Feedback
+telco.searchPlaceholder=Enter keyword to search
+
+
+#Landingpage Telco Labels
+landingPageTelco.faq1.answer1=- To easily manage information related to the enterprise's subscribers, you need to register an account on the Innoway IoT platform, log in and provide your business license information
+landingPageTelco.faq1.answer2=- For detailed support, please call ...
+landingPageTelco.faq2.answer=Viettel's Telco system supports enterprises to manage business subscribers, not for individual customers
+landingPageTelco.faq3.intro=Viettel's Telco system supports the following business processes:
+landingPageTelco.faq3.answer1=- View information on subscribers, contracts, invoices, and enterprise orders
+landingPageTelco.faq3.answer2=- Register purchase orders for new subscribers conveniently
+landingPageTelco.faq3.answer3=- Perform online connections simply and conveniently
+landingPageTelco.faq3.answer4=- Perform top-up, pay bills, register value-added service packages
+landingPageTelco.faq3.answer5=- Proactively block or unblock subscribers
+landingPageTelco.faq4.answer1=Viettel's Telco system supports enterprises registered to use Viettel subscribers to manage subscriber information free of charge.
+landingPageTelco.faq4.answer2=Customers only need to create an account and provide business license information to perform management.

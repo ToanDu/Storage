@@ -1,0 +1,66 @@
+<!-- Modal -->
+<div class="modal fade" id="modal_history" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Lịch sử thông tin SIM - Thiết bị</h5>
+            </div>
+
+            <div class="modal-body">
+                <div class="container-fluid px-3 text-center">
+                    <div class="row mb-2 justify-content-center">
+                        <div class="col-sm-2 fw-semibold">
+                            <b>Số thuê bao:</b>
+                        </div>
+                        <div class="col-sm-4 text-start">
+                            <b>0912345678</b>
+                        </div>
+                    </div>
+                    <div class="row mb-4 justify-content-center">
+                        <div class="col-sm-2 fw-semibold">
+                            <b>Serial SIM:</b>
+                        </div>
+                        <div class="col-sm-4 text-start">
+                            <b>1234567891234567890</b>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped text-center">
+                        <thead style="background-color: #FBCCD6;" class="fw-bold">
+                            <tr>
+                                <th>STT</th>
+                                <th>IMEI thiết bị</th>
+                                <th>Loại thiết bị</th>
+                                <th>Tên thiết bị</th>
+                                <th>Hãng sản xuất</th>
+                                <th>Thời gian kích hoạt</th>
+                                <th>Thời gian tạm dừng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dữ liệu mẫu -->
+                            <tr>
+                                <td>1</td>
+                                <td>WW-XXXXXXX-YYYYYY-Z</td>
+                                <td>Cảm biến</td>
+                                <td>TEST-DEVICE-1</td>
+                                <td>Viettel</td>
+                                <td>00:00 01/01/2025</td>
+                                <td>~</td>
+                            </tr>
+                            <!-- Thêm các dòng khác tại đây -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+           <div class="modal-footer">
+                <button type="button" class="btn btn-red" data-bs-dismiss="modal" onclick="processBlockListSubs(0, '06')">@Messages("btnComfirm")</button>
+                <button type="button" class="btn btn-cancle" data-bs-dismiss="modal">@Messages("btnCancel")</button>
+            </div>
+        </div>
+    </div>
+</div>

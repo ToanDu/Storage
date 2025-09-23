@@ -1,0 +1,22 @@
+<div class="modal fade" id="createDeviceTokenModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("btnAdd")</h5>
+      </div>
+      <div class="modal-body">
+        <h4 class="modal-body" id="myModalbody">@Messages("noti.confirmCreateDeviceToken")</h4>
+        <form class="row g-3">
+          <div class="col-md-12" hidden>
+            <input id="idCreateDeviceToken" name="id" type="text" class="form-control" maxlength="50" autocomplete="off" required>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick="postDataCreateDeviceToken()" data-bs-dismiss="modal">@Messages("btnComfirm")</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+      </div>
+    </div>
+  </div>
+</div>

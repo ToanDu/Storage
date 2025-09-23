@@ -1,0 +1,172 @@
+@import helper._
+@import vn.m2m.utils.DateUtil
+@import vn.m2m.common.models.User
+@import vn.m2m.iot.models.QrCodeCam
+@(currentUser:User, qrCodeList: List[QrCodeCam])
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("QR Code Cam")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+
+    <style>
+      .id_qrcode img {
+        margin-top: 5px;
+        margin-left: -5px;
+      }
+    </style>
+
+  </head>
+  <body class="bg-theme">
+    @views.html.iot.tags.Menu(currentUser, "")
+
+    @views.html.iot.tags.Header(currentUser)
+
+    <div class="page-wrapper">
+      <div class="page-content">
+
+        <div class="card ">
+          <div class="card-header card-header-primary card-header-icon">
+            <div class="toolbar" style="float: left">
+              <div class="toolbar" style="float: left;
+                margin-top: 15px; ">
+                <input type="file" id="files" name="files" style="display: none;background-color: #f4f4f4"/>
+              </div>
+            </div>
+            <div class="toolbar" style="float: right">
+
+              <button class="btn btn-danger px-5 radius-30" onclick="importFileCSV()">
+                <i class="bx bxs-file-import" aria-hidden="true"></i> @Messages("Import")
+              </button>
+              <button class="btn btn-danger px-5 radius-30" id="buttonSubmitImportCSV" data-bs-toggle="modal" data-bs-target="#addConfirmModal" hidden>
+                <i class="bx bxs-file-import" aria-hidden="true"></i> @Messages("Submit")
+              </button>
+              <button class="btn btn-danger px-5 radius-30" onclick="downloadCSVTemplate()">
+                <i class="bx bx-download" aria-hidden="true"></i> @Messages("Download Template")
+              </button>
+              <button class="btn btn-success px-5 radius-30" onclick="exportQrCodeList()">
+                <i class="bx bxs-file-export" aria-hidden="true"></i> @Messages("Export")
+              </button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="table-responsive">
+
+              <table id="dataTables" class="table table-bordered">
+                <thead class="cf">
+                  <th>@Messages("STT")</th>
+                  <th>@Messages("Serial")</th>
+                  <th>@Messages("Mac")</th>
+                  <th>@Messages("qr.QRCode")</th>
+                  <th>@Messages("btnDate")</th>
+                  <th>@Messages("btnAction")</th>
+                </thead>
+                <tbody align="left">
+                @for((qr: QrCodeCam)<- qrCodeList) {
+                  <tr>
+                    <td></td>
+                    <td>@qr.getSerial</td>
+                    <td>@qr.getMac</td>
+                    <td>
+                      <img src="@qr.getSrc" height="50">
+                    </td>
+                    <td>@DateUtil.getDateByFormat(qr.getLogDate, DateUtil.FORMAT_DATE_YYYY_MM_DD_HH_mm_ss)</td>
+                    <td class="dt-buttons btn-group" style="width: 90%">
+                      <a rel="tooltip" title="@Messages("btnView")" class="btn btn-light">
+                        <i class="bx bx-link me-0"></i>
+                      </a>
+                      <a rel="tooltip" title="@Messages("btnDelete")" class="btn btn-light" onclick="setDeleteQr('@qr.getId')" data-bs-toggle="modal" data-bs-target="#deleteQrConfirm">
+                        <i class="bx bx-x me-0"></i>
+                      </a>
+                    </td>
+                  </tr>
+                }
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      @views.html.qrCodeCam.QrCode_create()
+      @*views.html.qrCodeCam.QrCode_create_pdf()*@
+      @views.html.qrCodeCam.QrCode_delete()
+
+
+    </div>
+      <!--  END OF PAPER WRAP -->
+    @views.html.Loading()
+
+  </body>
+
+  @views.html.iot.tags.Main_js()
+
+  <script src="@routes.Assets.versioned("assets/js/bootstrap.bundle.min.js")"></script>
+    <!--plugins-->
+  <script src="@routes.Assets.versioned("assets/plugins/simplebar/js/simplebar.min.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/metismenu/js/metisMenu.min.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js")"></script>
+  <script>
+          $(document).ready(function () {
+            $("#menu-qrCode").addClass("mm-active");
+            $("#menu").metisMenu();
+          })
+  </script>
+
+  <script src="@routes.Assets.versioned("javascripts/SearchJs.js")" type="text/javascript"></script>
+
+  <script>
+          $(document).ready(function() {
+            var table = $('#dataTables').DataTable( {
+              lengthChange: false,
+              buttons: [ 'excel', 'pdf', 'print'],
+              "order": []
+            } );
+
+            table.on('order.dt search.dt', function () {
+              table.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+              } );
+            } ).draw();
+
+          });
+  </script>
+
+  <script src="@routes.Assets.versioned("javascripts/jquery/jquery-csv.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/qrCode/cam/downloadTemplate.js")" type="text/javascript"></script>
+
+  <script type="text/javascript">
+          $(document).ready(function(){
+            document.getElementById('files').addEventListener('change', upload, false);
+          });
+
+          var viettel3x = '@routes.Assets.versioned("images/cam/viettel3x.png")';
+    var re3x = '@routes.Assets.versioned("images/cam/re3x.png")';
+    var ro3x = '@routes.Assets.versioned("images/cam/ro3x.png")';
+
+  </script>
+
+  <script type="text/javascript" src="@routes.Assets.versioned("javascripts/exportZip/jszip.js")"></script>
+  <script type="text/javascript" src="@routes.Assets.versioned("javascripts/exportZip/jszip-utils.js")"></script>
+  <script type="text/javascript" src="@routes.Assets.versioned("javascripts/exportZip/FileSaver.js")"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/qrCode/cam/screenshots/jspdf.umd.min.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/qrCode/cam/screenshots/html2canvas2.min.js")" type="text/javascript"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/qrCode/qrcode.min.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/qrCode/cam/QrCodeCam.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/qrCode/cam/ImportQrCam.js")" type="text/javascript"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/exportfile/table3export.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/qrCode/exportQrCode.js")" type="text/javascript"></script>
+
+</html>

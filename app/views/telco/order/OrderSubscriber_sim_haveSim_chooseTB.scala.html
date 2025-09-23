@@ -1,0 +1,78 @@
+<div class="col-lg-9 col-md-8" id="tabConnectHaveSim_chooseTB">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="col-md-12 m-t-4">
+        <span class="display-4 title-section-1">@Messages("1. Thông tin thuê bao")</span>
+      </div>
+      <div class="col-md-12 mt-3">
+        <div class="row m-b-3">
+          <label class="col-sm-4 col-form-label title-section-2" style="text-align: left">@Messages("Gói cước ")<span class="text-red">@Messages("*")</span></label>
+          <div class="col-sm-8">
+            <select class="form-control" style="width: 100%;" id="goi_cuoc" onchange="choosePackPayAfterOrBefore()"></select>
+          </div>
+          <div class="col-sm-4"></div>
+          <label class="col-sm-8 col-form-label title-section-2" style="text-align: left" id="discountPromotionData"></label>
+        </div>
+        <div class="row m-b-3">
+          <label class="col-sm-4 col-form-label title-section-2" style="text-align: left">@Messages("Hình thức hòa mạng ")<span class="text-red">@Messages("*")</span></label>
+          <div class="col-sm-8">
+            <select class="form-control" style="width: 100%;" id="ly_do_dau_noi" onchange="chooseReasonConnect()">
+              <option value="">@Messages("---Chọn hình thức---")</option>
+            </select>
+          </div>
+        </div>
+        <div class="row m-b-3">
+          <label class="col-sm-4 col-form-label title-section-2" style="text-align: left">@Messages("Đối tượng")</label>
+          <div class="col-sm-8">
+            <select class="form-control" style="width: 100%;" id="doi_tuong">
+              <option value="TC01">@Messages("Cho cá nhân và tổ chức")</option>
+              <option value="TC02">@Messages("Cho thiết bị")</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab_chooseTB_after" style="display: none">
+        @views.html.telco.order.OrderSubscriber_sim_haveSim_chooseTB_after()
+      </div>
+
+      <div id="tab_chooseCt" style="display: none">
+        @views.html.telco.order.OrderSubscriber_sim_haveSim_chooseTB_upCt()
+      </div>
+    </div>
+
+    <div class="col-md-6" id="">
+      <div class="col-md-12 m-t-4">
+        <span class="display-4 title-section-1">@Messages("2. Chọn số thuê bao")</span>
+      </div>
+      <div class="col-md-12 mt-3">
+        <div class="row m-b-3">
+          <div class="col-sm-5">
+            <input class="form-check-input" name="inlineRadioOptions" type="radio" id="inlineRadio1" onclick="getConnectSubscriberChoose()"><label class="form-check-label" for="inlineRadio1">@Messages("Chọn thuê bao")</label>
+          </div>
+          <div class="col-sm-7">
+            <input class="form-check-input" name="inlineRadioOptions" type="radio" id="inlineRadio2" onclick="getConnectSubscriberRamdom()"><label class="form-check-label" for="inlineRadio2">@Messages("Lấy thuê bao ngẫu nhiên")</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 mt-3">
+        <div class="card-body">
+          <div class="" id="searchChooseSubscriber" style="display: none;">
+            <div class="row">
+              <label class="col-sm-4 col-form-label title-section-2" style="text-align: left">@Messages("Số thuê bao*")</label>
+              <div class="col-sm-8">
+                <input class="form-control" type="number" id="textSearchChooseSubs" min="0" placeholder="@Messages("Bạn hãy nhập ít nhất 1 chữ số")">
+              </div>
+            </div>
+            <div class="row justify-content-center mt-3">
+              <button type="button" class="btn btn-search float-start" onclick="searchSubscriberByStock()" style="background: #FFFFFF; color: #EA0033; border: 1px solid #EA0033;">@Messages("Tìm kiếm")</button>
+            </div>
+          </div>
+
+          <div class="table-responsive mt-3" id="tableChooseSubscriber"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

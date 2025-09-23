@@ -1,0 +1,112 @@
+<div class="col-md-12 m-t-4">
+  <span class="display-4 title-section-1">@Messages("Tải file chứng từ")</span>
+  <input id="customerTypeCt" type="text" class="form-control input-form" readonly hidden>
+</div>
+<div class="row" style="text-align: left;" id="listCt">
+  <div class="col-md-1 m-t-3">
+    <label class="col-sm-12 col-form-label title-section-2">@Messages("Ảnh đại diện")<span class="text-red">@Messages("*")</span></label>
+  </div>
+  <div class="col-md-3 m-t-3">
+    <div class="row m-b-4">
+      <div class="col-sm-12 position-relative">
+        <div class="row">
+          <div class="col-md-12 position-relative">
+            <input id="imgOld1" type="text" class="form-control" hidden>
+            <div class="d-flex flex-column align-items-center text-center square-item" >
+              <img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview1" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">
+              <input id="wizard-picture-1" name="avatar" type="file" hidden/>
+              <div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg1" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(1)"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-1 m-t-3">
+    <label class="col-sm-12 col-form-label title-section-2">@Messages("Mặt trước CMT/ CCCD")<span class="text-red">@Messages("*")</span></label>
+  </div>
+  <div class="col-md-3 m-t-3">
+    <div class="row m-b-4">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-md-12 position-relative">
+            <input id="imgOld2" type="text" class="form-control" hidden>
+            <div class="d-flex flex-column align-items-center text-center square-item" >
+              <img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview2" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">
+              <input id="wizard-picture-2" name="avatar" type="file" hidden/>
+              <div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg2" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(2)"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-1 m-t-3">
+    <label class="col-sm-12 col-form-label title-section-2">@Messages("Mặt sau CMT/ CCCD")<span class="text-red">@Messages("*")</span></label>
+  </div>
+  <div class="col-md-3 m-t-3">
+    <div class="row m-b-4">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-md-12 position-relative">
+            <input id="imgOld3" type="text" class="form-control" hidden>
+            <div class="d-flex flex-column align-items-center text-center square-item" >
+              <img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview3" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">
+              <input id="wizard-picture-3" name="avatar" type="file" hidden/>
+              <div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg3" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(3)"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-1 m-t-3">
+    <label class="col-sm-12 col-form-label title-section-2">@Messages("Ảnh GPKD")<span class="text-red">@Messages("*")</span></label>
+  </div>
+  <div class="col-md-3 m-t-3">
+    <div class="row m-b-4">
+      <div class="col-sm-12 position-relative">
+        <div class="row">
+          <div class="col-md-12 position-relative">
+            <input id="imgOld4" type="text" class="form-control" hidden>
+            <div class="d-flex flex-column align-items-center text-center square-item" >
+              <img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview4" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">
+              <input id="wizard-picture-4" name="avatar" type="file" hidden/>
+              <div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg4" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(4)"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-1 m-t-3">
+    <label class="col-sm-12 col-form-label title-section-2">@Messages("Ảnh phiếu yêu cầu")<span class="text-red">@Messages("*")</span></label>
+  </div>
+  <div class="col-md-7 m-t-3">
+    <div class="row m-b-4">
+      <div class="col-sm-12 position-relative">
+        <div class="row">
+          <div class="col-md-5 position-relative">
+            <input id="imgOld5" type="text" class="form-control" hidden>
+            <div class="d-flex flex-column align-items-center text-center square-item" >
+              <img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview5" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">
+              <input id="wizard-picture-5" name="avatar" type="file" hidden/>
+              <div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg5" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(5)"></i></div>
+            </div>
+          </div>
+          <div class="col-md-7 position-relative">
+            <label class="form-label ">@Messages("Upload image")</label><br>
+            <label class="form-label ">@Messages("Kéo thả file ảnh hoặc mở file ")<a onclick="$('#wizard-picture-5').click();" class="cursor-pointer text-danger">@Messages("tại đây")</a></label>
+          </div>
+          <div class="col-md-12 position-relative">
+            <small class="form-label ">@Messages("File jpg, png, jpeg, pdf dung lượng file không quá 3mb")</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

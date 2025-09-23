@@ -1,0 +1,50 @@
+<div id="service_invoice_info" class="card">
+  <div class="card-body">
+    <div class="table-responsive py-4 " style="border-radius: 8px;" id="service_invoice_table">
+      <table class="table table-striped" style="width: 100%; border: 1px solid;">
+        <thead style="background-color: #FBCCD6;">
+          <tr>
+            <th>@Messages("invoice.table.stt")</th>
+            <th>@Messages("invoice.table.invoiceNumber")</th>
+            <th>@Messages("invoice.table.serviceInvoiceType")</th>
+            <th>@Messages("invoice.table.totalAmount")</th>
+            <th>@Messages("invoice.table.invoiceDate")</th>
+            <th class="d-flex justify-content-center">@Messages("invoice.table.actions")</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="7" class="text-center">@Messages("common.noData")</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-md-4 d-flex align-items-center justify-content-center justify-content-md-start mb-3">
+        <p class="mb-0">@Messages("invoice.table.totalRecordsPrefix") <span id="total_record">0</span> @Messages("invoice.table.totalRecordsSuffix")</p>
+      </div>
+      <div class="col-md-8 d-flex flex-column flex-md-row justify-content-end align-items-center gap-2 gap-md-3 mb-3">
+        <div class="dropdown mb-2 mb-md-0">
+          <button class="btn btn-sm dropdown-toggle btn-outline-dark" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false" id="countPageSize" style="margin-left: 5px;">
+            10
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="javascript:handleChangePageSizeService(1,10,true)">10</a></li>
+            <li><a class="dropdown-item" href="javascript:handleChangePageSizeService(1,50,true)">50</a></li>
+            <li><a class="dropdown-item" href="javascript:handleChangePageSizeService(1,100,true)">100</a></li>
+            <li><a class="dropdown-item" href="javascript:handleChangePageSizeService(1,200,true)">200</a></li>
+            <li><a class="dropdown-item" href="javascript:handleChangePageSizeService(1,500,true)">500</a></li>
+          </ul>
+        </div>
+        <p class="mb-2 mb-md-0">@Messages("entries.per.page")</p>
+        <div id="pagingTable" class="justify-content-md-end"></div>
+      </div>
+    <div>
+      <input type="hidden" name="page" id="page" value="1" />
+      <input type="hidden" name="pageSize" id="pageSize" value="10" />
+      <input type="hidden" name="isResetPage" id="isResetPage" value="false" />
+    </div>
+    </div>
+  </div>
+</div>

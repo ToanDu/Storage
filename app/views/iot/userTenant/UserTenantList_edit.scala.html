@@ -1,0 +1,80 @@
+<div class="modal fade" id="editModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: red;">
+        <span class="modal-title text-white" id="myModalLabel">@Messages("Thông tin user")</span>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="row mt-3">
+              <label class="col-sm-4 col-form-label title-section-2">@Messages("ID")</label>
+              <div class="col-sm-7">
+                <input id="idEdit" type="text" class="form-control input-form" readonly>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row mt-3">
+              <label class="col-sm-4 col-form-label title-section-2">@Messages("Email")</label>
+              <div class="col-sm-7">
+                <input id="emailEdit" type="text" class="form-control input-form" placeholder="Nhập nội dung" maxlength="50" autocomplete="off">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row mt-3">
+              <label class="col-sm-4 col-form-label title-section-2">@Messages("Tên")</label>
+              <div class="col-sm-7">
+                <input id="nameEdit" type="text" class="form-control input-form" placeholder="Nhập nội dung" maxlength="50" autocomplete="off">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="row mt-3">
+              <label class="col-sm-4 col-form-label title-section-2">@Messages("Số điện thoại")</label>
+              <div class="col-sm-7">
+                <input id="phoneEdit" type="text" class="form-control input-form" placeholder="Nhập nội dung" onkeypress="return isNumberKey(event)" maxlength="11" autocomplete="off">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row mt-3">
+              <label class="col-sm-4 col-form-label title-section-2">@Messages("Mật khẩu")</label>
+              <div class="col-sm-7">
+                <input id="passwordEdit" type="password" class="form-control input-form" placeholder="Nhập nội dung" autocomplete="off">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cancle" onclick="setAddPermission()">@Messages("Thêm role")</button>
+
+              <button type="button" class="btn btn-cancle" data-bs-dismiss="modal">@Messages("btnCancle")</button>
+              <button type="button" class="btn btn-red" onclick="processEditUser()">@Messages("btnComfirm")</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="table-responsive mb-3" style="border-radius: 8px;">
+            <table class="table table-striped" id="listPermissionUser" style="width: 100%;">
+              <thead style="background-color: #FBCCD6;">
+                <tr>
+                  <th>@Messages("STT")</th>
+                  <th>@Messages("Project")</th>
+                  <th>@Messages("Role")</th>
+                  <th style="text-align: center">@Messages("Thao tác")</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <h5 id="notiNotDataPermission" style="text-align: center;"></h5>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

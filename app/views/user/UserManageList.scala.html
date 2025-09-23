@@ -1,0 +1,145 @@
+@import helper._
+@import vn.m2m.utils.DateUtil
+@import vn.m2m.common.models.User
+@import vn.m2m.utils.UserHelper
+@import vn.m2m.common.models.forms.SearchObjectData
+@(currentUser:User, searchResultData: SearchObjectData, searchField: List[String])
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("Manage Users")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/iot.png")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="@routes.Assets.versioned("assets/css/style.css")" rel="stylesheet"/>
+    <link href="@routes.Assets.versioned("assets/css/loader-style.css")" rel="stylesheet"/>
+    <link href="@routes.Assets.versioned("assets/css/bootstrap.min.css")" rel="stylesheet"/>
+    <link href="@routes.Assets.versioned("assets/js/progress-bar/number-pb.css")" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="@routes.Assets.versioned("assets/js/timepicker/bootstrap-timepicker.css")">
+    <link rel="stylesheet" href="@routes.Assets.versioned("assets/js/datepicker/datepicker.css")">
+    <link rel="stylesheet" href="@routes.Assets.versioned("assets/js/datepicker/clockface.css")">
+
+    <link rel="shortcut icon" href="@routes.Assets.versioned("assets/ico/minus.png")">
+
+  </head>
+  <body>
+      <!-- Preloader -->
+    <div id="preloader">
+      <div id="status">&nbsp;</div>
+    </div>
+
+    <nav role="navigation" class="navbar navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
+            <span class="entypo-menu"></span>
+          </button>
+          <button class="navbar-toggle toggle-menu-mobile toggle-left" type="button">
+            <span class="entypo-list-add"></span>
+          </button>
+
+          <div id="logo-mobile" class="visible-xs">
+            <h1>IoT Platform
+              <span>v1.1</span>
+            </h1>
+          </div>
+        </div>
+
+        @views.html.dashboard.Navbar(currentUser)
+      </div>
+    </nav>
+
+    @views.html.dashboard.SideMenu(currentUser)
+
+      <!--  PAPER WRAP -->
+    <div class="wrap-fluid">
+      <div class="container-fluid paper-wrap bevel tlbr">
+          <!-- CONTENT -->
+        @views.html.dashboard.Title(currentUser, Messages("Manage Users"))
+
+          <!--  DEVICE MANAGER -->
+        <div class="content-wrap">
+          <div class="row">
+            <div class="col-sm-12">
+
+              <div class="nest" id="tableStaticClose">
+                <div class="title-alt">
+                  <h6>Manage Users</h6>
+                  <div class="titleToggle">
+                    <a class="nav-toggle-alt" href="#tableStatic">
+                      <span class="entypo-up-open"></span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="body-nest" id="tableStatic">
+                  <section id="flip-scroll">
+
+                    @views.html.filter.FilterHeaderTag(currentUser, searchResultData.getSearchFilterForm,searchField,"/userList")
+
+                    <table class="table table-bordered table-striped cf">
+                      <thead class="cf">
+                        <th>@Messages("No")</th>
+                        <th data-field="username">@Messages("Username")</th>
+                        <th data-field="role">@Messages("Role")</th>
+                        <th data-field="createDate">@Messages("Create Date")</th>
+                        <th data-field="lastModified">@Messages("Last Modified")</th>
+                        <th>@Messages("ACTION")</th>
+
+                      </thead>
+                      <tbody align="left">
+                      @for((user: User, index)<- searchResultData.getObjectList.zipWithIndex) {
+                        <tr>
+                          <td>@(index+1+(searchResultData.getSearchFilterForm.getPage -1)*searchResultData.getSearchFilterForm.getPageSize)</td>
+                          <td>@user.getUsername</td>
+                          <td>@User.Roles.getNameByCode(user.getRole)</td>
+                          <td>@DateUtil.getDateByFormat(user.getCreateDate, DateUtil.FORMAT_DATE_YYYY_MM_DD_HH_mm)</td>
+                          <td>@DateUtil.getDateByFormat(user.getLastModified, DateUtil.FORMAT_DATE_YYYY_MM_DD_HH_mm)</td>
+                          <td>
+                            <a rel="tooltip" title="@Messages("Edit")" class="btn btn-info btn-icon table-action edit" onclick="" data-toggle="modal" data-target="#" style="padding: 0.46875rem 1rem;">
+                              <i class="fa fa-edit" title="@Messages("Edit")"></i>
+                            </a>
+                          </td>
+
+                        </tr>
+                      }
+                      </tbody>
+                    </table>
+
+                  </section>
+
+                  @views.html.filter.FilterFooterTag(searchResultData.getSearchFilterForm)
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+          <!--  / DEVICE MANAGER -->
+
+        <div class="content-wrap">
+          <div class="row">
+
+          </div>
+            <!-- /END OF CONTENT -->
+
+          @views.html.dashboard.Footer()
+
+        </div>
+      </div>
+    </div>
+      <!--  END OF PAPER WRAP -->
+
+    @views.html.dashboard.RightSlide()
+
+
+
+    <script src="@routes.Assets.versioned("javascripts/SearchJs.js")" type="text/javascript"></script>
+    @views.html.filter.FilterScriptTag(searchResultData.getSearchFilterForm, searchField)
+  </body>
+</html>

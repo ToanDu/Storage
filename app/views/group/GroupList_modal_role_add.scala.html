@@ -1,0 +1,95 @@
+<div class="modal fade" id="addRoleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("role.addNew")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <div class="col-md-12">
+              <div class="row">
+
+                <div class="col-md-12">
+                  <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+                    <span class="input-group-text" style="width: 100%; background-color:#858687; color: #FFFFFF; text-transform: uppercase;">@Messages("role.name")</span>
+                  </div>
+                  <div class="card" style="padding: 10px; min-height: 150px;">
+                    <div class="col-sm-6">
+                      <input id="nameRoleNew" type="text" class="form-control" maxlength="30" autocomplete="off" required>
+                      <br>
+                      <h7 class="textNote">@Messages("manage.group.org.30char")</h7>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+                    <span class="input-group-text" style="width: 100%; background-color:#858687; color: #FFFFFF; text-transform: uppercase;">@Messages("role.resources")</span>
+                  </div>
+                  <div class="card" style="padding: 10px; min-height: 150px;">
+                    <div class="col-sm-12" id="resourcesRoleNew" style="">
+                      <div class="row">
+                        <div class="col-sm-5">
+                          <div class="form-check form-check-inline" style="width: 100%; padding-left: 0px;">
+                            <select class="form-select mb-3 service-list" aria-label="Default select example" id="serviceList1">
+                              <option class="organizations" value="organizations" selected>@Messages("role.service.organizations")</option>
+                              <option class="groups" value="groups">@Messages("role.service.groups")</option>
+                              <option class="devices" value="devices">@Messages("role.service.devices")</option>
+                              <option class="users" value="users">@Messages("role.service.users")</option>
+                              <option class="events" value="events">@Messages("role.service.events")</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-6 permission-list">
+                          <div class="form-check form-check-inline" style="margin-top: 10px">
+                            <input class="form-check-input CheckBoxView" type="checkbox" id="CheckBoxView1" value="option1">
+                            <label class="form-check-label" for="CheckBoxView1">@Messages("btnView")</label>
+                          </div>
+                          <div class="form-check form-check-inline" style="margin-top: 10px">
+                            <input class="form-check-input CheckBoxCreate" type="checkbox" id="CheckBoxCreate1" value="option2">
+                            <label class="form-check-label" for="CheckBoxCreate1">@Messages("btnCreate")</label>
+                          </div>
+                          <div class="form-check form-check-inline" style="margin-top: 10px">
+                            <input class="form-check-input CheckBoxEdit" type="checkbox" id="CheckBoxEdit1" value="option3">
+                            <label class="form-check-label" for="CheckBoxEdit1">@Messages("btnEdit")</label>
+                          </div>
+                          <div class="form-check form-check-inline" style="margin-top: 10px">
+                            <input class="form-check-input CheckBoxDelete" type="checkbox" id="CheckBoxDelete1" value="option4">
+                            <label class="form-check-label" for="CheckBoxDelete1">@Messages("btnDelete")</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="d-flex flex-column align-items-center text-center">
+                        <button type="button" class="btn btn-dark" style="font-size: 16px; cursor: pointer; float: right" id="addMoreCondition" onclick="appendResourcesRole()">
+                          <i class="bx bx-plus me-0"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-1"></div>
+
+          <div class="col-md-12">
+            <div class="d-flex flex-column align-items-center text-center">
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="postNewRole()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

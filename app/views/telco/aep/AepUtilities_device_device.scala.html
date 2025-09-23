@@ -1,0 +1,30 @@
+<div class="modal fade" id="deviceModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: red; border-radius: 16px 16px 0px 0px;">
+        <span class="modal-title text-white" id="myModalLabel">@Messages("Tạo Thiết bị")</span>
+      </div>
+      <div class="modal-body" style="padding-bottom: 0px;">
+        <div class="table-responsive mb-3" style="border-radius: 8px;">
+          <table class="table table-striped" id="listDeviceCreateWithSerial" style="width: 100%;">
+            <thead style="background-color: #FBCCD6;">
+              <tr>
+                <th>@Messages("STT")</th>
+                <th>@Messages("Thiết bị")</th>
+                <th>@Messages("Serial")</th>
+                <th>@Messages("Kết quả")</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-cancle" onclick="backModalAddTemplate()">@Messages("btnBack")</button>
+        <button type="button" class="btn btn-cancle" data-bs-dismiss="modal" onclick="getListSubscriberCmp()">@Messages("Kết thúc")</button>
+        <button type="button" class="btn btn-red" onclick="addDeviceWithSerial(0)">@Messages("btnComfirm")</button>
+      </div>
+    </div>
+  </div>
+</div>

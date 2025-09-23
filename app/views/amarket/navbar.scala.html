@@ -1,0 +1,34 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<div class="wrapper">
+    <div class="sidebar-wrapper" data-simplebar="true" style="background-color: #F4F5F6;">
+        <div class="sidebar-header" style="background-color: white;">
+            <div>
+                <img src="@routes.Assets.versioned("images/dashboard/logo.svg")" class="logo-icon" alt="logo icon" style="width: 150px; margin-left: 35px;">
+            </div>
+            <div class="toggle-icon ms-auto" id="arrowMenu" style="display: none"><i class='bx bx-arrow-to-left'></i>
+            </div>
+        </div>
+            <!--navigation-->
+        <ul class="metismenu" id="menu">
+            <li class="menu-label">Market Place</li>
+            <li id="menu-product">
+                <a href="@routes.ProductListController.productList(currentUser.getId)">
+                    <div class="parent-icon">
+                        <i class="bx bx-devices"></i>
+                    </div>
+                    <div class="menu-title">@Messages("Quản lý sản phẩm")</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="@routes.Application.logout()">
+                    <div class="parent-icon">
+                        <i class='bx bx-log-out'></i>
+                    </div>
+                    <div class="menu-title">@Messages("manage.logout")</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,209 @@
+<div class="modal fade" id="editPackDataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16" style="width: 150%; right: 25%;">
+      <div class="modal-header" style="text-align: center; display: block">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("packdata.edit")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <input id="idPackDataEdit" type="text" class="form-control" maxlength="30" autocomplete="off" hidden>
+
+            <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+              <span class="input-group-text" style="width: 100%; background-color:#858687; color: #FFFFFF; text-transform: uppercase;">@Messages("packdata.info")</span>
+            </div>
+            <div class="card" style="padding: 20px; border: 1px solid #858687;">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row mb-4">
+                    <label class="col-sm-4 col-form-label">@Messages("packdata.name")</label>
+                    <div class="col-sm-8">
+                      <input id="namePackDataEdit" type="text" class="form-control" maxlength="30" autocomplete="off" required>
+                      <br>
+                      <h7 class="textNote">@Messages("manage.group.org.30char")</h7>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="row mb-4">
+                    <label class="col-sm-4 col-form-label">@Messages("packdata.content")</label>
+                    <div class="col-sm-8">
+                      <textarea id="contentPackDataEdit" type="text" rows="4" cols="25" maxlength="500"></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="row mb-4">
+                    <label class="col-sm-4 col-form-label">@Messages("Loại gói")</label>
+                    <div class="col-sm-8">
+                      <select id="typePackDataEdit" class="form-select" aria-label="select">
+                        <option value="offical">@Messages("Chính thức")</option>
+                        <option value="trial">@Messages("Dùng thử")</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="row mb-4">
+                    <label class="col-sm-4 col-form-label">@Messages("Trạng thái")</label>
+                    <div class="col-sm-8">
+                      <select id="statusPackDataEdit" class="form-select" aria-label="select">
+                        <option value="present">@Messages("Hiện")</option>
+                        <option value="hidden">@Messages("Ẩn")</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+              <span class="input-group-text" style="width: 100%; background-color:#858687; color: #FFFFFF; text-transform: uppercase;">@Messages("packdata.data")</span>
+            </div>
+            <div class="card" style="padding: 20px; border: 1px solid #858687;">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row mb-4">
+                    <label class="col-sm-4 col-form-label">@Messages("Phương thức thanh toán")</label>
+                    <div class="col-sm-8">
+                      <select id="paymentTypeEdit" onchange="choosePaymentTypeEdit()" class="form-select" aria-label="select">
+                        <option value="PREPAY">@Messages("Trả trước")</option>
+                        <option value="POSTPAID">@Messages("Trả sau")</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="row mb-4">
+                    <label class="col-sm-4 col-form-label">@Messages("Loại chu kỳ tính tiền")</label>
+                    <div class="col-sm-8">
+                      <select id="typePeriodEdit" onchange="choosePeriodTypeEdit()" class="form-select" aria-label="select">
+                        <option value="PERIODIC">@Messages("Định kỳ")</option>
+                        <option value="ONCE">@Messages("Một lần")</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6" id="divCalUnitEdit" style="display: block;">
+                  <div class="row mb-4">
+                    <label class="col-sm-4 col-form-label">@Messages("Chu kì tính tiền")</label>
+                    <div class="col-sm-4">
+                      <input id="periodEdit" type="number" value="1" class="form-control" max="1000" autocomplete="off" required>
+                    </div>
+                    <div class="col-sm-4">
+                      <select id="calUnitEdit" class="form-select" aria-label="select">
+                        <option value="day">@Messages("Ngày")</option>
+                        <option value="week">@Messages("Tuần")</option>
+                        <option value="month">@Messages("Tháng")</option>
+                        <option value="year">@Messages("Năm")</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="row mb-4">
+                    <label class="col-sm-4 col-form-label">@Messages("Chi phí cố định hàng kỳ (VND)")</label>
+                    <div class="col-sm-8">
+                      <input id="fixCostEdit" type="number" value="0" class="form-control" autocomplete="off" required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="row mb-4">
+                    <label class="col-sm-4 col-form-label">@Messages("Đơn vị tính")</label>
+                    <div class="col-sm-8">
+                      <select id="chargingUnitEdit" class="form-select" aria-label="select">
+                        <option value="message">@Messages("Kết nối")</option>
+                        <option value="device">@Messages("Thiết bị")</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="row mb-4">
+                    <label class="col-sm-4 col-form-label">@Messages("Phương pháp định giá")</label>
+                    <div class="col-sm-8">
+                      <select id="estimateEdit" class="form-select" aria-label="select" onchange="changeEstimateEdit()">
+                        <option value="fix">@Messages("Cố định")</option>
+                        <option value="unit">@Messages("Theo đơn vị")</option>
+                        <option value="mass">@Messages("Khối lượng")</option>
+                        <option value="accumulated">@Messages("Lũy kế")</option>
+                        <option value="step">@Messages("Bậc thang")</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6" id="divPriceEdit" style="display: block;">
+                  <div class="row mb-4">
+                    <label class="col-sm-4 col-form-label">@Messages("Số tiền (VND)")</label>
+                    <div class="col-sm-8">
+                      <input id="priceEdit" type="number" class="form-control" autocomplete="off" value="0" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6" id="divNumberFreeEdit" style="display: none;">
+                  <div class="row mb-4">
+                    <label class="col-sm-4 col-form-label">@Messages("Số lượng miễn phí")</label>
+                    <div class="col-sm-8">
+                      <input id="numberFreeEdit" type="number" class="form-control" autocomplete="off" value="0" required>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            @*plan_level*@
+            <div id="tabPlanLevelEdit" style="display: none;">
+              <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+                <span class="input-group-text" style="width: 100%; background-color:#858687; color: #FFFFFF; text-transform: uppercase;" id="namePlanLevelEdit"></span>
+              </div>
+              <div class="card" style="padding: 20px; border: 1px solid #858687;" >
+                <div class="row">
+                  <div class="col-sm-1">
+                    <div class="row">
+                      <div class="col-md-12 mt-2">
+                        <button type="button" class="btn btn-dark" style="font-size: 24px; cursor: pointer; float: left;" onclick="appendPlanLevelEdit()">
+                          <i class="bx bx-plus me-0"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-11" id="planLevelEdit">
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="card" style="padding: 20px; border: 1px solid #858687;" id="tabMoneyBuyPlanEdit">
+              <h4>@Messages("Ước tính số tiền thanh toán")</h4>
+              <div class="col-sm-12">
+                <div class="row">
+                  <label class="col-sm-3 col-form-label" style="text-align: right;">@Messages("Nếu khách mua")</label>
+                  <div class="col-sm-3">
+                    <input id="numberBuyPlanEdit" type="number" class="form-control" autocomplete="off" required>
+                  </div>
+                  <label class="col-sm-6 col-form-label" id="moneyBuyPlanEdit">@Messages(" thì tổng số tiền phải thanh toán là 0 VND")</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" onclick="processEditPackdata()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

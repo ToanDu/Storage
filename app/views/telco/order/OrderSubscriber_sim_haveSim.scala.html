@@ -1,0 +1,45 @@
+<div class="col-lg-9 col-md-8 mt-3" id="tabConnectHaveSim">
+  <div class="row">
+    <div class="col-md-12 m-t-4">
+      <span class="display-4 title-section-1">@Messages("1. Thông tin thuê bao")</span>
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-12 m-t-3">
+          <div class="row m-b-4">
+            <label class="col-sm-3 col-form-label title-section-2" style="text-align: left">@Messages("Danh sách thuê bao")<span class="text-red">@Messages("*")</span></label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control input-form" id="nameFileImport" readonly/>
+            </div>
+            <input type="file" class="" id="filesConnectHaveSim" name="files" style="background-color: #aaa;" hidden/>
+            <label class="col-sm-3 col-form-label title-section-2" style="text-align: left; cursor: pointer; color: #EA0033;" onclick="importFileConnectHaveSim()">
+              <i class="bx bx-upload"></i> @Messages("Import danh sách")
+            </label>
+            <label class="col-sm-3 col-form-label title-section-2" style="text-align: left; cursor: pointer; color: #EA0033;" onclick="downloadTemplateConnectHaveSim()">
+              <i class="bx bx-file"></i> @Messages("File danh sách mẫu")
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 m-t-4">
+      <span class="display-4 title-section-1">@Messages("2. Check danh sách")</span>
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-12 m-t-3">
+          <div class="row m-b-4">
+            <label class="col-sm-3 col-form-label title-section-2" style="text-align: left">@Messages("Số lượng thuê bao hợp lệ")<span class="text-red">@Messages("*")</span></label>
+            <div class="col-sm-3">
+              <input type="number" class="form-control input-form" id="countConnectHaveSimTrue" value="0" style="width: 100%;" readonly/>
+            </div>
+            <label class="col-sm-6 col-form-label title-section-2" style="text-align: left; cursor: pointer; color: #EA0033;" onclick="exportListConnectHaveSimTrue()">
+              <i class="bx bx-download"></i> @Messages("Tải danh sách chi tiết")
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

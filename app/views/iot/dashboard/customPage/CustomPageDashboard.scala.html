@@ -1,0 +1,224 @@
+@import helper._
+@import vn.m2m.utils.DateUtil
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("dashboard.design")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+
+    <link href="@routes.Assets.versioned("stylesheets/views/group/style.min.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("stylesheets/views/modal-right.css")" rel="stylesheet" />
+
+    <link href="@routes.Assets.versioned("assets/plugins/draggable/draggable.css")" rel="stylesheet" />
+
+  </head>
+  <body class="bg-theme bg-theme1">
+    @views.html.iot.tags.Menu(currentUser, "")
+
+    @views.html.iot.tags.Header(currentUser)
+
+    <div class="page-wrapper">
+      <div class="page-content">
+
+          <!--breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3 ">
+          <div class="breadcrumb-title pe-3">@Messages("manage.manage")</div>
+          <div class="ps-3">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt "></i></a>
+                </li>
+                <li class="breadcrumb-item active " aria-current="page">@Messages("dashboard.design")</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="ms-auto"></div>
+        </div>
+          <!--end breadcrumb-->
+
+
+        <div class='parent'>
+          <div class="col-md-12" >
+            <div class="toolbar" >
+              <button class="btn btn-primary" onclick="" data-bs-toggle="modal" data-bs-target="#addRowModal">
+                <i class="bx bx-plus" aria-hidden="true"></i> @Messages("dashboard.design.addRow")
+              </button>
+              <button class="btn btn-success" onclick="" data-bs-toggle="modal" data-bs-target="#">
+                <i class="bx bx-save" aria-hidden="true"></i> @Messages("btnComfirm")
+              </button>
+              <button class="btn btn-danger" onclick="" data-bs-toggle="modal" data-bs-target="#resetConfirm">
+                <i class="bx bx-reset" aria-hidden="true"></i> @Messages("dashboard.design.reset")
+              </button>
+            </div>
+          </div>
+          <hr>
+
+          <div class="col-md-12" >
+            <div class="row">
+              <div class="col-md-3">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Example</h5>
+                    <hr/>
+                    <div class="accordion" id="accordionExample">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              <div class="tab-icon"><i class='bx bx-map font-18 me-1'></i></div>@Messages("dashboard.design.map")
+                          </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                          @views.html.iot.dashboard.customPage.CustomPageDashboard_accordion_map()
+                        </div>
+                      </div>
+
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              <div class="tab-icon"><i class='bx bx-chart font-18 me-1'></i></div>@Messages("dashboard.design.chart")
+                          </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#Column" role="tab" aria-selected="true">
+                                        <div class="d-flex align-items-center">
+                                            <div class="tab-title">@Messages("Column")</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#Line" role="tab" aria-selected="false">
+                                        <div class="d-flex align-items-center">
+                                            <div class="tab-title">@Messages("Line")</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#Circle" role="tab" aria-selected="false">
+                                        <div class="d-flex align-items-center">
+                                            <div class="tab-title">@Messages("Circle")</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content py-3">
+                                <div class="tab-pane fade show active" id="Column" role="tabpanel">
+                                @views.html.iot.dashboard.customPage.CustomPageDashboard_accordion_chartColumn()
+                                </div>
+                                <div class="tab-pane fade" id="Line" role="tabpanel">
+                                @views.html.iot.dashboard.customPage.CustomPageDashboard_accordion_chartLine()
+                                </div>
+                                <div class="tab-pane fade" id="Circle" role="tabpanel">
+                                @views.html.iot.dashboard.customPage.CustomPageDashboard_accordion_chartCircle()
+                                </div>
+                            </div>
+
+                        </div>
+                      </div>
+
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              <div class="tab-icon"><i class='bx bx-news font-18 me-1'></i></div>@Messages("dashboard.design.statistical")
+                          </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                          <div class="accordion-body">
+                          @views.html.iot.dashboard.customPage.CustomPageDashboard_accordion_statistical()
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                              <div class="tab-icon"><i class='bx bx-list-ul font-18 me-1'></i></div>@Messages("dashboard.design.table")
+                          </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                          <div class="accordion-body">
+                          @views.html.iot.dashboard.customPage.CustomPageDashboard_accordion_table()
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card col-md-9" id="bodyDashboard"></div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      @views.html.iot.dashboard.customPage.CustomPageDashboard_addRow()
+      @views.html.iot.dashboard.customPage.CustomPageDashboard_accordion_update()
+      @views.html.iot.dashboard.customPage.CustomPageDashboard_reset()
+
+      @views.html.Loading()
+
+    </div>
+      <!--  END OF PAPER WRAP -->
+
+  </body>
+
+    @views.html.iot.tags.Main_js()
+
+    <script>
+            $(document).ready(function () {
+                $("#menu-customPageDashboard").addClass("mm-active");
+                $("#menu").metisMenu();
+
+            })
+    </script>
+
+    <script src="@routes.Assets.versioned("javascripts/SearchJs.js")" type="text/javascript"></script>
+
+    <script src="@routes.Assets.versioned("assets/plugins/draggable/jquery-3.3.1.slim.min.js")"></script>
+    <script src="@routes.Assets.versioned("assets/plugins/draggable/touch-dnd.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/dashboard/CustomPage/CustomPageDashboard.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/dashboard/CustomPage/CustomChart.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/dashboard/CustomPage/CustomStatistical.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/dashboard/CustomPage/CustomTable.js")" type="text/javascript"></script>
+
+    <script type="text/javascript">
+            $(function() {
+                $('.draggable').draggable({ connectWith: '#rhs'});
+//                        .click(function(e) {
+//                    console.log(getParentNode(e.target,5));
+//                });
+                $('.droppable').droppable({ activeClass: 'active', hoverClass: 'drop-here' });
+            });
+
+            var mapImg = "@routes.Assets.versioned("images/dashboard/map.png")";
+            var chartColumnImg = "@routes.Assets.versioned("images/dashboard/chartColumn.png")";
+            var chartLineImg = "@routes.Assets.versioned("images/dashboard/chartLine.png")";
+            var chartCircleImg = "@routes.Assets.versioned("images/dashboard/chartCircle.png")";
+            var statisticalImg = "@routes.Assets.versioned("images/dashboard/statistical.png")";
+            var tableImg = "@routes.Assets.versioned("images/dashboard/table.png")";
+
+            function getParentNode(element, level) { // 1 - default value (if no 'level' parameter is passed to the function)
+                while(level-- > 0) {
+                    element = element.parentNode;
+                    if(!element) {
+                        return null; // to avoid a possible "TypeError: Cannot read property 'parentNode' of null" if the requested level is higher than document
+                    }
+                }
+                return element;
+            }
+    </script>
+</html>

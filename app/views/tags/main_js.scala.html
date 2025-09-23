@@ -1,0 +1,37 @@
+<script type="text/javascript" src="@routes.JsController.jsMessages()"></script>
+<script type="text/javascript" src="@routes.JsController.javascriptRoutes"></script>
+
+<script src="@routes.Assets.versioned("javascripts/js/core/jquery.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/core/popper.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/core/bootstrap-material-design.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/plugins/perfect-scrollbar.jquery.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/plugins/moment.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/plugins/sweetalert2.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/plugins/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/plugins/jquery.bootstrap-wizard.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/plugins/bootstrap-selectpicker.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/plugins/bootstrap-datetimepicker.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/plugins/jquery.dataTables.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/plugins/bootstrap-tagsinput.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/plugins/jasny-bootstrap.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/plugins/fullcalendar.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/plugins/jquery-jvectormap.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/plugins/nouislider.min.js")" type="text/javascript"></script>
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>*@
+<script src="@routes.Assets.versioned("javascripts/js/plugins/arrive.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/plugins/chartist.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/plugins/bootstrap-notify.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/js/material-dashboard.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+            $(document).ready(function(){
+                @if(flash.containsKey("success")) {
+                showNotification('top','center','success','@flash.get("success")','notification');
+                }
+                @if(flash.containsKey("failed")) {
+                showNotification('top','center','danger','@flash.get("failed")','notification');
+                }
+            });
+</script>
+<script src="@routes.Assets.versioned("javascripts/ShowNotification.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/SearchJs.js")" type="text/javascript"></script>

@@ -1,0 +1,53 @@
+<div class="modal fade" id="importBlockSubsModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <span class="modal-title" id="exampleModalLabel">@Messages("blockUtilities.importBlockSubsList")</span>
+        <a class="close cursor-pointer" data-bs-dismiss="modal" aria-hidden="true" style="float: right; font-size: 20px;">×</a>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row mb-3">
+              <span class="col-sm-4 col-form-label">@Messages("blockUtilities.loadSubscriberList")</span>
+              <div class="col-sm-4">
+                <input type="file" id="filesBlockSubs" name="files" style="background-color: #aaa; width: 100%;" hidden/>
+                <input type="text" class="form-control input-form" id="nameFileBlockSubs" readonly/>
+              </div>
+              <label class="col-sm-4 col-form-label title-section-2" style="text-align: left; cursor: pointer; color: #EA0033;" onclick="importFileBlockSubs()">
+                <i class="bx bx-upload"></i> @Messages("blockUtilities.importSubscriberList")
+              </label>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("blockUtilities.downloadTemplateFile")</span>
+              <span class="col-sm-4 col-form-label align-items-center">@Messages("blockUtilities.templateFileName")</span>
+              <div class="col-sm-4 col-form-label">
+                <a style="color: #EA0033; cursor: pointer;" onclick="downloadTemplateBlockSubs()"><i class="bx bx-download"></i> @Messages("common.download")</a>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("blockUtilities.validSubscribers")</span>
+              <span class="col-sm-4 col-form-label align-items-center" id="countBlockSubsTrue">@Messages("0")</span>
+              <div class="col-sm-4 col-form-label">
+                <a style="color: #EA0033; cursor: pointer;" onclick="exportListSubsBlockTrue()"><i class="bx bx-download"></i> @Messages("common.download")</a>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("blockUtilities.invalidSubscribers")</span>
+              <span class="col-sm-4 col-form-label align-items-center" id="countBlockSubsFalse">@Messages("0")</span>
+              <div class="col-sm-4 col-form-label">
+                <a style="color: #EA0033; cursor: pointer;" onclick="exportListSubsBlockFalse()"><i class="bx bx-download"></i> @Messages("common.download")</a>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cancle" onclick="cancleImportFileBlock()">@Messages("common.cancel")</button>
+              <button type="button" class="btn btn-red" onclick="comfirmTableListSubsBlock()" data-bs-dismiss="modal">@Messages("common.confirm")</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

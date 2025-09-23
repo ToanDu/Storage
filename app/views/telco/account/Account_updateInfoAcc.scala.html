@@ -1,0 +1,28 @@
+<div class="modal fade" id="updateInfoAccModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block; background-color: red;">
+        <h5 class="modal-title text-white" id="myModalLabel">@Messages("Xác nhận")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+
+          <div class="col-12 mt-3">
+            <label class="form-label">@Messages("Nhập mã")</label>
+            <div class="input-group">
+              <input type="number" class="form-control border-end-0" id="optUpdateInfoAcc" maxlength="50">
+            </div>
+          </div>
+          <div class="col-12 mt-3">
+            <label class="form-label">@Messages("Bạn vui lòng nhập OTP được gửi về số điện thoại tài khoản để xác nhận cập nhật thông tin")</label>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick="processUpdateInfoAcc()">@Messages("btnComfirm")</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+      </div>
+    </div>
+  </div>
+</div>

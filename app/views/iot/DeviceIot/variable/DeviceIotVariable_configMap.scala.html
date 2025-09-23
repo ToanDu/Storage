@@ -1,0 +1,41 @@
+@import vn.m2m.iot.models.DeviceVariable
+@(deviceId: String, deviceVariableList: List[DeviceVariable])
+<div class="modal fade" id="configConfirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title text-darker" id="exampleModalLabel">@Messages("device.variable.configGps")</h5>
+        <hr>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <div class="col-md-12">
+            <label class="form-label text-darker">@Messages("manage.deviceIot.id")@Messages(" *")</label>
+            <input id="idDeviceConfig" name="id" type="text" class="form-control" value="@deviceId" maxlength="50" autocomplete="off" readonly>
+          </div>
+          <div class="col-md-12">
+            <label class="form-label text-darker">@Messages("manage.deviceIot.latitude")@Messages(" *")</label><br>
+            <select id="latitudeDeviceConfig" style="width: 100%">
+            @for((variable: DeviceVariable)<- deviceVariableList) {
+              <option value="@variable.getName">@variable.getName</option>
+            }
+            </select>
+          </div>
+          <div class="col-md-12">
+            <label class="form-label text-darker">@Messages("manage.deviceIot.longitude")@Messages(" *")</label><br>
+            <select id="longitudeDeviceConfig" style="width: 100%">
+            @for((variable: DeviceVariable)<- deviceVariableList) {
+              <option value="@variable.getName">@variable.getName</option>
+            }
+            </select>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="processConfigGpsDevice()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+      </div>
+    </div>
+  </div>
+</div>

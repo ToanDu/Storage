@@ -1,0 +1,34 @@
+<div class="modal fade" id="finishDetailModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content" id="theme16" style="align-items: center;">
+      <div class="modal-header">
+        <label class="col-sm-12 col-form-label title-section-2">@Messages("detail.title")</label>
+      </div>
+
+
+      <div class="modal-body text-darker" style="text-align: center;">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-responsive mt-3">
+              <table id="tableFinishDetail" class="table table-striped table-bordered" cellspacing='0' width='100%'>
+                <thead>
+                  <th>@Messages("STT")</th>
+                  <th>@Messages("ISDN")</th>
+                  <th>@Messages("buySim.productName")</th>
+                  <th>@Messages("buySim.result")</th>
+                  <th>@Messages("buySim.reason")</th>
+                </thead>
+                <tbody align="left"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <a type="button" class="btn btn-telco" onclick="closePopupFinishDetail()" style="background: #EA0033; color: #FFFFFF;">@Messages("buySim.close")</a>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="modal fade" id="delConfirmModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h4 class="modal-title text-white">@Messages("Xóa thiết bị mẫu")</h4>
+      </div>
+      <div class="modal-body">
+        <h5 class="modal-body text-darker align-items-center" id="myModalbody">@Messages("noti.confirmDeletebody")</h5>
+        <div class="form-group" hidden>
+          <input id="idDelete" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="postDeleteTemplateDevice()">@Messages("btnDelete")</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnCancel")</button>
+      </div>
+    </div>
+  </div>
+</div>

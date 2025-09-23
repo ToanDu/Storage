@@ -1,0 +1,449 @@
+.title-section-1 {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 52px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #000000;
+}
+
+.usecase-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 1px;
+    color: #000000;
+}
+
+@media (min-width: 993px){
+    .title-section-1 {
+        font-size: 48px;
+    }
+
+    .title-img-1 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 60px;
+        line-height: 70px;
+        color: #FFFFFF;
+    }
+    .title-img-2 {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+        margin-top: 30px;
+    }
+    .title-img-3 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 44px;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+        margin-top: 30px;
+    }
+    .title-img-4 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 44px;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+        margin-top: 30px;
+    }
+
+    .section-smarthome {
+        padding-top: 3rem !important;
+    }
+    .section-fleet {
+        padding-top: 3rem !important;
+    }
+    .section-mettering {
+        padding-top: 3rem !important;
+    }
+
+    .card-bodys {
+        padding: 5px 15px 0px 91px;
+    }
+
+    .question-title {
+        font-size: 22px;
+    }
+
+    #center {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 44px;
+        text-align: center;
+        letter-spacing: 1px;
+        color: #000000;
+    }
+
+    .contact-form-1 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 44px;
+        text-align: center;
+        letter-spacing: 1px;
+        color: #000000;
+    }
+
+    .text-use-content {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 44px;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+    }
+    .text-use-content-1 {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 1px;
+        color: #DFDFDF;
+    }
+}
+
+@media (max-width: 992px) {
+    .title-section-1 {
+        font-size: 48px;
+    }
+
+    .title-img-1 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 70px;
+        color: #FFFFFF;
+        text-align: center;
+    }
+    .title-img-2 {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 32px;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+        margin-top: 30px;
+        text-align: center;
+    }
+    .title-img-3 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 44px;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+        margin-top: 30px;
+        text-align: center;
+    }
+    .title-img-4 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 44px;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+        text-align: center;
+    }
+    .imgSlider {
+        display: none;
+    }
+    .buttonSlider {
+        margin-left: 335px;
+    }
+
+    .section-smarthome {
+        padding-top: 3rem !important;
+    }
+    .section-fleet {
+        padding-top: 3rem !important;
+    }
+    .section-mettering {
+        padding-top: 3rem !important;
+    }
+
+    .card-bodys {
+        padding: 5px 15px 0px 91px;
+    }
+
+    .question-title {
+        font-size: 22px;
+    }
+
+    #center {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 44px;
+        text-align: center;
+        letter-spacing: 1px;
+        color: #000000;
+    }
+
+    .contact-form-1 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 44px;
+        text-align: center;
+        letter-spacing: 1px;
+        color: #000000;
+    }
+
+    .text-use-content {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 44px;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+    }
+    .text-use-content-1 {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 1px;
+        color: #DFDFDF;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    .navbar-toggler {
+        float: right;
+    }
+
+    .buttonSlider {
+        margin-left: 300px;
+    }
+
+    .carousel-indicators-slider {
+        right: -100px;
+        left: 50px;
+        bottom: -21px;
+    }
+
+    .title-section-1 {
+        font-size: 30px;
+    }
+
+    .why-title {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 36px;
+        text-align: center;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+    }
+    .why-text {
+        text-align: center;
+    }
+    .why-card-4 {
+        margin-bottom: 1rem!important;
+    }
+
+    #buttonSubmitContact {
+        margin-bottom: 1rem!important;
+    }
+
+    .card-bodys {
+        padding: 5px 15px 0px 26px;
+    }
+
+    .section-smarthome {
+        padding-top: 1rem !important;
+    }
+    .section-fleet {
+        padding-top: 1rem !important;
+    }
+    .section-mettering {
+        padding-top: 1rem !important;
+    }
+
+    .question-title {
+        font-size: 18px;
+    }
+
+    .card-header {
+        padding: 0.5rem 0.5rem;
+    }
+
+    #center {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 36px;
+        text-align: center;
+        letter-spacing: 1px;
+        color: #000000;
+        margin-top: 40px;
+    }
+
+    .contact-form-1 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 36px;
+        text-align: center;
+        letter-spacing: 1px;
+        color: #000000;
+    }
+
+    .text-use-content {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 36px;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+    }
+    .text-use-content-1 {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: 1px;
+        color: #DFDFDF;
+    }
+
+    #buttonSubmitContact {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-toggler {
+        float: right;
+    }
+
+    .buttonSlider {
+        margin-left: 120px;
+    }
+
+    .carousel-indicators-slider {
+        right: -100px;
+        left: 50px;
+        bottom: -21px;
+    }
+
+    .title-section-1 {
+        font-size: 30px;
+        line-height: 36px;
+        font-weight: 700px;
+    }
+
+    .section {
+        padding-top: 2.6rem;
+    }
+
+    .section {
+        padding-bottom: 0.5rem;
+    }
+
+    .why-title {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 36px;
+        text-align: center;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+    }
+    .why-text {
+        text-align: center;
+    }
+    .why-card-4 {
+        margin-bottom: 1rem!important;
+    }
+
+    #buttonSubmitContact {
+        margin-bottom: 1rem!important;
+    }
+
+    .card-bodys {
+        padding: 5px 15px 0px 26px;
+        margin-left: 36px;
+    }
+
+    .section-smarthome {
+        padding-top: 1rem !important;
+    }
+    .section-fleet {
+        padding-top: 1rem !important;
+    }
+    .section-mettering {
+        padding-top: 1rem !important;
+    }
+
+    .question-title {
+        font-size: 18px;
+    }
+
+    .card-header {
+        padding: 0.5rem 0.5rem;
+    }
+
+    #center {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 36px;
+        text-align: center;
+        letter-spacing: 1px;
+        color: #000000;
+        margin-top: 40px;
+    }
+
+    .contact-form-1 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 36px;
+        text-align: center;
+        letter-spacing: 1px;
+        color: #000000;
+    }
+
+    .text-use-content {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 36px;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+    }
+
+    .text-use-content-1 {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: 1px;
+        color: #DFDFDF;
+    }
+
+    #buttonSubmitContact {
+        width: 100%;
+    }
+}
+
+.gp-title-1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.btn-link:not(:disabled):not(.disabled):active:focus,
+.btn-link:not(:disabled):not(.disabled).active:focus,
+.show>.btn-link.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0 rgba(118, 135, 232, 0.5);
+}
+
+.btn-link {
+    padding-right: 0px;
+}

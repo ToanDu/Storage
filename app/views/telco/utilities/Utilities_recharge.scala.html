@@ -1,0 +1,107 @@
+<div class="accordion-body">
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item" role="presentation" onclick="">
+      <a class="nav-link active" data-bs-toggle="tab" href="#recharge" role="tab" aria-selected="false">
+        <label class="text-recharge-1 align-items-center" style="margin-left: 5px">@Messages("utilities.recharge")</label>
+      </a>
+    </li>
+    <li class="nav-item" role="presentation" onclick="">
+      <a class="nav-link" data-bs-toggle="tab" href="#historyRecharge" role="tab" aria-selected="false">
+        <label class="text-recharge-1 align-items-center" style="margin-left: 5px">@Messages("utilities.rechargeHistory")</label>
+      </a>
+    </li>
+  </ul>
+  <div class="tab-content tab-recharge">
+    <div class="tab-pane fade show active" id="recharge" role="tabpanel">
+      <div class="row">
+        <div class="col-md-8">
+          <label class="text-recharge-2 mt-3" style="float: left">@Messages("utilities.rechargeInfo")</label>
+          <div class="row mt-5">
+            <label class="col-sm-3 col-form-label">@Messages("utilities.account")</label>
+            <div class="col-sm-6">
+              <select class="form-control">
+                <option selected>@Messages("utilities.telcoAccount")</option>
+              </select>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <label class="col-sm-3 col-form-label">@Messages("utilities.amountPerSubscriber")</label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" id="moneyRecharge" onchange="inputMoneyRechargeSubs(this)" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==7) return false;" placeholder="@Messages("utilities.enterAmount")">
+            </div>
+          </div>
+          <div class="row mt-3">
+            <label class="col-sm-3 col-form-label">@Messages("")</label>
+            <div class="col-sm-8">
+              <button type="button" class="btn btn-light mt-1 px-3 button-money" onclick="chooseMoneyNap(10000)">10.000đ</button>
+              <button type="button" class="btn btn-light mt-1 px-3 button-money" onclick="chooseMoneyNap(20000)">20.000đ</button>
+              <button type="button" class="btn btn-light mt-1 px-3 button-money" onclick="chooseMoneyNap(50000)">50.000đ</button>
+              <button type="button" class="btn btn-light mt-1 px-3 button-money" onclick="chooseMoneyNap(100000)">100.000đ</button>
+              <button type="button" class="btn btn-light mt-1 px-3 button-money" onclick="chooseMoneyNap(200000)">200.000đ</button>
+            </div>
+          </div>
+          <div class="modal-footer mt-3">
+            <button type="button" class="btn" onclick="" data-bs-toggle="modal" data-bs-target="#importRechargeSubsModal" style="background: #FFFFFF;border: 1px solid #EA0033;border-radius: 8px 8px 8px 0px;color: #EA0033;">@Messages("utilities.loadList")</button>
+          </div>
+        </div>
+
+        <div class="col-md-4" style="border-left: 1px solid #C0C0C0;">
+          <label class="text-recharge-2 mt-3" style="float: left">@Messages("utilities.payment")</label>
+          <div class="row mt-5">
+            <table class="table" style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td>@Messages("utilities.amountPerSubscriber"):</td>
+                  <td id="moneyRechargeOneSub" class="text-recharge-3"></td>
+                </tr>
+                <tr>
+                  <td>@Messages("utilities.numberOfSubscribers"):</td>
+                  <td id="countRechargeSub" class="text-recharge-3"></td>
+                </tr>
+                <tr>
+                  <td class="text-recharge-3">@Messages("utilities.totalPayment"):</td>
+                  <td id="totalRecharge" class="text-recharge-3"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer mt-3">
+            <button type="button" class="btn btn-red cursor-pointer" onclick="comfirmProcessRechargeSubs()" style="border-radius: 8px 8px 8px 0px;" id="buttonRecharge" disabled>@Messages("utilities.payNow")</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row mt-1" id="dataImportRechargeSubs" style="padding: 15px;"></div>
+      </div>
+
+    </div>
+    <div class="tab-pane fade" id="historyRecharge" style="margin-bottom: 2rem;" role="tabpanel">
+      <div class="card" style="border: 0px;">
+        <div class="table-responsive mt-3">
+          <table class="table table-striped" id="listHistoryRechargeTable" style="width: 100%;">
+            <thead style="background-color: #FBCCD6;">
+              <tr>
+                <th>STT</th>
+                <th>Order ID</th>
+                <th>@Messages("utilities.subscriber")</th>
+                <th>@Messages("utilities.action")</th>
+                <th>@Messages("utilities.amount")</th>
+                <th>@Messages("utilities.totalAmount")</th>
+                <th>@Messages("utilities.status")</th>
+                <th>@Messages("utilities.description")</th>
+                <th>@Messages("utilities.time")</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <h5 id="notiNotDataHistory" style="text-align: center;"></h5>
+        </div>
+        <div class="material-datatables row row-cols-auto g-3" style="margin-bottom: 5px; margin-bottom: 10px;" id="divPagingTableHistoryRecharge">
+          <input name="pageHistoryRecharge" id="pageHistoryRecharge" value="1" style="display: none">
+          <input name="pageSizeHistoryRecharge" id="pageSizeHistoryRecharge" value="15" style="display: none">
+          <div class="dataTables_paginate paging_full_numbers" id="pagingTableHistoryRecharge" style="cursor: pointer; right: 0px; position: absolute;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

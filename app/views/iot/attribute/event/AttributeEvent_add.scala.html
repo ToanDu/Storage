@@ -1,0 +1,64 @@
+<div class="modal fade" id="addAttributeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("manage.org.addAttr")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row mb-4">
+              <label class="col-sm-4 col-form-label">@Messages("manage.org.attr.name")</label>
+              <div class="col-sm-8">
+                <input id="nameAttrAdd" name="name" type="text" class="form-control" maxlength="30" autocomplete="off" required>
+                <br>
+                <h7 class="textNote">@Messages("manage.group.org.30char")</h7>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <label class="col-sm-4 col-form-label">@Messages("manage.org.attr.type")</label>
+              <div class="col-sm-8">
+                <select id="chooseAttrTypeAdd" class="form-select">
+                  <option value="SCOPE_SERVER" selected>@Messages("Server")</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <label class="col-sm-4 col-form-label">@Messages("manage.org.attr.value")</label>
+              <div class="col-sm-8">
+                <select id="chooseAttrValueAdd" class="form-select">
+                  <option value="STR" selected>@Messages("String")</option>
+                  <option value="BOOL" >@Messages("Boolean")</option>
+                  <option value="LONG" >@Messages("Long")</option>
+                  <option value="DBL" >@Messages("Double")</option>
+                  <option value="JSON" >@Messages("Json")</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <label class="col-sm-4 col-form-label">@Messages("manage.org.attr.default")</label>
+              <div class="col-sm-8">
+                <input id="chooseAttrDefaultAdd" type="text" class="form-control" maxlength="255" autocomplete="off" required>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <label class="col-sm-4 col-form-label">@Messages("manage.org.attr.history")</label>
+              <div class="col-sm-8">
+                <select id="chooseAttrHistoryAdd" class="form-select">
+                  <option value="true" selected>@Messages("Có")</option>
+                  <option value="false" >@Messages("Không")</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" onclick="processAddAttribute()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

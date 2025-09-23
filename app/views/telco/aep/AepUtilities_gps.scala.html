@@ -1,0 +1,58 @@
+<div class="row mt-4" id="gps-aep" style="display: none;">
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-4">
+        <h6>@Messages("Request:")</h6>
+      </div>
+      <div class="col-md-8">
+        <select class="" onchange="changeApiGeocoding(this)">
+          <option value="1" selected>@Messages("2 WiFis – 1 Cell")</option>
+          <option value="2">@Messages("1 Cell – GSM")</option>
+          <option value="3">@Messages("1 Cell – Nb-IoT")</option>
+        </select>
+      </div>
+    </div>
+
+    <br>
+    <textarea style="width: 100%;" rows="10" id="editorRequestGps">
+      {
+        "radio": "gsm",
+        "cells": [
+          {
+            "lac": 42900,
+            "cid": 74875925,
+            "signal": -71
+          }
+        ],
+        "wifi": [
+          {
+            "bssid": "34:36:54:bc:5:30",
+            "signal": -53
+          },
+          {
+            "bssid": "78:58:60:7d:8:1c",
+            "signal": -54
+          }
+        ]
+      }
+    </textarea>
+  </div>
+
+  <div class="col-md-4">
+    <h6>@Messages("Response:")</h6><br>
+
+    <textarea style="width: 100%;" rows="10" id="editorResponseGps"></textarea>
+  </div>
+
+  <div class="col-md-4">
+    <h6>@Messages("Location:")</h6><br>
+
+    <div id="page-content-wrapper" style="background: white; padding: 15px; height: 70vh;">
+      <div id="map-canvas" class="big-map"></div>
+    </div>
+  </div>
+
+  <div class="col-md-12 mx-auto text-center mt-2 mb-2">
+    <button type="button" class="btn btn-exp" style="width: 160px;" onclick="submitGps()">@Messages("Submit")</button>
+  </div>
+</div>

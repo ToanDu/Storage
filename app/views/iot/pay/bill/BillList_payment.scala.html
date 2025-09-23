@@ -1,0 +1,38 @@
+<div class="modal fade" id="paymentBillConfirm" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title text-white">@Messages("Thanh toán hóa đơn")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <div class="card" style="padding: 20px; border: 1px solid #858687;">
+            <div class="row">
+
+              <div class="col-md-12">
+                <div class="row mb-4">
+                  <label class="col-sm-4 col-form-label">@Messages("Hóa đơn")</label>
+                  <div class="col-sm-8">
+                    <span id="tdIdBill"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="row mb-4">
+                  <label class="col-sm-4 col-form-label">@Messages("Địa chỉ thanh toán")</label>
+                  <div class="col-sm-8">
+                    <a id="tdLinkPayBill" style="cursor: pointer; color: #00a5bb;"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="checkStatusBill()">@Messages("Xác nhận thanh toán")</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnCancel")</button>
+      </div>
+    </div>
+  </div>
+</div>

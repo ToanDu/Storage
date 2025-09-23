@@ -1,0 +1,145 @@
+<div class="col-md-12 m-t-4">
+  <span class="display-4 title-section-1">@Messages("3. Thông tin thanh toán")</span>
+</div>
+<div class="col-md-12">
+  <div class="row m-b-3">
+    <label class="col-sm-4 col-form-label title-section-2" style="text-align: left">@Messages("Số hợp đồng ")</label>
+    <div class="col-sm-8">
+      <input id="so_hop_dong" type="text" class="form-control input-form" maxlength="255" autocomplete="off" value="">
+    </div>
+  </div>
+  <div class="row m-b-3">
+    <label class="col-sm-4 col-form-label title-section-2" style="text-align: left">@Messages("Ngày ký ")</label>
+    <div class="col-sm-8">
+      <input id="ngay_ky" type="text" class="form-control input-form" maxlength="255" autocomplete="off" value="">
+    </div>
+  </div>
+  <div class="row m-b-3">
+    <label class="col-sm-4 col-form-label title-section-2" style="text-align: left">@Messages("Chu kỳ cước ")</label>
+    <div class="col-sm-8">
+      <input id="chu_ky_cuoc" type="text" class="form-control input-form" maxlength="255" autocomplete="off" value="">
+    </div>
+  </div>
+  <div class="row m-b-3">
+    <label class="col-sm-4 col-form-label title-section-2" style="text-align: left">@Messages("Hình thức thanh toán ")<span class="text-red">@Messages("*")</span></label>
+    <div class="col-sm-8">
+      <select class="form-control" style="width: 100%;" id="hinh_thuc_thanh_toan">
+        <option value="Thu tại nhà" selected>@Messages("Thu tại nhà")</option>
+      </select>
+    </div>
+  </div>
+  <div class="row m-b-3">
+    <label class="col-sm-4 col-form-label title-section-2" style="text-align: left">@Messages("Hình thức TBC ")<span class="text-red">@Messages("*")</span></label>
+    <div class="col-sm-8">
+      <select class="form-control" style="width: 100%;" id="hinh_thuc_tbc">
+        <option value="Không nhận" selected>@Messages("Không nhận")</option>
+      </select>
+    </div>
+  </div>
+  <div class="row m-b-3">
+    <label class="col-sm-4 col-form-label title-section-2" style="text-align: left">@Messages("In chi tiết cước ")<span class="text-red">@Messages("*")</span></label>
+    <div class="col-sm-8">
+      <select class="form-control" style="width: 100%;" id="in_chi_tiet_cuoc">
+        <option value="Không in bản kê chi tiết cước" selected>@Messages("Không in bản kê chi tiết cước")</option>
+      </select>
+    </div>
+  </div>
+  <div class="row m-b-3">
+    <label class="col-sm-4 col-form-label title-section-2" style="text-align: left">@Messages("Địa chỉ")<span class="text-red">@Messages("*")</span></label>
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="col-sm-4">
+          <select class="form-control" id="tinh_tp_4" onchange="selectDistrict_4()">
+            <option value="">@Messages("Tỉnh/ TP")</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <select class="form-control" id="quan_huyen_4" onchange="selectWard_4()">
+            <option>@Messages("Huyện/ Quận")</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <select class="form-control" id="phuong_xa_4">
+            <option>@Messages("Phường/Xã")</option>
+          </select>
+        </div>
+        <div class="col-sm-12" style="margin-top: 0.5rem;">
+          <input id="dia_chi_chi_tiet_4" type="text" class="form-control input-form" maxlength="500" placeholder="Địa chỉ chi tiết">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row m-b-3">
+    <label class="col-sm-4 col-form-label title-section-2" style="text-align: left">@Messages("Địa chỉ XM/ TBC ")</label>
+    <div class="col-sm-8">
+      <input id="dia_chi_xm_tbc" type="text" class="form-control input-form" maxlength="255" autocomplete="off" value="">
+    </div>
+  </div>
+  <div class="row m-b-3">
+    <label class="col-sm-4 col-form-label title-section-2" style="text-align: left">@Messages("Địa chỉ hóa đơn cước ")<span class="text-red">@Messages("*")</span></label>
+    <div class="col-sm-8">
+      <input id="dia_chi_hoa_don_cuoc" type="text" class="form-control input-form" maxlength="255" autocomplete="off" value="">
+    </div>
+  </div>
+
+</div>
+
+<div class="col-md-12 m-t-4">
+  <span class="display-4 title-section-1">@Messages("4. Thông tin hồ sơ khách hàng")</span>
+</div>
+<div class="col-md-12 mt-3">
+  <div class="row m-b-4">
+    <label class="col-sm-4 title-section-2" style="text-align: left">@Messages("Bản cam kết")</label>
+    <div class="col-sm-5">
+      <input type="file" class="" id="file_ban_cam_ket" name="files" style="background-color: #aaa; width: 100%;"/>
+    </div>
+    <div class="col-sm-3" style="text-align: left;">
+      <a style="color: #EA0033; cursor: pointer;" onclick=""><i class="bx bx-file"></i> @Messages("Upload file")</a>
+    </div>
+  </div>
+  <div class="row m-b-4">
+    <label class="col-sm-4 title-section-2" style="text-align: left">@Messages("CMND/ CCCD mặt trước")</label>
+    <div class="col-sm-5">
+      <input type="file" class="" id="file_cmnd_cccd_mat_truoc" name="files" style="background-color: #aaa; width: 100%;"/>
+    </div>
+    <div class="col-sm-3" style="text-align: left;">
+      <a style="color: #EA0033; cursor: pointer;" onclick=""><i class="bx bx-file"></i> @Messages("Upload file")</a>
+    </div>
+  </div>
+  <div class="row m-b-4">
+    <label class="col-sm-4 title-section-2" style="text-align: left">@Messages("CMND/ CCCD mặt sau")</label>
+    <div class="col-sm-5">
+      <input type="file" class="" id="file_cmnd_cccd_mat_sau" name="files" style="background-color: #aaa; width: 100%;"/>
+    </div>
+    <div class="col-sm-3" style="text-align: left;">
+      <a style="color: #EA0033; cursor: pointer;" onclick=""><i class="bx bx-file"></i> @Messages("Upload file")</a>
+    </div>
+  </div>
+  <div class="row m-b-4">
+    <label class="col-sm-4 title-section-2" style="text-align: left">@Messages("Hình ảnh khách hàng")</label>
+    <div class="col-sm-5">
+      <input type="file" class="" id="file_hinh_anh_khach_hang" name="files" style="background-color: #aaa; width: 100%;"/>
+    </div>
+    <div class="col-sm-3" style="text-align: left;">
+      <a style="color: #EA0033; cursor: pointer;" onclick=""><i class="bx bx-file"></i> @Messages("Upload file")</a>
+    </div>
+  </div>
+  <div class="row m-b-4">
+    <label class="col-sm-4 title-section-2" style="text-align: left">@Messages("Hợp đồng")</label>
+    <div class="col-sm-5">
+      <input type="file" class="" id="file_hop_dong" name="files" style="background-color: #aaa; width: 100%;"/>
+    </div>
+    <div class="col-sm-3" style="text-align: left;">
+      <a style="color: #EA0033; cursor: pointer;" onclick=""><i class="bx bx-file"></i> @Messages("Upload file")</a>
+    </div>
+  </div>
+  <div class="row m-b-4">
+    <label class="col-sm-4 title-section-2" style="text-align: left">@Messages("Phụ lục HĐDĐ trả sau")</label>
+    <div class="col-sm-5">
+      <input type="file" class="" id="file_phu_luc_hddd_tra_sau" name="files" style="background-color: #aaa; width: 100%;"/>
+    </div>
+    <div class="col-sm-3" style="text-align: left;">
+      <a style="color: #EA0033; cursor: pointer;" onclick=""><i class="bx bx-file"></i> @Messages("Upload file")</a>
+    </div>
+  </div>
+</div>

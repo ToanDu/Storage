@@ -1,0 +1,80 @@
+.zandgar__wizard {
+    display: block;
+    height: 100%;
+    position: relative;
+}
+
+.zandgar__wizard .zandgar__step {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    overflow: hidden;
+    transform: translateY(20px);
+}
+.zandgar__wizard .zandgar__step.zandgar__step__active {
+    opacity: 1;
+    z-index: 1;
+    transform: translateY(0);
+    transition:
+            opacity .5s ease-out,
+            transform .5s ease-out;
+}
+
+.form-input-hint {
+    display: none;
+}
+
+.form-input-hint.is-visible {
+    display: block;
+}
+
+.input-info {
+    border: 3px solid #000000;
+    border-radius: 4px;
+}
+
+.si-title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 46px;
+    text-align: center;
+    color: #14142B;
+}
+
+.si-container-1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+}
+
+.si-container-2 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.si-form-title {
+    background: #F8F5EC;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.si-form-title-1 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}

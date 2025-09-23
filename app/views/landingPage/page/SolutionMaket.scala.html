@@ -1,0 +1,289 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Solution Maket</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="@routes.Assets.versioned("awesome/css/bootstrap.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("awesome/css/landing-page.css")" rel="stylesheet"/>
+
+      <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
+    <link href="@routes.Assets.versioned("awesome/css/pe-icon-7-stroke.css")" rel="stylesheet" />
+
+    <style>
+      .alignItemCenter {
+        position: relative;
+      }
+      .contentSolution {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+      .contentSolution:hover {
+        display: inherit;
+      }
+    </style>
+
+  </head>
+  <body class="landing-page landing-page1">
+    <nav class="navbar navbar-transparent navbar-top" role="navigation">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar bar1"></span>
+            <span class="icon-bar bar2"></span>
+            <span class="icon-bar bar3"></span>
+          </button>
+        </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="example" >
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="@routes.LandingPageController.home()">
+                <i class="fa fa-home"></i> @Messages("Trang chủ ")
+              </a>
+            </li>
+            <li>
+              <a href="@routes.AppDebugController.solutionMaketPage()" class="btn btn-neutral">
+                <i class="fa fa-cloud"></i> @Messages("Giải pháp mẫu")
+              </a>
+            </li>
+            <li>
+              <a href="@routes.AppDebugController.appSdkPage()">
+                <i class="fa fa-tablet"></i> @Messages("App SDK")
+              </a>
+            </li>
+            <li>
+              <a href="@routes.AppDebugController.appDebugPage()">
+                <i class="fa fa-tablet"></i> @Messages("App Debug")
+              </a>
+            </li>
+            @if(currentUser != null){
+              <li>
+                <a href="@routes.ProjectController.project()">
+                  <i class="fa fa-user"></i> @currentUser.getUsername
+                </a>
+              </li>
+            } else {
+              <li>
+                <a href="@routes.Application.login()">
+                  <i class="fa fa-lock"></i> @Messages("landing.dangnhap")
+                </a>
+              </li>
+              <li>
+                <a href="@routes.Application.register()">
+                  <i class="fa fa-lock"></i> @Messages("landing.dangki")
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+          <!-- /.navbar-collapse -->
+      </div>
+    </nav>
+    <div class="wrapper">
+      <div class="parallax filter-gradient red" data-color="red">
+        <div class="parallax-background">
+          <img class="parallax-background-image" src="@routes.Assets.versioned("awesome/img/bg3.jpg")">
+        </div>
+        <div class= "container">
+          <div class="row">
+            <div class="col-md-5 hidden-xs">
+              <div class="parallax-image">
+                <img class="phone" src="@routes.Assets.versioned("awesome/img/iphone3.png")" style="margin-top: 20px"/>
+              </div>
+            </div>
+            <div class="col-md-6 col-md-offset-1">
+              <div class="description">
+                <h2>@Messages("Nền tảng IoT InnoWay")</h2>
+                <br>
+                <h5>@Messages("Cùng trải nghiệm những ứng dụng điện thoại đã tích hợp với nền tảng IoT Innoway cho các bộ giải pháp như: Nhà thông minh, Trang trại thông minh.")</h5>
+              </div>
+              <div class="buttons">
+                <button class="btn btn-simple btn-neutral">
+                  <i class="fa fa-apple"></i>
+                </button>
+                <button class="btn btn-simple btn-neutral">
+                  <i class="fa fa-android"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section section-features">
+        <div class="container">
+          <h4 class="header-text text-center">@Messages("Danh sách Giải pháp mẫu")</h4>
+          <div class="row">
+
+            <div class="col-md-6">
+              <div class="card" style="padding: 5px;">
+                <div class="alignItemCenter">
+                  <img src="@routes.Assets.versioned("images/solution/SmartTracking.png")" width="100%" height="300">
+                </div>
+                <div class="text mt-3 p-3 mb-3">
+                  <div class="row">
+                    <div class="col-md-6"><i class="fa fa-user"></i> @Messages("InnoWay")</div>
+                    <div class="col-md-6"><i class="fa fa-calendar"></i> @Messages("01/06/2022")</div>
+                  </div>
+                  <h4 class="mt-3" style="font-weight: 500;">@Messages("Giải pháp Fleet Management")</h4>
+                  <p class="mt-3 contentSolution">
+                  @Messages("Giúp bạn quản lý hoạt động của đội xe, dẫn đến giảm chi phí, cải thiện hiệu quả và nâng cao tính tuân thủ. Giải pháp quản lý đội xe phù hợp có thể là công cụ trong việc điều phối các hoạt động quản lý đội xe của bạn.")
+                  </p>
+                  <a class="btn btn-danger" href="@routes.ProjectController.project()" type="button">@Messages("Cài đặt")</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card" style="padding: 5px;">
+                <div class="alignItemCenter">
+                  <img src="@routes.Assets.versioned("images/solution/AssetManagement.png")" width="100%" height="300">
+                </div>
+                <div class="text mt-3 p-3">
+                  <div class="row">
+                    <div class="col-md-6"><i class="fa fa-user"></i> @Messages("InnoWay")</div>
+                    <div class="col-md-6"><i class="fa fa-calendar"></i> @Messages("01/06/2022")</div>
+                  </div>
+                  <h4 class="mt-3" style="font-weight: 500;">@Messages("Giải pháp Asset Management")</h4>
+                  <p class="mt-3 contentSolution">
+                  @Messages("Giúp bạn theo dõi tài sản thông qua việc sử dụng các thẻ RFID được gắn vào chúng, được đọc bằng máy quét cố định được gắn ở vị trí cố đinh. Mỗi khi một thẻ được đọc, nó sẽ được lưu tổng hợp thành một chuỗi và bán tổng tất cả các RFID đã quét được lên hệ thống.")
+                  </p>
+                  <a class="btn btn-danger" href="@routes.ProjectController.project()" type="button">@Messages("Cài đặt")</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card" style="padding: 5px;">
+                <div class="alignItemCenter">
+                  <img src="@routes.Assets.versioned("images/solution/SmartMetering.png")" width="100%" height="300">
+                </div>
+                <div class="text mt-3 p-3">
+                  <div class="row">
+                    <div class="col-md-6"><i class="fa fa-user"></i> @Messages("InnoWay")</div>
+                    <div class="col-md-6"><i class="fa fa-calendar"></i> @Messages("01/06/2022")</div>
+                  </div>
+                  <h4 class="mt-3" style="font-weight: 500;">@Messages("Giải pháp Smart Water Meter")</h4>
+                  <p class="mt-3 contentSolution">
+                  @Messages("Giúp bạn theo dõi lưu lượng sử dụng, cảnh bảo về các vấn đề liên quan đến đường dẫn nước trong nhà bạn, dẫn đến giảm chi phí, giải thiếu các rủi ro, cung cấp hệ thống đo lường từ xa và tổng hợp lại số lượng đã sử dụng mà không cần đội ngũ đến kiểm tra.")
+                  </p>
+                  <a class="btn btn-danger" href="@routes.ProjectController.project()" type="button">@Messages("Cài đặt")</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card" style="padding: 5px;">
+                <div class="alignItemCenter">
+                  <img src="@routes.Assets.versioned("images/solution/SmartFarming.png")" width="100%" height="300">
+                </div>
+                <div class="text mt-3 p-3">
+                  <div class="row">
+                    <div class="col-md-6"><i class="fa fa-user"></i> @Messages("InnoWay")</div>
+                    <div class="col-md-6"><i class="fa fa-calendar"></i> @Messages("01/06/2022")</div>
+                  </div>
+                  <h4 class="mt-3" style="font-weight: 500;">@Messages("Giải pháp Smart Farm")</h4>
+                  <p class="mt-3 contentSolution">
+                  @Messages("Giúp bạn theo dõi lưu lượng sử dụng, cảnh bảo về các vấn đề liên quan đến đường dẫn nước trong nhà bạn, dẫn đến giảm chi phí, giải thiếu các rủi ro, cung cấp hệ thống đo lường từ xa và tổng hợp lại số lượng đã sử dụng mà không cần đội ngũ đến kiểm tra.")
+                  </p>
+                  <a class="btn btn-danger" href="@routes.ProjectController.project()" type="button">@Messages("Cài đặt")</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card" style="padding: 5px;">
+                <div class="alignItemCenter">
+                  <img src="@routes.Assets.versioned("images/solution/SmartHome.png")" width="100%" height="300">
+                </div>
+                <div class="text mt-3 p-3">
+                  <div class="row">
+                    <div class="col-md-6"><i class="fa fa-user"></i> @Messages("InnoWay")</div>
+                    <div class="col-md-6"><i class="fa fa-calendar"></i> @Messages("01/06/2022")</div>
+                  </div>
+                  <h4 class="mt-3" style="font-weight: 500;">@Messages("Giải pháp Smarthome")</h4>
+                  <p class="mt-3 contentSolution">
+                  @Messages("Giải pháp hỗ trợ các ngữ cảnh thông minh được đặt theo giờ hoặc theo ngoại cảnh để người sử dụng có trải nghiệm và sức khỏe tinh thần tốt nhất trong căn nhà ")
+                  </p>
+                  <a class="btn btn-danger" href="@routes.ProjectController.project()" type="button">@Messages("Cài đặt")</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card" style="padding: 5px;">
+                <div class="alignItemCenter">
+                  <img src="@routes.Assets.versioned("images/project/vtag.png")" width="100%" height="300">
+                </div>
+                <div class="text mt-3 p-3">
+                  <div class="row">
+                    <div class="col-md-6"><i class="fa fa-user"></i> @Messages("InnoWay")</div>
+                    <div class="col-md-6"><i class="fa fa-calendar"></i> @Messages("01/06/2022")</div>
+                  </div>
+                  <h4 class="mt-3" style="font-weight: 500;">@Messages("Giải pháp Định vị thông minh")</h4>
+                  <p class="mt-3 contentSolution">
+                  @Messages("Giải pháp hỗ trợ các ngữ cảnh thông minh được đặt theo giờ hoặc theo ngoại cảnh để người sử dụng có trải nghiệm và sức khỏe tinh thần tốt nhất trong căn nhà ")
+                  </p>
+                  <a class="btn btn-info" href="@routes.ProjectController.project()" type="button">@Messages("Đang phát triển")</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="section section-features">
+        <div class="container">
+          <h4 class="header-text text-center">@Messages("Hướng dẫn tích hợp giải pháp SmartFarm")</h4>
+          <div class="row">
+
+            <div class="col-md-12">
+              <iframe id="myVideo" width="100%" height="456" src="https://www.youtube.com/embed/Cw0A-sDof3M?rel=1&amp;controls=1&amp;showinfo=0&amp;start=1&autoplay=0&enablejsapi=1"
+              frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="container">
+          <nav class="pull-left">
+
+          </nav>
+          <div class="social-area pull-right">
+            <a class="btn btn-social btn-facebook btn-simple">
+              <i class="fa fa-facebook-square"></i>
+            </a>
+            <a class="btn btn-social btn-twitter btn-simple">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a class="btn btn-social btn-pinterest btn-simple">
+              <i class="fa fa-pinterest"></i>
+            </a>
+          </div>
+          <div class="copyright">
+                &copy; 2022 <a href="#">Innoway Platform team</a>, made with love
+          </div>
+        </div>
+      </footer>
+    </div>
+
+  </body>
+  <script src="@routes.Assets.versioned("awesome/js/jquery-1.10.2.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("awesome/js/jquery-ui-1.10.4.custom.min.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("awesome/js/bootstrap.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("awesome/js/awesome-landing-page.js")" type="text/javascript"></script>
+
+</html>

@@ -1,0 +1,26 @@
+<div class="modal fade" id="optPhoneModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <h5 class="modal-title" id="exampleModalLabel">@Messages("account.verifyPhone")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 mt-3">
+            <label class="form-label">@Messages("account.enterOtpCode")</label>
+            <div class="input-group">
+              <input type="text" name="optPhone" class="form-control border-end-0" id="inputOtpPhone" maxlength="50">
+              <a id="buttonGetOtpPhone" onclick="otpPhone()" class="input-group-text cursor-pointer">@Messages("account.getOtpCode")</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick="activePhone()">@Messages("common.confirm")</button>
+        <button type="button" class="btn btn-secondary" onclick="clearinterval()" data-bs-dismiss="modal">@Messages("common.close")</button>
+      </div>
+
+    </div>
+  </div>
+</div>

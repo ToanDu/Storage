@@ -1,0 +1,85 @@
+<div class="modal fade" id="createTemplateProjectModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: inherit;">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("Giải pháp mẫu")</h5>
+        <button type="button" class="btn-close" onclick="cancleWizard()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="card" style="padding: 20px; border: 1px solid #858687;">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4">
+            <div class="col">
+              <div class="card">
+                <img src="@routes.Assets.versioned("images/landingPage/fleet.png")" class="card-img-top" alt="..." height="300">
+                <div class="card-body">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input checkbox-gp" type="radio" name="radioChooseTemplate" onchange="chooseTemplateProject('Fleet Management')" style="font-size: 20px; margin-top: 0px;">
+                    <label class="form-check-label" for="" style="font-weight: 500;">@Messages("Giải pháp Fleet Management")</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card">
+                <img src="@routes.Assets.versioned("images/project/asset.jpeg")" class="card-img-top" alt="..." height="300">
+                <div class="card-body">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input checkbox-gp" type="radio" name="radioChooseTemplate" onchange="chooseTemplateProject('Asset Management')" style="font-size: 20px; margin-top: 0px;">
+                    <label class="form-check-label" for="" style="font-weight: 500;">@Messages("Giải pháp Asset Management")</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card">
+                <img src="@routes.Assets.versioned("images/landingPage/smartmettering.png")" class="card-img-top" alt="..." height="300">
+                <div class="card-body">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input checkbox-gp" type="radio" name="radioChooseTemplate" onchange="chooseTemplateProject('Smart Water Meter')" style="font-size: 20px; margin-top: 0px;">
+                    <label class="form-check-label" for="" style="font-weight: 500;">@Messages("Giải pháp Smart Water Meter")</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding: 20px; border: 1px solid #858687;">
+          <div class="row" hidden>
+            <input id="nameTemplateProject" class="form-group" type="text" readonly>
+          </div>
+          <div class="row" id="divSmartWizard">
+            @*<div id="smartwizard">*@
+              @*<ul class="nav">*@
+                @*<li class="nav-item"><a class="nav-link" href="#step-1"><strong>Start</strong><br>Chọn giải pháp mẫu </a></li>*@
+                @*<li class="nav-item"><a class="nav-link" href="#step-1"><strong>Step 1</strong><br>Tạo dự án </a></li>*@
+                @*<li class="nav-item"><a class="nav-link" href="#step-2"><strong>Step 2</strong><br>Tạo mẫu thiết bị và thuộc tính </a></li>*@
+                @*<li class="nav-item"><a class="nav-link" href="#step-3"><strong>Step 3</strong><br>Tạo mới thiết bị </a></li>*@
+                @*<li class="nav-item"><a class="nav-link" href="#step-4"><strong>Step 4</strong><br>Tạo Flow Engine </a></li>*@
+                @*<li class="nav-item"><a class="nav-link" href="#step-5"><strong>Step 5</strong><br>Import Flow Engine chứa DeviceID </a></li>*@
+                @*<li class="nav-item"><a class="nav-link" href="#step-6"><strong>Step 6</strong><br>Gán FlowID cho các mẫu thiết bị </a></li>*@
+                @*<li class="nav-item"><a class="nav-link" href="#step-7"><strong>Step 7</strong><br>Tạo DashBoard </a></li>*@
+              @*</ul>*@
+              @*<div class="tab-content">*@
+                @*<div id="step-0" class="tab-pane" role="tabpanel" aria-labelledby="step-0"></div>*@
+                @*<div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1"></div>*@
+                @*<div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2"></div>*@
+                @*<div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3"></div>*@
+                @*<div id="step-4" class="tab-pane" role="tabpanel" aria-labelledby="step-4"></div>*@
+                @*<div id="step-5" class="tab-pane" role="tabpanel" aria-labelledby="step-5"></div>*@
+                @*<div id="step-6" class="tab-pane" role="tabpanel" aria-labelledby="step-6"></div>*@
+                @*<div id="step-7" class="tab-pane" role="tabpanel" aria-labelledby="step-7"></div>*@
+              @*</div>*@
+            @*</div>*@
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,2611 @@
+# Common Messages
+common.yes=Có
+common.no=Không
+common.cancel=Hủy
+common.confirm=Xác nhận
+
+subscriber.comingSoon=Comming Soon
+subscriber.close=Đóng
+# Export JS messages
+subscriber.export.noDataAvailable=Dữ liệu không có sẵn
+subscriber.export.download=Tải xuống
+title=title
+project=Dự án
+orginazation=Tổ chức
+Admin.Filters.apply=Áp dụng
+Admin.Filters.rowvisible=Số dòng hiển thị
+
+cmp=Hệ thống CMP
+
+filter.id=ID
+filter.username=Username
+Admin.Filters=Tìm kiếm: {0}
+Admin.expande=(+)
+Admin.collapse=(-)
+filter.createDate=Ngày tạo
+filter.lastModified=Hết hạn
+filter.advancedSearch=Tìm nâng cao
+filter.ip=Ip
+filter.success=Ket qua
+filter.logDate=Thời gian
+filter.code=Mã 
+filter.name=Tên
+filter.groupName=Nhóm
+filter.statusApprove=Trạng thái duyệt
+filter.groupID=Group ID
+filter.currentLat=Latitude
+filter.currentLong=Longitude
+filter.dateTracking=DateTracking
+filter.orgId=Tổ chức
+filter.organization=Tổ chức
+filter.organizationName=Tổ chức
+filter.role=Vai trò
+filter.type=Loại
+filter.typeName=Loại
+filter.connect=Kết nối
+filter.message=Bản tin
+filter.group=Nhóm
+filter.sendMetadata=Cập nhật metadata cho thiết bị 
+filter.sendMessToDevice=Điều khiển thiết bị bằng tin nhắn 
+filter.action=Thao tác
+filter.nameCompany=Công ty 
+filter.email=Email 
+filter.phone=SĐT 
+filter.field=Lĩnh vực 
+filter.company=Công ty
+filter.content=Nội dung
+filter.productName=Sản phẩm
+filter.countDevice=Số thiết bị
+filter.countUser=Số người dùng
+filter.status=Trạng thái
+
+Prev=Trang trước
+Next=Trang sau
+Last=Trang cuối
+First=Trang đầu
+Search=Tìm kiếm:
+tableNoData=Không có dữ liệu
+Total=Tổng
+entries=bản ghi
+entries.per.page=Bản ghi/trang
+
+btnCancle=Hủy
+btnAdd=Tạo mới
+btnAddGroupRoot=Tạo mới tổ chức
+btnBack=Quay lại
+btnBrowse=Chọn
+btnCancel=Hủy bỏ
+btnChangePass=Đổi mật khẩu
+btnClose=Đóng
+btnComfirm=Xác nhận
+btnDelete=Xóa
+btnDetail=Chi tiết
+btnEdit=Chỉnh sửa
+btnExisted=Đã tồn tại
+btnFinish=Hoàn thành
+btnHome=Về trang chủ
+btnNext=Tiếp tục
+btnPrev=Tiếp theo
+btnNo=Không
+btnOk=Ok
+btnPrevious=Trở lại
+btnReloadCache=Reload Cache
+btnResend=Gửi
+btnSave=Lưu
+btnShow=Hiển thị
+btnStop=Dừng
+btnSubmit=Gửi
+btnUpdate=Cập nhật
+btnView=Xem
+btnCreate=Tạo mới
+btnWakeUp=Wake Up
+btnYES=Có
+btnExport=Export
+btnRollback=Khôi phục
+btnSelectFile=Chọn file
+btnRole=Vai trò
+btnSms=Gửi bản tin 
+btnUpdate.org=Cập nhật tổ chức
+btnActiveEvent=Active Event
+btnDeActiveEvent=Stop Active Event
+btnAction=Thao tác
+btnDate=Thời gian
+btnCopy=Sao chép
+btnCopySuccess=Sao chép thành công
+btnAttr=Thuộc tính
+btnSearch=Tìm kiếm
+
+update.success=Cập nhật thành công!
+register.success=Đăng ký thành công!
+
+Home=Trang chủ
+
+noti.notLogin=Bạn chưa đăng nhập
+noti.errorLogin=Đăng nhập không thành công 
+noti.notFoundUser=Không tìm thấy user
+noti.notPermit=Bạn không có quyền thực thi
+noti.notFoundData=Không tìm thấy dữ liệu
+noti.inputFormError=Hãy điền đầy đủ thông tin
+noti.inputProfile=Hãy cập nhật thông tin cá nhân
+noti.disconnect=Lỗi kết nối
+noti.validation=Bạn hãy điền đầy đủ thông tin
+noti.donthavepermission=Bạn không có quyền thực thi
+noti.Addsuccess=Tạo thành công
+noti.AddFalse=Tạo không thành công
+noti.Getsuccess=Lấy dữ liệu thành công
+noti.Getfalse=Lấy dữ liệu không thành công
+noti.Sendsuccess=Gửi dữ liệu thành công
+noti.SendFalse=Gửi dữ liệu không thành công
+noti.Updatesuccess=Cập nhật thành công
+noti.Updatefalse=Cập nhật không thành công
+noti.Update.nothing=Cập nhật không thay đổi
+noti.confirmDeletebody=Bạn có chắc chắn muốn thực hiện?
+noti.Deletesuccess=Xóa thành công
+noti.Deletefalse=Xóa không thành công
+noti.form.error=Lỗi Form
+noti.chooseGroupIdNew=Hãy tìm và chọn nhóm cần chuyển
+noti.sessionTimeOut=Phiên đăng nhập đã hết, vui lòng login lại
+noti.valid.id=ID không được bỏ trống
+noti.valid.name=Tên không được bỏ trống
+noti.valid.description=Mô tả không được bỏ trống
+noti.valid.email=Email không đúng định dạng
+noti.valid.PasswordNotComplicated=Mật khẩu phải phức tạp (8 kí tự trở lên bao gồm số, chữ thường, chứ hoa và kí tự đặc biệt)
+noti.valid.repeatpass=Mật khẩu lặp lại không khớp
+noti.valid.phone=Số điện thoại không đúng định dạng
+noti.valid.emptyPhone=Số điện thoại không bỏ trống
+noti.valid.content=Bạn hãy điền đầy đủ nội dung
+noti.valid.chooseInfoUpdateDevice=Hãy chọn thông tin cập nhật cho thiết bị
+noti.valid.chooseInfoVariable=Hãy nhập đầy đủ variable
+noti.valid.notVariableSame=Không được chọn trùng nhau
+noti.ChangeSuccess=Tổ chức đã được thay đổi
+noti.ChangeFalse=Tổ chức chưa được thay đổi
+noti.removeSuccess=Tổ chức đã được loại bỏ
+noti.removeFalse=Tổ chức chưa được loại bỏ
+noti.notDeviceToken=Bạn chưa tạo device token, vui lòng tạo trước để sử dụng
+noti.confirmCreateDeviceToken=Bạn có chắc chắn muốn tạo thêm device token?
+noti.copySuccess=Copy {0} thành công
+noti.chooseFile=Hãy chọn file
+noti.errror.fileWrongFormat=File không đúng định 
+noti.wrongBig5000=Tập tin quá lớn > 5000 dòng
+noti.fileWrongTemplate=Tập tin sai format, vui lòng xem mẫu file
+noti.dateTimeFromTo=Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc
+ais.socket.NotiOpenConnect=Có kết nối socket
+ais.socket.NotiLostConnect=Mất kết nối socket
+ais.socket.NotiErrorConnect=Lỗi kết nối socket
+
+success=Thành công
+error=Lỗi {0} - 
+connection.failed=Lỗi kết nối
+error.authen=Sai tài khoản đăng nhập hoặc mật khẩu. Vui lòng kiểm tra lại!
+error.exitsName=Tên đã tồn tại
+error.forbidden=Thông tin xác thực không thể truy cập tài nguyên này
+error.notFound=Không tìm thấy dữ liệu
+error.methodNotAllowed=Thực thể đã tồn tại
+error.errorServer=Lỗi hệ thống
+
+#landing page
+landing.gioithieu=Tổng quan 
+landing.gioithieu1=Nền tảng IoT (Internet of Things)
+landing.usecase=Use Cases
+landing.usecase1=Các điểm nổi bật của InnoWay
+landing.huongdan=Hướng dẫn
+landing.huongdan1=Hướng dẫn sử dụng InnoWay 
+landing.lienhe=Liên hệ
+landing.lienhe1=Gửi thông tin liên hệ của bạn
+landing.download=Download
+landing.download1=Tải ứng dụng android và ios 
+landing.dangnhap=Đăng nhập
+landing.dangnhap1=Nếu bạn đã có tài khoản?
+landing.dangki=Đăng ký
+landing.dangki1=Nếu bạn chưa có tài khoản?
+landing.title1=Nền tảng IoT InnoWay
+landing.title2=Giải pháp IoT toàn diện cho chuyển đổi số Việt
+landing2.title1=InnoWay là nền tảng IoT (Internet of Things)
+landing2.title2=InnoWay phục vụ thu thập, truyền tải, phân tích, lưu trữ và mô tả trực quan dữ liệu kết nối từ hệ thống thiết bị của người dùng.
+landing2.title3=Cung cấp các giao thức kết nối IoT theo chuẩn thế giới như MQTT, HTTP, CoAP, cho phép trao đổi dữ liệu từ xa đến 10 triệu thiết bị và cảm biến theo thời gian thực.
+landing2.title4=Là lớp trung gian (middleware) đảm nhiệm quản lý thiết bị, quản lý người dùng, tích hợp sẵn nền tảng xử lý, phân tích thông tin (phát hiện bất thường, cảnh báo...).
+landing2.title5=Hỗ trợ các nhà phát triển dễ dàng xây dựng ứng dụng phù hợp nhu cầu riêng biệt với chi phí tiết kiệm, đem lại giá trị gia tăng lớn.
+landing3.title1=Đặc điểm nổi bật
+landing3.title2=Giao diện lập trình kéo thả (graphic-based programming)
+landing3.title3=Kiến trúc microservices giúp chuyển đổi quy mô linh hoạt 
+landing3.title4=Tùy chọn lưu trữ tại chỗ (on-premise) và đám mây (on-cloud)
+landing3.title5=Giao diện thống kê (dashboards) trực quan, đa dạng
+landing3.title6=Đảm bảo bảo mật và hiệu năng hoạt động
+landing4.title1=vTag - Thiết bị định vị cá nhân
+landing4.title2=Thiết bị định vị cá nhân vTag sử dụng giao thức MQTT gửi bản tin vị trí về Innoway qua sóng NB-IoT và GSM. Ngay lập tức, Innoway thực hiện xử lý thông tin, mã hóa thành tọa độ địa lý, phân tích tình huống cảnh báo nếu có rồi truyền đến ứng dụng điện thoại vTag. Đồng thời, người dùng thao tác điều khiển, cài đặt chế độ hoạt động cho thiết bị từ xa ngay trên ứng dụng.
+landing6.title1=Hướng dẫn thao tác cơ bản trên InnoWay
+landing6.title2=Để trải nghiệm chi tiết, liên hệ với chúng tôi ngay nhé!
+landing7.title1=Liên hệ với chúng tôi
+landing7.title2=Vui lòng điền thông tin của bạn để được tư vấn về InnoWay
+landing7.name=Họ tên
+landing7.email=Email
+landing7.phone=Số điện thoại
+landing7.select=Lĩnh vực
+landing7.select1=Nông nghiệp thông minh
+landing7.select2=Smart House
+landing7.select3=Logistics
+landing7.select4=Khác
+landing7.content=Nội dung
+landing7.Sendsuccess=Gửi thông tin thành công
+landing8.title1=InnoWay được phát triển bởi Tổng công ty Công nghiệp Công nghệ cao Viettel (VHT) trực thuộc Tập đoàn Công nghiệp - Viễn thông Quân đội Viettel.
+landing8.title2=Địa chỉ
+landing8.title3=380 Lạc Long Quân, Nhật Tân, Tây Hồ, Hà Nội
+landing8.title4=Hotline
+
+login.username=Email đăng nhập
+login.email=Email
+login.Password=Mật khẩu
+login.RePassword=Nhập lại mật khẩu
+login.registerNow=Đăng ký
+login.fogotPass=Quên mật khẩu
+login.login=Đăng nhập
+login.youMustRegister=Hãy đăng ký trước nếu bạn chưa có tài khoản!
+login.errorUsernameOrPass=Sai tài khoản đăng nhập hoặc mật khẩu. Vui lòng kiểm tra lại!
+login.loginSuccess=Đăng nhập thành công! 
+login.errorUsernameHasLock=Tài khoản của bạn đã bị khóa do vi phạm chính sách
+logout.logoutSuccess=Đăng xuất thành công!
+logout.logout=Đăng xuất
+login.register=Bạn chưa có tài khoản? Đăng ký ngay.
+login.notFoundUser=Không tìm thấy user
+login.emptyUsernameOrPass=Tên đăng nhập và mật khẩu không được để trống
+
+register.title=Đăng ký tài khoản
+register.username=Tên đăng nhập
+register.email=Email
+register.Password=Mật khẩu
+register.PasswordAgain=Nhập lại mật khẩu
+register.PasswordNew=Mật khẩu mới
+register.PasswordAgainNew=Nhập lại mật khẩu mới
+register.codeReferral=Mã giới thiệu (*)
+register.register=Đăng ký
+register.usernameNotEmpty=Tên đăng nhập không được bỏ trống
+register.emailNotEmpty=Email không được bỏ trống
+register.emailExists=Tài khoản đã tồn tại, chọn tài khoản khác
+register.validateEmail=Không đúng định dạng mail
+register.validatePassword=Password có tối thiểu 8 ký tự, ít nhất một chữ cái viết hoa, một chữ cái viết thường và một số
+register.passNotEmpty=Password không được bỏ trống
+register.phoneNotValid=Số điện thoại bạn nhập không đúng định dạng
+register.codeReferralNotEmpty=Mã giới thiệu không được bỏ trống
+register.usernameExited=Username đã tồn tại
+register.passAgainNotFound=Mật khẩu lặp lại không đúng
+register.registerSuccess=Đăng ký tài khoản thành công!
+pass.passSuccess = Đổi mật khẩu thành công!
+register.codeReferralError=Mã giới thiệu không đúng
+register.checkbox=Bạn phải tích chấp nhận điều khoản của chúng tôi
+register.emptyIpError=Lỗi không tìm thấy ip
+register.errorCoincideIp=Bạn không được phép tạo nhiều tài khoản
+register.login=Bạn đã có tài khoản? Quay lại trang đăng nhập.
+
+forgot.passSuccess=Đổi mật khẩu thành công
+forgot.emailError=Email không đúng
+forgot.fogetPass=Đổi mật khẩu
+forgot.Password=Mật khẩu mới
+forgot.RePassword=Nhập lại mật khẩu mới
+forgot.sendCode=Lấy mã xác nhận
+forgot.code=Nhận mã
+forgot.usernameEmpty=Hãy điền email của bạn
+forgot.sendSmsSuccess=Mã xác nhận đã được gửi tới email
+ChangePass.registerSuccess = Đổi mật khẩu thành công.
+
+dashboard.add=Tạo mới
+dashboard.name=Tên bảng điều khiển
+dashboard.content=Mô tả
+dashboard.edit=Sửa thông tin
+dashboard.del=Xóa bảng điều khiển
+dashboard.map=Bản đồ
+dashboard.table=Danh sách thiết bị
+dashboard.totalUser=Người dùng
+dashboard.totalDevice=Thiết bị
+dashboard.totalMessage=Bản tin
+dashboard.kpiDeviceOnline=KPI Device Online
+dashboard.lastDateTracking=Bản tin cuối
+dashboard.totalDeviceTracking=Thiết bị tracking
+dashboard.totalUserToDay=Tổng User mới hôm nay
+dashboard.totalDeviceToDay=Tổng Device kết nối mới
+dashboard.reportDeviceWithArea=Số lượng Device kết nối IoT Platform
+dashboard.chart=Thống kê 
+dashboard.chartContent=Biểu đồ thời lượng pin 
+dashboard.deviceNotTracking=Thiết bị không có tọa độ tracking 
+dashboard.chartColumn=Biểu đồ cột
+
+dashboard.design=Thiết kế Dashboard
+dashboard.design.add=Tạo mới
+dashboard.design.addRow=Tạo khung
+dashboard.design.create=Tạo thêm
+dashboard.design.reset=Reset
+dashboard.design.addCol=Tạo số khung
+dashboard.design.countCol=Số khung
+dashboard.design.heightCol=Chiều cao
+dashboard.design.dvHeightCol=Đơn vị
+dashboard.design.map=Bản đồ
+dashboard.design.chart=Biểu đồ
+dashboard.design.chartColumn=Biểu đồ cột
+dashboard.design.chartLine=Biểu đồ đường
+dashboard.design.chartCircle=Biểu đồ tròn
+dashboard.design.statistical=Thống kê
+dashboard.design.table=Danh sách
+dashboard.design.resetConfirm=Bạn có chắc muốn xóa toàn bộ thao tác?
+
+widget.add=Widget
+widget.edit=Edit 
+widget.back=Back
+widget.save=Lưu
+widget.choose=Tạo widget cho bảng điều khiển
+widget.map.chooseOrg=Chọn nhóm thiết bị
+widget.map.all=Toàn bộ thiết bị
+widget.youNoCreateWidget=Bạn chưa tạo widget nào
+widget.notFound=Bạn hãy tạo thêm widget cho dashboard của bạn
+widget.editWidgetMap=Sửa widget bản đồ
+widget.editMap=Chọn thiết bị hiển thị trên bản đồ
+widget.editChartColumn=Chọn các thuộc tính cho biểu đồ cột
+widget.editChartLine=Chọn các thuộc tính cho biểu đồ đường
+widget.editData=Chọn 1 thuộc tính để hiển thị dữ liệu
+widget.editGause=Chọn 1 thuộc tính để hiển thị dữ liệu
+widget.editRoundSwitch=Chọn 1 thiết bị để bật tắt
+widget.editTable=Chọn các thuộc tính cho bảng dữ liệu
+widget.chartLine=Biểu đồ đường
+
+manage.manage=MANAGE
+manage.home=Tổng quan
+manage.cloud=Đám mây
+manage.device=Thiết bị
+manage.app=Ứng dụng
+manage.debug=Vsmart debug
+manage.appSdk=App SDK
+manage.integrated=Tích hợp
+manage.pay=Thanh toán
+manage.group.packData=Quản lý gói cước 
+manage.group.customer=Quản lý khách hàng
+manage.group.bill=Quản lý hóa đơn 
+manage.group.sim=Quản lý thuê bao
+manage.group.subs=Quản lý đăng ký 
+manage.group.billUser=Danh sách hóa đơn 
+manage.group.pay=Cước tạm tính
+manage.dashboard=Bảng điều khiển
+manage.statisticalReport=STATISTICAL
+manage.ruleEngine=RULE ENGINE
+manage.ruleChain=Flow Engine
+manage.qrCodeList=Quản lý QR Code
+manage.qrCodeHistory=Lịch sử QR Code
+manage.logout=Đăng xuất
+manage.statistical=Thống kê
+manage.logMessages=Log bản tin thiết bị
+manage.report=Báo cáo
+manage.variable=Thuộc tính thiết bị 
+manage.stt=STT
+manage.user.username=Tên đăng nhập
+manage.user.group=Nhóm
+manage.user.role=Vai trò
+manage.user.email=Email
+manage.user.repeatpassword=Nhập lại mật khẩu
+manage.user.password=Mật khẩu
+manage.user.phone=Số điện thoại
+manage.user.editRole=Change
+manage.user.choose=Thao tác
+manage.user.usernameExisted=Tên người dùng đã tồn tại
+manage.user.emailExisted=Email đã tồn tại
+manage.user.cannotdeleteyourself=Không được xóa chính mình
+manage.customer=Khách hàng
+
+manage.deviceIot.id=ID
+manage.deviceIot.deviceName=Tên thiết bị
+manage.deviceIot.imei=Imei
+manage.deviceIot.type=Type
+manage.deviceIot.action=Thao tác
+manage.deviceIot.list=Danh sách thiết bị
+manage.deviceIot.latitude=Vĩ độ (Latitude)
+manage.deviceIot.longitude=Kinh độ (Longitude)
+manage.deviceIot.successCreate=Thiết bị mới được tạo thành công
+manage.deviceIot.existsName=Tên thiết bị đã tồn tại
+manage.deviceIot.invalidName=Tên thiết bị không hợp lệ, vui lòng nhập lại
+manage.deviceIot.chooseOrg=Bạn chưa chọn tổ chức cho thiết bị
+manage.deviceIot.updateOrg=Cập nhật tổ chức không của thiết bị thành công
+manage.deviceIot.sendMess=Gửi bản tin xuống thiết bị
+manage.deviceIot.groupName=Nhóm
+manage.deviceIot.template=Mẫu thiết bị
+
+manage.group.list=Danh sách tổ chức 
+manage.group.orgView=Sơ đồ tổ chức 
+manage.group.title=Quản lý tổ chức
+manage.group.device=Thiết bị
+manage.group.group=Nhóm
+manage.group.user=Người dùng
+manage.group.user.new=Tạo mới người dùng
+manage.group.role=Vai trò
+manage.group.type=Quản lý Loại thiết bị
+manage.group.event=Sự kiện
+manage.group.infoOrg=Tổ chức
+manage.org.addAttr=Tạo mới thuộc tính
+manage.org.attr.name=Tên thuộc tính
+manage.org.attr.type=Loại thuộc tính
+manage.org.attr.value=Loại giá trị
+manage.org.attr.default=Giá trị mặc định
+manage.org.attr.history=Lưu lịch sử
+manage.org.attr.del=Xóa thuộc tính
+manage.org.editAttr=Sửa thuộc tính
+manage.org.overview=Tổng quan
+manage.org.group=Quản lý nhóm 
+manage.org.device=Quản lý thiết bị 
+manage.org.user=Quản lý người dùng 
+manage.org.event=Quản lý sự kiện 
+manage.org.role=Quản lý vai trò 
+
+manage.group.addNew=Thêm nhóm mới
+manage.groupmanage.group.orgid=ID
+manage.group.org=Tên Tổ chức
+manage.group.orgId=Mã ID
+manage.group.orgIdContent=Mã ID do hệ thống cấp mặc định cho tổ chức và không thể thay đổi.
+manage.group.org.30char=Vui lòng lựa chọn tên có độ dài tối đa 30 ký tự
+manage.group.org.pass=Mật khẩu có độ dài tối thiểu 6 ký tự, bao gồm chữ cái, số và ký tự đặc biệt.
+manage.group.tructhuoc=Trực thuộc
+manage.group.templateDevice=Mẫu thiết bị
+manage.group.flow=Flow
+manage.group.content=Mô tả
+manage.group.img=Ảnh đại diện
+manage.group.imgChooseDefault=Chọn ảnh mặc định
+manage.group.upImage=Tải ảnh
+manage.group.upImageNote=Vui lòng lựa chọn ảnh có dung lượng tối đa 5 MB
+manage.group.name=Tên nhóm
+manage.group.phone=Điện thoại
+manage.group.address=Địa chỉ
+manage.group.email=Email
+manage.group.groupnotfound=Không tìm thấy nhóm!
+manage.group.existgroupchild=Vui lòng xóa nhóm con trước!
+manage.group.existuser=Vui lòng xóa người dùng ra khỏi nhóm trước trước!
+manage.group.existDevice=Vui lòng xóa thiết bị ra khỏi nhóm trước trước!
+manage.group.max.number.child=Không thể tạo thêm nhóm con
+manage.user.moveSuccess=Chuyển user thành công
+manage.device.moveSuccess=Chuyển device thành công
+manage.group.noMoveDeviceToRoot=Không được chuyển device vào nhóm root
+manage.group.exitedNameGroup=Tên nhóm đã tồn tại  trong hệ thống
+manage.groupList.group.titleSelectGroup=Chọn hoặc tìm nhóm từ danh sách
+iot.manage.groupAis.name=Tên nhóm
+iot.manage.groupAis.email=Email
+iot.manage.groupAis.phone=Điện thoại
+iot.manage.groupAis.address=Địa chỉ
+iot.manage.groupAis.select=Chọn
+iot.manage.groupAis.createDate=Ngày tạo
+iot.manage.groupAis.addGroupRoot=Tạo tổ chức
+iot.manage.groupAis.UpdateGroupInfo=Cập nhật thông tin
+iot.manage.groupAis.addGroupChild=Thêm nhóm con
+iot.manage.groupAis.AddRemoveUser=Thêm/xóa user
+iot.manage.groupAis.AddRemoveDevice=Thêm/xóa device
+iot.manage.groupAis.AddUser=Tạo tài khoản mới 
+iot.manage.moveUsersToGroup=Chuyển User
+iot.manage.moveDevicesToGroup=Chuyển Device
+iot.manage.removeUsers=Xóa người dùng
+iot.manage.org.AddDevice=Thêm thiết bị
+iot.manage.org.AddDeviceToOrg=Thêm thiết bị vào Tổ chức
+iot.manage.removeDevices=Xóa thiết bị
+iot.manage.removeGroup=Xóa nhóm
+iot.manage.groupAis.AddContact=Thêm liên hệ
+iot.manage.groupAis.AddRemoveContact=Thêm/Xóa liên hệ
+
+group.addNew=Tạo nhóm mới
+group.delete=Xóa nhóm
+group.idEmpty=Lỗi ID nhóm trống
+group.edit=Sửa thông tin nhóm
+group.haveNotOrg=Bạn chưa có tổ chức, vui lòng tạo mới tổ chức
+group.updateOrg=Chọn Tổ chức
+group.chooseOrg=Bạn chưa chọn tổ chức
+group.editOrg=Sửa thông tin tổ chức
+group.removeOrg=Xóa tổ chức
+group.id=ID
+group.name=Tên nhóm
+group.type=Phân loại
+group.type.org=Tổ chức
+group.type.user=Người dùng
+group.type.device=Thiết bị
+group.type.event=Sự kiện
+group.role.name=Tên vai trò
+group.role.del=Xóa vai trò
+group.event.name=Tên sự kiện
+group.event.del=Xóa sự kiện
+group.event.groupName=Nhóm
+
+device.addNew=Tạo thiết bị
+device.add.name=Tên thiết bị
+device.delete=Xóa thiết bị
+device.idEmpty=Lỗi ID thiết bị trống
+device.edit=Sửa thiết bị
+device.update=Cập nhật thiết bị
+device.updateOrg.success=Cập nhật Tổ chức thành công
+device.updateOrg.false=Cập nhật Tổ chức không thành công
+device.updateGroup.success=Cập nhật Group thành công
+device.updateGroup.false=Cập nhật Group không thành công
+device.updateType.success=Cập nhật Type thành công
+device.updateType.false=Cập nhật Type không thành công
+device.connectSuccess=Thiết bị kết nối thành công
+device.connectFalse=Thiết bị chưa kết nối thành công
+device.paidDevice=Paid thiết bị
+device.step1=Sử dụng Device ID và Device Token để nạp vào firmware và paid thiết bị của bạn
+device.sendMessage=Gửi bản tin
+device.step2=Gửi bản tin lên platform hoặc test bằng bản tin json như sau
+device.checkConnect=Kiểm tra kết nối
+
+device.variable.manage=Quản lý Thuộc tính thiết bị
+device.variable.title=Thuộc tính thiết bị
+device.variable.addNew=Tạo mới
+device.variable.name=Tên
+device.variable.type=Loại
+device.variable.value=Giá trị
+device.variable.time=Thời gian
+device.variable.choose=Chọn type
+device.variable.configGps=Cấu hình GPS
+device.variable.notFoundConfig=Không tìm thấy cấu hình của thiết bị
+device.variable.chart=Thống kê thuộc tính
+device.variable.chart.column=Biểu đồ cột
+device.variable.chart.line=Biểu đồ đường
+device.variable.id=ID thiết bị
+device.variable.total=Tổng số thuộc tính
+
+deviceType.addNew=Tạo loại thiết bị
+deviceType.add.name=Tên loại thiết bị
+deviceType.idEmpty=Lỗi ID Type trống
+deviceType.delete=Xóa loại thiết bị
+deviceType.edit=Sửa tên loại thiết bị
+
+deviceTemplate.title=Mẫu thiết bị
+deviceTemplate.list=Danh sách
+deviceTemplate.create=Tạo mới mẫu thiết bị
+deviceTemplate.name=Tên mẫu thiết bị
+deviceTemplate.listFlow=Danh sách flow
+deviceTemplate.id=ID
+deviceTemplate.nameFlow=Tên
+deviceTemplate.del=Xóa mẫu thiết bị
+
+user.addNew=Tạo user
+user.add.email=Email
+user.link=Link tạo mật khẩu
+user.idEmpty=Lỗi ID user trống
+user.delete=Xóa user
+user.createDeviceToken=Tạo device token
+user.deviceToken=Copy device token
+
+
+message.title=Quản lý bản tin thiết bị
+message.sendMetadata=Gửi metadata
+message.chooseTypeMessage=Bạn hãy chọn loại message 
+message.sendMessToDevice=Gửi xuống thiết bị
+message.sendTopic=Gửi qua topic
+message.sendMess=Gửi bản tin
+
+role.addNew=Tạo mới vai trò
+role.name=Tên vai trò
+role.existName=Tên này đã tồn tại, hay chọn tên khác
+role.resources=Tài nguyên
+role.resources.devices=Thiết bị
+role.resources.groups=Nhóm
+role.resources.devicetypes=Loại thiết bị
+role.resources.topics=Chủ đề
+role.resources.devicetokens=Device token
+role.resources.events=Sự kiện
+role.permission.create=Tạo mới
+role.permission.read=Hiển thị
+role.permission.modify=Chỉnh sửa
+role.permission.delete=Xóa
+role.select=Chọn vai trò
+role.title=Vai trò
+role.service.organizations=Tổ chức
+role.service.devices=Thiết bị
+role.service.users=Người dùng
+role.service.groups=Nhóm
+role.service.devicetypes=Loại thiết bị
+role.service.topics=Chủ đề (topic)
+role.service.devicetokens=Token của thiết bị
+role.service.events=Sự kiện
+role.title.delete=Xóa vai trò
+role.editRole=Chỉnh sửa vai trò
+role.title.detail=Chi tiết
+role.groupManage=Nhóm quản lý
+role.group.org=Nhóm tổ chức
+role.group.user=Nhóm người dùng
+role.group.device=Nhóm thiết bị
+role.group.event=Nhóm sự kiện
+role.group.role=Quyền hạn
+
+event.title.device=Thiết bị
+event.title.attr=Thuộc tính
+event.title.condition=Điều kiện
+event.title.condition1=Điều kiện kích hoạt
+event.title.action=Thao tác
+event.title.addNewEvent=Tạo Sự kiện
+event.title.editNewEvent=Sửa sự kiện
+event.title.detailEvent=Chi tiết sự kiện
+event.title.interval=Interval
+event.title.value=Giá trị đối chiếu
+event.column.title.device=ID Thiết bị
+event.column.title.organization=Tổ chức
+event.column.title.action=Thao tác xử lý
+event.column.title.time=Thời gian kiểm tra điều kiện
+event.column.title.status=Trạng thái
+event.column.title.hd=Hành động
+event.column.title.address=Địa chỉ
+event.column.title.title=Tiêu đề
+event.column.title.content=Nội dung
+event.title.default=Thông tin cơ bản
+event.title.delete=Xóa Sự kiện
+event.title.name=Tên sự kiện
+event.title.editEvent=Sửa Sự kiện
+event.title.status=Trạng thái
+event.title.under=Trực thuộc
+event.title.combinationConditions=Điều kiện kết hợp
+event.operator.equal=Bằng
+event.operator.greater=Lớn hơn
+event.operator.less=Nhỏ hơn
+event.operator.notEqual=Not equal to
+event.title.org.change=Thay đổi Tổ chức
+event.activeSuccess=Kích hoạt Sự kiện thành công
+event.activeFalse=Kích hoạt Sự kiện không thành công
+event.deactiveSuccess=Thành công hủy kích hoạt Sự kiện
+event.deactiveFalse=Không thành công hủy kích hoạt Sự kiện
+event.start=Bắt đầu
+event.end=Kết thúc
+event.choose.device=Chọn thiết bị
+event.deviceNotFoundAttribute=Thiết bị không có thuộc tính
+event.choose.var=Chọn thuộc tính
+event.title.statusActive=Kích hoạt
+event.title.statusUnactive=Không kích hoạt
+event.validateTime=Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc
+
+report.message.log=Danh sách bản tin thiết bị
+
+project.manage=Quản lý dự án
+project.title=Dự án
+project.addNew=Tạo mới dự án
+project.name=Tên dự án
+project.content=Mô tả
+project.notFoundProject=Bạn chưa có dự án nào, vui lòng tạo mới
+project.list=Danh sách dự án
+project.edit=Sửa thông tin dự án
+project.del=Xóa dự án 
+project.maxlength=Tối đa 100 kí tự 
+
+overview.title=Tổng quan
+overview.youNotDashboard=Bạn chưa có bảng điểu khiển nào, hãy bắt đầu bằng mẫu bảng có sẵn hoặc tạo mới của riêng bạn
+overview.monitor=Bảng điểu khiển
+overview.app=Ứng dụng
+overview.youNotApp=Bạn chưa có Ứng dụng nào, hãy bắt đầu bằng mẫu bảng có sẵn hoặc tạo mới của riêng bạn
+overview.overviewData=Tổng quan dữ liệu kết nối
+overview.infoPay=Thông tin thanh toán
+overview.flow=Flow engine
+overview.youNotFlow=Bạn chưa có flow engine nào, hãy bắt đầu tạo mới flow engine của riêng bạn
+
+qr.code.exited=ID QR Code này đã tồn tại
+qr.importComfirm=Bạn có chắc chắn muốn tạo {0} mã QR Code
+qr.delete=Xóa QR Code
+qr.edit=Sửa thông tin QR Code
+qr.id=ID
+qr.Name=Tên
+qr.Link=Link Ứng dụng
+qr.QRCode=QR Code
+qr.LinkAndroid=Link Android
+qr.LinkIos=Link IOS
+
+packdata.add=Tạo mới gói cước
+packdata.info=Thông tin chung
+packdata.name=Tên gói cước
+packdata.data=Dữ liệu gói cước
+packdata.countPackConnect=Số lượng kết nối tối đa
+packdata.countPackMax=Số lượng bản tin tối đa
+packdata.countPackLimit=Giới hạn số lượng bản tin
+packdata.countPackDvi=Số lượng bản tin/ Mỗi đơn vị phụ trội
+packdata.price=Giá gói cước
+packdata.cycle=Chu kỳ tính cước
+packdata.day=Theo ngày
+packdata.week=Theo tuần
+packdata.month=Theo tháng
+packdata.year=Theo năm
+packdata.cyclePrice=Giá theo chu kỳ
+packdata.dviPrice=Đơn giá/Đơn vị phụ trội
+packdata.delete=Xóa gói cước
+packdata.content=Mô tả
+packdata.edit=Sửa gói cước
+packdata.change=Gán gói cước
+packdata.chooseOrg=Chọn tổ chức
+packdata.cancel=Hủy gói cước
+
+manage.smarthome=Smarthome
+
+manage.tracking=Tracking
+manage.tracking.map=Bản đồ 
+manage.tracking.map.title=Bản đồ giám sát
+manage.tracking.map.name=Thiết bị
+manage.tracking.map.status=Trạng thái 
+manage.tracking.map.history=Lịch sử 
+map.info.name=Tên 
+map.info.id=ID
+map.info.status=Trạng thái
+map.info.phone=Số điện thoại
+map.info.dateTracking=Thời điểm
+map.info.latitude=Vĩ độ  
+map.info.longitude=Kinh độ  
+
+manage.tracking.history=Lịch sử 
+manage.tracking.history.title=Lịch sử hành trình
+manage.tracking.history.start=Bắt đầu 
+manage.tracking.history.end=Kết thúc 
+manage.tracking.history.chooseDevice=Chọn thiết bị 
+manage.tracking.history.view=Tìm kiếm 
+manage.tracking.history.quick=Tìm kiếm nhanh 
+history.search1Day=1 ngày trước
+history.search3Day=3 ngày trước
+history.search7Day=7 ngày trước
+history.search15Day=15 ngày trước
+history.search30Day=30 ngày trước
+history.dateTimeFromTo=Thời gian bắt đầu phải nhỏ hơn kết thúc
+history.time31day=Thời gian lịch sử không quá 1 ngày
+manage.tracking.history.play=Xem
+manage.tracking.history.stop=Dừng
+manage.tracking.history.idNull=Bạn chưa chọn thiết bị
+manage.tracking.history.empty=Bạn hãy điền đầy đủ thời gian bắt đầu và kết thúc
+manage.tracking.history.playView=Hành trình xe đang được xem
+manage.tracking.history.notHistory=Chưa có dữ liệu hành trình
+manage.tracking.history.noGetHistory=Không tìm thấy dữ liệu hành trình
+fogotPass.passAgainNotFound = Mật khẩu không trùng nhau.
+
+apn.dynamicIp=IP động
+apn.add.default.success=Gán APN thành công!
+apn.add.default.error=Gán APN mặc định thất bại
+apn.remove.default.success=Hủy APN mặc định thành công!
+apn.remove.default.error=Hủy APN mặc định thất bại
+
+apn.add.private.error=Gán APN/IP thất bại
+apn.add.private.selectIP=Vui lòng chọn IP
+apn.add.private.success=Gán APN/IP riêng thành công!
+apn.add.private.error=Gán APN/IP riêng thất bại
+apn.add.endDate=Đến ngày
+apn.add.chooseIP=Chọn IP
+apn.add.customerRequest=KHYC – Khách hàng yêu cầu
+apn.add.reason=Lý do
+apn.add.ip=IP
+apn.add.dynamicIP=IP động
+apn.add.note=** Chú ý: Nếu APN không hiển thị trong danh sách gán (do APN thuộc diện không xuất bán), vui lòng liên hệ kênh bán Viettel để được hỗ trợ.
+apn.remove.private.success=Hủy APN/IP riêng thành công!
+apn.remove.private.error=Hủy APN/IP riêng thất bại
+
+# APN Export Messages
+apn.export.title=Xuất danh sách
+apn.export.subscribers=thuê bao
+apn.export.file=File
+apn.export.action=Thao tác
+apn.export.download=Tải xuống
+apn.export.downloading=Đang tải...
+apn.export.downloadAll=Tải tất cả
+apn.export.downloadComplete=Tải xuống hoàn tất
+apn.export.total=Tổng 
+apn.export.files= số file
+apn.export.serialNumber=STT
+apn.export.error=Lỗi khi xuất dữ liệu
+
+# APN Table Column Headers
+apn.table.stt=STT
+apn.table.subscriberNumber=Số thuê bao
+apn.table.simSerial=Serial Sim
+apn.table.serviceType=Loại dịch vụ
+apn.table.servicePackage=Gói cước
+apn.table.contractCode=Mã hợp đồng
+apn.table.customerCode=Mã KH
+apn.table.defaultAPN=APN mặc định
+apn.table.privateAPNIP=Tên APN private/IP
+apn.table.startEndDate=Ngày bắt đầu - Ngày kết thúc
+
+# Utilities Messages
+utilities.title=Tiện ích
+utilities.addDataPackage=Đăng ký thêm gói Data
+utilities.cancelDataPackage=Hủy gói Data
+utilities.cancelRenewal=Hủy gia hạn gói
+utilities.changePackage=Đổi gói
+utilities.loadSubscriberList=Tải danh sách TB
+utilities.register=Đăng ký
+utilities.cancelPackage=Hủy gói
+utilities.cancelRenewalDataPackage=Hủy gia hạn gói Data
+utilities.cancelRenewalAction=Hủy gia hạn
+
+# Utilities Detailed Messages
+utilities.postpaid=Trả sau
+utilities.prepaid=Trả trước
+utilities.packageName=Tên gói
+utilities.type=Loại
+utilities.details=Chi tiết
+utilities.select=Chọn
+utilities.code=Mã
+utilities.enterPackageName=Nhập tên gói..
+
+# Additional utilities messages
+utilities.changeDataPackage=Đổi gói Data
+utilities.loadSubscriberList=Tải danh sách TB
+utilities.changePackageAction=Đổi gói
+utilities.importSubscriberList=Import danh sách thuê bao
+utilities.uploadSubscriberList=Tải danh sách TB
+utilities.importList=Import danh sách
+utilities.downloadSampleFile=Tải file mẫu
+utilities.validSubscribers=Số TB hợp lệ
+utilities.invalidSubscribers=Số TB không hợp lệ
+utilities.cancelMiAddonRenewal=Huỷ gia hạn gói MI, Add-on
+utilities.cancelMiAddon=Huỷ gói MI, Add-on
+utilities.confirmCancelRenewal=Bạn có chắc chắn muốn thực hiện huỷ gia hạn gói MI, Add-on?
+utilities.notification=Thông báo
+utilities.changePackagePlan=Đổi gói cước
+utilities.cancelOldPackage=Hủy gói cước cũ
+utilities.registerNewPackage=Đăng ký gói cước mới
+utilities.continue=Tiếp tục
+utilities.confirm=Xác nhận
+utilities.confirmOpenTwoWay=Xác nhận mở 2 chiều thuê bao
+utilities.unregisterOldPackage=Hủy gói cước cũ
+utilities.registerNewPackage=Đăng ký gói cước mới
+utilities.back=Quay lại
+utilities.registerMiAddon=Đăng ký gói MI, Add-on
+utilities.confirmRegisterMiAddon=Bạn có chắc chắn muốn thực hiện đăng kí gói MI, Add-on?
+utilities.unregisterMiAddon=Huỷ gói MI, Add-on
+utilities.confirmUnregisterMiAddon=Bạn có chắc chắn muốn thực hiện huỷ gói MI, Add-on?
+utilities.confirmOpenSubs1=Xác nhận mở 1 chiều thuê bao
+utilities.confirmPayment=Quý khách vui lòng nhấn xác nhận sau khi đã thanh toán thành công!
+utilities.recharge=Nạp tiền
+utilities.rechargeHistory=Lịch sử nạp tiền
+utilities.rechargeInfo=Thông tin nạp tiền
+utilities.account=Tài khoản
+utilities.telcoAccount=Tài khoản viễn thông
+utilities.amountPerSubscriber=Số tiền (nạp cho 1 TB)
+utilities.enterAmount=Nhập số tiền thanh toán tối thiểu 5.000đ
+utilities.loadList=Tải danh sách
+utilities.payment=Thanh toán
+utilities.numberOfSubscribers=Số thuê bao
+utilities.confirmChangePackage=Bạn có chắc chắn muốn thực hiện huỷ - đổi gói cước cho
+utilities.subscribers=thuê bao
+utilities.oldPackage=Gói cước cũ
+utilities.newPackage=Gói cước mới
+utilities.cancel=Hủy bỏ
+utilities.totalPayment=Tổng thanh toán
+utilities.payNow=Thanh toán
+utilities.importOpenSubs2=Import danh sách thuê bao mở 2 chiều
+utilities.importRechargeList=Import danh sách thuê bao nạp tiền
+utilities.rechargeSubscriber=Nạp tiền thuê bao
+utilities.note=Lưu ý
+utilities.changePackageNote=Hệ thống sẽ hủy gói cước đã chọn trước khi đăng ký gói mới. Nếu đăng ký gói mới thất bại (do không đủ tiền,...), thuê bao sẽ bị hủy gói cước đã chọn. Vui lòng đảm bảo tài khoản đủ tiền để đổi gói thành công.
+utilities.subscriber=Thuê bao
+utilities.action=Thao tác
+utilities.amount=Số tiền
+utilities.totalAmount=Tổng tiền
+utilities.status=Trạng thái
+utilities.description=Mô tả
+utilities.time=Thời gian
+
+# Block Utilities System
+blockUtilities.title=Chặn/Mở thuê bao
+blockUtilities.blockOneWay=Chặn chiều TB
+blockUtilities.unblockOneWay=Mở chặn 1 chiều TB
+blockUtilities.unblockTwoWay=Mở chặn 2 chiều TB
+blockUtilities.blockSubscriber=Chặn chiều thuê bao
+blockUtilities.loadSubscriberList=Tải danh sách TB
+blockUtilities.blockOneWayAction=Chặn 1 chiều
+blockUtilities.blockTwoWayAction=Chặn 2 chiều
+blockUtilities.export=Export
+blockUtilities.unblockOneWaySubscriber=Mở chặn 1 chiều thuê bao
+blockUtilities.unblockTwoWaySubscriber=Mở chặn 2 chiều thuê bao
+blockUtilities.unblockOneWayAction=Mở 1 chiều
+blockUtilities.unblockTwoWayAction=Mở 2 chiều
+blockUtilities.importBlockSubsList=Import danh sách thuê bao chặn chiều
+blockUtilities.importSubscriberList=Import danh sách
+blockUtilities.downloadTemplateFile=Tải file mẫu
+blockUtilities.templateFileName=List_Subs.xlsx
+blockUtilities.validSubscribers=Số TB hợp lệ
+blockUtilities.invalidSubscribers=Số TB không hợp lệ
+blockUtilities.fileWrongFormat=File không đúng format xlsx
+blockUtilities.fileInsufficientData=File không đủ dữ liệu
+blockUtilities.subscriberNumber=Số thuê bao
+blockUtilities.action=Tác động
+blockUtilities.result=Kết quả
+blockUtilities.reason=Lý do
+blockUtilities.totalCount=Tổng số:
+blockUtilities.confirmBlockOneWay=Xác nhận chặn 1 chiều thuê bao
+blockUtilities.confirmBlockTwoWay=Xác nhận chặn 2 chiều thuê bao
+blockUtilities.importUnblockOneWayList=Import danh sách thuê bao mở 1 chiều
+blockUtilities.importUnblockTwoWayList=Import danh sách thuê bao mở 2 chiều
+
+# Common Messages Extended
+common.stt=STT
+common.noResultsFound=Không tìm thấy kết quả nào
+common.showingPage=Hiển thị trang _PAGE_ trên tổng số _PAGES_
+common.first=Đầu
+common.last=Cuối
+common.next=Tiếp
+common.previous=Trước
+common.showEntries=Hiển thị _MENU_ dòng
+common.noData=Không có dữ liệu
+
+# Account System
+account.title=Tài khoản
+account.updateBusinessInfo=Cập nhật thông tin doanh nghiệp
+account.personalInfo=1. Thông tin cá nhân
+account.businessInfo=2. Thông tin doanh nghiệp
+account.fullName=Họ tên
+account.email=Email
+account.phoneNumber=Số điện thoại
+account.idNumber=Số CMND/CCCD
+account.businessName=Tên doanh nghiệp
+account.businessLicense=Số GPKD
+account.companyAddress=Địa chỉ công ty
+account.idCardPhoto=Ảnh CMT/CCCD người đại diện
+account.businessLicensePhoto=Ảnh GPKD
+account.uploadImage=Upload image
+account.dragDropFile=Kéo thả file ảnh hoặc mở file
+account.here=tại đây
+account.fileRequirement=File jpg, png,... dung lượng file không quá 3mb
+account.agreementText=Cá nhân và Doanh nghiệp cam kết sử dụng tài khoản quản lý thông tin thuê bao đúng mục đích và chịu trách nhiệm toàn bộ về tất cả các thông tin  liên quan đến những thuê bao của doanh nghiệp cũng như chi tiết sử dụng của các thuê bao mà Doanh nghiệp đứng tên và quản lý (được hiển thị trong tài khoản đã xin cấp).
+account.termsDetail=Chi tiết điều khoản sử dụng
+account.required=*
+account.verifyPhone=Xác thực số điện thoại
+account.enterOtpCode=Nhập mã OTP kích hoạt
+account.getOtpCode=Nhận mã OTP
+account.error.avatarWrongFormat=File ảnh đại diện không đúng định dạng
+account.error.avatarTooLarge=File ảnh đại diện dung lượng không được quá 3mb
+account.error.idCardFrontWrongFormat=File ảnh mặt trước CMT/CCCD không đúng định dạng
+account.error.idCardFrontTooLarge=File ảnh mặt trước CMT/CCCD dung lượng không được quá 3mb
+account.error.idCardBackWrongFormat=File ảnh mặt sau CMT/CCCD không đúng định dạng
+account.error.idCardBackTooLarge=File ảnh mặt sau CMT/CCCD dung lượng không được quá 3mb
+account.error.businessLicenseWrongFormat=File ảnh GPKD không đúng định dạng
+account.error.businessLicenseTooLarge=File ảnh GPKD dung lượng không được quá 3mb
+account.error.authorizationWrongFormat=File ảnh giấy ủy quyền không đúng định dạng
+account.error.authorizationTooLarge=File ảnh giấy ủy quyền dung lượng không được quá 3mb
+account.error.registrationFormWrongFormat=File ảnh phiếu đăng ký tài khoản không đúng định dạng
+account.error.registrationFormTooLarge=File ảnh phiếu đăng ký tài khoản dung lượng không được quá 3mb
+account.status.approved=*Thông tin cá nhân đã được duyệt!
+
+# Common Export Message
+common.export=Export
+common.download=Download
+account.error.businessLicenseWrongFormat=File ảnh GPKD không đúng định dạng
+account.error.businessLicenseTooLarge=File ảnh GPKD dung lượng không được quá 3mb
+account.error.authorizationWrongFormat=File ảnh giấy ủy quyền không đúng định dạng
+account.error.authorizationTooLarge=File ảnh giấy ủy quyền dung lượng không được quá 3mb
+account.error.registrationFormWrongFormat=File ảnh phiếu đăng ký tài khoản không đúng định dạng
+account.error.registrationFormTooLarge=File ảnh phiếu đăng ký tài khoản dung lượng không được quá 3mb
+account.error.businessLicenseWrongFormat=File ảnh GPKD không đúng định dạng
+account.error.businessLicenseTooLarge=File ảnh GPKD dung lượng không được quá 3mb
+account.error.authorizationWrongFormat=File ảnh giấy ủy quyền không đúng định dạng
+account.error.authorizationTooLarge=File ảnh giấy ủy quyền dung lượng không được quá 3mb
+account.error.registrationFormWrongFormat=File ảnh phiếu đăng ký tài khoản không đúng định dạng
+account.error.registrationFormTooLarge=File ảnh phiếu đăng ký tài khoản dung lượng không được quá 3mb
+account.error.businessNameRequired=Vui lòng điền đầy đủ tên doanh nghiệp
+account.error.taxCodeRequired=Vui lòng điền đầy đủ mã số thuế
+account.error.businessLicenseNumberRequired=Vui lòng điền đầy đủ số giấy phép kinh doanh
+account.error.establishmentDateRequired=Vui lòng điền đầy đủ ngày thành lập
+account.error.establishmentDateInvalid=Ngày thành lập không được lớn hơn ngày hiện tại
+account.error.businessPhoneInvalid=Số điện thoại doanh nghiệp không đúng định dạng
+account.error.businessEmailInvalid=Email doanh nghiệp không đúng định dạng
+account.error.addressRequired=Vui lòng chọn địa chỉ Tỉnh/Thành phố, Quận huyện và Phường xã
+account.error.detailAddressRequired=Vui lòng điền đầy đủ địa chỉ chi tiết
+account.error.businessLicenseImageRequired=Vui lòng up đầy đủ ảnh GPKD
+account.error.businessLicenseDuplicate=GPKD đã trùng. Vui lòng kiểm tra lại
+account.error.phoneInvalid=Số điện thoại không đúng định dạng
+account.error.otpRequired=Bạn chưa nhập mã OTP
+account.success.businessDeleteRequest=Yêu cầu xóa thông tin doanh nghiệp thành công - 
+account.status.approved=*Thông tin cá nhân đã được duyệt!
+account.status.pending=*Thông tin cá nhân đang được kiểm duyệt!
+account.status.rejected=* Thông tin tài khoản bị từ chối! Bạn vui lòng liên hệ chăm sóc khách hàng để nhận được hỗ trợ!
+account.selectRepresentativePhone=Chọn số thuê bao đại diện
+account.otpInstructionUpdate=Bạn vui lòng nhập OTP được gửi về số thuê bao đại diện doanh nghiệp để xác nhận cập nhật thông tin
+account.confirmDeleteEnterprise=Bạn có chắc chắn muốn yêu cầu xóa?
+account.enterprise=Doanh nghiệp
+account.businessLicenseNumber=Số GPKD
+account.businessInfo=2. Thông tin doanh nghiệp
+
+common.confirm=Xác nhận
+common.enterCode=Nhập mã
+survey.title=Khảo sát
+survey.description=Để việc phục vụ được tốt hơn, kính đề nghị quý khách hàng cho xin thông tin khảo sát chất lượng dịch vụ
+survey.question1=1. Hàng tháng, doanh nghiệp của bạn gặp nhiều khó khăn trong việc nào sau đây
+survey.option.topup=Nạp tiền cho SIM
+survey.option.checkStatus=Kiểm tra trạng thái SIM (chặn cắt, lưu lượng còn lại...)
+survey.option.newConnection=Đấu nối SIM mới
+survey.option.blockUnblock=Thao tác chặn / khôi phục hoạt động của SIM
+survey.option.buySim=Mua SIM mới
+survey.option.invoiceManagement=Quản lý hóa đơn
+survey.option.contractManagement=Quản lý hợp đồng
+
+common.close=Đóng
+
+# APN JS Messages
+apn.js.noDataAvailable=Dữ liệu không có sẵn
+
+# Dashboard Telco Messages
+dashboard.telco.title=Telco Dashboard
+dashboard.telco.totalSubscribers=TỔNG THUÊ BAO
+dashboard.telco.increasePercent=+0%
+dashboard.telco.newThisMonth=MỚI TRONG THÁNG
+dashboard.telco.totalDataThisMonth=TỔNG DATA TRONG THÁNG
+dashboard.telco.dataTooltip=Dữ liệu thống kê tính đến dd/mm/yyyy
+dashboard.telco.totalCostMonth=TỔNG CHI PHÍ THÁNG
+dashboard.telco.subscriberDistribution=PHÂN BỔ THUÊ BAO
+dashboard.telco.activeSubscribers=THUÊ BAO HOẠT ĐỘNG
+dashboard.telco.warnings=Cảnh báo
+dashboard.telco.cumulativeSubscribers=LŨY KẾ THUÊ BAO
+dashboard.telco.dataUsage=LƯU LƯỢNG SỬ DỤNG
+dashboard.telco.dataUsageGB=Data sử dụng (GB)
+dashboard.telco.filterByDay=Theo ngày
+dashboard.telco.filterByMonth=Theo tháng
+dashboard.telco.postpaidStatistics=THỐNG KÊ CƯỚC TRẢ SAU
+dashboard.telco.subscriberDistributionMap=Phân phối thuê bao
+dashboard.telco.topDataUsers=TOP THUÊ BAO SỬ DỤNG TRONG THÁNG
+
+# Warning Messages
+dashboard.warning.redAlert=Cảnh báo báo động đỏ
+dashboard.warning.prepaidExpired=Cảnh báo hết hạn cước đóng trước
+dashboard.warning.blockDebit=Cảnh báo chặn cắt (nợ cước)
+dashboard.warning.packageExpired=Cảnh báo hết hạn gói cước
+dashboard.warning.lowBalance=TK gốc < 1000đ
+dashboard.warning.lowRemainingData=Lưu lượng data còn lại dưới 20%
+dashboard.warning.subscribers=Thuê bao
+dashboard.warning.details=Chi tiết
+
+# Postpaid Statistics
+dashboard.postpaid.startBalance=Tổng dư nợ đầu kì
+dashboard.postpaid.adjustAmount=Tổng tiền điều chỉnh
+dashboard.postpaid.payment=Tổng tiền đã thanh toán
+dashboard.postpaid.excessCash=Tổng tiền thừa
+dashboard.postpaid.remainAmount=Tổng nợ còn lại
+dashboard.postpaid.hotCharge=Cước nóng tạm tính
+
+# Features Menu
+dashboard.features.buyDataPackage=Mua gói data
+dashboard.features.topup=Nạp tiền
+dashboard.features.blockUnblock=Chặn/Mở thuê bao
+dashboard.features.changePackage=Đổi gói
+dashboard.features.cancelAutoRenewal=Hủy gia hạn gói
+dashboard.features.orderSim=Đặt/Đổi sim
+dashboard.features.monitoringMap=Bản đồ giám sát
+
+# Table Column Headers
+dashboard.columnSTT=STT
+dashboard.columnSubscriberNumber=Số thuê bao
+dashboard.columnContractCode=Mã hợp đồng
+dashboard.columnExpiryDate=Ngày hết hạn CĐT
+dashboard.columnUpdateTime=Thời gian cập nhật
+dashboard.columnThresholdExceeded=Ngưỡng vượt mức tiêu dùng (%)
+dashboard.columnServicePackage=Gói cước
+dashboard.columnDataRemaining=Dung lượng data còn lại
+dashboard.columnExpiryDatePackage=Ngày hết hạn
+dashboard.dataLimitExceeded=Hết lưu lượng
+dashboard.dataRemaining=Còn lại
+
+# Dashboard Table Headers
+dashboard.table.subscriber.number=Số thuê bao
+dashboard.table.usage.gb=Sử dụng (GB)
+
+# Dashboard Modal Messages
+dashboard.modal.lowBalance.title=Danh sách thuê bao có TK gốc < 1000đ
+dashboard.modal.subscriber.number=Số thuê bao
+dashboard.modal.root.account=TK gốc
+dashboard.modal.block.status=Trạng thái chặn cắt
+dashboard.modal.activity.status=Trạng thái hoạt động
+dashboard.modal.update.time=Thời gian cập nhật
+dashboard.modal.contract.code=Mã hợp đồng
+dashboard.modal.redAlert.title=Danh sách thuê bao cảnh báo báo động đỏ
+dashboard.modal.redAlert.note=Chú ý: Nếu đạt hạn mức tiêu dùng 95%, thuê bao sẽ bị chặn 1 chiều (Dữ liệu được cập nhật theo chu kì 1h/1 lần)
+dashboard.modal.consumption.threshold=Ngưỡng vượt mức tiêu dùng
+dashboard.modal.prepaidExpired.title=Danh sách thuê bao hết hạn đóng cước trước
+dashboard.modal.prepaidExpired.note=Chú ý: Dữ liệu được thống kê vào ngày mùng 7 hàng tháng. Nếu bạn đã thực hiện Đóng cước trước, vui lòng bỏ qua danh sách này!
+dashboard.modal.prepaid.expiry.date=Ngày hết hạn CĐT
+
+# Zalo Chat Widget
+zalo.welcome.message=Rất vui khi được hỗ trợ bạn!
+
+# Subscriber Export Additional Fields
+subscriber.hybridAmount=Số tiền Hybrid
+subscriber.miAddonPromotion=Gói MI-Addon, CTKM
+subscriber.debtStartPeriod=Nợ cước đầu kỳ
+subscriber.paidCharges=Cước đã thanh toán
+subscriber.remainingDebt=Nợ cước còn lại
+subscriber.adjustmentAmount=Tiền điều chỉnh
+subscriber.hotChargeEstimate=Cước nóng tạm tính
+subscriber.promotionName=Tên CTKM
+subscriber.promotionEffectiveDate=Ngày hiệu lực CTKM
+subscriber.promotionExpiryDate=Ngày hết hạn CTKM
+subscriber.promotionDescription=Mô tả CTKM
+subscriber.remainingData=Lưu lượng data còn lại
+subscriber.remainingSMS=Lưu lượng SMS còn lại
+subscriber.remainingVoice=Lưu lượng thoại còn lại
+subscriber.rootAccount=Tài khoản gốc
+subscriber.noDataToDisplay=Không có thông tin để hiển thị
+subscriber.checkDataUsage=Kiểm tra LL
+subscriber.dataUsed=Lưu lượng đã sử dụng
+subscriber.dataRemaining=Lưu lượng còn lại
+subscriber.error.dataFetchFailed=Lấy dữ liệu không thành công
+subscriber.status.active=Đang hoạt động
+subscriber.status.cancelled=Đã hủy
+subscriber.promotionAccount=Tài khoản khuyến mại
+subscriber.internalPromoAccount=TK KM nội mạng
+subscriber.otherAccount=TK khác
+subscriber.updateDate=Ngày cập nhật
+subscriber.subscriberStatus=Trạng thái thuê bao
+
+# Subscriber Import Messages
+subscriber.import.max.500.error=Không hỗ trợ tìm kiếm quá 500 thuê bao
+subscriber.import.no.valid.numbers=Không có số thuê bao hợp lệ
+subscriber.import.file.format.error=File không đúng format xlsx
+subscriber.import.file.insufficient.data=File không đủ dữ liệu
+subscriber.import.no.valid.contracts=Không có số hợp đồng hợp lệ
+
+# Error Messages
+dashboard.excelExportError=Lỗi khi xuất file Excel
+
+# Pie Chart Status Labels
+dashboard.pieChart.active=hoạt động
+dashboard.pieChart.block1Way=chặn 1 chiều
+dashboard.pieChart.block2Way=chặn 2 chiều
+dashboard.pieChart.cancelled=đã hủy
+dashboard.pieChart.prepaid=trả trước
+dashboard.pieChart.postpaid=trả sau
+
+# Subscriber Status Descriptions
+dashboard.status.normal=Bình thường
+dashboard.status.notActivate=Chưa kích hoạt
+dashboard.status.blockOneWaySystem=Chặn 1c do hệ thống
+dashboard.status.blockTwoWaySystem=Chặn 2c do hệ thống
+dashboard.status.blockOneWayUser=Chặn 1c KHYC
+dashboard.status.blockTwoWayUser=Chặn 2c KHYC
+dashboard.status.blockOneWayUserOneWaySystem=Chặn 1c KHYC, chặn 1c do hệ thống
+dashboard.status.blockOneWayUserTwoWaySystem=Chặn 1c KHYC, chặn 2c do hệ thống
+dashboard.status.blockTwoWayUserOneWaySystem=Chặn 2c KHYC, chặn 1c do hệ thống
+dashboard.status.blockTwoWayUserTwoWaySystem=Chặn 2c KHYC, chặn 2c do hệ thống
+dashboard.status.blockedTelecomUsage=Chặn tiêu dùng viễn thông
+
+# Subscriber Management
+subscriber.title=Quản lý thuê bao
+subscriber.systemAlert=Hệ thống CMP đang ghi nhận gián đoạn dịch vụ do cao tải phân hệ CM trong hệ thống BCCS. Đội kỹ thuật đang xử lý khẩn cấp.
+subscriber.advancedSearch=Tìm kiếm nâng cao
+
+# Subscriber Table Headers
+subscriber.stt=STT
+subscriber.phoneNumber=Số thuê bao
+subscriber.servicePackage=Gói cước
+subscriber.promotionCode=Mã CTKM
+subscriber.contractCode=Mã hợp đồng
+subscriber.customerCode=Mã KH
+subscriber.simSerial=Serial sim
+subscriber.blockStatus=TT chặn cắt
+subscriber.activation=Kích hoạt
+subscriber.connection=Đấu nối
+subscriber.serviceType=Loại DV
+subscriber.check=Kiểm tra
+subscriber.subscriberCode=Mã TB
+
+# Subscriber Search Form
+subscriber.searchInfo=Thông tin tìm kiếm
+subscriber.serialLabel=Serial
+subscriber.inputPlaceholder=Nhập nội dung
+subscriber.serviceType=Loại dịch vụ
+subscriber.selectOption=-- Chọn --
+subscriber.postpaid=Trả sau
+subscriber.prepaid=Trả trước
+subscriber.servicePackageUsing=Gói cước sử dụng
+subscriber.blockCutStatus=Tình trạng chặn cắt
+subscriber.selectServiceType=-- Hãy chọn loại dịch vụ --
+subscriber.activationDate=Ngày kích hoạt
+subscriber.fromDate=Từ ngày
+subscriber.toDate=Đến ngày
+subscriber.connectionDate=Ngày đấu nối
+subscriber.businessLicenseNumber=Số GPKD
+subscriber.selectBusinessLicense=-- Chọn số GPKD --
+subscriber.subscriberCount=Thuê bao
+subscriber.export=Export
+subscriber.reset=Reset
+subscriber.search=Tra cứu
+
+# Subscriber Status Messages  
+subscriber.status.unknown=Không xác định
+subscriber.status.normal=Bình thường
+subscriber.status.block1WaySystem=Chặn 1 chiều do hệ thống
+subscriber.status.block2WaySystem=Chặn 2 chiều do hệ thống
+subscriber.status.notActivated=Chưa kích hoạt
+subscriber.status.block1WayCustomer=Chặn 1 chiều khách hàng yêu cầu
+subscriber.status.block1WayCustomer1WaySystem=Chặn 1 chiều khách hàng yêu cầu, chặn 1 chiều do hệ thống
+subscriber.status.block1WayCustomer2WaySystem=Chặn 1 chiều khách hàng yêu cầu, chặn 2 chiều do hệ thống
+subscriber.status.block2WayCustomer=Chặn 2 chiều khách hàng yêu cầu
+subscriber.status.block2WayCustomer1WaySystem=Chặn 2 chiều khách hàng yêu cầu, chặn 1 chiều do hệ thống
+subscriber.status.block2WayCustomer2WaySystem=Chặn 2 chiều khách hàng yêu cầu, chặn 2 chiều do hệ thống
+subscriber.status.block1WayDebt=Chặn 1 chiều nợ cước
+subscriber.status.block2WayDebt=Chặn 2 chiều nợ cước
+subscriber.status.block1WayCustomer1WayDebt=Chặn 1 chiều khách hàng yêu cầu, chặn 1 chiều nợ cước
+subscriber.status.block1WayCustomer2WayDebt=Chặn 1 chiều khách hàng yêu cầu, chặn 2 chiều nợ cước
+subscriber.status.block2WayCustomer1WayDebt=Chặn 2 chiều khách hàng yêu cầu, chặn 1 chiều nợ cước
+subscriber.status.block2WayCustomer2WayDebt=Chặn 2 chiều khách hàng yêu cầu, chặn 2 chiều nợ cước
+
+# Subscriber Validation Messages
+subscriber.error.maxPhoneNumbers=Không hỗ trợ tìm kiếm quá 100.000 số thuê bao
+subscriber.error.maxSerials=Không hỗ trợ tìm kiếm quá 100.000 số Serial
+subscriber.error.combinedSearch=Không hỗ trợ tìm kiếm cùng lúc nhiều số thuê bao và nhiều số serial
+subscriber.error.activationDateRange=Bạn phải chọn ngày bắt đầu kích hoạt nhỏ hơn ngày kết thúc
+subscriber.error.connectionDateRange=Bạn phải chọn ngày bắt đầu đấu nối nhỏ hơn ngày kết thúc
+
+# Subscriber UI Messages
+subscriber.noDataToDisplay=Không có thông tin để hiển thị
+subscriber.checkData=Kiểm tra LL
+subscriber.dataUsed=Lưu lượng đã sử dụng
+subscriber.dataRemaining=Lưu lượng còn lại
+subscriber.viewDetail=Chi tiết
+subscriber.totalRecords=Tổng
+subscriber.records=bản ghi
+
+# Subscriber Export Messages
+subscriber.export.minMaxRecords=Số bản ghi 1 file tối thiểu 1 và tối đa 5000
+subscriber.export.selectDataType=Vui lòng chọn loại dữ liệu
+subscriber.export.selectDateRange=Vui lòng chọn thời gian Từ ngày/Đến ngày
+subscriber.export.fromDateLessOrEqual=Vui lòng chọn thời gian Từ ngày nhỏ hơn bằng Đến ngày
+subscriber.export.maxDateRange=Vui lòng chọn khoảng thời gian trong vòng 31 ngày
+subscriber.export.fromDateLessThanCurrent=Vui lòng chọn thời gian Từ ngày nhỏ hơn Ngày hiện tại
+subscriber.export.toDateLessThanCurrent=Vui lòng chọn thời gian Đến ngày nhỏ hơn Ngày hiện tại
+subscriber.export.action=Thao tác
+subscriber.export.download=Tải xuống
+subscriber.export.noData=Không có dữ liệu
+subscriber.export.getDataFailed=Lấy dữ liệu không thành công
+subscriber.export.status.cancelled=Đã hủy
+
+# Additional Error Messages  
+subscriber.error.max10kPhoneNumbers=Không hỗ trợ tìm kiếm quá 10000 số thuê bao
+subscriber.error.max10kSerials=Không hỗ trợ tìm kiếm quá 10000 số Serial
+
+# Subscriber Info Messages
+subscriber.info.yes=Có
+subscriber.info.no=Không  
+subscriber.info.dynamicIP=IP động
+subscriber.info.normal=Bình thường
+
+# Subscriber Status Choices
+subscriber.status.choose=-- Chọn --
+subscriber.status.chooseServiceType=-- Hãy chọn loại dịch vụ --
+subscriber.status.block_2way_debt=Chặn 2 chiều nợ cước
+subscriber.status.block_1way_debt=Chặn 1 chiều nợ cước
+subscriber.status.not_activated=Chưa kích hoạt
+subscriber.status.block_1way_customer=Chặn 1 chiều khách hàng yêu cầu
+subscriber.status.block_1way_customer_1way_debt=Chặn 1 chiều khách hàng yêu cầu, chặn 1 chiều nợ cước
+subscriber.status.block_1way_customer_2way_debt=Chặn 1 chiều khách hàng yêu cầu, chặn 2 chiều nợ cước
+subscriber.status.block_2way_customer=Chặn 2 chiều khách hàng yêu cầu
+subscriber.status.block_2way_customer_2way_debt=Chặn 2 chiều khách hàng yêu cầu, chặn 2 chiều nợ cước
+subscriber.status.block_2way_customer_1way_debt=Chặn 2 chiều khách hàng yêu cầu, chặn 1 chiều nợ cước
+subscriber.status.block_1way_customer_1way_system=Chặn 1 chiều khách hàng yêu cầu, chặn 1 chiều do hệ thống
+subscriber.status.block_1way_customer_2way_system=Chặn 1 chiều khách hàng yêu cầu, chặn 2 chiều do hệ thống
+subscriber.status.block_2way_customer_1way_system=Chặn 2 chiều khách hàng yêu cầu, chặn 1 chiều do hệ thống
+subscriber.status.block_2way_customer_2way_system=Chặn 2 chiều khách hàng yêu cầu, chặn 2 chiều do hệ thống
+
+# Additional Option Messages
+subscriber.option.selectService=-- Hãy chọn loại dịch vụ --
+
+# Export Column Headers
+subscriber.export.column.hybridAmount=Số tiền Hybrid
+subscriber.export.column.miAddonPromo=Gói MI-Addon, CTKM
+subscriber.export.column.debtBeginPeriod=Nợ cước đầu kỳ
+subscriber.export.column.paidAmount=Cước đã thanh toán
+subscriber.export.column.remainingDebt=Nợ cước còn lại
+subscriber.export.column.adjustmentAmount=Tiền điều chỉnh
+subscriber.export.column.hotChargeTemp=Cước nóng tạm tính
+subscriber.export.column.promoName=Tên CTKM
+subscriber.export.column.promoEffectDate=Ngày hiệu lực CTKM
+subscriber.export.column.promoExpireDate=Ngày hết hạn CTKM
+subscriber.export.column.promoDescription=Mô tả CTKM
+subscriber.export.column.dataRemaining=Lưu lượng data còn lại
+subscriber.export.column.smsRemaining=Lưu lượng SMS còn lại
+subscriber.export.column.voiceRemaining=Lưu lượng thoại còn lại
+
+# Subscriber Modal (Export)
+subscriber.modal.export.title=Xuất file excel
+subscriber.modal.export.dataType=Loại dữ liệu
+subscriber.modal.export.dataType.info=Thông tin thuê bao
+subscriber.modal.export.dataType.usage=Lịch sử sử dụng dung lượng
+subscriber.modal.export.unit=Đơn vị
+subscriber.modal.export.recordsPerFile=Số lượng bản ghi trên 1 file
+subscriber.modal.export.recordsPerFile.note=** Tối đa 5000 bản ghi 1 file
+subscriber.modal.export.time=Thời gian
+subscriber.modal.export.time.note=** Trong vòng 31 ngày gần nhất
+subscriber.modal.export.createFiles=Tạo file dữ liệu
+subscriber.modal.export.table.index=STT
+subscriber.modal.export.table.file=File
+subscriber.modal.export.table.action=Thao tác
+subscriber.modal.export.table.noData=Chưa có dữ liệu
+subscriber.modal.export.placeholder.recordsPerFile=Tối đa 5000 bản ghi 1 file
+subscriber.modal.export.placeholder.fromDate=Từ ngày
+subscriber.modal.export.placeholder.toDate=Đến ngày
+
+# Subscriber Modal (Advanced Search)
+subscriber.modal.advanced.title=Tìm kiếm nâng cao
+subscriber.modal.advanced.phoneNumber=Số thuê bao
+subscriber.modal.advanced.serial=Serial
+subscriber.modal.advanced.activationDate=Ngày kích hoạt
+subscriber.modal.advanced.activityStatus=Trạng thái hoạt động
+subscriber.modal.advanced.all=Tất cả
+subscriber.modal.advanced.active=Đang hoạt động
+subscriber.modal.advanced.block1=Chặn 1 chiều
+subscriber.modal.advanced.block2=Chặn 2 chiều
+subscriber.modal.advanced.debt=Nợ cước
+
+# Subscriber Modal (Import Lists)
+subscriber.modal.import.subs.title=Tìm kiếm theo danh sách thuê bao
+subscriber.modal.import.subs.uploadList=Tải danh sách TB
+subscriber.modal.import.subs.sampleName=List_Subs.xlsx
+subscriber.modal.import.serial.title=Tìm kiếm theo danh sách Serial
+subscriber.modal.import.serial.uploadList=Tải danh sách serial
+subscriber.modal.import.serial.sampleName=List_Serial.xlsx
+subscriber.modal.import.account.title=Tìm kiếm hợp đồng
+subscriber.modal.import.account.uploadList=Tải danh sách hợp đồng
+subscriber.modal.import.account.sampleName=List_Account.xlsx
+subscriber.modal.import.sampleFile=Tải file mẫu
+subscriber.modal.download=Download
+
+# Subscriber Info Modal (Addon List)
+subscriber.modal.info.addonListTitle=Danh sách MI, Add-on và CTKM
+subscriber.modal.info.addon.index=STT
+subscriber.modal.info.addon.serviceName=Tên dịch vụ
+subscriber.modal.info.addon.remainingVolume=Dung lượng còn lại
+subscriber.modal.info.addon.expireDate=Ngày hết hạn
+subscriber.modal.info.addon.detail=Chi tiết
+
+# Import File Messages
+subscriber.import.serialNumber=Số Serial
+subscriber.import.contractNumber=Số hợp đồng
+subscriber.import.fileWrongFormat=File không đúng format xlsx
+subscriber.import.fileNotEnoughData=File không đủ dữ liệu
+subscriber.import.maxSerials=Không hỗ trợ tìm kiếm quá 500 serial
+subscriber.import.noValidSerial=Không có serial hợp lệ
+subscriber.import.maxSubscribers=Không hỗ trợ tìm kiếm quá 500 thuê bao
+subscriber.import.noValidSubscriber=Không có số thuê bao hợp lệ
+# BuySim module keys
+order.title=Đặt hàng
+order.sim=Đặt hàng sim
+order.changeSim=Đổi sim
+stepContainer.notFound=Không tìm thấy step-container cho groupID:
+
+# Customer info
+customer.info.title=1. Thông tin khách hàng
+customer.info.representative=Họ tên người đại diện
+customer.info.businessLicense=Mã số doanh nghiệp
+customer.info.phone=Số điện thoại liên hệ
+customer.info.businessName=Tên doanh nghiệp
+customer.info.support=** Viettel sẽ liên hệ Quý khách theo số điện thoại này để hỗ trợ đặt hàng.
+customer.info.supportChangeSim=** Viettel sẽ liên hệ Quý khách theo số điện thoại này để hỗ trợ đổi SIM.
+
+# SIM delivery method
+delivery.title=2. Hình thức nhận SIM
+delivery.store=Nhận tại cửa hàng
+delivery.address=Nhận theo địa chỉ khách hàng
+delivery.storeNote=** Chọn khu vực cửa hàng Viettel để tới nhận sim
+
+# Location
+location.province=Tỉnh/ TP
+location.district=Huyện/ Quận
+location.ward=Phường/Xã
+location.detailAddress=Địa chỉ chi tiết
+
+# Product info
+product.info.title=3. Thông tin sản phẩm
+product.package=Gói cước
+product.simQuantity=Số lượng sim
+product.reason=Lý do đấu nối
+product.selectPackage=Chọn gói cước
+product.selectReason=Chọn lý do
+product.add=Thêm
+
+# Payment method  
+payment.title=4. Phương thức thanh toán
+payment.cod=- Thanh toán khi nhận hàng
+
+# Terms and conditions
+terms.agreement=Tôi đồng ý với điều khoản mua hàng và thanh toán.
+terms.service1=Cung cấp dịch vụ khác của Viettel phát sinh sau thời điểm hòa mạng và/hoặc các dịch vụ Viettel hợp tác với đối tác
+terms.service2=Tổ chức giới thiệu và xúc tiến thương mại
+terms.service3=Nghiên cứu thị trường, thăm dò dư luận, môi giới
+
+# Order success
+order.success.title=Đặt hàng thành công
+order.success.code=Mã đơn hàng:
+order.success.contact=Nhân viên Viettel sẽ liên hệ Quý khách để giao hàng.
+order.success.thanks=Cảm ơn Quý khách đã sử dụng dịch vụ của Viettel.
+
+# Change SIM specific
+changeSim.title=3. Xác nhận đổi sim
+changeSim.infoTitle=3. Thông tin thuê bao đổi sim
+changeSim.success.title=Đơn hàng đổi sim thành công
+
+# Step titles
+step.customerInfo=Thông tin khách hàng
+step.subscriberInfo=Thông tin thuê bao
+step.selectSimAndPlan=Chọn số lượng sim và gói cước
+step.confirmOrder=Xác nhận đặt hàng
+step.confirmChangeSim=Xác nhận đổi sim
+
+# Subscriber list
+subscriber.list.title=Danh sách thuê bao
+
+# Subscriber information for change SIM
+subscriber.change.info=1. Thông tin thuê bao cần đổi
+subscriber.change.upload=Tải danh sách TB cần đổi sim
+subscriber.change.uploadList=Tải lên danh sách
+subscriber.change.sampleFile=Tải file mẫu
+subscriber.change.validCount=Số thuê bao hợp lệ
+subscriber.change.invalidCount=Số TB không hợp lệ
+
+# Subscriber selection
+subscriber.select.title=1. Chọn số thuê bao cho gói A
+subscriber.select.choose=Chọn thuê bao
+subscriber.select.random=Lấy thuê bao ngẫu nhiên
+subscriber.select.quantityNeeded=Số thuê bao cần mua
+subscriber.select.search=Tìm kiếm số TB
+subscriber.select.searchPlaceholder=Bạn hãy nhập ít nhất 4 chữ số
+
+# Details modal
+detail.title=Chi tiết
+detail.stt=STT
+detail.isdn=ISDN
+detail.productName=Tên SP
+detail.result=Kết quả
+detail.reason=Lý do
+
+# Finish modal
+finish.title=Kết quả đặt hàng
+finish.productName=Tên SP
+finish.quantity=Số lượng
+finish.successOrders=Đơn thành công
+finish.failedOrders=Đơn thất bại
+finish.end=Kết thúc
+
+# Navigation
+nav.continue=Tiếp tục
+nav.back=Quay lại
+nav.confirm=Xác nhận
+nav.close=Đóng
+
+# Notification
+notification.title=Thông báo
+
+# Validation messages for BuySim
+validation.representative.required=Bạn chưa điền tên người đại diện
+validation.businessLicense.required=Bạn chưa điền mã số doanh nghiệp
+validation.phone.required=Bạn chưa điền số điện thoại liên hệ
+validation.phone.format=Định dạng của số điện thoại không đúng.
+validation.businessName.required=Bạn chưa điền tên doanh nghiệp
+validation.deliveryMethod.required=Bạn chưa chọn hình thức nhận sim
+validation.address.required=Bạn chưa chọn địa chỉ nhận sim
+validation.detailAddress.required=Bạn chưa điền địa chỉ chi tiết nhận sim
+validation.package.required=Bạn chưa chọn gói cước
+validation.simQuantity.required=Bạn chưa nhập số lượng sim
+validation.subscriber.quantity.invalid=Bạn chọn số lượng thuê bao chưa hợp lệ
+
+# Additional option messages
+option.selectDistrict=Quận/Huyện
+
+# Import subscriber comments (already in use)
+# validation.subscriber.required=Bạn chưa chọn thuê bao  
+# validation.subscriber.insufficient=Bạn chưa chọn đủ số lượng thuê bao
+
+# Additional missing keys for order failure
+order.failure.title=Đặt hàng không thành công
+order.failure.message=Đặt hàng không thành công. Xin vui lòng thử lại
+
+# Additional missing keys for address display
+address.prefix=- Địa chỉ:
+
+# Additional missing keys for subscriber import
+subscriber.change.sampleFileName=List_Subs.xlsx
+subscriber.import.zeroCount=0
+
+subscriber.import.noData=Không có dữ liệu
+
+# Additional keys for change SIM display
+data.noData=Không có dữ liệu
+pagination.totalRecords=Tổng {0} bản ghi
+
+# Navigation buttons
+nav.continue=Tiếp tục
+nav.back=Quay lại
+nav.confirm=Xác nhận
+
+# Customer information form
+customer.info.section.title=1. Thông tin khách hàng
+customer.info.representative.name=Họ tên người đại diện
+customer.info.businessId=Mã số doanh nghiệp
+customer.info.phone=Số điện thoại liên hệ
+customer.info.businessName=Tên doanh nghiệp
+customer.info.contact.note=** Viettel sẽ liên hệ Quý khách theo số điện thoại này để hỗ trợ đặt hàng.
+
+# Delivery method section
+delivery.section.title=2. Hình thức nhận SIM
+delivery.method.store=Nhận tại cửa hàng
+delivery.method.address=Nhận theo địa chỉ khách hàng
+delivery.store.note=** Chọn khu vực cửa hàng Viettel để tới nhận sim
+
+# Required field marker
+field.required=*
+
+# Placeholder for detailed address
+address.detail.placeholder=Địa chỉ chi tiết
+
+# Product information section
+product.info.section.title=1. Thông tin sản phẩm
+product.package=Gói cước
+product.package.select=Chọn gói cước
+product.sim.quantity=Số lượng sim
+product.connection.reason=Lý do đấu nối
+product.connection.reason.select=Chọn lý do
+action.add=Thêm
+action.delete=Xoá
+
+# Change SIM specific messages
+customer.info.changeSim.note=** Viettel sẽ liên hệ Quý khách theo số điện thoại này để hỗ trợ đổi SIM.
+
+# Confirm Change SIM page
+confirm.changeSim.delivery.title=2. Hình thức nhận sim
+confirm.changeSim.subscriber.title=3. Thông tin thuê bao đổi sim
+confirm.changeSim.subscriber.count=Số lượng thuê bao:
+confirm.changeSim.table.stt=STT
+confirm.changeSim.table.subscriber=Số thuê bao
+confirm.changeSim.payment.title=4. Phương thức thanh toán
+confirm.changeSim.payment.cod=- Thanh toán khi nhận hàng
+confirm.changeSim.phone.short=SDT
+
+# Change SIM modal messages
+changeSim.success.orderId=Mã đơn hàng:
+changeSim.success.message1=Nhân viên Viettel sẽ liên hệ Quý khách để giao hàng.
+changeSim.success.message2=Cảm ơn Quý khách đã sử dụng dịch vụ của Viettel.
+changeSim.fail.title=Đơn hàng đổi sim  không thành công
+changeSim.fail.message=Đơn hàng đổi sim  không thành công. Xin vui lòng thử lại
+action.finish=Kết thúc
+notification.title=Thông báo
+
+# BuySim.js messages
+business.license.missing=Tài khoản chưa có giấy phép kinh doanh hoặc chưa được duyệt.
+business.license.updateRequired=Bạn chưa có giấy phép kinh doanh hoặc chưa được duyệt. Vui lòng cập nhật tại trang Thông tin tài khoản!
+address.display.prefix=- Địa chỉ:
+notification.no.data=Không có dữ liệu
+
+# BuySim Error Messages
+buySim.error.stepContainerNotFound=Không tìm thấy step-container cho groupID
+
+# Common BuySim Messages
+buySim.productName=Tên SP
+buySim.quantity=Số lượng
+buySim.result=Kết quả
+buySim.reason=Lý do
+buySim.close=Đóng
+buySim.orderResult=Kết quả đặt hàng
+buySim.successfulOrders=Đơn thành công
+buySim.failedOrders=Đơn thất bại
+buySim.finish=Kết thúc
+buySim.chooseSubscriber=Chọn thuê bao
+buySim.randomSubscriber=Lấy thuê bao ngẫu nhiên
+buySim.subscribersNeeded=Số thuê bao cần mua
+buySim.searchSubscriber=Tìm kiếm số TB
+buySim.searchPlaceholder=Bạn hãy nhập ít nhất 4 chữ số
+buySim.search=Tìm kiếm
+buySim.chooseSubscriberForPlan=1. Chọn số thuê bao cho gói A
+
+pagination.total.records=Tổng {0} bản ghi
+
+# PrepayCharges Messages
+prepayCharges.title=Đóng cước trước
+prepayCharges.info=Thông tin đóng cước trước
+prepayCharges.noData=Không có dữ liệu!
+prepayCharges.phoneNumber=Số thuê bao
+prepayCharges.package=Gói cước
+prepayCharges.promotionCode=Mã khuyến mãi
+prepayCharges.monthsToPrepay=Số tháng đóng trước
+prepayCharges.priceIncludesBonus=*Giá đã bao gồm phần trăm khuyến mại
+prepayCharges.payment=Thanh toán
+prepayCharges.totalPayment=Tổng thanh toán:
+prepayCharges.payButton=Thanh toán
+prepayCharges.confirmTitle=Xác nhận đóng cước trước thuê bao
+prepayCharges.confirmQuestion1=Bạn có chắc chắn muốn
+prepayCharges.confirmQuestion2=đóng cước trước {0} tháng cho thuê bao {1}?
+prepayCharges.cancel=Hủy bỏ
+prepayCharges.confirm=Xác nhận
+prepayCharges.successMessage=Quý khách vui lòng nhấn xác nhận sau khi đã thanh toán thành công!
+prepayCharges.confirmQuestion2=đóng cước trước
+prepayCharges.confirmMonths=tháng
+prepayCharges.confirmForSubscriber=cho thuê bao
+prepayCharges.months=Tháng
+prepayCharges.bonus=Tặng
+prepayCharges.promotion=Khuyến mại
+prepayCharges.subtitle=Đóng cước trước thuê bao trả sau
+prepayCharges.search=Tra cứu
+prepayCharges.enterSubscriber=Nhập thuê bao trả sau
+prepayCharges.notePostpaid=*Lưu ý chỉ thực hiện đóng cước trước cho thuê bao trả sau.
+
+# Location System
+location.title=Bản đồ giám sát
+location.searchPlaceholder=Nhập nội dung
+location.resetButton=Reset
+location.searchButton=Tra cứu
+location.serialNumber=STT
+location.subscriberNumber=Số thuê bao
+
+# PayPostpaidBill JavaScript Messages
+payPostpaidBill.js.enterContractCode=Vui lòng nhập mã hợp đồng
+payPostpaidBill.js.contractNotFound=Không tìm thấy thông tin hợp đồng!
+payPostpaidBill.js.noData=Không có dữ liệu !
+payPostpaidBill.js.enterPaymentAmount=Vui lòng nhập số tiền thanh toán
+payPostpaidBill.js.cannotPayMoreThanDebt=Không thể thanh toán số tiền lớn hơn tổng nợ cước do hợp đồng có trạng thái Đã hủy
+payPostpaidBill.js.paymentReason=Thanh toan cuoc tra sau
+payPostpaidBill.js.paymentLinkFailed=Lấy link thanh toán không thành công
+payPostpaidBill.js.cannotGetIsdn=Không lấy được ISDN
+payPostpaidBill.js.cannotGetOrderId=Không lấy được orderId
+payPostpaidBill.js.paymentFailed=Thanh toán thất bại, vui lòng thử lại
+payPostpaidBill.js.statusSuccess=Thành công
+payPostpaidBill.js.statusFailed=Thất bại
+payPostpaidBill.js.zeroAmount=0 đ
+
+# PayPostpaidBill Detail Page
+payPostpaidBill.detail.title=Thanh toán cước thuê bao trả sau
+payPostpaidBill.detail.pageHeader=Thanh toán cước thuê bao trả sau
+payPostpaidBill.detail.contractNumber=Số hợp đồng
+payPostpaidBill.detail.totalDebt=Tổng nợ cước
+payPostpaidBill.detail.paymentAmount=Số tiền thanh toán
+payPostpaidBill.detail.status=Trạng thái
+payPostpaidBill.detail.reason=Lý do
+payPostpaidBill.detail.executionTime=Thời gian thực hiện
+payPostpaidBill.detail.historyButton=Lịch sử Thanh toán cước
+payPostpaidBill.detail.continueButton=Tiếp tục Thanh toán cước
+
+# PayPostpaidBill FormSearch
+payPostpaidBill.formSearch.title=Thanh toán cước trả sau
+payPostpaidBill.formSearch.contractCode=Mã hợp đồng
+payPostpaidBill.formSearch.contractPlaceholder=Nhập mã hợp đồng
+payPostpaidBill.formSearch.searchButton=Tra cứu
+payPostpaidBill.formSearch.resetButton=Reset
+
+# PayPostpaidBill Page
+payPostpaidBill.title=Thanh toán cước trả sau
+payPostpaidBill.noData=Không có dữ liệu !
+payPostpaidBill.paymentInfo=Thông tin thanh toán cước
+payPostpaidBill.contractNumber=Số hợp đồng
+payPostpaidBill.totalDebt=Tổng nợ cước
+payPostpaidBill.payment=Thanh toán
+payPostpaidBill.paymentPlaceholder=Nhập số tiền thanh toán
+payPostpaidBill.paymentNotice=* Với các hợp đồng đang bị chặn do nợ cước, vui lòng thanh toán đúng số tiền cần thiết. Nếu thanh toán thừa, số tiền vượt quá sẽ không được hoàn lại.
+payPostpaidBill.paymentInfoBox=Thông tin thanh toán
+payPostpaidBill.totalPayment=Tổng thanh toán:
+payPostpaidBill.payButton=Thanh toán
+payPostpaidBill.confirmTitle=Xác nhận thanh toán cước
+payPostpaidBill.confirmQuestion1=Bạn có chắc chắn muốn
+payPostpaidBill.confirmQuestion2=thanh toán nợ cước
+payPostpaidBill.confirmQuestion3=cho hợp đồng số
+payPostpaidBill.confirmButton=Xác nhận
+payPostpaidBill.cancelButton=Hủy bỏ
+payPostpaidBill.successMessage=Quý khách vui lòng nhấn xác nhận sau khi đã thanh toán thành công!
+payPostpaidBill.confirmButtonSuccess=btnComfirm
+
+# PrepayCharges Bill Page
+prepayCharges.bill.title=Thông tin đóng cước trước cho thuê bao
+prepayCharges.bill.pageHeader=Thông tin đóng cước trước cho thuê bao
+prepayCharges.bill.subscriberNumber=Số thuê bao
+prepayCharges.bill.packageCode=Gói cước
+prepayCharges.bill.promotionCode=Mã CTKM
+prepayCharges.bill.prepaidMonths=Số tháng đóng trước
+prepayCharges.bill.promotion=Khuyến mại
+prepayCharges.bill.paymentAmount=Số tiền thanh toán
+prepayCharges.bill.status=Trạng thái
+prepayCharges.bill.reason=Lý do
+prepayCharges.bill.executionTime=Thời gian thực hiện
+prepayCharges.bill.historyButton=Lịch sử đóng cước trước
+prepayCharges.bill.continueButton=Tiếp tục Đóng cước trước
+
+# PrepayCharges JavaScript Messages
+prepayCharges.js.enterPostpaidNumber=Vui lòng nhập số thuê bao trả sau
+prepayCharges.js.invalidPostpaidNumber=Thuê bao không hợp lệ, vui lòng nhập thuê bao trả sau!
+prepayCharges.js.invalidSubscriber=Thuê bao nhập không hợp lệ
+prepayCharges.js.noPromotionProgram=Không có thông tin đóng cước trước do thuê bao không có chương trình khuyến mại!
+prepayCharges.js.paymentLinkFailed=Lấy link thanh toán không thành công
+prepayCharges.js.orderIdFailed=Không lấy được orderId
+prepayCharges.js.prepayFailed=Đóng cước trước thất bại, vui lòng thử lại
+prepayCharges.js.month=Tháng
+prepayCharges.js.success=Thành công
+prepayCharges.js.failed=Thất bại
+prepayCharges.js.paymentFailed=Thanh toán thất bại
+
+# BuySim PackData
+package.select.placeholder=-- Chọn gói cước --
+reason.select.placeholder=Chọn lý do
+package.item=Mặt hàng
+package.unit.price=Đơn giá
+package.quantity=Số lượng
+package.total.amount=Thành tiền (VND)
+package.total.money=Tổng tiền
+package.label=Gói cước
+quantity.label=Số lượng
+connection.reason.label=Lý do đấu nối
+reason.choose.package=Chọn gói cước
+button.delete=Xoá
+button.add=Thêm
+
+# BuySim ChooseSubs
+subscriber.choose.title=. Chọn số thuê bao cho gói
+subscriber.choose.label=Chọn thuê bao
+subscriber.random.label=Lấy thuê bao ngẫu nhiên
+subscriber.needed.label=Số thuê bao cần mua
+subscriber.search.label=Tìm kiếm số TB
+subscriber.search.placeholder=Bạn hãy nhập ít nhất 1 chữ số
+subscriber.search.button=Tìm kiếm
+subscriber.number.label=Số thuê bao
+subscriber.stock.insufficient=Kho không đủ thuê bao
+data.fetch.failed=Lấy dữ liệu không thành công
+subscriber.number.short=Số TB
+subscriber.choose.column=Chọn
+subscriber.not.found=Không tìm thấy thuê bao
+search.input.required=Bạn hãy nhập ít nhất 1 kí tự để tìm kiếm
+subscriber.not.selected=Bạn chưa chọn thuê bao
+
+# BuySim Confirm
+product.name=Tên sản phẩm
+unit.price=Đơn giá
+total.amount.vnd=Thành tiền (VND)
+total.money=Tổng tiền
+unit.vnd.vat=*đơn vị: VNĐ, đã bao gồm VAT
+view.details=Xem chi tiết
+status.success=Thành công
+status.failed=Thất bại
+reason.unknown=Không xác định
+
+# History Order/SIM Management
+history.order.sim.title=Lịch sử đặt/ đổi sim
+history.table.no=STT
+history.table.order.code=Mã đơn hàng
+history.table.order.type=Loại đơn hàng
+history.table.company.name=Tên DN
+history.table.representative=Người đại diện
+history.table.phone.number=Số điện thoại
+history.table.status=Trạng thái
+history.table.time=Thời gian
+history.table.actions=Thao tác
+history.total=Tổng
+history.records=bản ghi
+history.records.per.page=Bản ghi/trang
+
+# History Modal
+history.modal.order.details=Chi tiết đơn hàng
+history.modal.order.code=Mã đơn hàng
+history.modal.order.time=Thời gian đặt
+history.modal.representative=Người đại diện
+history.modal.order.type=Loại đơn hàng
+history.modal.receive.method=Hình thức nhận
+history.modal.phone.number=Số điện thoại
+history.modal.status=Trạng thái
+history.modal.company=Doanh nghiệp
+history.modal.delivery.address=Địa chỉ nhận hàng
+history.modal.product.list=Danh sách sản phẩm
+
+# History Search Form
+history.search.info=Thông tin tìm kiếm
+history.search.order.code=Mã đơn hàng
+history.search.order.type=Loại đơn hàng
+history.search.order.type.order=Đặt hàng
+history.search.order.type.change=Đổi sim
+history.search.time=Thời gian
+history.search.status=Trạng thái
+history.search.placeholder.enter.content=Nhập nội dung
+history.search.select.choose=--Chọn--
+history.search.placeholder.from.date=Từ ngày
+history.search.placeholder.to.date=Đến ngày
+history.search.status.success=Thành công
+history.search.status.failed=Thất bại
+history.search.button.search=Tra cứu
+history.search.button.reset=Reset
+
+# JavaScript messages for ManageOrder
+history.js.order.type.buy=Mua
+history.js.order.type.change=Đổi
+history.js.order.type.recharge=Nạp tiền
+history.js.date.validation.error=Vui lòng chọn khoảng thời gian hợp lệ (từ ngày phải nhỏ hơn đến ngày)
+history.js.no.data.display=Không có dữ liệu để hiển thị
+history.js.no.data.found=Không có dữ liệu
+history.js.error.get.order.detail=Lỗi khi lấy thông tin chi tiết đơn hàng
+history.js.status.success=Thành công
+history.js.button.detail=Chi tiết
+history.js.receive.company=Nhận tại công ty
+history.js.receive.home=Giao hàng tận nhà
+history.js.no.products=Không có sản phẩm
+history.js.table.no=STT
+history.js.table.package=Gói cước
+history.js.table.sim.quantity=Số lượng sim
+history.js.no.phone.numbers=Không có số thuê bao
+history.js.table.phone.number=Số thuê bao
+history.js.total=Tổng
+history.js.records=bản ghi
+history.js.receive.at.address=Nhận tại địa chỉ
+history.js.receive.at.store=Nhận tại cửa hàng
+
+# History Mi Addon messages
+history.miaddon.title=Lịch sử gói Mi, Add-on
+history.miaddon.table.gpkd=GPKD
+history.miaddon.table.isdn=ISDN
+history.miaddon.table.package=Gói
+history.miaddon.table.time=Thời gian
+history.miaddon.search.info=Thông tin tìm kiếm
+history.miaddon.search.gpkd.number=Số GPKD
+history.miaddon.search.subscriber=Thuê bao
+history.miaddon.search.placeholder.content=Nhập nội dung
+history.miaddon.search.time=Thời gian
+history.miaddon.search.from.date=Từ ngày
+history.miaddon.search.to.date=Đến ngày
+history.miaddon.search.action=Tác vụ
+history.miaddon.search.register.package=Đăng ký gói
+history.miaddon.search.cancel.package=Huỷ gói
+history.miaddon.search.cancel.renewal=Huỷ gia hạn gói
+history.miaddon.search.change.package=Đổi gói
+
+# JavaScript messages for HistoryMiAddon
+history.miaddon.js.date.validation.error=Thời điểm bắt đầu không được lớn hơn thời điểm kết thúc
+history.miaddon.js.no.data.display=Không có thông tin để hiển thị
+history.miaddon.js.table.old.package=Gói cũ
+history.miaddon.js.table.new.package=Gói mới
+history.miaddon.js.table.description=Mô tả
+history.miaddon.js.table.reason=Lý do
+history.miaddon.js.status.failed=Thất bại
+history.miaddon.js.change.package.success=Đổi gói thành công
+history.miaddon.js.register.failed=Đăng ký thất bại
+history.miaddon.js.unregister.failed=Hủy đăng ký thất bại
+history.miaddon.js.subscriber.not.eligible=Thuê bao không đủ điều kiện
+
+# History Prepay Charges messages
+history.prepay.title=Lịch sử đóng cước trước
+history.prepay.table.transaction.code=Mã giao dịch
+history.prepay.table.subscriber.number=Số thuê bao
+history.prepay.table.promotion=CTKM
+history.prepay.table.months=Số tháng
+history.prepay.table.bonus=Khuyến mại
+history.prepay.table.amount=Số tiền
+history.prepay.table.description=Mô tả
+history.prepay.search.transaction.code=Mã giao dịch
+
+# JavaScript messages for History Prepay Charges
+history.prepay.js.date.validation.error="Từ ngày" phải nhỏ hơn hoặc bằng "Đến ngày"!
+history.prepay.js.status.failed=Thất bại
+history.prepay.js.bonus=Tặng
+history.prepay.js.months=tháng
+history.prepay.js.promotion=Khuyến mại
+history.prepay.js.no.data.display=Không có thông tin để hiển thị
+history.prepay.js.export.error=Lỗi khi lấy dữ liệu
+history.records.per.page=Bản ghi/trang
+
+# History Post Paid Bill messages
+history.postpaid.title=Lịch sử thanh toán cước trả sau
+history.postpaid.transaction.code=Mã giao dịch
+history.postpaid.contract.number=Số hợp đồng
+history.postpaid.contract.code=Mã hợp đồng
+history.postpaid.amount=Số tiền
+history.postpaid.status=Trạng thái
+history.postpaid.description=Mô tả
+history.postpaid.time=Thời gian
+
+# JavaScript messages for History Post Paid Bill
+history.postpaid.js.no.data=Không có dữ liệu
+history.postpaid.js.date.validation.error=Thời điểm bắt đầu không được lớn hơn thời điểm kết thúc!
+history.postpaid.js.status.failed=Thất bại
+history.postpaid.js.no.data.display=Không có thông tin để hiển thị
+history.postpaid.js.export.error=Lỗi khi lấy dữ liệu
+history.postpaid.js.no.export.data=Không có dữ liệu để xuất
+history.postpaid.js.excel.export.error=Lỗi khi xuất file Excel
+
+# History Deposit messages
+history.deposit.title=Lịch sử nạp tiền
+history.deposit.order.id=Order ID
+history.deposit.subscriber.number=Số thuê bao
+history.deposit.subscriber=Thuê bao
+history.deposit.action=Thao tác
+history.deposit.amount=Số tiền
+history.deposit.total.amount=Tổng tiền
+history.deposit.status=Trạng thái
+history.deposit.description=Mô tả
+history.deposit.time=Thời gian
+
+# JavaScript messages for History Deposit
+history.deposit.js.action.recharge=Nạp tiền
+history.deposit.js.status.failed=Thất bại
+history.deposit.js.no.data.display=Không có thông tin để hiển thị
+history.deposit.js.export.error=Lỗi khi lấy dữ liệu
+history.deposit.js.no.export.data=Không có dữ liệu để xuất
+history.deposit.js.excel.export.error=Lỗi khi xuất file Excel
+
+# History Block/Unblock messages
+history.blockunblock.title=Lịch sử chặn/mở thuê bao
+history.blockunblock.subscriber.number=Số thuê bao
+history.blockunblock.subscriber=Thuê bao
+history.blockunblock.action=Tác động
+history.blockunblock.action.type=Loại tác động
+history.blockunblock.result=Kết quả
+history.blockunblock.reason=Lý do
+history.blockunblock.time=Thời gian
+history.blockunblock.select.action.type=-- Chọn loại tác động --
+history.blockunblock.open.one.way=Mở một chiều
+history.blockunblock.block.one.way=Chặn một chiều
+history.blockunblock.open.two.way=Mở hai chiều
+history.blockunblock.block.two.way=Chặn hai chiều
+
+# JavaScript messages for History Block/Unblock
+history.blockunblock.js.no.data=Không có dữ liệu
+history.blockunblock.js.status.failed=Thất bại
+history.blockunblock.js.no.data.display=Không có thông tin để hiển thị
+history.blockunblock.js.action.connect.sim=Kết nối SIM
+history.blockunblock.js.action.recharge=Nạp tiền
+history.blockunblock.js.action.pay.contract=Thanh toán hợp đồng
+history.blockunblock.js.action.register.vas=Đăng ký dịch vụ GTGT
+history.blockunblock.js.action.cancel.vas=Hủy dịch vụ GTGT
+history.blockunblock.js.action.cancel.renewal=Hủy gia hạn
+history.blockunblock.js.action.unknown=Không xác định
+history.blockunblock.js.export.error=Lỗi khi lấy dữ liệu
+history.blockunblock.js.no.export.data=Không có dữ liệu để xuất
+history.blockunblock.js.excel.export.error=Lỗi khi xuất file Excel
+
+# History APN messages
+history.apn.title=Lịch sử gán/hủy APN
+history.apn.subscriber.number=Số thuê bao
+history.apn.action=Tác động
+history.apn.action.type=Loại tác động
+history.apn.apn=APN
+history.apn.ip=IP
+history.apn.start.date=Ngày bắt đầu
+history.apn.end.date=Ngày kết thúc
+history.apn.result=Kết quả
+history.apn.failure.reason=Lý do thất bại
+history.apn.time=Thời gian
+history.apn.select.action.type=-- Chọn loại tác động --
+history.apn.assign.default.apn=Gán APN mặc định
+history.apn.assign.private.apn=Gán APN/IP riêng
+history.apn.cancel.default.apn=Hủy APN mặc định
+history.apn.cancel.private.apn=Hủy APN/IP riêng
+
+# JavaScript messages for History APN
+history.apn.js.date.validation.error=Thời điểm bắt đầu không được lớn hơn thời điểm kết thúc
+history.apn.js.dynamic.ip=IP động
+history.apn.js.status.failed=Thất bại
+history.apn.js.no.data.display=Không có thông tin để hiển thị
+history.apn.js.export.error=Lỗi khi lấy dữ liệu
+history.apn.js.no.export.data=Không có dữ liệu để xuất
+history.apn.js.excel.export.error=Lỗi khi xuất file Excel
+
+# Feedback messages
+feedback.title=Phản hồi
+feedback.dear.customer=Quý khách hàng thân mến,
+feedback.thank.you.message=Chân thành cảm ơn sự tin tưởng của quý khách hàng khi chọn lựa sử dụng hệ thống CMP. Chúng tôi luôn lắng nghe các phản hồi, góp ý từ quý khách hàng nhằm nâng cao chất lượng hệ thống và phục vụ quý khách hàng tốt hơn.
+feedback.fullname.required=Họ tên *
+feedback.company.name.required=Tên doanh nghiệp *
+feedback.field.required=Lĩnh vực *
+feedback.comment.required=Góp ý *
+feedback.satisfaction.level=Mức độ hài lòng
+feedback.placeholder.enter.content=Nhập nội dung
+feedback.placeholder.enter.max.chars=Nhập nội dung tối đa 1000 kí tự
+feedback.select.business.field=--- Chọn lĩnh vực hoạt động của doanh nghiệp ---
+feedback.field.industrial.iot=IoT công nghiệp
+feedback.field.ai=Trí tuệ nhân tạo (AI)
+feedback.field.smart.home=Hệ thống nhà thông minh
+feedback.field.wearable.devices=Các thiết bị đeo tay thông minh
+feedback.field.healthcare=Chăm sóc sức khỏe
+feedback.field.agriculture=Lĩnh vực nông nghiệp
+feedback.field.utilities=Lĩnh vực điện, nước
+feedback.field.transportation=Giao thông
+feedback.field.other=Lĩnh vực khác
+feedback.select.satisfaction.level=--- Chọn mức độ hài lòng của bạn về hệ thống CMP ---
+feedback.very.satisfied=Rất hài lòng
+feedback.satisfied=Hài lòng
+feedback.normal=Bình thường
+feedback.somewhat.dissatisfied=Không hài lòng 1 số mặt
+feedback.completely.dissatisfied=Hoàn toàn không hài lòng
+feedback.confirm.send=Xác nhận gửi
+
+# JavaScript messages for Feedback
+feedback.js.fullname.required=Họ tên không được để trống
+feedback.js.company.name.required=Tên doanh nghiệp không được để trống
+feedback.js.field.not.selected=Chưa chọn lĩnh vực của doanh nghiệp bạn
+feedback.js.content.required=Nội dung góp ý không được để trống
+
+# Red Baring Statistical Report messages
+redbaring.title=Báo cáo thống kê
+redbaring.subscriber.number=Số thuê bao
+redbaring.contract.code=Mã hợp đồng
+redbaring.credit.limit=Hạn mức
+redbaring.incurred.charges=Cước phát sinh
+redbaring.billing.period=Kỳ cước
+redbaring.block.type=Loại chặn
+redbaring.update.time=Thời gian cập nhật
+
+# JavaScript messages for Red Baring
+redbaring.js.block.type.normal=Thường
+redbaring.js.block.type.roaming=Roaming
+redbaring.js.subscriber.number.only=Số thuê bao chỉ được phép nhập số!
+redbaring.js.contract.code.only=Mã hợp đồng chỉ được phép nhập số!
+redbaring.js.no.export.data=Không có dữ liệu để xuất
+
+# APN Cancel Modal Messages
+apn.cancel.cancelDefaultAPN=Hủy APN Mặc định
+apn.cancel.confirmCancelDefault=Bạn có chắc chắn muốn hủy APN mặc định?
+apn.cancel.networkWarning=Thao tác này có thể thay đổi kết nối mạng hiện tại của thiết bị!
+apn.cancel.cancelPrivateAPN=Hủy APN riêng
+apn.cancel.confirmCancelPrivate=Bạn có chắc chắn muốn hủy APN dưới đây?
+apn.cancel.apnName=Tên APN
+apn.cancel.ipAddress=IP
+apn.cancel.cancelReason=Lý do hủy
+apn.cancel.required=*
+apn.cancel.customerRequest=KHYC – Khách hàng yêu cầu
+
+# APN Modal Messages
+apn.modal.assignDefaultAPN=Gán APN mặc định
+apn.modal.confirmDefaultAPN=Bạn có chắc chắn muốn gán APN mặc định ?
+apn.modal.networkWarning=Thao tác này có thể thay đổi kết nối mạng hiện tại của thiết bị !
+apn.modal.assignAPNIP=Gán APN và IP
+apn.modal.cancelButton=Hủy
+apn.modal.confirmButton=Xác nhận
+apn.modal.apnName=APN
+apn.modal.required=*
+apn.modal.chooseAPN=Chọn APN
+apn.modal.fromDate=Từ ngày
+
+# APN Management System
+apn.title=Quản lý APN
+apn.noData=Không có dữ liệu!
+apn.chooseAPN=Chọn APN
+apn.noDataAvailable=Chưa có dữ liệu
+apn.searchInfo=Thông tin tìm kiếm
+apn.subscriberNumber=Số thuê bao
+apn.searchPlaceholder=Nhập nội dung
+apn.searchButton=Tra cứu
+apn.exportButton=Export APN
+apn.resetButton=Reset
+apn.contractDetailInfo=Thông tin chi tiết hợp đồng
+apn.serialSim=Serial sim
+apn.gpkd=GPKD
+apn.serviceType=Loại dịch vụ
+apn.mainPackage=Gói cước chính
+apn.blockStatus=Trạng thái chặn cắt
+apn.activationDate=Ngày kích hoạt
+apn.connectionDate=Ngày đấu nối
+apn.subscriberAPNList=Danh sách APN của thuê bao
+apn.assignDefaultAPN=+ Gán APN Mặc định
+apn.assignAPNIP=+ Gán APN/IP
+apn.defaultAPNNote=** Với loại APN mặc định, các trường Tên APN, IP, Ngày bắt đầu, Ngày kết thúc, Lý do sẽ không có dữ liệu.
+apn.serialNumber=STT
+apn.apnType=Loại APN
+apn.apnName=APN
+apn.ipAddress=IP
+apn.startDate=Ngày bắt đầu
+apn.endDate=Ngày kết thúc
+apn.actions=Thao tác
+
+# APN Cancel Messages
+apn.cancel.customerRequest=KHYC – Khách hàng yêu cầu
+
+# APN Export Messages
+apn.export.title=Xuất file excel
+apn.export.recordsPerFile=Số lượng bản ghi trên 1 file
+apn.export.maxRecordsNote=** Tối đa 1000 bản ghi trên 1 file
+apn.export.createDataFile=Tạo file dữ liệu
+apn.export.downloadAll=Tải xuống tất cả
+apn.export.serialNumber=STT
+apn.export.file=File
+apn.export.action=Thao tác
+apn.export.noData=Chưa có dữ liệu
+
+# APN JavaScript Messages
+apn.js.chooseAPN=Chọn APN
+apn.js.chooseIP=Chọn IP
+apn.js.default=Mặc định
+apn.js.private=Riêng
+apn.js.clickToCancelAPN=Nhấn để hủy APN
+apn.js.dynamicIp=IP động
+apn.js.noFiles=số file
+apn.js.noData=Không có dữ liệu
+apn.js.getDataFailed=Lấy dữ liệu không thành công
+apn.js.dataNotAvailable=Dữ liệu không có sẵn
+apn.js.exportDataError=Lỗi khi xuất dữ liệu
+apn.js.phoneNumber=Số thuê bao
+apn.js.serialSim=Serial Sim
+apn.js.serviceType=Loại dịch vụ
+apn.js.package=Gói cước
+apn.js.contractCode=Mã hợp đồng
+apn.js.customerCode=Mã KH
+apn.js.defaultAPN=APN mặc định
+apn.js.privateAPNIP=Tên APN private/IP
+apn.js.dateRange=Ngày bắt đầu - Ngày kết thúc
+apn.js.yes=Có
+apn.js.no=Không
+
+# APN Validation Messages
+apn.validation.selectAPN=Vui lòng chọn APN
+apn.validation.selectIP=Vui lòng chọn IP
+apn.validation.selectStartDate=Vui lòng chọn ngày bắt đầu
+apn.validation.startDateFuture=Vui lòng chọn Từ ngày lớn hơn ngày hiện tại
+apn.validation.startDateBeforeEnd=Vui lòng chọn Từ ngày nhỏ hơn Đến ngày
+apn.validation.selectEndDate=Vui lòng chọn Đến ngày
+apn.validation.endDateFuture=Vui lòng chọn Đến ngày lớn hơn ngày hiện tại
+apn.validation.endDateAfterStart=Vui lòng chọn Đến ngày lớn hơn Từ ngày
+apn.validation.selectReason=Vui lòng chọn lý do
+apn.validation.enterPhoneNumber=Vui lòng nhập số điện thoại
+apn.validation.invalidPhoneNumber=Số điện thoại không hợp lệ
+apn.validation.recordsRange=Số bản ghi trên 1 file tối thiểu là 1 và tối đa là 1000
+
+# Invoice Management Messages
+invoice.service.title=Hóa đơn dịch vụ
+invoice.fee.title=Hóa đơn thanh toán cước
+invoice.search.info=Thông tin tìm kiếm
+
+# Invoice Search Form
+invoice.search.invoiceNumber=Số hóa đơn
+invoice.search.invoiceNumberPlaceholder=Nhập số hóa đơn
+invoice.search.serviceInvoiceType=Loại hoá đơn dịch vụ
+invoice.search.feeInvoiceType=Loại hóa đơn cước
+invoice.search.selectInvoiceType=Chọn loại hóa đơn
+invoice.search.contractCode=Mã hợp đồng
+invoice.search.contractCodePlaceholder=Nhập mã hợp đồng
+invoice.search.invoiceDate=Thời gian lập hóa đơn
+invoice.search.fromDate=Từ ngày
+invoice.search.toDate=Đến ngày
+invoice.search.lookup=Tra cứu
+invoice.search.reset=Reset
+
+# Invoice Types - Service
+invoice.type.service.topup=Nạp tiền
+invoice.type.service.unblock1=Mở chặn 1 chiều
+invoice.type.service.unblock2=Mở chặn 2 chiều
+
+# Invoice Types - Fee
+invoice.type.fee.generated=Hóa đơn cước phát sinh
+invoice.type.fee.surplus=Hóa đơn tiền thừa
+invoice.type.fee.prepaid=Hóa đơn đóng cước trước
+invoice.type.fee.adjustment=Hóa đơn điều chỉnh
+
+# Invoice Table Columns
+invoice.table.stt=STT
+invoice.table.invoiceNumber=Số hóa đơn
+invoice.table.serviceInvoiceType=Loại hóa đơn dịch vụ
+invoice.table.feeInvoiceType=Loại hóa đơn cước
+invoice.table.contractCode=Mã hợp đồng
+invoice.table.totalAmount=Tổng tiền
+invoice.table.invoiceDate=Ngày lập hóa đơn
+invoice.table.actions=Thao tác
+invoice.table.totalRecordsPrefix=Tổng
+invoice.table.totalRecordsSuffix=bản ghi
+
+# Invoice JavaScript Messages
+invoice.js.dateValidation=Ngày bắt đầu không được lớn hơn ngày kết thúc
+invoice.js.timeValidation=Thời điểm bắt đầu không được lớn hơn thời điểm kết thúc.
+invoice.js.convertOrderType.topup=Nạp tiền
+invoice.js.convertOrderType.unblock1=Mở chặn 1 chiều
+invoice.js.convertOrderType.unblock2=Mở chặn 2 chiều
+invoice.js.convertInvoiceType.ready=Hóa đơn in sẵn
+invoice.js.convertInvoiceType.surplus=Hóa đơn tiền thừa
+invoice.js.convertInvoiceType.prepaid=Hóa đơn cước đóng trước
+invoice.js.convertInvoiceType.adjustment=Hóa đơn điều chỉnh
+
+# Contract Management Messages
+contract.title=Quản lý hợp đồng
+contract.search.info=Thông tin tìm kiếm
+contract.search.contractNumber=Số hợp đồng
+contract.search.contractCode=Mã hợp đồng
+contract.search.placeholder=Nhập nội dung
+contract.search.export=Export
+contract.search.reset=Reset
+contract.search.lookup=Tra cứu
+
+contract.table.stt=STT
+contract.table.contractCode=Mã hợp đồng
+contract.table.contractNumber=Số hợp đồng
+contract.table.status=Trạng thái
+contract.table.effectiveDate=Ngày hiệu lực
+contract.table.representativeNumber=TB đại diện
+contract.table.address=Địa chỉ
+contract.table.actions=Thao tác
+contract.table.totalRecordsPrefix=Tổng
+contract.table.totalRecordsSuffix=bản ghi
+
+# Contract JavaScript Messages
+contract.js.dataFetchFailed=Lấy dữ liệu không thành công
+contract.js.checkInvoice=Tra hoá đơn
+
+# Contract Info Modal
+contract.info.title=Chi tiết hợp đồng
+contract.info.detailsHeader=Thông tin chi tiết hợp đồng
+contract.info.contractCode=Mã hợp đồng
+contract.info.contractNumber=Số hợp đồng
+contract.info.status=Trạng thái
+contract.info.beginningDebt=Nợ cước đầu kỳ
+contract.info.paidAmount=Cước đã thanh toán
+contract.info.adjustmentAmount=Tiền điều chỉnh
+contract.info.remainingDebt=Nợ cước còn lại
+contract.info.hotChargeEstimated=Cước nóng tạm tính
+contract.info.contractExcessCash=Tiền thừa hợp đồng
+
+# Invoice Contract Page
+invoice.contract.title=HĐ:
+invoice.contract.listTitle=Danh sách hoá đơn của hợp đồng
+invoice.contract.contractNumber=Số hợp đồng
+invoice.contract.selectMonth=Chọn tháng
+invoice.contract.monthPlaceholder=Chọn tháng tra hoá đơn
+invoice.contract.exportCSV=Export CSV
+invoice.contract.lookup=Tra cứu
+
+# Invoice Contract Table Headers
+invoice.contract.table.stt=STT
+invoice.contract.table.invoiceNumber=Số hoá đơn
+invoice.contract.table.type=Loại
+invoice.contract.table.beforeTax=Tiền trước thuế
+invoice.contract.table.afterTax=Tiền sau thuế
+invoice.contract.table.assignDate=Ngày gán
+invoice.contract.table.actions=Thao tác
+
+# Invoice Contract JavaScript Messages
+invoice.contract.js.contractNotFound=Không tìm thấy mã hợp đồng
+invoice.contract.js.monthNotSelected=Bạn chưa chọn tháng tra hoá đơn
+invoice.contract.js.noInvoices=Không có hoá đơn
+invoice.contract.js.invoicesNotFound=Không tìm thấy hoá đơn
+invoice.contract.js.noInvoicesInMonth=Không có hoá đơn trong tháng
+invoice.contract.js.noDownloadFile=Không có file tải hoá đơn
+invoice.contract.js.noDataToDisplay=Không có thông tin để hiển thị
+
+# Invoice Types
+invoice.contract.type.unknown=Không xác định
+invoice.contract.type.hdis=Hóa đơn cước phát sinh
+invoice.contract.type.hddc=Hóa đơn điều chỉnh
+invoice.contract.type.hdcdt=Hóa đơn cước đóng trước
+invoice.contract.type.hdtt=Hóa đơn tiền thanh toán thừa
+invoice.contract.type.hdt=Hóa đơn gộp
+invoice.contract.type.hdktgd=Hóa đơn không từ giao dịch
+
+# Statistical Report - Expirated Package
+report.expirated.title=Báo cáo thống kê
+report.expirated.noData=Không có dữ liệu!
+report.expirated.noDataTable=Không có dữ liệu
+report.expirated.noDataExport=Chưa có dữ liệu
+
+# Statistical Report Table Headers
+report.expirated.table.stt=STT
+report.expirated.table.subscriberNumber=Số thuê bao
+report.expirated.table.contractCode=Mã hợp đồng
+report.expirated.table.subscriberType=Loại thuê bao
+report.expirated.table.packageType=Gói cước
+report.expirated.table.expiredDate=Ngày hết hạn gói cước
+
+# Pagination
+report.expirated.totalRecordsPrefix=Tổng
+report.expirated.totalRecordsSuffix=bản ghi
+report.expirated.recordsPerPage=Bản ghi/trang
+
+# Statistical Report JavaScript Messages
+report.expirated.js.noData=Không có dữ liệu
+report.expirated.js.noDataToExport=Không có dữ liệu để xuất
+report.expirated.js.dateRangeError=Vui lòng chọn Từ ngày lớn hơn Đến ngày!
+report.expirated.js.subscriberNumberError=Số thuê bao chỉ được phép nhập số!
+report.expirated.js.contractIdError=Mã hợp đồng chỉ được phép nhập số!
+report.expirated.js.subscriberTypeNormal=Thường
+
+# Account Management Messages
+account.title=Tài khoản
+account.info.tab=Thông tin tài khoản
+account.management.level2=Quản lý TK cấp 2
+account.info.notice=** Vui lòng cập nhật thông tin tài khoản để sử dụng các chức năng quản lý thuê bao
+account.info.section1=1. Thông tin tài khoản
+account.info.fullName=Họ tên
+account.info.idNumber=Số CMT
+account.info.phone=SĐT
+account.info.birthDate=Ngày sinh
+account.info.nationality=Quốc tịch
+account.info.vietnam=Việt Nam
+account.info.address=Địa chỉ
+account.info.province=Tỉnh/ TP
+account.info.district=Huyện/ Quận
+account.info.ward=Phường/Xã
+account.info.detailAddress=Địa chỉ chi tiết
+account.info.gender=Giới tính
+account.info.male=Nam
+account.info.female=Nữ
+account.info.avatar=Ảnh đại diện
+account.info.idCard=Ảnh CMT
+account.info.authorization=Giấy ủy quyền
+account.info.registrationForm=Phiếu đăng ký tài khoản
+account.info.uploadImage=Upload image
+account.info.dragDropFile=Kéo thả hoặc mở file
+account.info.clickHere=tại đây
+account.info.fileRequirement=File jpg, png,... dung lượng file không quá 3mb
+account.info.downloadTemplate=Tải file mẫu
+account.info.dragDropImageFile=Kéo thả file ảnh hoặc mở file
+account.contact.other=***Thông tin người liên hệ khác
+account.contact.email=Email liên hệ
+account.contact.phone=SĐT liên hệ
+account.contact.emailPlaceholder=Nhập email liên hệ
+account.contact.phonePlaceholder=Nhập SĐT liên hệ
+account.contact.notice=Chú ý: Các chức năng cảnh báo của hệ thống sẽ được gửi về Email, SĐT của tài khoản chính và thông tin liên hệ khác. Vui lòng nhập chính xác thông tin liên hệ.
+account.enterprise.section2=2. Thông tin doanh nghiệp
+account.enterprise.name=Tên DN
+account.enterprise.taxCode=Mã số thuế
+account.enterprise.licenseNumber=Số GPKD
+account.enterprise.establishDate=Ngày thành lập
+account.enterprise.phone=Số điện thoại DN
+account.enterprise.email=Email DN
+account.enterprise.field=Lĩnh vực
+account.enterprise.deviceType=Dòng thiết bị
+account.enterprise.licenseImage=Ảnh GPKD
+account.enterprise.add=Thêm doanh nghiệp
+account.table.stt=STT
+account.table.fullName=Họ tên
+account.table.email=Email
+account.table.phone=SĐT
+account.table.permission=Phân quyền
+account.table.resetPassword=Reset mật khẩu
+account.table.delete=Xóa
+
+# Account JavaScript Error Messages
+account.error.avatarWrongFormat=Định dạng ảnh đại diện không đúng
+account.error.avatarTooLarge=Ảnh đại diện quá lớn
+account.error.idCardFrontWrongFormat=Định dạng ảnh CMT mặt trước không đúng
+account.error.idCardFrontTooLarge=Ảnh CMT mặt trước quá lớn
+account.error.idCardBackWrongFormat=Định dạng ảnh CMT mặt sau không đúng
+account.error.idCardBackTooLarge=Ảnh CMT mặt sau quá lớn
+account.error.businessLicenseWrongFormat=Định dạng ảnh GPKD không đúng
+account.error.businessLicenseTooLarge=Ảnh GPKD quá lớn
+account.error.authorizationWrongFormat=Định dạng giấy ủy quyền không đúng
+account.error.authorizationTooLarge=Giấy ủy quyền quá lớn
+account.error.registrationFormWrongFormat=Định dạng phiếu đăng ký không đúng
+account.error.registrationFormTooLarge=Phiếu đăng ký quá lớn
+
+# Additional Account Messages
+account.enterprise.taxCode=Mã số thuế
+account.enterprise.licenseNumber=Số GPKD
+account.enterprise.establishDate=Ngày thành lập
+account.enterprise.phone=Số điện thoại DN
+account.enterprise.email=Email DN
+account.enterprise.field=Lĩnh vực
+account.enterprise.deviceType=Dòng thiết bị
+account.enterprise.licenseImage=Ảnh GPKD
+account.enterprise.add=Thêm doanh nghiệp
+
+# Header Navigation Messages
+header.nav.home=Trang chủ
+header.nav.projectManagement=Quản trị dự án
+header.nav.telcoManagement=Quản lý Telco
+header.nav.productManagement=Quản lý sản phẩm
+header.nav.apiKeyManagement=Quản lý API Key
+header.info.version=Version 
+header.user.logout=Logout
+
+landingPageTelco.clients.title=Đối tác của chúng tôi
+landingPageTelco.clients.feedback=Khách hàng nói gì về chúng tôi
+landingPageTelco.client1=Nguyễn Văn Mạnh
+landingPageTelco.client2=Nguyễn Huyền Trang
+landingPageTelco.client3=Nguyễn Văn Giỏi
+landingPageTelco.client4=Nguyễn Thị Hướng
+landingPageTelco.client5=Lê Anh Hải
+landingPageTelco.client6=Lê Thị Lan
+landingPageTelco.client.position=Vị trí làm việc
+landingPageTelco.m2m.description=M2M là công nghệ cho phép các thiết bị có thể trao đổi với các hệ thống thông qua kết nối mạng
+landingPageTelco.m2m.dataService=Dịch vụ data M2M: Là dịch vụ trong đó sim data được sử dụng để truyền tải dữ liệu
+
+landingPageTelco.dathang.title=Nền tảng IoT Viettel
+landingPageTelco.dathang.efficiency=Nền tảng của chúng tôi đã hỗ trợ rút ngắn thời gian phát triển các giải pháp IoT của Viettel tới 70%. Tiết kiệm chi phí vận hành tới 80%.
+landingPageTelco.dathang.offer=Nếu các bạn có 1 ý tưởng cung cấp dịch vụ IoT xuất sắc, các bạn muốn thử nghiệm nhanh? Chúng tôi sẽ giúp bạn miễn phí (dưới 100 thiết bị).
+landingPageTelco.dathang.solution=Nếu dịch vụ của bạn đang dùng thiết bị nhập, phần mềm nước ngoài, hoàn toàn không kiểm soát được dữ liệu của khách hàng? Nền tảng của chúng tôi sẽ hỗ trợ tích hợp tất các thiết bị, với giao thức bất kỳ và đảm bảo dữ liệu được kiểm soát tuyệt đối theo yêu cầu.
+landingPageTelco.dathang.investment=Nếu các bạn đang triển khai 1 dự án đầu tư công, mà các nhà cung cấp nền tảng nước ngoài không thể đáp ứng yêu cầu? Nền tảng của chúng tôi phát triển hoàn toàn bởi đội ngũ Viettel, hỗ trợ tùy biến không giới hạn, chúng tôi sẽ đồng hành cùng các bạn trọn vòng đời sản phẩm.
+landingPageTelco.dathang.tryNow=Trải nghiệm ngay
+landingPageTelco.dathang.userGuide=Hướng dẫn sử dụng
+landingPageTelco.dathang.freeTrial=Dùng thử miễn phí
+landingPageTelco.dathang.m2mtitle=Nền tảng quản lý kết nối M2M
+landingPageTelco.dathang.m2mdescription=Nền tảng tiên phong tại Việt Nam, cung cấp đồng thời 2 dịch vụ nền tảng quản lý kết nối (CMP) và quản lý ứng dụng (AEP). Hỗ trợ toàn trình cho các dịch vụ IoT dùng công nghệ cellular (2G/4G/Nb-IoT).
+landingPageTelco.dathang.m2mfeatures=Nền tảng quản lý kết nối của Viettel cho phép doanh nghiệp quản lý danh sách thuê bao, trình trạng cước thanh toán, định vị thuê bao... và nhiều tiện ích khác
+landingPageTelco.dathang.m2msubscriber=Quản lý thuê bao
+landingPageTelco.dathang.m2morder=Quản lý đơn hàng
+landingPageTelco.dathang.m2mcontract=Quản lý hợp đồng
+landingPageTelco.dathang.m2mpayment=Quản lý thanh toán
+landingPageTelco.dathang.m2mlocationtracking=Định vị thuê bao
+
+landingPageTelco.giaiphap.platformTitle=Platform quản lý kết nối M2M/IoT
+landingPageTelco.giaiphap.valueProposition=Tiết kiệm chính xác và mang lại nhiều giá trị cho khách hàng
+landingPageTelco.giaiphap.subscriberManagement=Quản lý thuê bao
+landingPageTelco.giaiphap.subscriberDescription=Quản lý thông tin chi tiết thuê bao, cho phép tra cứu thông tin thuê bao dễ dàng.
+landingPageTelco.giaiphap.contractManagement=Quản lý hợp đồng
+landingPageTelco.giaiphap.contractDescription=Quản lý tất cả hóa đơn thanh toán cước của doanh nghiệp, cho phép tra cứu và tải hóa đơn điện từ
+landingPageTelco.giaiphap.orderManagement=Quản lý đơn hàng
+landingPageTelco.giaiphap.orderDescription=Hỗ trợ doanh nghiệp quản lý thông tin chi tiết đơn hàng đã đặt
+landingPageTelco.giaiphap.topupSubscriber=Nạp tiền thuê bao
+landingPageTelco.giaiphap.topupDescription=Nạp tiền dễ dàng cho lô lớn thuê bao với đa dạng các mệnh giá gói cước
+landingPageTelco.giaiphap.blockUnblock=Mở/Chặn thuê bao
+landingPageTelco.giaiphap.blockDescription=Hỗ trợ mở/chặn 1 chiều, 2 chiều thuê bao với số lượng lớn thông qua file danh sách
+landingPageTelco.giaiphap.packageRegistration=Đăng ký gói cước
+landingPageTelco.giaiphap.packageDescription=Hỗ trợ đa dạng đăng ký/hủy gói, hủy gia hạn với một số lượng lớn thuê bao thông qua file danh sách
+landingPageTelco.giaiphap.subscriberConnection=Đấu nối thuê bao
+landingPageTelco.giaiphap.connectionDescription=Hỗ trợ đấu nối một lượng lớn thuê bao mà doanh nghiệp cung cấp thông qua file danh sách
+landingPageTelco.giaiphap.bulkOrdering=Đặt hàng lô lớn
+landingPageTelco.giaiphap.bulkDescription=Doanh nghiệp lựa chọn gói cước, và số thuê bao để thực hiện đấu nối một lượng lớn SIM một lúc.
+landingPageTelco.giaiphap.tryNow=Trải nghiệm ngay
+
+landingPageTelco.goicuoc.packageInfo=Thông tin gói cước
+landingPageTelco.goicuoc.journeyMonitoring=Giám sát hành trình
+landingPageTelco.goicuoc.m2m10Package=M2M10_100MB
+landingPageTelco.goicuoc.prepaid=(TT)
+landingPageTelco.goicuoc.price10k=10.000
+landingPageTelco.goicuoc.currency30days=VNĐ/30 ngày
+landingPageTelco.goicuoc.free100mb=Miễn phí 100MB(tốc độ ... và 10 SMS nội mạng/chu kỳ 30 ngày)
+landingPageTelco.goicuoc.freeMonthlyFee=Miễn phí cước thuê bao tháng
+landingPageTelco.goicuoc.m2m15Package=M2M15_300MB
+landingPageTelco.goicuoc.price15k=15.000
+landingPageTelco.goicuoc.free300mb=Miễn phí 300MB(tốc độ ... và 10 SMS nội mạng/chu kỳ 30 ngày)
+
+landingPageTelco.goicuocm2m.metering=Đo lưu lượng (Metering)
+landingPageTelco.goicuocm2m.tracking=Giám sát hành trình
+landingPageTelco.goicuocm2m.pos=Máy thanh toán POS
+landingPageTelco.goicuocm2m.smartSpeaker=Loa phường thông minh
+landingPageTelco.goicuocm2m.adsScreen=Màn hình quảng cáo
+landingPageTelco.goicuocm2m.camera=Camera
+landingPageTelco.goicuocm2m.car=Ô tô
+landingPageTelco.goicuocm2m.sellDevice=Thiết bị bán hàng
+landingPageTelco.goicuocm2m.all=Tất cả
+
+landingPageTelco.goicuocshow.packageInfo=Thông tin gói cước
+landingPageTelco.goicuocshow.metering=Đo lưu lượng (Metering)
+landingPageTelco.goicuocshow.nbiot10=NBIOT_10
+landingPageTelco.goicuocshow.postpaid=(TS)
+landingPageTelco.goicuocshow.price10k=10.000
+landingPageTelco.goicuocshow.currency30days=VNĐ/30 ngày
+landingPageTelco.goicuocshow.freeBandwidth=Miễn phí lưu lượng băng thông 50/50 Kbps (chỉ dùng trên hạ tầng Nb IOT)
+landingPageTelco.goicuocshow.freeMonthlyFee=Miễn phí cước thuê bao tháng
+
+landingPageTelco.navbar.brandName=M2M Viettel
+landingPageTelco.navbar.introduction=Giới thiệu
+landingPageTelco.navbar.packages=Gói cước
+landingPageTelco.navbar.products=Sản phẩm
+landingPageTelco.navbar.iotPlatform=Nền tảng IoT
+landingPageTelco.navbar.cmpSystem=Hệ thống CMP
+landingPageTelco.navbar.simManagement=Quản lý Sim
+landingPageTelco.navbar.projectManagement=Quản lý Dự án
+landingPageTelco.navbar.productManagement=Quản lý sản phẩm
+landingPageTelco.navbar.support=Hỗ trợ
+landingPageTelco.navbar.faq=Câu hỏi thường gặp
+landingPageTelco.navbar.orderTracking=Tra cứu đơn hàng
+landingPageTelco.navbar.forum=Diễn đàn
+landingPageTelco.navbar.catalog=Catalog
+landingPageTelco.navbar.platformAdmin=Quản trị hệ thống Platform
+landingPageTelco.navbar.cmpAdmin=Quản trị hệ thống CMP
+landingPageTelco.navbar.changePassword=Đổi mật khẩu
+landingPageTelco.navbar.logout=Đăng xuất
+landingPageTelco.navbar.login=Đăng nhập
+landingPageTelco.navbar.register=Đăng ký ngay
+landingPageTelco.navbar.serviceTitle=Dịch vụ Sim Data truyền tải dữ liệu
+landingPageTelco.navbar.serviceDescription=M2M là công nghệ cho phép các thiết bị có thể trao đổi với các hệ thống thông qua kết nối mạng. Dịch vụ data M2M: Là dịch vụ trong đó sim data được sử dụng để truyền tải dữ liệu.
+landingPageTelco.navbar.iotProducts=Sản phẩm IoT
+landingPageTelco.navbar.iotPackages=Gói cước IoT
+
+landingPageTelco.ordersim.pleaseChoose=Quý khách vui lòng chọn để tiếp tục
+landingPageTelco.ordersim.hasSim=Khách hàng đã có sim
+landingPageTelco.ordersim.noSim=Khách hàng chưa có sim
+landingPageTelco.ordersim.cancel=Hủy bỏ
+landingPageTelco.ordersim.continue=Tiếp tục
+
+landingPageTelco.sanpham.iotProducts=Sản phẩm IoT
+landingPageTelco.sanpham.diverseProducts=Đa dạng sản phẩm phù hợp nhu cầu khách hàng
+landingPageTelco.sanpham.smartTracking=Định vị thông minh
+landingPageTelco.sanpham.vTag=vTag
+landingPageTelco.sanpham.viewDetails=Xem chi tiết
+landingPageTelco.sanpham.smartWatch=Đồng hồ thông minh
+landingPageTelco.sanpham.myKid=MyKID
+landingPageTelco.sanpham.smartCar=Ô tô thông minh
+landingPageTelco.sanpham.vcar=Vcar
+landingPageTelco.sanpham.assetManagement=Quản lý tài sản
+landingPageTelco.sanpham.smartMotor=Smart Motor
+landingPageTelco.sanpham.vTrackingCar=IoT V-Tracking: Ô tô
+landingPageTelco.sanpham.personalHealth=Sức khỏe cá nhân
+landingPageTelco.sanpham.vHealth=VHealth
+landingPageTelco.sanpham.inDevelopment=Đang phát triển
+landingPageTelco.sanpham.smartOffice=Office thông minh
+landingPageTelco.sanpham.cameraAl=Camera Al
+landingPageTelco.sanpham.smartApartment=Căn hộ thông minh
+landingPageTelco.sanpham.homeCamera=Home Camera
+
+landingPageTelco.showh2m.packageInfo=Thông tin gói cước
+landingPageTelco.showh2m.humanToMachine=Human to Machine (H2M)
+landingPageTelco.showh2m.d120n=D120N
+landingPageTelco.showh2m.prepaid=(TT)
+landingPageTelco.showh2m.price10k=10.000
+landingPageTelco.showh2m.currency30days=VNĐ/30 ngày
+landingPageTelco.showh2m.free6gbDaily=Miễn phí 6G/ngày và 10 SMS nội mạng/chu kỳ 30 ngày
+landingPageTelco.showh2m.freeMonthlyFee=Miễn phí cước thuê bao tháng
+
+landingPageTelco.showip.packageInfo=Thông tin gói cước
+landingPageTelco.showip.ipAccessTracking=Giám sát hành trình (truy cập theo IP)
+landingPageTelco.showip.prepaid=(TT)
+landingPageTelco.showip.freeMonthlyFee=Miễn phí cước thuê bao tháng
+landingPageTelco.showip.m2m30ip10gb=M2M30IP_10GB
+landingPageTelco.showip.price30k=30.000
+landingPageTelco.showip.currency30days=VNĐ/30 ngày
+landingPageTelco.showip.free10gb300mb=Miễn phí 10GB (truy cập theo IP), 300MB (truy cập đa hướng) và 10 SMS nội mạng/chu kỳ 30 ngày
+landingPageTelco.showip.m2m50ip25gb=M2M50IP_25GB
+landingPageTelco.showip.price15k=15.000
+landingPageTelco.showip.free25gb500mb=Miễn phí 25GB (truy cập theo IP), 500MB (truy cập đa hướng) và 10 SMS nội mạng/chu kỳ 30 ngày
+landingPageTelco.showip.m2m70ip50gb=M2M70IP_50GB
+landingPageTelco.showip.price70k=70.000
+landingPageTelco.showip.free50gb1gb=Miễn phí 50GB (truy cập theo IP), 1GB (truy cập đa hướng) và 10 SMS nội mạng/chu kỳ 30 ngày
+landingPageTelco.showip.m2m30ip10gb12m=12M2M30IP_10GB
+landingPageTelco.showip.price360k=360.000
+landingPageTelco.showip.currency360days=VNĐ/360 ngày
+landingPageTelco.showip.m2m50ip25gb12m=12M2M50IP_25GB
+landingPageTelco.showip.price600k=600.000
+landingPageTelco.showip.m2m70ip50gb12m=12M2M70IP_50GB
+landingPageTelco.showip.price840k=840.000
+
+landingPageTelco.sosanh.comparePackages=So sánh gói cước
+landingPageTelco.sosanh.close=Đóng
+
+landingPageTelco.introduction=Giới thiệu
+landingPageTelco.simDataService=Dịch vụ Sim Data truyền tải dữ liệu chính xác, tiết kiệm
+landingPageTelco.m2mTechnology=M2M là công nghệ cho phép cho các thiết bị có thể trao đổi với các hệ thống thông qua kết nối mạng
+landingPageTelco.m2mDataService=Dịch vụ data M2M: Là dịch vụ trong đó sim data được sử dụng để truyền tải dữ liệu
+landingPageTelco.iotTechnology=Công nghệ IOT phát triển dự trên nền tảng kết hợp công nghệ mạng Internet(mạng wifi, mạng viễn thông băng rộng 4G 5G) và công nghệ vi cơ điện tử, giúp người dùng kiểm soát mọi vật tối ưu hơn chỉ bằng 1 thiết bị thông minh.
+landingPageTelco.viewProducts=Xem sản phẩm
+landingPageTelco.m2mPackageProducts=Sản phẩm gói cước M2M
+landingPageTelco.diversePackages=Đa dạng gói cước phù hợp nhu cầu khách hàng
+landingPageTelco.packageType=Gói cước :
+landingPageTelco.fourGFiveG=4G/5G
+landingPageTelco.nbIot=Nb-IoT
+landingPageTelco.subscription=Thuê bao :
+landingPageTelco.prepaid=Trả trước
+landingPageTelco.postpaid=Trả sau
+landingPageTelco.attractive=ĐĂNG KÍ NGAY NHẬN ƯU ĐÃI HẤP DẪN!
+landingPageTelco.comparePackages=So Sánh gói cước
+landingPageTelco.faq=Câu hỏi thường gặp
+landingPageTelco.faq1=Làm sao để có thể Quản lý thông tin liên quan tới thuê bao mà doanh nghiệp đã đăng ký?
+landingPageTelco.faq2=Khách hàng có thể quản lý thuê bao cá nhân của mình trên hệ thống Telco không ?
+landingPageTelco.faq3=Khách hàng có thể quản lý những thông tin gì của thuê bao thuộc doanh nghiệp ?
+landingPageTelco.faq4=Chi phí để sử dụng Hệ thống Telco, thuộc nền tảng IoT Innoway là bao nhiêu ?
+landingPageTelco.customerSupport=HỖ TRỢ KHÁCH HÀNG
+landingPageTelco.fullName=Họ tên
+landingPageTelco.fullName2=Họ tên:
+landingPageTelco.phoneNumber=Số điện thoại:
+landingPageTelco.companyName=Tên doanh nghiệp:
+landingPageTelco.email=Email
+landingPageTelco.supportContent=Nội dung cần hỗ trợ
+landingPageTelco.required=* :
+landingPageTelco.send=Gửi
+landingPageTelco.viettelTelecom=Tổng Công ty Viễn thông Viettel (Viettel Telecom)
+landingPageTelco.businessCode=Mã số doanh nghiệp: 0100109106-011 do Sở Kế hoạch và Đầu tư Thành phố Hà Nội cấp lần đầu ngày 18/07/2005, sửa đổi lần thứ 15 ngày 18/12/2018
+landingPageTelco.contentResponsible=Chịu trách nhiệm nội dung: Ông Cao Anh Sơn
+landingPageTelco.businessContact=Kinh doanh: iot@viettel.com.vn
+landingPageTelco.businessPhone=18008044
+landingPageTelco.customerCare=CSKH: cskh@viettel.com.vn
+landingPageTelco.customerCarePhone=198
+landingPageTelco.copyright=Copyright Viettel Telecom 2022
+landingPageTelco.followUs=Follow us:
+
+telco.dashboard=Dashboard
+telco.invoice=Hóa đơn
+telco.subscriberManagement=Quản lý thuê bao
+telco.services=Dịch vụ
+telco.buySim=Đặt/Đổi sim
+telco.buyDataPackage=Mua gói data
+telco.topup=Nạp tiền
+telco.prepayCharges=Đóng cước trước
+telco.payPostpaidBill=Thanh toán cước trả sau
+telco.blockUnblock=Chặn/Mở thuê bao
+telco.apn=APN
+telco.monitoringMap=Bản đồ giám sát
+telco.serviceHistory=Lịch sử dịch vụ
+telco.historyBuySim=LS Đặt/ Đổi sim
+telco.historyMiAddon=LS gói Mi, Add-on
+telco.historyPrepayCharges=LS đóng cước trước
+telco.historyPostpaidBill=LS thanh toán cước trả sau
+telco.historyTopup=LS nạp tiền
+telco.historyBlockUnblock=LS chặn/Mở thuê bao
+telco.historyApn=LS gán/hủy APN
+telco.invoiceManagement=Quản lý hóa đơn
+telco.contractManagement=Quản lý hợp đồng
+telco.deviceManagement=Quản lý thiết bị
+telco.extendService=Dịch vụ mở rộng
+telco.reportStatistics=Báo cáo - Thống kê
+telco.exceedConsumptionLimit=Thuê bao bị chặn do vượt hạn mức tiêu dùng
+telco.accountInfo=Thông tin tài khoản
+telco.feedback=Đóng góp ý kiến
+telco.searchPlaceholder=Nhập từ khóa để tra cứu
+
+#Landingpage Telco Labels
+landingPageTelco.faq1.answer1=- Để quản lý được thông tin liên quan tới thuê bao của doanh nghiệp một cách dễ dàng, anh/chị cần đăng ký tài khoản ở trên nền tảng IoT Innoway, đăng nhập và bổ sung thông tin GPKD của doanh nghiệp
+landingPageTelco.faq1.answer2=- Để nhận được sự hỗ trợ chi tiết, vui lòng gọi số ...
+landingPageTelco.faq2.answer=Hệ thống Telco của Viettel hỗ trợ doanh nghiệp quản lý các thuê bao doanh nghiệp, không hỗ trợ với khách hàng cá nhân
+landingPageTelco.faq3.intro=Hệ thống Telco của Viettel hỗ trợ doanh nghiệp các nghiệp vụ sau:
+landingPageTelco.faq3.answer1=- Xem thông tin thuê bao, hợp đồng , hóa đơn, đơn hàng của doanh nghiệp
+landingPageTelco.faq3.answer2=- Thực hiện đăng ký đơn mua hàng mua thuê bao mới một cách thuận tiện
+landingPageTelco.faq3.answer3=- Thực hiện đầu nối trực tuyến mộ cách đơn giản, thuận tiện
+landingPageTelco.faq3.answer4=- Thực hiện nạp tiền, thanh toán hóa đơn, đăng ký các gói dịch vụ giá trị gia tăng
+landingPageTelco.faq3.answer5=- Thực hiện chặn, mở thuê bao một các chủ động
+landingPageTelco.faq4.answer1=Hệ thống Telco của Viettel hỗ trợ các doanh nghiệp đã đăng ký sử dụng thuê bao của Viettel quản lý thông tin thuê bao một cách miễn phí.
+landingPageTelco.faq4.answer2=Khách hàng chỉ cần tạo tài khoản và cung cấp thông tin GPKD để thực hiện quản lý.

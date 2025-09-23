@@ -1,0 +1,532 @@
+<div class="modal fade" id="updateTypeBusinessModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: red; border-radius: 16px 16px 0px 0px;">
+        <span class="modal-title text-white" id="myModalLabel">@Messages("survey.title")</span>
+        <h6 class="text-white">@Messages("survey.description")</h6>
+      </div>
+      @*<h6>@Messages("Bạn vui lòng thực hiện bài khảo sát để chúng tôi nâng cao chất lượng sản phẩm hơn nữa.")</h6>*@
+      <div class="modal-body" id="bodyTypeBusiness">
+
+      </div>
+
+      <div class="modal-body" id="">
+
+        <h6 class="m-t-3">@Messages("survey.question1") <span class="text-red">@Messages("account.required")</span></h6>
+        <div>
+          <div class="form-check">
+            <input class="form-check-input hardMonth" type="checkbox" id="hardMonth_1" value="1">
+            <label class="form-check-label" for="hardMonth_1">@Messages("survey.option.topup")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input hardMonth" type="checkbox" id="hardMonth_2" value="2">
+            <label class="form-check-label" for="hardMonth_2">@Messages("survey.option.checkStatus")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input hardMonth" type="checkbox" id="hardMonth_3" value="3">
+            <label class="form-check-label" for="hardMonth_3">@Messages("survey.option.newConnection")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input hardMonth" type="checkbox" id="hardMonth_4" value="4">
+            <label class="form-check-label" for="hardMonth_4">@Messages("survey.option.blockUnblock")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input hardMonth" type="checkbox" id="hardMonth_5" value="5">
+            <label class="form-check-label" for="hardMonth_5">@Messages("survey.option.buySim")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input hardMonth" type="checkbox" id="hardMonth_6" value="6">
+            <label class="form-check-label" for="hardMonth_6">@Messages("survey.option.invoiceManagement")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input hardMonth" type="checkbox" id="hardMonth_7" value="7">
+            <label class="form-check-label" for="hardMonth_7">@Messages("survey.option.contractManagement")</label>
+          </div>
+        </div>
+
+        <h6 class="m-t-3">@Messages("2. Đánh giá tổng thể về trải nghiệm sử dụng nền tảng quản lý kết nối M2M IoT") <span class="text-red">@Messages("*")</span></h6>
+        <div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input experience" type="radio" id="experience_1" name="experience" value="1">
+            <label class="form-check-label" for="experience_1">@Messages("Rất không hài lòng")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input experience" type="radio" id="experience_2" name="experience" value="2">
+            <label class="form-check-label" for="experience_2">@Messages("Không hài lòng")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input experience" type="radio" id="experience_3" name="experience" value="3">
+            <label class="form-check-label" for="experience_3">@Messages("Hài lòng")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input experience" type="radio" id="experience_4" name="experience" value="4">
+            <label class="form-check-label" for="experience_4">@Messages("Rất hài lòng")</label>
+          </div>
+        </div>
+
+        <h6 class="m-t-3">@Messages("3. Đánh giá về mức độ dễ sử dụng của website") <span class="text-red">@Messages("*")</span></h6>
+        <div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input easeUse" type="radio" id="easeUse_1" name="easeUse" value="1">
+            <label class="form-check-label" for="easeUse_1">@Messages("Rất không hài lòng")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input easeUse" type="radio" id="easeUse_2" name="easeUse" value="2">
+            <label class="form-check-label" for="easeUse_2">@Messages("Không hài lòng")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input easeUse" type="radio" id="easeUse_3" name="easeUse" value="3">
+            <label class="form-check-label" for="easeUse_3">@Messages("Hài lòng")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input easeUse" type="radio" id="easeUse_4" name="easeUse" value="4">
+            <label class="form-check-label" for="easeUse_4">@Messages("Rất hài lòng")</label>
+          </div>
+        </div>
+
+        <h6 class="m-t-3">@Messages("4. Bạn thường xuyên sử dụng dịch vụ nào nhất? (Có thể chọn nhiều đáp án)") <span class="text-red">@Messages("*")</span></h6>
+        <div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input sometimeUse" type="checkbox" id="sometimeUse_1" value="1">
+            <label class="form-check-label" for="sometimeUse_1">@Messages("Quản lý thuê bao")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input sometimeUse" type="checkbox" id="sometimeUse_2" value="2">
+            <label class="form-check-label" for="sometimeUse_2">@Messages("Quản lý hợp đồng")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input sometimeUse" type="checkbox" id="sometimeUse_3" value="3">
+            <label class="form-check-label" for="sometimeUse_3">@Messages("Quản lý đơn hàng")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input sometimeUse" type="checkbox" id="sometimeUse_4" value="4">
+            <label class="form-check-label" for="sometimeUse_4">@Messages("Chặn/mở chiều thuê bao")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input sometimeUse" type="checkbox" id="sometimeUse_5" value="5">
+            <label class="form-check-label" for="sometimeUse_5">@Messages("Nạp tiền")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input sometimeUse" type="checkbox" id="sometimeUse_6" value="6">
+            <label class="form-check-label" for="sometimeUse_6">@Messages("Đăng ký gói cước")</label>
+          </div>
+        </div>
+
+        <h6 class="m-t-3">@Messages("5. Đánh giá các dịch vụ của nền tảng") <span class="text-red">@Messages("*")</span></h6>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">@Messages("Quản lý thuê bao")</label>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input manageSubs" type="radio" id="manageSubs_1" name="manageSubs" value="1">
+              <label class="form-check-label" for="manageSubs_1">@Messages("Rất không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input manageSubs" type="radio" id="manageSubs_2" name="manageSubs" value="2">
+              <label class="form-check-label" for="manageSubs_2">@Messages("Không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input manageSubs" type="radio" id="manageSubs_3" name="manageSubs" value="3">
+              <label class="form-check-label" for="manageSubs_3">@Messages("Hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input manageSubs" type="radio" id="manageSubs_4" name="manageSubs" value="4">
+              <label class="form-check-label" for="manageSubs_4">@Messages("Rất hài lòng")</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">@Messages("Quản lý hợp đồng")</label>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input manageContract" type="radio" id="manageContract_1" name="manageContract" value="1">
+              <label class="form-check-label" for="manageContract_1">@Messages("Rất không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input manageContract" type="radio" id="manageContract_2" name="manageContract" value="2">
+              <label class="form-check-label" for="manageContract_2">@Messages("Không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input manageContract" type="radio" id="manageContract_3" name="manageContract" value="3">
+              <label class="form-check-label" for="manageContract_3">@Messages("Hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input manageContract" type="radio" id="manageContract_4" name="manageContract" value="4">
+              <label class="form-check-label" for="manageContract_4">@Messages("Rất hài lòng")</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">@Messages("Quản lý đơn hàng")</label>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input manageOrder" type="radio" id="manageOrder_1" name="manageOrder" value="1">
+              <label class="form-check-label" for="manageOrder_1">@Messages("Rất không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input manageOrder" type="radio" id="manageOrder_2" name="manageOrder" value="2">
+              <label class="form-check-label" for="manageOrder_2">@Messages("Không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input manageOrder" type="radio" id="manageOrder_3" name="manageOrder" value="3">
+              <label class="form-check-label" for="manageOrder_3">@Messages("Hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input manageOrder" type="radio" id="manageOrder_4" name="manageOrder" value="4">
+              <label class="form-check-label" for="manageOrder_4">@Messages("Rất hài lòng")</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">@Messages("Chặn chiều TB")</label>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input blockSub" type="radio" id="blockSub_1" name="blockSub" value="1">
+              <label class="form-check-label" for="blockSub_1">@Messages("Rất không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input blockSub" type="radio" id="blockSub_2" name="blockSub" value="2">
+              <label class="form-check-label" for="blockSub_2">@Messages("Không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input blockSub" type="radio" id="blockSub_3" name="blockSub" value="3">
+              <label class="form-check-label" for="blockSub_3">@Messages("Hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input blockSub" type="radio" id="blockSub_4" name="blockSub" value="4">
+              <label class="form-check-label" for="blockSub_4">@Messages("Rất hài lòng")</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">@Messages("Mở chặn 1 chiều")</label>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input open1Way" type="radio" id="open1Way_1" name="open1Way" value="1">
+              <label class="form-check-label" for="open1Way_1">@Messages("Rất không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input open1Way" type="radio" id="open1Way_2" name="open1Way" value="2">
+              <label class="form-check-label" for="open1Way_2">@Messages("Không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input open1Way" type="radio" id="open1Way_3" name="open1Way" value="3">
+              <label class="form-check-label" for="open1Way_3">@Messages("Hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input open1Way" type="radio" id="open1Way_4" name="open1Way" value="4">
+              <label class="form-check-label" for="open1Way_4">@Messages("Rất hài lòng")</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">@Messages("Mở chặn 2 chiều")</label>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input open2Way" type="radio" id="open2Way_1" name="open2Way" value="1">
+              <label class="form-check-label" for="open2Way_1">@Messages("Rất không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input open2Way" type="radio" id="open2Way_2" name="open2Way" value="2">
+              <label class="form-check-label" for="open2Way_2">@Messages("Không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input open2Way" type="radio" id="open2Way_3" name="open2Way" value="3">
+              <label class="form-check-label" for="open2Way_3">@Messages("Hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input open2Way" type="radio" id="open2Way_4" name="open2Way" value="4">
+              <label class="form-check-label" for="open2Way_4">@Messages("Rất hài lòng")</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">@Messages("Nạp tiền")</label>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input rechargeMoney" type="radio" id="rechargeMoney_1" name="rechargeMoney" value="1">
+              <label class="form-check-label" for="rechargeMoney_1">@Messages("Rất không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input rechargeMoney" type="radio" id="rechargeMoney_2" name="rechargeMoney" value="2">
+              <label class="form-check-label" for="rechargeMoney_2">@Messages("Không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input rechargeMoney" type="radio" id="rechargeMoney_3" name="rechargeMoney" value="3">
+              <label class="form-check-label" for="rechargeMoney_3">@Messages("Hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input rechargeMoney" type="radio" id="rechargeMoney_4" name="rechargeMoney" value="4">
+              <label class="form-check-label" for="rechargeMoney_4">@Messages("Rất hài lòng")</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">@Messages("Đăng ký gói cước Mi, Add-on")</label>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input miAddon" type="radio" id="miAddon_1" name="miAddon" value="1">
+              <label class="form-check-label" for="miAddon_1">@Messages("Rất không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input miAddon" type="radio" id="miAddon_2" name="miAddon" value="2">
+              <label class="form-check-label" for="miAddon_2">@Messages("Không hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input miAddon" type="radio" id="miAddon_3" name="miAddon" value="3">
+              <label class="form-check-label" for="miAddon_3">@Messages("Hài lòng")</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input miAddon" type="radio" id="miAddon_4" name="miAddon" value="4">
+              <label class="form-check-label" for="miAddon_4">@Messages("Rất hài lòng")</label>
+            </div>
+          </div>
+        </div>
+
+        <h6 class="m-t-3">@Messages("6. Cho chúng tôi xin một số góp ý để cải thiện các dịch vụ trên nhé")</h6>
+        <textarea class="form-control" id="contentFeedback" maxlength="1000" rows="3" placeholder="...tối đa 1000 kí tự"></textarea>
+
+        <h6 class="m-t-3">@Messages("7. Bạn sẵn sàng chi trả cho những tính năng nào dưới đây? Nếu có, mức phí là bao nhiêu? (Phí trên một lần thực hiện thao tác)") <span class="text-red">@Messages("*")</span></h6>
+        <div>
+          <h6 class="">@Messages("Đấu nối thuê bao M2M/IOT")</h6>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeConnect" type="radio" id="payFeeConnect_1" name="payFeeConnect" value="1">
+            <label class="form-check-label" for="payFeeConnect_1">@Messages("0-5.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeConnect" type="radio" id="payFeeConnect_2" name="payFeeConnect" value="2">
+            <label class="form-check-label" for="payFeeConnect_2">@Messages("5.000 - 10.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeConnect" type="radio" id="payFeeConnect_3" name="payFeeConnect" value="3">
+            <label class="form-check-label" for="payFeeConnect_3">@Messages("10.000 - 50.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeConnect" type="radio" id="payFeeConnect_4" name="payFeeConnect" value="4">
+            <label class="form-check-label" for="payFeeConnect_4">@Messages("Trên 50.000 VNĐ")</label>
+          </div>
+        </div>
+        <div>
+          <h6 class="">@Messages("Mua gói (gói >=20K)")</h6>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeePackage" type="radio" id="payFeePackage_1" name="payFeePackage" value="1">
+            <label class="form-check-label" for="payFeePackage_1">@Messages("0-5.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeePackage" type="radio" id="payFeePackage_2" name="payFeePackage" value="2">
+            <label class="form-check-label" for="payFeePackage_2">@Messages("5.000 - 10.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeePackage" type="radio" id="payFeePackage_3" name="payFeePackage" value="3">
+            <label class="form-check-label" for="payFeePackage_3">@Messages("10.000 - 50.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeePackage" type="radio" id="payFeePackage_4" name="payFeePackage" value="4">
+            <label class="form-check-label" for="payFeePackage_4">@Messages("Trên 50.000 VNĐ")</label>
+          </div>
+        </div>
+        <div>
+          <h6 class="">@Messages("Mở chặn 1 chiều, 2 chiều")</h6>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeOpenSub" type="radio" id="payFeeOpenSub_1" name="payFeeOpenSub" value="1">
+            <label class="form-check-label" for="payFeeOpenSub_1">@Messages("0-5.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeOpenSub" type="radio" id="payFeeOpenSub_2" name="payFeeOpenSub" value="2">
+            <label class="form-check-label" for="payFeeOpenSub_2">@Messages("5.000 - 10.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeOpenSub" type="radio" id="payFeeOpenSub_3" name="payFeeOpenSub" value="3">
+            <label class="form-check-label" for="payFeeOpenSub_3">@Messages("10.000 - 50.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeOpenSub" type="radio" id="payFeeOpenSub_4" name="payFeeOpenSub" value="4">
+            <label class="form-check-label" for="payFeeOpenSub_4">@Messages("Trên 50.000 VNĐ")</label>
+          </div>
+        </div>
+        <div>
+          <h6 class="">@Messages("Chặn 1 chiều, 2 chiều")</h6>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeBlockSub" type="radio" id="payFeeBlockSub_1" name="payFeeBlockSub" value="1">
+            <label class="form-check-label" for="payFeeBlockSub_1">@Messages("0-5.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeBlockSub" type="radio" id="payFeeBlockSub_2" name="payFeeBlockSub" value="2">
+            <label class="form-check-label" for="payFeeBlockSub_2">@Messages("5.000 - 10.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeBlockSub" type="radio" id="payFeeBlockSub_3" name="payFeeBlockSub" value="3">
+            <label class="form-check-label" for="payFeeBlockSub_3">@Messages("10.000 - 50.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeBlockSub" type="radio" id="payFeeBlockSub_4" name="payFeeBlockSub" value="4">
+            <label class="form-check-label" for="payFeeBlockSub_4">@Messages("Trên 50.000 VNĐ")</label>
+          </div>
+        </div>
+        <div>
+          <h6 class="">@Messages("Nạp tiền")</h6>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeRecharge" type="radio" id="payFeeRecharge_1" name="payFeeRecharge" value="1">
+            <label class="form-check-label" for="payFeeRecharge_1">@Messages("0-5.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeRecharge" type="radio" id="payFeeRecharge_2" name="payFeeRecharge" value="2">
+            <label class="form-check-label" for="payFeeRecharge_2">@Messages("5.000 - 10.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeRecharge" type="radio" id="payFeeRecharge_3" name="payFeeRecharge" value="3">
+            <label class="form-check-label" for="payFeeRecharge_3">@Messages("10.000 - 50.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeRecharge" type="radio" id="payFeeRecharge_4" name="payFeeRecharge" value="4">
+            <label class="form-check-label" for="payFeeRecharge_4">@Messages("Trên 50.000 VNĐ")</label>
+          </div>
+        </div>
+        <div>
+          <h6 class="">@Messages("Đăng ký gói cước")</h6>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeMiAddon" type="radio" id="payFeeMiAddon_1" name="payFeeMiAddon" value="1">
+            <label class="form-check-label" for="payFeeMiAddon_1">@Messages("0-5.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeMiAddon" type="radio" id="payFeeMiAddon_2" name="payFeeMiAddon" value="2">
+            <label class="form-check-label" for="payFeeMiAddon_2">@Messages("5.000 - 10.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeMiAddon" type="radio" id="payFeeMiAddon_3" name="payFeeMiAddon" value="3">
+            <label class="form-check-label" for="payFeeMiAddon_3">@Messages("10.000 - 50.000 VNĐ")</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input payFeeMiAddon" type="radio" id="payFeeMiAddon_4" name="payFeeMiAddon" value="4">
+            <label class="form-check-label" for="payFeeMiAddon_4">@Messages("Trên 50.000 VNĐ")</label>
+          </div>
+        </div>
+
+        <h6 class="m-t-3">@Messages("8. Nếu các tính năng liên quan đến phân tích và lọc dữ liệu được phát triển, bạn mong muốn có tính năng nào? (Chọn nhiều options)") <span class="text-red">@Messages("*")</span></h6>
+        <div>
+          <div class="form-check">
+            <input class="form-check-input extraFeatures" type="checkbox" id="extraFeatures_1" value="1">
+            <label class="form-check-label" for="extraFeatures_1">@Messages("Quản lý thiết bị: theo dõi trạng thái hoạt động, cấu hình và bật tắt thiết bị từ xa.")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input extraFeatures" type="checkbox" id="extraFeatures_2" value="2">
+            <label class="form-check-label" for="extraFeatures_2">@Messages("Tích hợp và phân tích dữ liệu: Thu thập dữ liệu từ nhiều nguồn khác nhau, bao gồm các thiết bị IoT, cảm biến, hệ thống khác. Phân tích dữ liệu theo các tiêu chí tùy chỉnh.")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input extraFeatures" type="checkbox" id="extraFeatures_3" value="3">
+            <label class="form-check-label" for="extraFeatures_3">@Messages("Xử lý dữ liệu thời gian thực: Nhận được thông tin và cảnh báo ngay lập tức.")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input extraFeatures" type="checkbox" id="extraFeatures_4" value="4">
+            <label class="form-check-label" for="extraFeatures_4">@Messages("Tạo và quản lý các quy tắc tự động: Tạo các quy tắc tự động dựa trên dữ liệu IoT, tự động hóa quy trình và phản ứng tức thì vào các sự kiện và trạng thái của thiết bị IoT.")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input extraFeatures" type="checkbox" id="extraFeatures_5" value="5">
+            <label class="form-check-label" for="extraFeatures_5">@Messages("Tạo bảng điều khiển tùy chỉnh: Giúp hiển thị thông tin quan trọng theo nhu cầu của từng khách hàng.")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input extraFeatures" type="checkbox" id="extraFeatures_6" value="6">
+            <label class="form-check-label" for="extraFeatures_6">@Messages("Tính năng khác")</label>
+          </div>
+        </div>
+
+        <h6 class="m-t-3">@Messages("9. Bạn gặp phải những khó khăn gì khi xây dựng ứng dụng IoT cho doanh nghiệp của bạn? (Chọn nhiều option)") <span class="text-red">@Messages("*")</span></h6>
+        <div>
+          <div class="form-check">
+            <input class="form-check-input hard" type="checkbox" id="hard_1" value="1">
+            <label class="form-check-label" for="hard_1">@Messages("Tích hợp thiết bị")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input hard" type="checkbox" id="hard_2" value="2">
+            <label class="form-check-label" for="hard_2">@Messages("Triển khai hạ tầng server")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input hard" type="checkbox" id="hard_3" value="3">
+            <label class="form-check-label" for="hard_3">@Messages("Chất lượng kết nối vô tuyến không đảm bảo")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input hard" type="checkbox" id="hard_4" value="4">
+            <label class="form-check-label" for="hard_4">@Messages("Chi phí cao")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input hard" type="checkbox" id="hard_5" value="5">
+            <label class="form-check-label" for="hard_5">@Messages("Thời gian phát triển ứng dụng quá lâu")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input hard" type="checkbox" id="hard_6" value="6">
+            <label class="form-check-label" for="hard_6">@Messages("Thiếu nhân sự vận hành")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input hard" type="checkbox" id="hard_7" value="7">
+            <label class="form-check-label" for="hard_7">@Messages("Thiếu các đầu bài cụ thể từ khách hàng")</label>
+          </div>
+        </div>
+
+        <h6 class="m-t-3">@Messages("10. Bạn có đang dùng nền tảng IOT nào cho ứng dụng của doanh nghiệp mình không?")</h6>
+        <textarea class="form-control" id="contentUsePlatformOther" maxlength="1000" rows="3" placeholder="...tối đa 1000 kí tự"></textarea>
+
+        <h6 class="m-t-3">@Messages("11. Doanh nghiệp của bạn đang phả chi trả cho IOT Platform này hàng tháng như thế nào?")</h6>
+        <textarea class="form-control" id="contentFeeOneMonth" maxlength="1000" rows="3" placeholder="...tối đa 1000 kí tự"></textarea>
+
+        <h6 class="m-t-3">@Messages("12. Bạn có sẵn sàng giới thiệu cho bạn bè thuộc DN khác, trải nghiệm dùng thử bộ công cụ CMP của Viettel?") <span class="text-red">@Messages("*")</span></h6>
+        <div>
+          <div class="form-check">
+            <input class="form-check-input realyUse" type="radio" id="realyUse_1" name="realyUse" value="1">
+            <label class="form-check-label" for="realyUse_1">@Messages("Sẵn sàng")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input realyUse" type="radio" id="realyUse_2" name="realyUse" value="2">
+            <label class="form-check-label" for="realyUse_2">@Messages("Cần trải nghiệm thêm")</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input realyUse" type="radio" id="realyUse_3" name="realyUse" value="3">
+            <label class="form-check-label" for="realyUse_3">@Messages("Hoàn toàn không muốn")</label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-red" onclick="comfirmUpdateTypeBusiness()">@Messages("btnComfirm")</button>
+      </div>
+    </div>
+  </div>
+</div>

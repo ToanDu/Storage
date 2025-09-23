@@ -1,0 +1,29 @@
+.accordion-button {
+    color: #333333;
+    padding: 0rem 1.25rem;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #333333;
+    background-color: #fff;
+}
+
+.accordion-button::before {
+    flex-shrink: 0;
+    width: 3.25rem;
+    height: 1.25rem;
+    /*margin-left: auto;*/
+    content: "";
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjEgMTJsLTE4IDEydi0yNHoiLz48L3N2Zz4=");
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    /*filter: invert(1) grayscale(100%) brightness(200%);*/
+    transition: transform .2s ease-in-out;
+    color: #0a0c0d;
+}
+
+.accordion-button:not(.collapsed)::before {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMjFsLTEyLTE4aDI0eiIvPjwvc3ZnPg==");
+    transform: rotate(360deg);
+    color: #0a0c0d;
+}

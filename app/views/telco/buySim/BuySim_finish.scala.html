@@ -1,0 +1,45 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<div class="modal fade" id="notificationModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16" style="align-items: center;">
+      @*<div class="modal-header" style="border-bottom: 0px solid #e9ecef; padding-bottom: 0px;">*@
+      @*<label class="col-sm-12 col-form-label title-section-2">@Messages("Thông báo")</label>*@
+      @*</div>*@
+    <div class="modal-header" style="border-bottom: 0px solid #e9ecef; padding-bottom: 0px;">
+      <img src="@routes.Assets.versioned("images/telco/successIcon.png")" alt="..." style="width: 56px; height: 56px;" class="card-img mt-3">
+    </div>
+    <div class="modal-header" style="padding-bottom: 0px; padding-top: 0px;">
+      <label class="col-sm-12 col-form-label title-section-2" style="color: red; font-weight: 600;">@Messages("buySim.orderResult")</label>
+    </div>
+
+    <div class="modal-body text-darker" style="text-align: center;">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive mt-3">
+            <table id="tableResultBuySim" class="table table-striped table-bordered" cellspacing='0' width='100%'>
+              <thead>
+                <th>@Messages("buySim.productName")</th>
+                <th>@Messages("buySim.quantity")</th>
+                <th>@Messages("buySim.successfulOrders")</th>
+                <th>@Messages("buySim.failedOrders")</th>
+                <th>@Messages("")</th>
+              </thead>
+              <tbody align="left"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-header" style="border-bottom: 0px solid #e9ecef; padding-bottom: 0px; padding-top: 0px; text-align: center;">
+      <label class="col-sm-12 col-form-label title-section-2" style="padding-bottom: 0px;">@Messages("order.success.contact")</label>
+      <label class="col-sm-12 col-form-label title-section-2" style="">@Messages("order.success.thanks")</label>
+    </div>
+    <div class="modal-footer">
+      <a type="button" class="btn btn-telco" data-bs-dismiss="modal" style="background: #FFFFFF; color: #EA0033; border: 1px solid #EA0033;">@Messages("buySim.close")</a>
+      <a type="button" class="btn btn-telco" href="@routes.TelcoOrderController.manageOrder(currentUser.getId)" style="background: #EA0033; color: #FFFFFF;">@Messages("buySim.finish")</a>
+    </div>
+    </div>
+  </div>
+</div>

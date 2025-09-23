@@ -1,0 +1,41 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<div class="modal fade" id="editEnterpriseModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: red; border-radius: 16px 16px 0px 0px;">
+                <span class="modal-title text-white" id="myModalLabel">@Messages("Sửa thông tin doanh nghiệp")</span>
+            </div>
+            <div class="modal-body">
+                <div class="row mt-3">
+                    <div class="row">
+                        <input id="idEnterpriseEdit" type="text" class="form-control input-form" readonly hidden>
+
+                        <div class="col-md-12">
+                            <div class="row mt-3">
+                                <label class="col-sm-4 col-form-label title-section-2">@Messages("Tên doanh nghiệp")</label>
+                                <div class="col-sm-8">
+                                    <input id="nameEnterpriseEdit" type="text" class="form-control input-form" placeholder="Nhập nội dung" maxlength="100">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row mt-3">
+                                <label class="col-sm-4 col-form-label title-section-2">@Messages("GPKD")</label>
+                                <div class="col-sm-8">
+                                    <input id="gpkdEnterpriseEdit" type="text" class="form-control input-form" placeholder="Nhập nội dung" maxlength="50">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-cancle" data-bs-dismiss="modal">@Messages("btnCancle")</button>
+                <button type="button" class="btn btn-red" onclick="processSubmitEditEnterprise()">@Messages("btnComfirm")</button>
+            </div>
+        </div>
+    </div>
+</div>

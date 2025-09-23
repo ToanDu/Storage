@@ -1,0 +1,33 @@
+<div id="searchModal" class="modal fixed-left fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-aside" role="document">
+    <div class="modal-content bg-gradient-burning">
+      <div class="modal-header">
+  <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("subscriber.modal.advanced.title")</h5>
+      </div>
+      <div class="modal-body">
+  <p class="mb-0 text-white mt-3">@Messages("subscriber.modal.advanced.phoneNumber")</p>
+        <input type="text" class="form-control" id="">
+
+  <p class="mb-0 text-white mt-3">@Messages("subscriber.modal.advanced.serial")</p>
+        <input type="text" class="form-control" id="">
+
+  <p class="mb-0 text-white mt-3">@Messages("subscriber.modal.advanced.activationDate")</p>
+        <input type="text" class="form-control" id="">
+
+  <p class="mb-0 text-white mt-3">@Messages("subscriber.modal.advanced.activityStatus")</p>
+        <select class="form-select" id="">
+          <option selected="" >@Messages("subscriber.modal.advanced.all")</option>
+          <option value="" >@Messages("subscriber.modal.advanced.active")</option>
+          <option value="" >@Messages("subscriber.modal.advanced.block1")</option>
+          <option value="" >@Messages("subscriber.modal.advanced.block2")</option>
+          <option value="" >@Messages("subscriber.modal.advanced.debt")</option>
+        </select>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="" class="btn btn-light" data-bs-dismiss="modal">@Messages("btnCancle")</button>
+        <button type="button" onclick="" class="btn btn-light">@Messages("btnComfirm")</button>
+      </div>
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

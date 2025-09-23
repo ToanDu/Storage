@@ -1,0 +1,51 @@
+<div class="modal fade" id="addModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: red; border-radius: 16px 16px 0px 0px;">
+        <span class="modal-title text-white" id="myModalLabel">@Messages("Thêm user")</span>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-md-12">
+            <div class="row mt-3">
+              <label class="col-sm-4 col-form-label title-section-2">@Messages("Email")</label>
+              <div class="col-sm-7">
+                <input id="email" type="text" class="form-control input-form" placeholder="Nhập nội dung" maxlength="50" autocomplete="off">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row mt-3">
+              <label class="col-sm-4 col-form-label title-section-2">@Messages("Tên")</label>
+              <div class="col-sm-7">
+                <input id="name" type="text" class="form-control input-form" placeholder="Nhập nội dung" maxlength="50" autocomplete="off">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="row mt-3">
+              <label class="col-sm-4 col-form-label title-section-2">@Messages("Số điện thoại")</label>
+              <div class="col-sm-7">
+                <input id="phone" type="text" class="form-control input-form" placeholder="Nhập nội dung" onkeypress="return isNumberKey(event)" maxlength="11" autocomplete="off">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row mt-3">
+              <label class="col-sm-4 col-form-label title-section-2">@Messages("Mật khẩu")</label>
+              <div class="col-sm-7">
+                <input id="password" type="password" class="form-control input-form" placeholder="Nhập nội dung" autocomplete="off">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-cancle" data-bs-dismiss="modal">@Messages("btnCancle")</button>
+        <button type="button" class="btn btn-red" onclick="createUserTenant()">@Messages("btnComfirm")</button>
+      </div>
+    </div>
+  </div>
+</div>

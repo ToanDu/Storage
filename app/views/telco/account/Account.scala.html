@@ -1,0 +1,636 @@
+@import helper._
+@import vn.m2m.common.models.User
+@(currentUser:User, userId:String)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>@Messages("account.title")</title>
+        <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <meta name="viewport" content="width=device-width" />
+
+        @*<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@@400;500&display=swap" rel="stylesheet">*@
+        @views.html.iot.tags.Main_css()
+        <link href="@routes.Assets.versioned("stylesheets/views/modal-right.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("assets/plugins/input-tags/css/tagsinput.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("assets/plugins/notifications/css/lobibox.min.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("assets/css/icons.css")" rel="stylesheet">
+
+        @*<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >*@
+        <link href='@routes.Assets.versioned("stylesheets/fonts/roboto.css")' type='text/css'>
+        <link href="@routes.Assets.versioned("stylesheets/fonts/fonts.googleapis/fontsgoogleapis.css")" rel="stylesheet">
+        <link href="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.min.css")" rel="stylesheet" >
+
+        <link href="@routes.Assets.versioned("assets/plugins/select2/css/select2.min.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("assets/plugins/select2/css/select2-bootstrap4.css")" rel="stylesheet" />
+
+        <link href="@routes.Assets.versioned("stylesheets/views/telco/account/account.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("stylesheets/views/telco/telco.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("stylesheets/views/telco/role/childUser.css")" rel="stylesheet" />
+
+    </head>
+
+    <body class="bg-theme">
+        @views.html.telco.Menu(currentUser, "", userId)
+        @views.html.telco.Header(currentUser)
+        <div class="page-wrapper">
+            <div class="page-content">
+                <div class="section features-1">
+                    <div class="container-1" style="background-color: #FFFFFF">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item" role="presentation" onclick="">
+                                <a class="nav-link active display-4 title-section-1 " data-bs-toggle="tab" href="#infoAccount" role="tab" aria-selected="false">@Messages("account.info.tab")
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation" onclick="">
+                                <a class="nav-link display-4 title-section-1"  data-bs-toggle="tab" href="#enterpriseLv2" role="tab" aria-selected="false" onclick="getListChildUser()">@Messages("account.management.level2")
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content tab-recharge" style="">
+                            <div class="tab-pane fade show active" id="infoAccount" role="tabpanel">
+                                <div class="row" style="padding:30px">
+                                    <label class="col-sm-12 col-form-label title-section-2" style="font-style: italic">@Messages("account.info.notice")</label>
+                                    <div class="col-md-12 m-t-4">
+                                        <span class="display-4 title-section-1">@Messages("account.info.section1")</span>
+                                    </div>
+                                    <div class="col-md-12 m-t-3" style="border: 1px solid #DEDEDE;background-color: white">
+                                        <div class="row m-t-3">
+                                            <div class="col-md-4 m-t-3">
+                                                <div class="row m-b-4">
+                                                    <label class="col-sm-4 col-form-label title-section-2">@Messages("Email")<span class="text-red">@Messages("*")</span></label>
+                                                    <div class="col-sm-8">
+                                                        <input id="email" type="email" class="form-control input-form" maxlength="250" value="" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 m-t-3">
+                                                <div class="row m-b-4">
+                                                    <label class="col-sm-4 col-form-label title-section-2">@Messages("account.info.fullName")<span class="text-red">@Messages("*")</span></label>
+                                                    <div class="col-sm-8">
+                                                        <input id="hoTen" type="text" class="form-control input-form" maxlength="50" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 m-t-3">
+                                                <div class="row m-b-4">
+                                                    <label class="col-sm-4 col-form-label title-section-2">@Messages("account.info.idNumber")</label>
+                                                    <div class="col-sm-8">
+                                                        <input id="cmnd" type="number" class="form-control input-form" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==50) return false;" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4 m-t-3">
+                                                <div class="row m-b-4">
+                                                    <label class="col-sm-4 col-form-label title-section-2">@Messages("account.info.phone")<span class="text-red">@Messages("*")</span></label>
+                                                    <div class="col-sm-8">
+                                                        <input id="sdt" type="number" class="form-control input-form" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 m-t-3">
+                                                <div class="row m-b-4">
+                                                    <label class="col-sm-4 col-form-label title-section-2">@Messages("account.info.birthDate")</label>
+                                                    <div class="col-sm-8">
+                                                        <input id="ngaySinh" type="text" class="form-control input-form date_timepicker" maxlength="50" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 m-t-3">
+                                                <div class="row m-b-4">
+                                                    <label class="col-sm-4 col-form-label title-section-2">@Messages("account.info.nationality")</label>
+                                                    <div class="col-sm-8">
+                                                        @*<input id="quocTich" type="text" class="form-control input-form" maxlength="50" required>*@
+                                                        <select class="form-control" id="quocTich">
+                                                            <option value="@Messages("account.info.vietnam")">@Messages("account.info.vietnam")</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-8 m-t-3">
+                                                <div class="row m-b-4">
+                                                    <label class="col-sm-2 col-form-label title-section-2">@Messages("account.info.address")</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="row">
+                                                            <div class="col-sm-4">
+                                                                <select class="form-control" id="tinhTP" onchange="selectDistrict()">
+                                                                    <option value="">@Messages("account.info.province")</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <select class="form-control" id="quanHuyen" onchange="selectWard()">
+                                                                    <option>@Messages("account.info.district")</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <select class="form-control" id="phuongXa">
+                                                                    <option>@Messages("account.info.ward")</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-12 m-t-3">
+                                                                <input id="diaChiChiTiet" type="text" class="form-control input-form" maxlength="250" placeholder="@Messages("account.info.detailAddress")">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 m-t-3">
+                                                <div class="row m-b-4">
+                                                    <label class="col-sm-4 col-form-label title-section-2">@Messages("account.info.gender")</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-control" id="gioiTinh">
+                                                            <option value="M">@Messages("account.info.male")</option>
+                                                            <option value="F">@Messages("account.info.female")</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-2" style="width: 11.9%;">
+                                                <label class="col-sm-8 col-form-label title-section-2">@Messages("account.info.avatar")</label>
+                                            </div>
+                                            <div class="col-md-3 " style="background-color: #F6F6F6;border-radius:3px;height: 140px;padding:0px; line-height: 1;">
+                                                <div class="row m-b-2" style="border: 0.5px dashed #C0C0C0; margin:0.5rem; border-radius: 5px; height: 90%;">
+                                                    <div class="col-sm-12 position-relative">
+                                                        <div class="row" style="padding-top: 0.5rem">
+                                                            <div class="col-md-4 position-relative" style="display: flex; align-items: center;justify-content: center;">
+                                                                <input id="imgOld1" type="text" class="form-control" hidden>
+                                                                <input id="changeImg1" type="checkbox" hidden>
+                                                                <div class="d-flex flex-column align-items-center text-center square-item" >
+                                                                    <img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview1" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">
+                                                                    <input id="wizard-picture-1" name="avatar" type="file" hidden/>
+                                                                    <div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg1" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(1)"></i></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 position-relative" style="display: inline-table;padding-top: 1rem" >
+                                                                <label class="form-label " style="font-size: 16px;color: #727272;font-style: bold">@Messages("account.info.uploadImage")</label><br>
+                                                                <label class="form-label " style="font-size:12px">@Messages("account.info.dragDropFile")<a onclick="$('#wizard-picture-1').click();" class="cursor-pointer text-decoration-underline text-danger">@Messages("account.info.clickHere")</a></label>
+                                                            </div>
+                                                            <div class="col-md-12 position-relative" style="padding-top: 0.5rem;">
+                                                                <small class="form-label " style="font-style: italic;font-size: 12px;">@Messages("account.info.fileRequirement")</small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2" style="width: 10%">
+                                                <label class="col-sm-12 col-form-label title-section-2">@Messages("account.info.idCard")<span class="text-red">@Messages("*")</span></label>
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                <div class="row m-b-4">
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+                                                            <div class="col-sm-6 " style="background-color: #F6F6F6;border-radius:3px;height: 140px;padding:0px; line-height: 1;width: 48%">
+                                                                <div class="row m-b-2" style="border: 0.5px dashed #C0C0C0; margin:0.5rem; border-radius: 5px; height: 90%;">
+                                                                    <div class="col-sm-12 position-relative">
+                                                                        <div class="row" style="padding-top: 0.5rem">
+                                                                            <div class="col-md-4 position-relative" style="display: flex; align-items: center;justify-content: center;">
+                                                                                <input id="imgOld2" type="text" class="form-control" hidden>
+                                                                                <input id="changeImg2" type="checkbox" hidden>
+                                                                                <div class="d-flex flex-column align-items-center text-center square-item" >
+                                                                                    <img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview2" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">
+                                                                                    <input id="wizard-picture-2" name="avatar" type="file" hidden/>
+                                                                                    <div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg2" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(2)"></i></div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-8 position-relative" style="display: inline-table;padding-top: 1rem" >
+                                                                                <label class="form-label " style="font-size: 16px;color: #727272;font-style: bold">@Messages("account.info.uploadImage")</label><br>
+                                                                                <label class="form-label " style="font-size:12px">@Messages("account.info.dragDropFile")<a onclick="$('#wizard-picture-2').click();" class="cursor-pointer text-decoration-underline text-danger">@Messages("account.info.clickHere")</a></label>
+                                                                            </div>
+                                                                            <div class="col-md-12 position-relative" style="padding-top: 0.5rem;">
+                                                                                <small class="form-label " style="font-style: italic;font-size: 12px;">@Messages("account.info.fileRequirement")</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6 " style="background-color: #F6F6F6;border-radius:3px;height: 140px;padding:0px;margin-left: 1rem; line-height: 1;width: 48%">
+                                                                <div class="row m-b-2" style="border: 0.5px dashed #C0C0C0; margin:0.5rem; border-radius: 5px; height: 90%;">
+                                                                    <div class="col-sm-12 position-relative">
+                                                                        <div class="row" style="padding-top: 0.5rem">
+                                                                            <div class="col-md-4 position-relative" style="display: flex; align-items: center;justify-content: center;">
+                                                                                <input id="imgOld3" type="text" class="form-control" hidden>
+                                                                                <input id="changeImg3" type="checkbox" hidden>
+                                                                                <div class="d-flex flex-column align-items-center text-center square-item" >
+                                                                                    <img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview3" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">
+                                                                                    <input id="wizard-picture-3" name="avatar" type="file" hidden/>
+                                                                                    <div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg3" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(3)"></i></div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-8 position-relative" style="display: inline-table;padding-top: 1rem" >
+                                                                                <label class="form-label " style="font-size: 16px;color: #727272;font-style: bold">@Messages("account.info.uploadImage")</label><br>
+                                                                                <label class="form-label " style="font-size:12px">@Messages("account.info.dragDropFile")<a onclick="$('#wizard-picture-3').click();" class="cursor-pointer text-decoration-underline text-danger">@Messages("account.info.clickHere")</a></label>
+                                                                            </div>
+                                                                            <div class="col-md-12 position-relative" style="padding-top: 0.5rem;">
+                                                                                <small class="form-label " style="font-style: italic;font-size: 12px;">@Messages("account.info.fileRequirement")</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-1 " style="width: 11.9%">
+                                                <label class="col-sm-12 col-form-label title-section-2">@Messages("account.info.authorization")<span class="text-red">@Messages("*")</span></label>
+                                                <div class="col-sm-12 col-form-label ">
+                                                    <label class="form-label " style="font-size: 12px">@Messages("account.info.downloadTemplate")<a href="/assets/Giay_uy_quyen.docx " download="Giay_uy_quyen.docx" class="cursor-pointer text-danger">@Messages("account.info.clickHere")</a></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 " style="background-color: #F6F6F6;border-radius:3px;height: 140px;padding:0px; line-height: 1;">
+                                                <div class="row m-b-2" style="border: 0.5px dashed #C0C0C0; margin:0.5rem; border-radius: 5px; height: 90%;">
+                                                    <div class="col-sm-12 position-relative">
+                                                        <div class="row" style="padding-top: 0.5rem">
+                                                            <div class="col-md-4 position-relative" style="display: flex; align-items: center;justify-content: center;">
+                                                                <input id="imgOld5" type="text" class="form-control" hidden>
+                                                                <input id="changeImg5" type="checkbox" hidden>
+                                                                <div class="d-flex flex-column align-items-center text-center square-item" >
+                                                                    <img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview5" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">
+                                                                    <input id="wizard-picture-5" name="avatar" type="file" hidden/>
+                                                                    <div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg5" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(5)"></i></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 position-relative" style="display: inline-table;padding-top: 1rem" >
+                                                                <label class="form-label " style="font-size: 16px;color: #727272;font-style: bold">@Messages("account.info.uploadImage")</label><br>
+                                                                <label class="form-label " style="font-size:12px">@Messages("account.info.dragDropFile")<a onclick="$('#wizard-picture-5').click();" class="cursor-pointer text-decoration-underline text-danger">@Messages("account.info.clickHere")</a></label>
+                                                            </div>
+                                                            <div class="col-md-12 position-relative" style="padding-top: 0.5rem;">
+                                                                <small class="form-label " style="font-style: italic;font-size: 12px;">@Messages("account.info.fileRequirement")</small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-2 " style="width: 10%;">
+                                                <label class="col-sm-12 col-form-label title-section-2">@Messages("account.info.registrationForm")<span class="text-red">@Messages("*")</span></label>
+                                                <div class="col-md-12 position-relative">
+                                                    <label class="form-label" style="font-size: 12px">@Messages("account.info.downloadTemplate")<a href="/assets/Phieu_dang_ky.docx " download="Phieu_dang_ky.docx" class="cursor-pointer text-danger">@Messages("account.info.clickHere")</a></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 " style="background-color: #F6F6F6;border-radius:3px;height: 140px;padding:0px; line-height: 1;width: 24%">
+                                                <div class="row m-b-2" style="border: 0.5px dashed #C0C0C0; margin:0.5rem; border-radius: 5px; height: 90%;">
+                                                    <div class="col-sm-12 position-relative">
+                                                        <div class="row" style="padding-top: 0.5rem">
+                                                            <div class="col-md-4 position-relative" style="display: flex; align-items: center;justify-content: center;">
+                                                                <input id="imgOld6" type="text" class="form-control" hidden>
+                                                                <input id="changeImg6" type="checkbox" hidden>
+                                                                <div class="d-flex flex-column align-items-center text-center square-item" >
+                                                                    <img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview6" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">
+                                                                    <input id="wizard-picture-6" name="avatar" type="file" hidden/>
+                                                                    <div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg6" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(6)"></i></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 position-relative" style="display: inline-table;padding-top: 1rem" >
+                                                                <label class="form-label " style="font-size: 16px;color: #727272;font-style: bold">@Messages("account.info.uploadImage")</label><br>
+                                                                <label class="form-label " style="font-size:12px">@Messages("account.info.dragDropFile")<a onclick="$('#wizard-picture-6').click();" class="cursor-pointer text-decoration-underline text-danger">@Messages("account.info.clickHere")</a></label>
+                                                            </div>
+                                                            <div class="col-md-12 position-relative" style="padding-top: 0.5rem;">
+                                                                <small class="form-label " style="font-style: italic;font-size: 12px;">@Messages("account.info.fileRequirement")</small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="padding: 10px">
+                                                <hr style="border-top: 2px solid #000000; ">
+                                            </div>
+                                            <div class="row" style="padding:15px">
+                                                <div class="col-md-12 m-t-4">
+                                                    <span class="display-4 title-section-1">@Messages("account.contact.other")</span>
+                                                </div>
+                                                <div class="col-md-12 m-t-3">
+                                                    <div class="row m-t-3">
+                                                        <div class="col-md-6 m-t-3">
+                                                            <div class="row m-b-4">
+                                                                <label class="col-sm-4 col-form-label title-section-2">@Messages("account.contact.email")</label>
+                                                                <div class="col-sm-8">
+                                                                    <input id="emailContact" type="email" placeholder="@Messages("account.contact.emailPlaceholder")" class="form-control input-form" maxlength="250" value="" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 m-t-3">
+                                                            <div class="row m-b-4">
+                                                                <label class="col-sm-4 col-form-label title-section-2">@Messages("account.contact.phone")</label>
+                                                                <div class="col-sm-6">
+                                                                    <input id="sdtContact" type="number" placeholder="@Messages("account.contact.phonePlaceholder")" class="form-control input-form" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 m-t-1">
+                                                    <label class="col-sm-12 col-form-label title-section-3" style="font-style: italic">@Messages("account.contact.notice")</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 m-t-3">
+                                                <label class="col-form-label title-section-2" id="notiApprovedAccount"></label>
+                                            </div>
+                                            <div class="row m-t-2 m-b-4">
+                                                <div class="col-md-12 mx-auto text-center">
+                                                    <button type="button" class="btn btn-telco" style="background: #EA0033; color: #FFFFFF;" onclick="getOtpUpdateInfoAcc();">@Messages("btnComfirm")</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <hr style="border-top: 1px solid #DEDEDE;">
+
+                                    <div class="row" id="tab_info_company">
+                                        <div class="col-md-12">
+                                            <span class="display-4 title-section-1">@Messages("account.enterprise.section2")</span>
+                                        </div>
+
+                                        <input id="id_doanh_nghiep_0" class="id_doanh_nghiep" hidden readonly>
+                                        <div class="col-md-12 m-t-3" id="tt_doanh_nghiep_0" stt="0" style="border: 1px solid #a2a2a2;">
+                                            <div class="row m-t-3">
+                                                <div class="col-md-8">
+                                                    <div class="row m-b-4">
+                                                        <label class="col-sm-2 col-form-label title-section-2">@Messages("account.enterprise.name")<span class="text-red">@Messages("*")</span></label>
+                                                        <div class="col-sm-10">
+                                                            <input id="tenDoanhNghiep_0" type="text" class="form-control input-form" maxlength="250" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-b-4">
+                                                        <div class="col-sm-6">
+                                                            <div class="row">
+                                                                <label class="col-sm-4 col-form-label title-section-2">@Messages("account.enterprise.taxCode")<span class="text-red">@Messages("*")</span></label>
+                                                                <div class="col-sm-8">
+                                                                    <input id="maSoThue_0" type="text" class="form-control input-form" maxlength="250" value="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="row">
+                                                                <label class="col-sm-4 col-form-label title-section-2">@Messages("account.enterprise.licenseNumber")<span class="text-red">@Messages("*")</span></label>
+                                                                <div class="col-sm-8">
+                                                                    <input id="soGpkd_0" type="text" class="form-control input-form" maxlength="250" value="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-b-4">
+                                                        <div class="col-sm-6">
+                                                            <div class="row">
+                                                                <label class="col-sm-4 col-form-label title-section-2">@Messages("account.enterprise.establishDate")<span class="text-red">@Messages("*")</span></label>
+                                                                <div class="col-sm-8">
+                                                                    <input id="ngayThanhLap_0" type="text" class="form-control input-form date_timepicker" maxlength="250">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="row">
+                                                                <label class="col-sm-4 col-form-label title-section-2">@Messages("account.enterprise.phone")</label>
+                                                                <div class="col-sm-8">
+                                                                    <input id="sdtDN_0" type="number" class="form-control input-form" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==11) return false;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-b-4">
+                                                        <label class="col-sm-2 col-form-label title-section-2">@Messages("Email DN")</label>
+                                                        <div class="col-sm-10">
+                                                            <input id="emailDN_0" type="text" class="form-control input-form" maxlength="250">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-b-3">
+                                                        <label class="col-sm-2 col-form-label title-section-2">@Messages("account.info.address")<span class="text-red">@Messages("*")</span></label>
+                                                        <div class="col-sm-10">
+                                                            <div class="row">
+                                                                <div class="col-sm-4">
+                                                                    <select class="form-control" id="tinhTpDN_0" onchange="selectDistrictDN(0)">
+                                                                        <option value="">@Messages("account.info.province")</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <select class="form-control" id="quanHuyenDN_0" onchange="selectWardDN(0)">
+                                                                        <option value="">@Messages("account.info.district")</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <select class="form-control" id="phuongXaDN_0">
+                                                                        <option value="">@Messages("account.info.ward")</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-12 m-t-3">
+                                                                    <input id="diaChiChiTietDN_0" type="text" class="form-control input-form" maxlength="250" placeholder="Địa chỉ chi tiết">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-b-3">
+                                                        <label class="col-sm-2 col-form-label title-section-2">@Messages("account.enterprise.field")<span class="text-red">@Messages("*")</span></label>
+                                                        <div class="col-sm-10">
+                                                            <select class="form-control" id="linhVuc_0" multiple="multiple">
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-b-3">
+                                                        <label class="col-sm-2 col-form-label title-section-2">@Messages("account.enterprise.deviceType")<span class="text-red">@Messages("*")</span></label>
+                                                        <div class="col-sm-10">
+                                                            <select class="form-control" id="dongThietBi_0" multiple="multiple">
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="row m-b-4">
+                                                        <label class="col-sm-12 col-form-label title-section-2">@Messages("account.enterprise.licenseImage")<span class="text-red">@Messages("*")</span></label>
+                                                        <div class="col-sm-12 position-relative">
+                                                            <div class="row">
+                                                                <div class="col-md-4 position-relative">
+                                                                    <input id="imgOld4_0" type="text" class="form-control" hidden>
+                                                                    <input id="changeImg4_0" type="checkbox" hidden>
+                                                                    <div class="d-flex flex-column align-items-center text-center square-item" >
+                                                                        <img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview4_0" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">
+                                                                        <input id="wizard-picture-4_0" name="avatar" type="file" hidden/>
+                                                                        @*<div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg4" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(4)"></i></div>*@
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-8 position-relative">
+                                                                    <label class="form-label ">@Messages("Upload image")</label><br>
+                                                                    <label class="form-label ">@Messages("account.info.dragDropImageFile")<a onclick="$('#wizard-picture-4_0').click();" class="cursor-pointer text-danger">@Messages("account.info.clickHere")</a></label>
+                                                                </div>
+                                                                <div class="col-md-12 position-relative">
+                                                                    <small class="form-label ">@Messages("account.info.fileRequirement")</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="row m-t-3">
+                                                        <label class="col-sm-12 col-form-label title-section-2" id="notiApproved_0"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row m-t-2 m-b-4">
+                                                <div class="col-md-12 mx-auto text-center">
+                                                    <button type="button" class="btn btn-telco" style="background: #EA0033; color: #FFFFFF;" onclick="getOtpUpdateEnterprise(0)">@Messages("btnComfirm")</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="row m-t-3">
+                                            <label class="col-sm-12 col-form-label title-section-2" style="text-align: right;">
+                                                <a onclick="addFormInfoCompany()" style="color: green; cursor: pointer; font-weight: 600;">@Messages("account.enterprise.add")</a></label>
+                                        </div>
+                                    </div>
+                                    <hr style="border-top: 1px solid #DEDEDE;">
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="enterpriseLv2" style="margin-bottom: 2rem;margin-top: 1rem" role="tabpanel">
+                                @views.html.telco.childUser.ChildUserList_formSearch(currentUser)
+
+                                <div class="card">
+                                    <div class="table-responsive" style="border-radius: 8px;">
+                                        <table class="table table-striped" id="listChildUserTable" style="width: 100%;">
+                                            <thead style="background-color: #FBCCD6;">
+                                                <tr>
+                                                    <th>@Messages("account.table.stt")</th>
+                                                    <th>@Messages("account.table.fullName")</th>
+                                                    <th>@Messages("account.table.email")</th>
+                                                    <th>@Messages("account.table.phone")</th>
+                                                    <th style="text-align: center;">@Messages("account.table.permission")</th>
+                                                    <th style="text-align: center;">@Messages("account.table.resetPassword")</th>
+                                                    <th style="text-align: center;">@Messages("account.table.delete")</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                        <h5 id="notiNotData" style="text-align: center;"></h5>
+                                    </div>
+                                    <div class="material-datatables row row-cols-auto g-3" style="margin: 5px; margin-bottom: 10px;" id="divPagingTable">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="countPageSize" style="background-color: rgb(0 0 0 / 50%);; margin-left: 5px;">10</button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="javascript:ApplyFilter(1,10,true)">10</a></li>
+                                                        <li><a class="dropdown-item" href="javascript:ApplyFilter(1,50,true)">50</a></li>
+                                                        <li><a class="dropdown-item" href="javascript:ApplyFilter(1,100,true)">100</a></li>
+                                                        <li><a class="dropdown-item" href="javascript:ApplyFilter(1,200,true)">200</a></li>
+                                                        <li><a class="dropdown-item" href="javascript:ApplyFilter(1,500,true)">500</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="dataTables_paginate paging_full_numbers" id="pagingTable" style="cursor: pointer; right: 5px; position: absolute;"></div>
+                                            </div>
+                                        </div>
+
+                                        <input name="page" id="page" value="1" style="display: none">
+                                        <input name="pageSize" id="pageSize" value="10" style="display: none">
+                                        <input name="isResetPage" id="isResetPage" value="false" style="display: none">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @views.html.telco.account.Account_otp()
+                    @views.html.telco.account.Account_zoomImg()
+                    @views.html.telco.account.Account_updateInfoAcc()
+                    @views.html.telco.account.Account_updateEnterprise()
+                    @views.html.telco.account.Account_delEnterprise()
+                    @views.html.telco.childUser.ChildUserList_add()
+                    @views.html.telco.childUser.ChildUserList_genPass()
+                    @views.html.telco.childUser.ChildUserList_genPass_comfirm()
+                    @views.html.telco.childUser.ChildUserList_del()
+                    @views.html.telco.childUser.ChildUserList_editRole()
+
+
+                    @views.html.Loading()
+
+                </div>
+            </div>
+    </body>
+    <script>
+            var imgDefault = '@routes.Assets.versioned("images/market/default.png")';
+            var userId = '@userId';
+
+            //            $(document).ready(function () {
+            //                $("#menu-childUser").addClass("mm-active");
+            //                $("#menu").metisMenu();
+            //            })
+    </script>
+    <script src="@routes.Assets.versioned("javascripts/exportfile/table3export.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/validateForm.js")" type="text/javascript"></script>
+
+    <script src="@routes.Assets.versioned("javascripts/views/telco/childUser/ChildUser.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/childUser/ChildUser_add.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/childUser/ChildUser_pass.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/childUser/ChildUser_del.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/childUser/ChildUser_role.js")" type="text/javascript"></script>
+
+
+    <script type="text/javascript" src="@routes.JsController.jsMessages()"></script>
+    <script type="text/javascript" src="@routes.JsController.javascriptRoutes"></script>
+    <script src="@routes.Assets.versioned("javascripts/js/core/jquery.min.js")" type="text/javascript"></script>
+
+    <script src="@routes.Assets.versioned("javascripts/landingPage/jquery.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/landingPage/popper.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/landingPage/bootstrap.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("assets/js/bootstrap.bundle.min.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/landingPage/argon-design-system.js?v=1.2.2")" type="text/javascript"></script>
+
+    <script src="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/js/moment.min.js")"></script>
+    <script src="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.min.js")"></script>
+
+    <script src="@routes.Assets.versioned("assets/plugins/notifications/js/lobibox.min.js")"></script>
+    <script src="@routes.Assets.versioned("assets/plugins/notifications/js/notifications.min.js")"></script>
+    <script src="@routes.Assets.versioned("assets/plugins/notifications/js/notification-custom-script.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/ShowNotification.js")" type="text/javascript"></script>
+
+    <script src="@routes.Assets.versioned("assets/plugins/select2/js/select2.min.js")"></script>
+
+    <script src="@routes.Assets.versioned("javascripts/views/telco/validateForm.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/account/account_typeBusiness.js")" type="text/javascript"></script>
+
+    <script src="@routes.Assets.versioned("javascripts/views/telco/account/account.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/account/account_verify.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/account/account_area.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/account/account_editGpkd.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/account/account_updateInfoAcc.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/account/account_updateEnterprise.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/account/account_delEnterprise.js")" type="text/javascript"></script>
+
+    @views.html.BackToTop()
+
+    <script>
+            var userId = '@userId';
+            var phoneUser = "";
+            var imgDefault = '@routes.Assets.versioned("images/market/default.png")';
+            $('.date_timepicker').bootstrapMaterialDatePicker({
+                format: 'DD/MM/YYYY',
+                time: false
+            });
+    </script>
+
+</html>

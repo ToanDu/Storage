@@ -1,0 +1,185 @@
+<div class="row mt-4" id="device-aep" style="display: none;">
+  <div class="card">
+    <div class="card-body">
+      <span class="text-search">@Messages("Thông tin tìm kiếm")</span>
+      <input id="gpkd" type="text" class="form-control" readonly hidden>
+
+      <div class="row mt-3">
+        <div class="col-md-10">
+          <div class="row">
+            <div class="col-md-6 m-t-3">
+              <div class="row m-b-4">
+                <div class="col-sm-1"></div>
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("Số thuê bao")</label>
+                <div class="col-sm-8 input-icons">
+                  <div class="input-group">
+                    <input id="isdn" type="text" class="form-control input-form" placeholder="Nhập nội dung" onkeypress="return isNumberKey(event)" maxlength="10000" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 m-t-3">
+              <div class="row m-b-4">
+                <div class="col-sm-1"></div>
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("Serial")</label>
+                <div class="col-sm-8">
+                  <div class="input-group">
+                    <input id="serialSim" type="text" class="form-control input-form" placeholder="Nhập nội dung" onkeypress="return isNumberKey(event)"  maxlength="20000" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 m-t-3">
+              <div class="row m-b-4">
+                <div class="col-sm-1"></div>
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("Mã hợp đồng")</label>
+                <div class="col-sm-8">
+                  <div class="input-group">
+                    <input id="accountId" type="text" class="form-control input-form" placeholder="Nhập nội dung" onkeypress="return isNumberKey(event)" maxlength="250" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 m-t-3">
+              <div class="row m-b-4">
+                <div class="col-sm-1"></div>
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("Loại dịch vụ")</label>
+                <div class="col-sm-8">
+                  <select id="payType" type="text" class="form-select" onchange="choosePayType(this)">
+                    <option value="" selected>@Messages("-- Chọn --")</option>
+                    <option value="1">@Messages("Trả sau")</option>
+                    <option value="2">@Messages("Trả trước")</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 m-t-3">
+              <div class="row m-b-4">
+                <div class="col-sm-1"></div>
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("Gói cước sử dụng")</label>
+                <div class="col-sm-8">
+                  <select id="productCode" type="text" class="form-select">
+                    <option value="" selected>@Messages("-- Chọn --")</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 m-t-3">
+              <div class="row m-b-4">
+                <div class="col-sm-1"></div>
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("Tình trạng chặn cắt")</label>
+                <div class="col-sm-8">
+                  <select id="actStatus" type="text" class="form-select">
+                    <option value="" selected>@Messages("-- Hãy chọn loại dịch vụ --")</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 m-t-3">
+              <div class="row m-b-4">
+                <div class="col-sm-1"></div>
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("Ngày kích hoạt")</label>
+                <div class="col-sm-8">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <input class="form-control datetimepicker" type="text" id="staDatetimeFrom" value="" placeholder="Từ ngày">
+                    </div>
+                    <div class="col-sm-6">
+                      <input class="form-control datetimepicker" type="text" id="staDatetimeTo" value="" placeholder="Đến ngày">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 m-t-3">
+              <div class="row m-b-4">
+                <div class="col-sm-1"></div>
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("Ngày đấu nối")</label>
+                <div class="col-sm-8">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <input class="form-control datetimepicker" type="text" id="activeDateFrom" value="" placeholder="Từ ngày">
+                    </div>
+                    <div class="col-sm-6">
+                      <input class="form-control datetimepicker" type="text" id="activeDateTo" value="" placeholder="Đến ngày">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card-body" style="height: 100%;">
+            <div class="">
+              <button type="button" class="btn mt-3 btn-telco" style="background: #EA0033; color: #FFFFFF; width: 100%;" onclick="onlickButtonSearchSubs()">@Messages("Tra cứu")</button>
+              <button type="button" class="btn mt-3 btn-telco" style="background: #FFFFFF; color: #EA0033; width: 100%;" onclick="resetFormSearch()">@Messages("Reset")</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h6>@Messages("Đã chọn ")<span style="color: red;" id="countCheckSubs">@Messages("(0)")</span>@Messages(" thuê bao")</h6>
+    </div>
+    <div class="col-md-6" style="text-align: right;">
+      <button type="button" class="btn btn-success mb-2" onclick="showModalCreateDevice()">@Messages("Tạo thiết bị")</button>
+    </div>
+  </div>
+
+  <div class="card" style="padding-left: 0; padding-right: 0;">
+    <div class="table-responsive mb-3" style="border-radius: 8px;">
+      <table class="table table-striped" id="listSubsTable" style="width: 100%;">
+        <thead style="background-color: #FBCCD6;">
+          <tr>
+            <th>
+              <input class="form-check-input check-all" type="checkbox" id="check-all-subs" onchange="checkAllSubs(this)">
+            </th>
+            <th>STT</th>
+            <th>Số thuê bao</th>
+            <th>Mã TB</th>
+            <th>Gói cước</th>
+            @*<th>Mã hợp đồng</th>*@
+            @*<th>Mã KH</th>*@
+            <th>Serial sim</th>
+            <th>TT chặn cắt</th>
+            <th>Kích hoạt</th>
+            <th>Đấu nối</th>
+            <th>Loại DV</th>
+            <th style="text-align: center">@Messages("Hành động")</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <h5 id="notiNotDataSubs" style="text-align: center;"></h5>
+    </div>
+    <div class="material-datatables row row-cols-auto g-3 mt-1" style="margin-bottom: 5px; margin-bottom: 10px; display: none;" id="divPagingTable">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="countPageSize" style="background-color: rgb(0 0 0 / 50%); margin-left: 5px;">10</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="javascript:ApplyFilter(1,10,true)">10</a></li>
+              <li><a class="dropdown-item" href="javascript:ApplyFilter(1,50,true)">50</a></li>
+              <li><a class="dropdown-item" href="javascript:ApplyFilter(1,100,true)">100</a></li>
+              <li><a class="dropdown-item" href="javascript:ApplyFilter(1,200,true)">200</a></li>
+              <li><a class="dropdown-item" href="javascript:ApplyFilter(1,500,true)">500</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="dataTables_paginate paging_full_numbers" id="pagingTable" style="cursor: pointer; right: 5px; position: absolute;"></div>
+        </div>
+      </div>
+
+      <input name="page" id="page" value="1" style="display: none">
+      <input name="pageSize" id="pageSize" value="10" style="display: none">
+      <input name="isResetPage" id="isResetPage" value="false" style="display: none">
+    </div>
+  </div>
+
+</div>

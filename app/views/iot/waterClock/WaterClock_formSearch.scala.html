@@ -1,0 +1,66 @@
+<div class="card ">
+  <div class="card-body">
+    <div class="col-12">
+      <div class="row">
+        @fromTime = @{
+          import java.util.Calendar
+          import java.text.SimpleDateFormat
+
+          val today = Calendar.getInstance
+          today.add(Calendar.DATE,-29);
+          val curTimeFormat = new SimpleDateFormat("dd-MM-yyyy")
+          curTimeFormat.format(today.getTime)
+        }
+        @toTime = @{
+          import java.util.Calendar
+          import java.text.SimpleDateFormat
+          //import java.util.TimeZone
+
+          val today = Calendar.getInstance()
+          // today.setTimeZone(TimeZone.getTimeZone("GMT+7"))
+          val curTimeFormat = new SimpleDateFormat("dd-MM-yyyy")
+          curTimeFormat.setTimeZone(TimeZone.getTimeZone("GMT+7"));
+          curTimeFormat.format(today.getTime)
+        }
+
+        <div class="form-group col-md-2">
+          <div class="row">
+            <label class="col-md-4 col-form-label" style="text-align: right">@Messages("Form")</label>
+            <div class="col-md-8">
+              <div class="form-group">
+                <input class="result form-control" type="text" id="date_timepicker_start" value="@fromTime">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-2">
+          <div class="row">
+            <label class="col-md-4 col-form-label" style="text-align: right">@Messages("To")</label>
+            <div class="col-md-8">
+              <div class="form-group has-default">
+                <input class="result form-control" type="text" id="date_timepicker_end" value="@toTime">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-7">
+          <div class="row">
+            <label class="col-md-3 col-form-label" style="text-align: right">@Messages("Device")</label>
+            <div class="col-md-9">
+              <div class="form-group has-default" id="selectClock">
+                <select id="chooseDeviceClock" multiple class="single-select" style="width: 100%"></select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-1">
+          <button type="submit" class="btn btn-fill btn-danger" onclick="getHistoryClock()" id="buttonSearchHistory">@Messages("Tìm ")</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,607 @@
+.title-card {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    color: #1C1C1C;
+}
+
+.align-items-center {
+    margin: auto;
+}
+
+.select-form {
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    width: 121px;
+    height: 28px;
+    float: right;
+}
+
+.count-card {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 80px;
+    line-height: 80px;
+    color: #EA0033;
+}
+
+.count-card-1 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #222222;
+}
+
+.span-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #585757;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.count-text {
+    border-radius: 96px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    color: white;
+    padding: 5px;
+}
+
+.statistical-text {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1C1C1C;
+}
+
+.apex-icon-circle {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 3px;
+    border-style: solid;
+    height: 12px;
+    width: 12px;
+    left: 0px;
+    top: 0px;
+    border-width: 0px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 12px;
+}
+
+.select2-results__option {
+    color: white;
+}
+.select2-dropdown {
+    background-color: #000000;
+}
+.select2-container--bootstrap4 .select2-dropdown .select2-results__option[aria-selected=true] {
+    background-color: #ee0033;
+    color: white;
+}
+
+/* New dashboard */
+.telco__features {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: .3125rem;
+    padding: .625rem 2.1875rem;
+    margin-bottom: .9375rem;
+}
+
+.telco__features-item {
+    width: calc(100%/8);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: .625rem;
+    text-align: center;
+}
+
+.telco__features-item-img {
+    object-fit: cover;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+}
+
+.telco__features-item-name {
+    color: #000000;
+}
+
+.telco__totals {
+    display: flex;
+    justify-content: space-between;
+    gap: .9375rem;
+    margin-bottom: .9375rem;
+}
+
+.telco__totals-item {
+    display: flex;
+    width: calc(100%/5);
+    min-height: 7.5rem;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: .9375rem;
+    background-color: #FFFFFF;
+    border-radius: .3125rem;
+    flex: 1;
+}
+
+.telco__totals-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.telco__totals-item-title,
+.telco__charts-item-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #727272;
+    text-transform: uppercase;
+    margin-bottom: .9375rem;
+    display: inline-block;
+}
+
+.telco__totals-item-percent--up {
+    color: #00C74C;
+    font-weight: 700;
+}
+.telco__totals-item-percent--down {
+    color: #e60023;
+    font-weight: 700;
+}
+
+.telco__totals-item-number {
+    font-weight: 700;
+    font-size: 1.5625rem;
+    color: #5C5C5C;
+}
+
+.telco__charts {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .9375rem;
+    gap: .9375rem;
+}
+
+.telco__charts-item {
+    border-radius: 1.25rem;
+    background-color: #FFFFFF;
+    padding: .9375rem;
+    flex: 1;
+}
+
+.telco__charts-item:nth-child(1),
+.telco__charts-item:nth-child(2) {
+    width: 30%;
+}
+
+.telco__charts-item:nth-child(3) {
+    width: 40%;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.telco__warning-svg {
+    animation: blink 1s infinite;
+}
+
+.telco__alert {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 16px;
+    font-family: Arial, sans-serif;
+}
+
+.telco__alert-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.telco__alert-title-icon {
+    color: red;
+    font-size: 18px;
+    margin-left: 8px;
+}
+
+.telco__alert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+}
+
+.telco__alert-box {
+    border-radius: 16px;
+    padding: 16px;
+    position: relative;
+    min-height: 120px;
+}
+
+.telco__alert-name {
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.telco__alert-value {
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0;
+}
+
+.telco__alert-sub {
+    font-size: 13px;
+    color: #333;
+}
+
+.telco__alert-link {
+    font-size: 12px;
+    color: #888;
+    text-decoration: none;
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    font-style: italic;
+}
+
+.telco__charts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.telco__charts-box {
+    border-radius: 16px;
+    padding: 16px;
+    position: relative;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.telco__charts-box-name {
+    font-weight: 500;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.telco__charts-box-value {
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0;
+}
+
+.telco__charts-box-sub {
+    font-size: 12px;
+    color: #333;
+}
+
+.telco__charts-box-link {
+    font-size: 12px;
+    color: #888;
+    text-decoration: underline;
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    font-style: italic;
+}
+
+.telco__charts-box--pink {
+    background-color: #FFE2E5;
+}
+
+.telco__charts-box--purple {
+    background-color: #F3E8FF;
+}
+
+.telco__charts-box--mint {
+    background-color: #DCFCE7;
+}
+
+.telco__charts-box--cream {
+    background-color: #FFF3DC;
+}
+
+.telco__charts-box--blue {
+    background-color: #CDE7FF
+}
+
+.telco__charts-box--yellow {
+    background-color: #FBE480;
+}
+
+.telco__datas {
+    display: flex;
+    justify-content: space-between;
+    gap: .9375rem;
+    max-height: 30rem;
+    margin-bottom: 1.875rem;
+}
+
+.tel__datas-used-data {
+    width: 70%;
+    border-radius: 1.25rem;
+    background-color: #FFFFFF;
+    padding: 0.9375rem;
+}
+
+.tel__datas-map {
+    width: 30%;
+    border-radius: 1.25rem;
+    background-color: #FFFFFF;
+    padding: 0.9375rem;
+}
+
+
+.tel__map{
+    display: flex;
+    flex-direction: column;
+    height: 43rem;
+    border-radius: 1.25rem;
+    background-color: #FFFFFF;
+    padding: 0.9375rem;
+}
+.tel__map-box {
+    flex: 1;
+
+}
+#subscriber-statistics-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 2.1875rem;
+}
+
+
+.chart-title {
+    text-align: center;
+    font-size: .75rem;
+}
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.warning-svg {
+    animation: blink 1s infinite;
+}
+
+.apexcharts-legend-marker {
+    border-radius: 50% !important;
+}
+
+.apexcharts-legend-text,
+.apexcharts-text {
+    color: #615E83 !important;
+}
+
+#totalSub_data {
+    font-size: 1.25rem;
+    color: #727272;
+    font-weight: 700;
+}
+
+.card_dashboard {
+    border-radius: 1.25rem;
+    background-color: #FFFFFF;
+    padding: 0.9375rem;
+}
+#list-group-custom {
+    border-radius: 1.25rem;
+}
+#list-group-custom .list-group-item {
+    border: 1px solid #C0C0C0;
+    padding: 15px 1rem;
+   
+}
+#list-group-custom .list-group-item:not(:last-child) {
+ border-bottom-width: 0px;
+}
+/* ============================
+   Responsive: Tablet & Mobile
+   ============================ */
+
+/* Tablet: ≤ 1200px (~75rem) */
+@media (max-width: 75rem) {
+    .telco__features {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .telco__features-item {
+        width: calc(100% / 4 - 1rem);
+    }
+
+    .telco__totals {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .telco__totals-item {
+        width: calc(50% - 1rem);
+    }
+
+    .telco__charts {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .telco__charts-item {
+        width: 100% !important;
+    }
+
+    .telco__charts-grid {
+        grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+        /* 200px */
+    }
+    .telco__datas{
+        flex-direction: column;
+        max-height: none;
+    }
+    .tel__datas-used-data, .tel__datas-map{
+        width: 100%;
+    }
+     #subscriber-statistics-container {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Mobile: ≤ 768px (~48rem) */
+@media (max-width: 48rem) {
+    .telco__features-item {
+        width: calc(50% - 1rem);
+    }
+
+    .telco__features {
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .telco__totals {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .telco__totals-item {
+        width: 100%;
+    }
+
+    .telco__charts {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .telco__charts-item {
+        width: 100% !important;
+    }
+
+    .telco__charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .telco__charts-box {
+        min-height: auto;
+    }
+
+    .telco__charts-box-link {
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    .telco__alert-title {
+        font-size: 1rem;
+    }
+
+    .telco__alert-box {
+        padding: 1rem;
+    }
+
+    .telco__alert-name {
+        font-size: 0.875rem;
+    }
+
+    .telco__alert-value {
+        font-size: 1.5rem;
+    }
+
+    .telco__charts-item-title {
+        font-size: 0.875rem;
+    }
+}
+
+#viettel_map {
+    width: 100%;
+    height: 100%;
+}
+
+.toggle-buttons {
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0px 4px 18px 0px #4B465C1A;
+
+}
+
+.tab-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #666;
+}
+
+.tab-btn:focus {
+    outline: none;
+}
+
+.tab-btn.active {
+    background-color: #ffeef0;
+    color: #f5222d;
+}
+
+.refresh-icon {
+    font-size: 30px;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.5s ease;
+}
+
+.refresh-icon.rotate {
+    animation: spin 1s linear;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

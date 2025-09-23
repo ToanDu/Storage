@@ -1,0 +1,38 @@
+<div class="modal fade" id="updateEnterpriseModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block; ">
+        <h5 class="modal-title " id="myModalLabel">@Messages("common.confirm")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+
+          <div class="col-12 mt-3">
+            <label class="form-label">@Messages("account.selectRepresentativePhone")</label>
+            <div id="phoneRepresent">
+
+            </div>
+          </div>
+
+          <div class="col-12 mt-3">
+            <label class="form-label">@Messages("common.enterCode")</label>
+            <div class="input-group">
+              <input type="number" class="form-control border-end-0" id="optUpdateEnterprise" maxlength="50">
+              <div id="buttonOtpOfEnterprise"></div>
+            </div>
+          </div>
+          <div class="col-12 mt-3">
+            <label class="form-label">@Messages("account.otpInstructionUpdate")</label>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div id="buttonUpdateEnterprise">
+
+        </div>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("common.close")</button>
+      </div>
+    </div>
+  </div>
+</div>

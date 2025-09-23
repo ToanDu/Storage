@@ -1,0 +1,104 @@
+<div class="modal fade" id="listHistoryModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <span class="modal-title" id="exampleModalLabel">@Messages("Lịch sử vị trí thuê bao")</span>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-3">
+              <label class="col-sm-12 col-form-label title-section-2">@Messages("Thuê bao")</label>
+            </div>
+            <div class="col-md-3">
+              <label class="col-sm-12 col-form-label title-section-2">@Messages("Từ ngày")</label>
+            </div>
+            <div class="col-md-3">
+              <label class="col-sm-12 col-form-label title-section-2">@Messages("Đến ngày")</label>
+            </div>
+          </div>
+          <div class="row mt-1">
+            <div class="col-md-3">
+              <input id="isdnHistory" type="text" class="form-control input-form" readonly>
+              <input id="serialHistory" type="text" class="form-control input-form" readonly hidden>
+            </div>
+            @fromTime = @{
+              import java.util.Calendar
+              import java.text.SimpleDateFormat
+
+              val today = Calendar.getInstance
+              today.add(Calendar.DATE,-6);
+              val curTimeFormat = new SimpleDateFormat("dd/MM/yyyy")
+              curTimeFormat.format(today.getTime)
+            }
+            @toTime = @{
+              import java.util.Calendar
+              import java.text.SimpleDateFormat
+              //import java.util.TimeZone
+
+              val today = Calendar.getInstance()
+              // today.setTimeZone(TimeZone.getTimeZone("GMT+7"))
+              val curTimeFormat = new SimpleDateFormat("dd/MM/yyyy")
+              curTimeFormat.setTimeZone(TimeZone.getTimeZone("GMT+7"));
+              curTimeFormat.format(today.getTime)
+            }
+            <div class="col-md-3">
+              <input class="form-control datetimepicker" type="text" id="fromDateHistory" value="@fromTime" placeholder="Từ ngày">
+            </div>
+            <div class="col-md-3">
+              <input class="form-control datetimepicker" type="text" id="toDateHistory" value="@toTime" placeholder="Đến ngày">
+            </div>
+            <div class="col-md-3">
+              <button type="button" class="btn btn-search" onclick="searchHistoryIsdn()">@Messages("btnSearch")</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="row mt-3">
+            <div class="table-responsive" style="border-radius: 8px;">
+              <table class="table table-striped" id="listHistoryIsdnTable" style="width: 100%; margin-bottom: 0px;">
+                <thead style="background-color: #eee;">
+                  <tr>
+                    <th>STT</th>
+                    <th>Số thuê bao</th>
+                    <th>Thời gian</th>
+                    <th>Vị trí</th>
+                    <th>Tọa độ</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+              <h5 class="mt-3" id="notiNotHistoryIsdn" style="text-align: center;"></h5>
+            </div>
+            <div class="material-datatables row row-cols-auto g-3" style="margin-bottom: 5px; margin-bottom: 10px;">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="dropdown">
+                    <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="countPageSizeHistoryIsdn" style="background-color: rgb(0 0 0 / 50%); margin-left: 5px;">10</button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="javascript:ApplyFilterHistoryIsdn(1,10,true)">10</a></li>
+                      <li><a class="dropdown-item" href="javascript:ApplyFilterHistoryIsdn(1,50,true)">50</a></li>
+                      <li><a class="dropdown-item" href="javascript:ApplyFilterHistoryIsdn(1,100,true)">100</a></li>
+                      <li><a class="dropdown-item" href="javascript:ApplyFilterHistoryIsdn(1,200,true)">200</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="dataTables_paginate paging_full_numbers" id="pagingTableHistoryIsdn" style="cursor: pointer; right: 15px; position: absolute;"></div>
+                </div>
+              </div>
+
+              <input name="page" id="pageHistoryIsdn" value="1" style="display: none">
+              <input name="pageSize" id="pageSizeHistoryIsdn" value="10" style="display: none">
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-cancle" data-bs-dismiss="modal">@Messages("btnClose")</button>
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

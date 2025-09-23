@@ -1,0 +1,17 @@
+<div class="modal fade" id="deleteQrcodeModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block; ">
+        <h5 class="modal-title" id="titleFinishCreateQrcode">@Messages("Xóa QR Code")</h5>
+      </div>
+      <div class="modal-body">
+        <input id="idQrcodeDel" hidden>
+        <h5 class="modal-body text-darker align-items-center">@Messages("Bạn có chắc chắn muốn xóa QR Code này?")</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-cancle" data-bs-dismiss="modal">@Messages("btnClose")</button>
+        <button type="button" class="btn btn-red" data-bs-dismiss="modal" onclick="delQrcode()">@Messages("btnComfirm")</button>
+      </div>
+    </div>
+  </div>
+</div>

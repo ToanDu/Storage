@@ -1,0 +1,164 @@
+@import helper._
+@import vn.m2m.utils.DateUtil
+@import vn.m2m.common.models.User
+@import vn.m2m.utils.UserHelper
+@(currentUser:User, projectId:String, idDashboard:String, name:String)
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("Dashboard")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+@*    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.11/themes/default/style.min.css" />*@
+    <link href="@routes.Assets.versioned("assets/plugins/highcharts/css/highcharts-white.css")" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="@UserHelper.linkGoogleMapApi"> </script>
+
+    <link href="@routes.Assets.versioned("stylesheets/views/dashboard/loading.css")" rel="stylesheet"/>
+    <link href="@routes.Assets.versioned("stylesheets/views/dashboard/map.css")" rel="stylesheet"/>
+    @*<link href="@routes.Assets.versioned("stylesheets/views/dashboard/widget/round-switch.css")" rel="stylesheet"/>*@
+    <link href="@routes.Assets.versioned("stylesheets/views/dashboard/widget/switchSocket.css")" rel="stylesheet"/>
+    <link href="@routes.Assets.versioned("stylesheets/views/dashboard/widget/widget.css")" rel="stylesheet"/>
+    <link href="@routes.Assets.versioned("stylesheets/views/dashboard/widget/command.css")" rel="stylesheet"/>
+
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css'/>
+    <link rel='stylesheet' href="@routes.Assets.versioned("javascripts/plugins/openStreetMap/MarkerCluster.Default.css")"/>
+    <link rel='stylesheet' href="@routes.Assets.versioned("javascripts/plugins/openStreetMap/MarkerCluster.css")"/>
+
+    <style type="text/css">
+            .grid-stack {
+              background: #ffffff;
+            }
+
+            .grid-stack-item-content {
+              position: relative;
+              /*display: flex;*/
+              flex-direction: column;
+              min-width: 0;
+              word-wrap: break-word;
+              background-color: #f8f9fa!important;
+              background-clip: border-box;
+              border: 0 solid transparent;
+              border-radius: .25rem;
+              margin-bottom: 1.5rem;
+              box-shadow: 0 0.3rem 0.8rem rgb(0 0 0 / 12%);
+            }
+
+            .table-nowrap td{
+              white-space: nowrap;
+            }
+            .error{
+              color: red;
+            }
+    </style>
+
+    <link href="@routes.Assets.versioned("javascripts/views/dashboard/widget/gridstack.min.css")" rel="stylesheet"/>
+  </head>
+  <body class="bg-theme">
+    @views.html.iot.tags.Menu(currentUser, projectId)
+
+    @views.html.iot.tags.Header(currentUser)
+
+    <div class="page-wrapper" style="overflow: auto">
+
+      <div class="toolbar" style="float: right; transition: 0.4s;position: fixed;bottom: 10px;right: 20px;z-index: 99;">
+        <button class="btn btn-secondary px-2 radius-30" onclick="backDashboard()">
+          <i class="bx bx-chevron-left" aria-hidden="true"></i> @Messages("widget.back")
+        </button>
+        <button class="btn btn-success px-2 radius-30" data-bs-toggle="modal" data-bs-target="#addConfirmModal">
+          <i class="bx bx-plus" aria-hidden="true"></i> @Messages("widget.add")
+        </button>
+        <button class="btn btn-success px-2 radius-30" onclick="savePageWidget()">
+          <i class="bx bx-save" aria-hidden="true"></i> @Messages("widget.save")
+        </button>
+      </div>
+
+      <div class="grid-stack" data-gs-width="12" style="background-color: #eceff1" id="widgetBody">
+      </div>
+    </div>
+
+    @views.html.iot.dashboard.widget.Widget_add()
+    @views.html.iot.dashboard.widget.Widget_del()
+    @views.html.iot.dashboard.widget.Widget_edit_map()
+    @views.html.iot.dashboard.widget.Widget_edit_chart_column()
+    @views.html.iot.dashboard.widget.Widget_edit_chart_line()
+    @views.html.iot.dashboard.widget.Widget_edit_table()
+    @views.html.iot.dashboard.widget.Widget_edit_gauge()
+    @views.html.iot.dashboard.widget.Widget_edit_round_switch()
+    @views.html.iot.dashboard.widget.Widget_edit_data()
+    @views.html.iot.dashboard.widget.Widget_edit_command()
+
+  </body>
+
+  @views.html.iot.tags.Main_js()
+
+@*  <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.11/jstree.min.js"></script>*@
+  <script src="@routes.Assets.versioned("assets/plugins/mustache/js/mustache.min.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/jquery-validate/js/jquery.validate.min.js")"></script>
+
+  <script src="@routes.Assets.versioned("assets/plugins/apexcharts-bundle/js/apexcharts.min.js")"></script>
+
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/highcharts.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/highcharts-more.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/variable-pie.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/solid-gauge.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/highcharts-3d.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/cylinder.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/funnel3d.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/exporting.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/export-data.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/accessibility.js")"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script>
+    var projectId = '@projectId';
+    var projectName = '@name';
+    var idDashboard = '@idDashboard';
+    var linkMapbox = '@UserHelper.linkGoogleMapbox';
+
+          $(document).ready(function () {
+            $("#menu-dashboard").addClass("mm-active");
+            $("#menu").metisMenu();
+          });
+
+          function backDashboard() {
+//              autoSaveWidget();
+              window.location.href = jsRoutes.controllers.DashboardV3Controller.dashboard('@projectId', '@idDashboard').url;
+          }
+
+          var userid = '@currentUser.getId';
+          var ggmapImg = "@routes.Assets.versioned("images/widget/ggmap.jpg")";
+          var deviceListImg = "@routes.Assets.versioned("images/widget/deviceList.jpg")";
+          var chartColumnImg = "@routes.Assets.versioned("images/widget/chartColumn2.png")";
+          var chartLineImg = "@routes.Assets.versioned("images/widget/chartLine.png")";
+          var tableImg = "@routes.Assets.versioned("images/widget/table.png")";
+          var gaugeImg = "@routes.Assets.versioned("images/widget/gauge.png")";
+          var roundSwitchImg = "@routes.Assets.versioned("images/widget/roundSwitch.png")";
+          var dataImg = "@routes.Assets.versioned("images/widget/data.png")";
+  </script>
+
+  <script type="text/javascript" src="@routes.Assets.versioned("javascripts/plugins/openStreetMap/leaflet.js")"></script>
+  <script type="text/javascript" src="@routes.Assets.versioned("javascripts/plugins/openStreetMap/leaflet.markercluster-src.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/widget/gridstack-h5.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/widget/widget_loadFirst.js")"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/widget/WidgetPage.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/widget/widget_map.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/widget/widget_chart_column.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/widget/widget_chart_line.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/widget/widget_table.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/widget/widget_gauge.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/widget/widget_round_switch.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/widget/widget_data.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/widget/widget_command.js")"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/widget/widget_save.js")"></script>
+
+</html>

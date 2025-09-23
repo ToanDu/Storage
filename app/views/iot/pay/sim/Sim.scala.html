@@ -1,0 +1,148 @@
+@import helper._
+@import vn.m2m.common.models.User
+@(currentUser:User, projectId:String, simnb:String)
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>@Messages("Detail Sim")</title>
+        <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <meta name="viewport" content="width=device-width" />
+
+        @views.html.iot.tags.Main_css()
+
+        <link href="@routes.Assets.versioned("stylesheets/views/modal-right.css")" rel="stylesheet" />
+        <link href="@routes.Assets.versioned("stylesheets/views/pay/customer.css")" rel="stylesheet" />
+
+        <style>
+                .nav {
+                    display: block;
+                }
+                .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+                    color: #f8f9fa;
+                    background-color: #ec1b2eb8;
+                }
+                .nav-pills .nav-link {
+                    text-align: center;
+                    background-color: #aaa;
+                    color: white;
+                    width:100%;
+                    margin-top: 15px;
+                }
+        </style>
+    </head>
+    <body class="bg-theme">
+        @views.html.iot.tags.Menu(currentUser, projectId)
+
+        @views.html.iot.tags.Header(currentUser)
+
+        <div class="page-wrapper">
+            <div class="page-content">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="tab-content" id="infoCustomer">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+                                                <span class="input-group-text" style="width: 100%; background-color:#EC1B2E; color: #FFFFFF; text-transform: uppercase; font-weight: normal;"> @Messages("Thông tin thiết bị")</span>
+                                            </div>
+                                            <div class="card mb-3" style="border: 1px solid #858687;">
+                                                <div class="card-body">
+                                                    <p class="card-text" >@Messages("ID")</p>
+                                                    <p class="card-text" >@Messages("Mã IMEI")</p>
+                                                    <p class="card-text" >@Messages("Serial")</p>
+                                                    <p class="card-text" >@Messages("ESim")</p>
+                                                    <p class="card-text" >@Messages("Trạng thái đấu nối")</p>
+                                                    <p class="card-text" >@Messages("Loại dịch vụ")</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+                                                <span class="input-group-text" style="width: 100%; background-color:#EC1B2E; color: #FFFFFF; text-transform: uppercase; font-weight: normal;"> @Messages("Thông tin gói cước")</span>
+                                            </div>
+                                            <div class="card mb-3" style="border: 1px solid #858687;">
+                                                <div class="card-body">
+                                                    <p class="card-text" >@Messages("Tên gói cước")</p>
+                                                    <p class="card-text" >@Messages("Trạng thái")</p>
+                                                    <p class="card-text" >@Messages("Số simNB")</p>
+                                                    <p class="card-text" >@Messages("Serial Sim")</p>
+                                                    <p class="card-text" >@Messages("Số dư")</p>
+                                                    <p class="card-text" >@Messages("Thời điểm hết hạn")</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+                                                <span class="input-group-text" style="width: 100%; background-color:#EC1B2E; color: #FFFFFF; text-transform: uppercase; font-weight: normal;"> @Messages("Thông tin thuê bao")</span>
+                                            </div>
+                                            <div class="card mb-3" style="border: 1px solid #858687;">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="card-body">
+                                                            <p class="card-text" >@Messages("Tên gói cước")</p>
+                                                            <p class="card-text" >@Messages("Trạng thái")</p>
+                                                            <p class="card-text" >@Messages("Số dư")</p>
+                                                            <p class="card-text" >@Messages("Ngày nạp tiền gần nhất")</p>
+                                                            <p class="card-text" >@Messages("Số tiền nạp gần nhất")</p>
+                                                            <p class="card-text" >@Messages("Thời điểm hết hạn")</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="card-body">
+                                                            <p class="card-text" >@Messages("Số thuê bao")</p>
+                                                            <p class="card-text" >@Messages("Gói cước chính")</p>
+                                                            <p class="card-text" >@Messages("Ngày bắt đầu gói cước chính")</p>
+                                                            <p class="card-text" >@Messages("Ngày hết hạn gói cước chính")</p>
+                                                            <p class="card-text" >@Messages("Data theo KB")</p>
+                                                            <p class="card-text" >@Messages("Data còn lại theo KB")</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        @views.html.Loading()
+    </body>
+
+    @views.html.iot.tags.Main_js()
+
+    <script>
+            var projectId = '@projectId';
+            var simnb = '@simnb';
+
+            var iconEdit = "@routes.Assets.versioned("images/icon/edit.png")";
+            var iconDelete = "@routes.Assets.versioned("images/icon/delete.png")";
+            var iconList = "@routes.Assets.versioned("images/icon/copy.png")";
+
+            $(document).ready(function () {
+                $("#menu-sim").addClass("mm-active");
+
+                $("#menu").metisMenu();
+                for (var e = window.location, o = $(".metismenu li a").filter(function() {
+                    return this.href == e
+                }).addClass("").parent().addClass("mm-active"); o.is("li");) o = o.parent("").addClass("mm-show").parent("").addClass("mm-active");
+            });
+    </script>
+    <script src="@routes.Assets.versioned("javascripts/views/pay/sim/Sim.js")"></script>
+
+</html>

@@ -1,0 +1,20 @@
+<div class="modal fade" id="deleteEventConfirm" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="theme16">
+            <div class="modal-header">
+                <h5 class="modal-title text-darker">@Messages("event.title.delete")</h5>
+                <hr>
+            </div>
+            <div class="modal-body text-darker">
+                <h4 class="modal-body text-darker" id="myModalbody">@Messages("noti.confirmDeletebody")</h4>
+                <div class="form-group" hidden>
+                    <input id="idEventDelete" class="form-control" name="id" >
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="processDeleteEvent()">@Messages("btnDelete")</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnCancel")</button>
+            </div>
+        </div>
+    </div>
+</div>

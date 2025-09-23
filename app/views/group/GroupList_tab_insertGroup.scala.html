@@ -1,0 +1,44 @@
+<form action="#" method="POST" id="insertGroupForm">
+    <div style="padding: 5px 15px;">
+        <div class="form-group" hidden>
+            <input id="idInsertGroup" name="id" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-sm-2 col-form-label">@Messages("manage.group.name")</label>
+        <div class="col-sm-7">
+            <div class="form-group">
+                <input id="nameInsertGroup" name="name" type="text" class="form-control" placeholder="name" maxlength="50">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-sm-2 col-form-label">@Messages("manage.group.address")</label>
+        <div class="col-sm-7">
+            <div class="form-group">
+                <input id="addressInsertGroup" name="address" type="text" class="form-control" placeholder="address" maxlength="50">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-sm-2 col-form-label">@Messages("manage.group.email")</label>
+        <div class="col-sm-7">
+            <div class="form-group">
+                <input id="emailInsertGroup" name="email" type="text" class="form-control" placeholder="email" maxlength="50">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-sm-2 col-form-label">@Messages("manage.group.phone")</label>
+        <div class="col-sm-7">
+            <div class="form-group">
+                <input id="phoneInsertGroup" name="phone" type="text" class="form-control" placeholder="phone" maxlength="13" minlength="9">
+            </div>
+        </div>
+    </div>
+
+    <div class="card-footer ml-auto mr-auto">
+        <button onclick="AddChildGroup('')" type="button" class="btn btn-success btn-fill btn-sm"><i class="fa fa-floppy-o" aria-hidden="true"></i> @Messages("btnSave")</button>
+
+    </div>
+</form>

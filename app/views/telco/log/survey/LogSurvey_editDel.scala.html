@@ -1,0 +1,35 @@
+<div class="modal fade" id="editUserSurveyModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: red; border-radius: 16px 16px 0px 0px;">
+        <span class="modal-title text-white" id="myModalLabel">@Messages("Sửa / Xóa")</span>
+      </div>
+      <div class="modal-body">
+        <div class="row mt-3">
+          <input id="idUserSurvey" type="text" class="form-control input-form" readonly hidden>
+        </div>
+        <div class="row mt-3">
+          <label class="col-sm-3 col-form-label title-section-2">@Messages("Doanh nghiệp")</label>
+          <div class="col-sm-9">
+            <input id="nameEnterSurvey" type="text" class="form-control input-form" readonly >
+          </div>
+        </div>
+        <div class="row mt-3">
+          <label class="col-sm-3 col-form-label title-section-2">@Messages("Khảo sát")</label>
+          <div class="col-sm-9">
+            <select class="form-control" id="isSurvey">
+              <option value="true">@Messages("Đã khảo sát")</option>
+              <option value="false">@Messages("Chưa khảo sát")</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-red" data-bs-dismiss="modal" onclick="processDelSurvey()">@Messages("btnDelete")</button>
+        <button type="button" class="btn btn-cancle" data-bs-dismiss="modal">@Messages("btnCancle")</button>
+        <button type="button" class="btn btn-red" data-bs-dismiss="modal" onclick="processEditSurvey()">@Messages("btnComfirm")</button>
+      </div>
+    </div>
+  </div>
+</div>

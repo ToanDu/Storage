@@ -1,0 +1,75 @@
+.jstree-default .jstree-clicked {
+    background: #f4112780;
+    border-radius: 0px 4px 4px 0px;
+}
+.jstree-default .jstree-anchor {
+    padding: 0px;
+    box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .15)!important;
+}
+.jstree-default .jstree-anchor {
+    line-height: 36px;
+    height: 36px;
+}
+/*.jstreeClass::after {*/
+    /*left: 14px;*/
+/*}*/
+.jstree-node {
+    margin-top: 5px;
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: #aaa;
+    opacity: 1;
+}
+
+
+.bg-on {
+    background-color: #29b87e!important;
+}
+.bg-off {
+    background-color: #212529!important
+}
+
+.dropdown-jstree::after {
+    content: '';
+    width: 13px;
+    height: 13px;
+    background: #FFFFFF;
+    position: absolute;
+    top: -7px;
+    left: 16px;
+    transform: rotate(45deg);
+    border-top: 1px solid #FFFFFF;
+    border-left: 1px solid #FFFFFF;
+}
+.dropdown-table::after {
+    content: '';
+    width: 13px;
+    height: 13px;
+    background: #FFFFFF;
+    position: absolute;
+    top: -7px;
+    right: 16px;
+    transform: rotate(45deg);
+    border-top: 1px solid #FFFFFF;
+    border-left: 1px solid #FFFFFF;
+}
+.dropdown-menu .dropdown-table {
+    border-radius: 10px;
+    left: 10px;
+}
+
+.btn-weekday{
+    background-color: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgb(255 255 255 / 15%);
+}
+.circle {
+    width: 100%;
+    height: same-as-width;
+    line-height: 200px;
+    border-radius: 50%;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    background: #aaa;
+}

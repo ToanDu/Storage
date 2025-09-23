@@ -1,0 +1,56 @@
+<script type="text/javascript" src="@routes.JsController.jsMessages()"></script>
+<script type="text/javascript" src="@routes.JsController.javascriptRoutes"></script>
+<script src="@routes.Assets.versioned("javascripts/js/core/jquery.min.js")" type="text/javascript"></script>
+
+<script type="text/javascript" src="@routes.Assets.versioned("assets/js/jquery.min.js")"></script>
+    <!--notification js -->
+<script src="@routes.Assets.versioned("assets/plugins/notifications/js/lobibox.min.js")"></script>
+<script src="@routes.Assets.versioned("assets/plugins/notifications/js/notifications.min.js")"></script>
+<script src="@routes.Assets.versioned("assets/plugins/notifications/js/notification-custom-script.js")"></script>
+
+<script src="@routes.Assets.versioned("javascripts/views/ErrorCode.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/ShowNotification.js")" type="text/javascript"></script>
+<script type="text/javascript">
+            $(document).ready(function(){
+                @if(flash.containsKey("success")) {
+                showNotification('success','@flash.get("success")');
+                }
+                @if(flash.containsKey("failed")) {
+                showNotification('danger','@flash.get("failed")');
+                }
+
+                const element = document.querySelector('.wrapper');
+                $(".mobile-toggle-menu").on("click", function() {
+                    if(!element.classList.contains("toggled")){
+                        $(".wrapper").addClass("toggled");
+                        $("#arrowMenu").show();
+                    }
+                });
+                $("#arrowMenu").on("click", function() {
+                    if(element.classList.contains("toggled")){
+                        $(".wrapper").removeClass("toggled");
+                        $("#arrowMenu").hide();
+                    }
+                });
+            });
+
+                function commingSoonNoti() {
+                    info_noti('Comming soon!');
+                }
+
+            var imgProject0 = "@routes.Assets.versioned("images/iotplatform.png")";
+            var imgProject1 = "@routes.Assets.versioned("images/smarthome.jpg")";
+            var imgProject2 = "@routes.Assets.versioned("images/smartfarm.jpg")";
+</script>
+
+<script src="@routes.Assets.versioned("assets/plugins/datatable/js/jquery.dataTables.min.js")"></script>
+
+<script src="@routes.Assets.versioned("javascripts/plugins/moment.min.js")" type="text/javascript"></script>
+
+<script src="@routes.Assets.versioned("assets/js/chosen.jquery.min.js")"></script>
+
+<script src="@routes.Assets.versioned("assets/js/bootstrap.bundle.min.js")"></script>
+    <!--plugins-->
+<script src="@routes.Assets.versioned("assets/plugins/simplebar/js/simplebar.min.js")"></script>
+<script src="@routes.Assets.versioned("assets/plugins/metismenu/js/metisMenu.min.js")"></script>
+<script src="@routes.Assets.versioned("assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js")"></script>

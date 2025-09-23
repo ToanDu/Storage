@@ -1,0 +1,126 @@
+@import helper._
+@import vn.m2m.utils.DateUtil
+@import vn.m2m.common.models.User
+@import vn.m2m.iot.models.QrCodeHistory
+@(currentUser:User, qrCodeList: List[QrCodeHistory])
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("QR Code History")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+
+    <link href="@routes.Assets.versioned("stylesheets/views/group/style.min.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("stylesheets/views/modal-right.css")" rel="stylesheet" />
+
+  </head>
+  <body class="bg-theme">
+    @views.html.iot.tags.Menu(currentUser, "")
+
+    @views.html.iot.tags.Header(currentUser)
+
+    <div class="page-wrapper">
+      <div class="page-content">
+
+          <!--breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3 ">
+          <div class="breadcrumb-title pe-3">@Messages("QR CODE")</div>
+          <div class="ps-3">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt "></i></a>
+                </li>
+                <li class="breadcrumb-item active " aria-current="page">@Messages("manage.qrCodeHistory")</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="ms-auto">
+
+          </div>
+        </div>
+          <!--end breadcrumb-->
+
+        <div class="card ">
+          <div class="card-header card-header-primary card-header-icon">
+            <div class="toolbar" style="float: right">
+              <button class="btn btn-success px-5 radius-30" onclick="exportQrCodeList()">
+                <i class="bx bxs-printer" aria-hidden="true"></i> @Messages("Print")
+              </button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="table-responsive">
+
+              <table id="dataTables" class="table table-bordered">
+                <thead class="cf">
+                  <th>@Messages("qr.id")</th>
+                  <th>@Messages("qr.Name")</th>
+                  <th>@Messages("qr.Link")</th>
+                  <th>@Messages("qr.QRCode")</th>
+                  <th>@Messages("btnDate")</th>
+                  <th>@Messages("btnAction")</th>
+                </thead>
+                <tbody align="left">
+                @for((qr: QrCodeHistory)<- qrCodeList) {
+                  <tr>
+                    <td>@qr.getId</td>
+                    <td>@qr.getName</td>
+                    <td>@qr.getLinkAndroid<br>@qr.getLinkIos</td>
+                    <td>
+                      <img src="@qr.getSrc" height="50">
+                    </td>
+                    <td>@DateUtil.getDateByFormat(qr.getCreateDate, DateUtil.FORMAT_DATE_YYYY_MM_DD_HH_mm_ss)</td>
+                    <td>@qr.getAction</td>
+                  </tr>
+                }
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!--  END OF PAPER WRAP -->
+    @views.html.Loading()
+
+  </body>
+
+  @views.html.iot.tags.Main_js()
+
+  <script src="@routes.Assets.versioned("assets/js/bootstrap.bundle.min.js")"></script>
+    <!--plugins-->
+  <script src="@routes.Assets.versioned("assets/plugins/simplebar/js/simplebar.min.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/metismenu/js/metisMenu.min.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js")"></script>
+  <script>
+          $(document).ready(function () {
+            $("#menu-qrCodeHistory").addClass("mm-active");
+          })
+  </script>
+
+  <script src="@routes.Assets.versioned("javascripts/SearchJs.js")" type="text/javascript"></script>
+
+  <script>
+          $(document).ready(function() {
+            var table = $('#dataTables').DataTable( {
+              lengthChange: false,
+              buttons: [ 'excel', 'pdf', 'print'],
+              "order": []
+            } );
+
+//            table.buttons().container()
+//                    .appendTo( '#dataTables_wrapper .col-md-6:eq(0)' );
+          } );
+  </script>
+
+  <script src="@routes.Assets.versioned("javascripts/exportfile/table3export.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/qrCode/exportQrCode.js")" type="text/javascript"></script>
+</html>

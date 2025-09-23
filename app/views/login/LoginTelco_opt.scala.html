@@ -1,0 +1,26 @@
+<div class="modal fade" id="optPhoneLoginModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block; background-color: red;">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("Xác thực OTP")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 mt-3">
+            <label class="form-label">@Messages("Nhập mã OTP xác nhận đăng nhập")</label>
+            <div class="input-group">
+              <input type="number" name="optPhoneLogin" class="form-control" id="optPhoneLogin" maxlength="50">
+              @*<a id="buttonGetOtpPhone" onclick="otpPhone()" class="input-group-text cursor-pointer">@Messages("Nhận mã OTP")</a>*@
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick="comfirmOtpLogin()">@Messages("btnComfirm")</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+      </div>
+
+    </div>
+  </div>
+</div>

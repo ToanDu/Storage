@@ -1,0 +1,122 @@
+/**
+ * Created by vtk-anhlt166 on 6/10/21.
+ */
+function getAddListOrganization() {
+    StartProcess();
+    treeNodeArrayOrg = [];
+    var getGroup = jsRoutes.controllers.GroupController.getListOrganizations();
+    $.ajax({
+        type: getGroup.type,
+        data: JSON.stringify(""),
+        contentType: "application/json; charset=utf-8",
+        url: getGroup.url,
+        success: function (data) {
+            console.log(data);
+            if(data.success){
+                if(data.content != null && data.content.length>0){
+                    pushDataTreeNodeOrg(data.content);
+
+                    $('#selectOrganizationsAdd').jstree({
+                        core: {
+                            data: treeNodeArrayOrg,
+                            check_callback: true  // don't forget to set this param to true
+                        },
+                        "plugins": ["search", "sort"],
+                        "search": {
+                            "case_sensitive": false,
+                            "show_only_matches": true
+                        },
+                        "sort" : function(a, b) {
+                            //What is the function of sorting
+                            a1 = this.get_node(a);
+                            b1 = this.get_node(b);
+                            if (a1.icon == b1.icon){
+                                return (a1.text > b1.text) ? 1 : -1;
+                            } else {
+                                return (a1.icon > b1.icon) ? 1 : -1;
+                            }
+                        }
+                    });
+                    $('#selectOrganizationsAdd').jstree();
+                    $('#selectOrganizationsAdd').on("changed.jstree", function (e, data) {
+                        selectOrgAdd(data.selected);
+                    });
+                    $('#selectOrganizationsAdd').on('loaded.jstree', function() {
+                        //open tat ca cac node
+                        $('#selectOrganizationsAdd').jstree('open_all');
+                    });
+
+                    $('#selectOrganizationsAdd').on("search.jstree", function (nodes, str, res){
+                        if(str.nodes.length===0){
+                            $('#selectOrganizationsAdd').jstree(true).hide_all();
+                        };
+                    })
+
+                    $('button').on('click', function () {
+                        $('#selectOrganizationsAdd').jstree(true).select_node('child_node_1');
+                        $('#selectOrganizationsAdd').jstree('select_node', 'child_node_1');
+                        $.jstree.reference('#selectOrganizationsAdd').select_node('child_node_1');
+                    });
+                    $("#search-selectOrgAdd").keyup(function () {
+                        var searchString = $(this).val();
+                        $('#selectOrganizationsAdd').jstree(true).show_all();
+                        $('#selectOrganizationsAdd').jstree('search', searchString);
+                    });
+                }
+            } else {
+                showNotification('error',Messages("connection.failed"));
+            }
+        },
+        complete: function (jqXHR, textStatus) {
+            FinishProcess(); //Stop display loading...
+        }
+    });
+}
+function selectOrgAdd(data) {
+    console.log(data[0]);
+    $("#orgIdMoveAdd").val(data[0]);
+}
+
+function postDataCreateDevice() {
+    var groupData = new FormData();
+    groupData.name = $('#nameDeviceAdd').val();
+    groupData.orgId = $('#orgIdMoveAdd').val();
+    console.log(groupData);
+
+    if(groupData.orgId == "" || groupData.orgId == null || groupData.orgId == undefined){
+        showNotification('danger', Messages("manage.deviceIot.chooseOrg"));
+        return;
+    }
+
+    StartProcess();
+    var r = jsRoutes.controllers.DeviceIotController.addNewDevice();
+    $.ajax({
+        type: r.type,
+        dataType: 'json',
+        data: JSON.stringify(groupData),
+        contentType: "application/json; charset=utf-8",
+        url: r.url,
+        success: function (data, textStatus, jqXHR) {
+            console.log(data);
+            if(data.success){
+                showNotification('success',Messages("manage.deviceIot.successCreate"));
+            }else {
+                if (data.status === 409) {
+                    showNotification('danger', Messages("manage.deviceIot.existsName"));
+                } else {
+                    showNotification('danger', Messages("manage.deviceIot.invalidName"));
+                }
+            }
+        },
+        error: function (xhr) {
+            console.log(xhr);
+            showNotification('danger',Messages("connection.failed"));
+        },
+        complete: function (jqXHR, textStatus) {
+            FinishProcess(); //Stop display loading...
+            setTimeout(function () {
+                window.location.reload();
+            },1000);
+        }
+    });
+}

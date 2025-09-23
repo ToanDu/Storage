@@ -1,0 +1,115 @@
+<div class="modal fade" id="editWidgetChartLineModal" tabindex="-1" aria-labelledby="editChartLineModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="theme16">
+            <div class="modal-header">
+                <h5 class="modal-title text-white" id="editChartLineModalLabel">@Messages("widget.chartLine")</h5>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="col-md-12" style="background: #858687; padding: 8px">
+                            <span style="color: white; margin-left: 25px">@Messages("HIỂN THỊ")</span>
+                        </div>
+                        <div class="col-md-12 mt-3" style="border: 1px solid #858687;">
+                            <div class="row p-3">
+                                <div class="col-md-6">
+                                    <div class="header-center">
+                                        <label for="idWidgetChartLineEditTitle" class="col-form-label">@Messages("Tiêu đề *")</label>
+                                        <input type="text" class="form-control col-sm-6" id="idWidgetChartLineEditTitle" name="idWidgetChartLineEditTitle">
+                                        <h7 class="textNote">@Messages("manage.group.org.30char")</h7>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 mt-3" style="background: #858687; padding: 8px">
+                            <span style="color: white; margin-left: 25px">@Messages("DỮ LIỆU")</span>
+                        </div>
+                        <div class="col-md-12 mt-3" style="border: 1px solid #858687;">
+                            <div class="row p-3">
+                                <div class="col-md-6">
+                                    <div class="header-center">
+                                        <label for="idWidgetChartLineEditOption" class="col-sm-6 col-form-label">@Messages("Bộ lọc")</label>
+                                        <select class="form-select mb-3" id="idWidgetChartLineEditOption" name="idWidgetChartLineEditOption" onchange="changeOptionWidgetChartLineEdit(this)">
+                                            <option value="" disabled>Chọn</option>
+                                            @*<option value="alldevice">Tất cả thiết bị</option>*@
+                                            <option value="org">Tổ chức</option>
+                                            @*<option value="group">Nhóm thiết bị</option>*@
+                                            @*<option value="devicetype">Loại thiết bị</option>*@
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="header-center filter" id="idWidgetChartLineOrg" style="display: none">
+                                        <label for="idWidgetChartLineEditOption" class="col-sm-6 col-form-label">@Messages("Tổ chức")</label>
+                                        <select class="form-select mb-3" id="selectWidgetChartLineEditOrg" name="selectWidgetChartLineEditOrg" onchange="changeOrgWidgetChartLineEdit(this)">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" style="display: inline-flex; justify-content: center;">
+                                    <div class="table-loading"></div>
+                                </div>
+                                <div id="idWidgetChartLineTable" style="overflow: auto;"></div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-5 filter" id="idWidgetChartLineGroup" style="display:none;">
+                                        <select class="form-select mb-3" id="selectWidgetChartLineEditGroup" name="selectWidgetChartLineEditGroup" onchange="changeGroupWidgetChartLineEdit(this)">
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5 filter" id="idWidgetChartLineDT" style="display:none;">
+                                        <select class="form-select mb-3" id="selectWidgetChartLineEditDT" name="selectWidgetChartLineEditDT" onchange="changeDTWidgetChartLineEdit(this)">
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </form>
+
+            </div>
+            <div class="modal-header" style="background-color: white">
+                <button type="button" class="btn btn-success" onclick="confirmWidgetChartLine()">@Messages("btnComfirm")</button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="chart-line-edit-table-template" type="x-tmpl-mustache">
+    <input type="hidden" name="widgetChartLineTableCheckbox" id="widgetChartLineTableCheckbox"/>
+    <table class="table table-bordered table-nowrap">
+        <thead class="thead-light">
+            <tr>
+                <th>Thiết bị</th>
+                <th colspan=100 style="text-align: center;vertical-align: middle;">Thuộc tính</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            {{#devices}}
+                <tr>
+                    <td data-id={{id}} style="width:15%">{{name}}</td>
+                    {{#vars}}
+                    <td>
+                        <input {{disabled}} type="checkbox" data-id={{id}} data-name={{name}} id="{{wid}}-{{attribute_key}}" attribute-key={{attribute_key}} attribute-type={{attribute_type}} value-type={{value_type}}>
+                        <label for="{{wid}}-{{attribute_key}}">{{attribute_key}}</label>
+                    </td>
+                    {{/vars}}
+                </tr>
+            {{/devices}}
+        </tbody>
+    </table>
+</script>
+
+
+
+@*<td>*@
+@*    <select class="form-control" multiple="multiple" data-id={{id}} data-name={{name}} id="{{wid}}-{{id}}">*@
+@*                            {{#vars}}*@
+@*        <option id="{{wid}}-{{id}}" value="{{id}}" {{disabled}}>{{name}}</option>*@
+@*        {{/vars}}*@
+@*    </select>*@
+@*</td>*@

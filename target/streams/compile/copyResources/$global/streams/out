@@ -1,0 +1,24 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\application-idc.conf,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\application-idc.conf)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\application-pro.conf,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\application-pro.conf)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\application-qc.conf,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\application-qc.conf)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\application-test.conf,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\application-test.conf)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\application.conf,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\application.conf)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\backend-idc.conf,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\backend-idc.conf)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\backend-pro.conf,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\backend-pro.conf)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\backend-qc.conf,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\backend-qc.conf)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\backend-test.conf,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\backend-test.conf)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\backend.conf,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\backend.conf)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\config.conf,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\config.conf)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\googleapikey.conf,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\googleapikey.conf)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\logback-idc.xml,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\logback-idc.xml)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\logback-pro.xml,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\logback-pro.xml)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\logback-qc.xml,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\logback-qc.xml)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\logback-test.xml,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\logback-test.xml)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\logback.xml,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\mapboxkey.conf,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\mapboxkey.conf)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\messages,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\messages)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\messages.en,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\messages.en)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\messages.uk,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\messages.uk)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\routes,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\routes)[0m
+[0m[[0mdebug[0m] [0m	(D:\VHT_Projects\cmp-fe-dev-dev_multiLang\conf\version.conf,D:\VHT_Projects\cmp-fe-dev-dev_multiLang\target\scala-2.12\classes\version.conf)[0m

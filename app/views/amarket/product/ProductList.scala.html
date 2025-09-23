@@ -1,0 +1,86 @@
+@import helper._
+@import vn.m2m.common.models.User
+@(currentUser:User, userId:String)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("Manage Product")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+
+    <link href="@routes.Assets.versioned("stylesheets/views/market/product/Product.css")" rel="stylesheet"/>
+
+  </head>
+  <body class="bg-theme">
+    @views.html.amarket.navbar(currentUser)
+
+    @views.html.amarket.header(currentUser)
+
+    <div class="page-wrapper">
+      <div class="page-content">
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <div class="col-lg-2 col-xl-2">
+                    <a class="btn btn-danger mb-3 mb-lg-0" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                      <i class='bx bxs-plus-square'></i> @Messages("New Product")
+                    </a>
+                  </div>
+                  <div class="col-lg-10 col-xl-10">
+                    <form class="float-lg-end">
+                      <div class="row row-cols-lg-auto g-2">
+                        <div class="col-12">
+                          <div class="position-relative">
+                            <input type="text" class="form-control ps-5" id="searchProduct" placeholder="Tìm kiếm tên sản phẩm...">
+                            <span class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 row-cols-xl-5 product-grid" id="girdProductList">
+
+        </div>
+
+        @views.html.amarket.product.ProductList_add()
+        @views.html.amarket.product.ProductList_del()
+        @views.html.amarket.product.ProductList_edit()
+
+      </div>
+    </div>
+      <!--  END OF PAPER WRAP -->
+    @views.html.Loading()
+
+  </body>
+
+  @views.html.admin.mainJs()
+
+  <script>
+          var userId = '@userId';
+          var imgDefault = '@routes.Assets.versioned("images/market/default.png")';
+          $(document).ready(function () {
+            $("#menu-product").addClass("mm-active");
+            $("#menu").metisMenu();
+          });
+  </script>
+
+  <script src="@routes.Assets.versioned("javascripts/views/amarket/product/ProductList.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/amarket/product/ProductList_add.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/amarket/product/ProductList_edit.js")" type="text/javascript"></script>
+
+</html>

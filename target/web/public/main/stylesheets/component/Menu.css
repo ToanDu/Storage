@@ -1,0 +1,17 @@
+
+.sidebar-wrapper .metismenu a {
+    font-size: 14px;
+    height: 50px;
+}
+
+.sidebar-wrapper .metismenu {
+    padding: 0px 0px;
+}
+
+.sidebar-wrapper .metismenu .mm-active>a, .sidebar-wrapper .metismenu a:active, .sidebar-wrapper .metismenu a:focus, .sidebar-wrapper .metismenu a:hover {
+    background: linear-gradient(90deg, rgba(213, 0, 46, 0.3) 0%, rgba(213, 0, 46, 0) 126.01%);
+    font-weight: 400;
+    font-size: 20px;
+    border-left: 4px solid #EA0029;
+    color: #ffffff !important;
+}

@@ -1,0 +1,9 @@
+scp -P 4449 D:\DEV\code\CMP\iotplatform\target\universal\iotplatform-1.0-SNAPSHOT.zip vht@203.113.138.18:/opt/iotplatform
+scp -P 4449 E:\AANNHHLLTT\acode\CMP\iotplatform\target\universal\iotplatform-1.0-SNAPSHOT.zip vht@203.113.138.18:/opt/iotplatform
+ssh -p 4449 vht@203.113.138.18
+
+scp -P 31000 E:\AANNHHLLTT\acode\CMP\iotplatform\target\universal\iotplatform-1.0-SNAPSHOT.zip vht@171.229.16.77:
+ssh vht@171.229.16.77 -p 31000
+scp iotplatform-1.0-SNAPSHOT.zip vht@10.207.189.177:/data/app/iotplatform
+scp iotplatform-1.0-SNAPSHOT.zip vht@10.207.189.178:/data/app/iotplatform
+ssh vht@10.207.189.177

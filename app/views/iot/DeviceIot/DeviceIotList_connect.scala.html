@@ -1,0 +1,64 @@
+<form>
+  <div class="modal fade" id="connectDeviceModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" id="theme7">
+        <div class="modal-header">
+          <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("Connect Device")</h5>
+          <button type="button" class="btn-close" href="#" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div id="smartwizard">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#step-0"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#step-1">	<strong>Step 1</strong>
+                <br>@Messages("device.paidDevice")</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#step-2">	<strong>Step 2</strong>
+                <br>@Messages("device.sendMessage")</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#step-3">	<strong>Step 3</strong>
+                <br>@Messages("device.checkConnect")</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div id="step-0" class="tab-pane" role="tabpanel" aria-labelledby="step-0">@Messages(" ")</div>
+            <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
+              <form class="row g-3">
+                <h6 class="text-white">@Messages("device.step1")</h6><hr>
+                <div class="col-12">
+                  <label class="form-label text-white">@Messages("Device ID")</label>
+                  <div class="input-group input-group-lg">
+                    <input type="text" class="form-control border-start-0" id="device-deviceId"/>
+                    <span class="input-group-text" style="cursor: pointer" onclick="copyText('device-deviceId', 'Device ID')"><i class='bx bxs-copyright'></i>@Messages("Copy")</span>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label text-white">@Messages("Device Token")</label>
+                  <div class="input-group input-group-lg">
+                    <input type="text" class="form-control border-start-0" id="device-deviceToken"/>
+                    <span class="input-group-text" style="cursor: pointer" onclick="copyText('device-deviceToken', 'Device Token')"><i class='bx bxs-copyright'></i>@Messages("Copy")</span>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
+              <h6 class="text-white">@Messages("device.step2")</h6><hr>
+              <div class="col-md-12 text-white" id="contentMessageTest" style="margin-left: 15px;"></div>
+            </div>
+
+            <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
+            </div>
+          </div>
+        </div>
+        @*<div class="modal-footer">*@
+        @*<button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>*@
+        @*</div>*@
+      </div>
+    </div>
+  </div>
+</form>

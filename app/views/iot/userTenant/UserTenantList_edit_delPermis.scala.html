@@ -1,0 +1,33 @@
+<div class="modal fade" id="delRoleModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+  <div class="modal-dialog modal-lg" style="box-shadow: 2px 0px 4px 2px #ea0033;">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: red; border-radius: 16px 16px 0px 0px;">
+        <span class="modal-title text-white" id="myModalLabel">@Messages("Xác nhận xoá quyền")</span>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-md-12">
+            <div class="row mt-3">
+              <label class="col-sm-4 col-form-label title-section-2">@Messages("User ID")</label>
+              <div class="col-sm-7">
+                <input id="userIdPerDel" type="text" class="form-control input-form" readonly>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row mt-3">
+              <label class="col-sm-4 col-form-label title-section-2">@Messages("Project ID")</label>
+              <div class="col-sm-7">
+                <input id="projectIdPerDel" type="text" class="form-control input-form" readonly>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-cancle" onclick="closeDelRoleModal()">@Messages("btnCancle")</button>
+        <button type="button" class="btn btn-red" onclick="processDelRolePermision()">@Messages("btnComfirm")</button>
+      </div>
+    </div>
+  </div>
+</div>

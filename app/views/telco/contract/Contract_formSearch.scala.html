@@ -1,0 +1,41 @@
+@import vn.m2m.common.models.User
+@import vn.m2m.utils.UserHelper
+@(currentUser:User)
+<div class="card">
+  <div class="card-body">
+    <span class="text-search">@Messages("contract.search.info")</span>
+    <input id="gpkd" type="text" class="form-control" readonly hidden>
+
+    <div class="row mt-3">
+      <div class="col-md-6 m-t-3">
+        <div class="row m-b-4">
+          <div class="col-sm-1"></div>
+          <label class="col-sm-3 col-form-label title-section-2">@Messages("contract.search.contractNumber")</label>
+          <div class="col-sm-8">
+            <input id="accountNo" type="text" class="form-control input-form" placeholder="@Messages("contract.search.placeholder")" maxlength="250">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 m-t-3">
+        <div class="row m-b-4">
+          <div class="col-sm-1"></div>
+          <label class="col-sm-3 col-form-label title-section-2">@Messages("contract.search.contractCode")</label>
+          <div class="col-sm-8">
+            <input id="accountId" type="text" class="form-control input-form" placeholder="@Messages("contract.search.placeholder")" onkeypress="return isNumberKey(event)" maxlength="250">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column align-items-center text-center">
+      <div class="">
+        @if(UserHelper.isFeatureRole(currentUser, "export_contract")){
+          <button type="button" class="btn mt-3 btn-telco" style="background: #FFFFFF; color: #EA0033;" onclick="onlickButtonExport()">@Messages("contract.search.export")</button>
+        }
+        <button type="button" class="btn mt-3 btn-telco" style="background: #FFFFFF; color: #EA0033;" onclick="resetFormSearch()">@Messages("contract.search.reset")</button>
+        @if(UserHelper.isFeatureRole(currentUser, "view_contract")){
+          <button type="button" class="btn mt-3 btn-telco" style="background: #EA0033; color: #FFFFFF;" onclick="onlickButtonSearch()">@Messages("contract.search.lookup")</button>
+        }
+      </div>
+    </div>
+  </div>
+</div>

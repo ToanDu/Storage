@@ -1,0 +1,75 @@
+@import helper._
+@import vn.m2m.common.models.User
+@(userId:String)
+<div class="modal fade" id="modal_package_expire" data-bs-backdrop="static" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable shadow-none">
+    <div class="modal-content">
+      <div class="modal-header pb-0">
+        <h3 class="modal-title mb-3" id="title_modal_package_expire" style="color: #001737;">@Messages("Danh sách thuê bao hết hạn gói cước")</h3>
+        <div class="row text-start">
+          <label for="expired_in_days" class="col-sm-2 col-form-label">@Messages("Hết hạn sau")</label>
+          <div class="col-sm-3">
+            <select name="expired_in_days" class="form-control" id="expired_in_days">
+              <option value="3">@Messages("3 ngày")</option>
+              <option value="5" >@Messages("5 ngày")</option>
+              <option value="7" selected>@Messages("7 ngày")</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12" style="border-radius: 8px;">
+            <table class="table table-striped" id="table_modal_package_expire" style="width: 100%;">
+              <thead style="background-color: #FBCCD6;">
+                <th>STT</th>
+                <th>Số thuê bao</th>
+                <th>GPKD</th>
+                <th>Gói cước</th>
+                <th>Ngày hết hạn</th>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <div>
+              <input id="pagePackageExpire" value="1" style="display: none">
+              <input id="pageSizePackageExpire" value="10" style="display: none">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer mt-1 pt-0" id="footer_modal_package_expire">
+        <div class="row">
+              <div class="col-md-4 d-flex align-items-center justify-content-center justify-content-md-start mb-3">
+                <p class="mb-0">Tổng <span id="total_record_PackageExpire">0</span> bản ghi</p>
+              </div>
+              <div
+                class="col-md-8 d-flex flex-column flex-md-row justify-content-end align-items-center gap-2 gap-md-3 mb-3">
+                <div class="dropdown mb-2 mb-md-0">
+                  <button class="btn btn-sm dropdown-toggle btn-outline-dark" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" id="countPagePackageExpire" style="margin-left: 5px;">
+                    10
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="javascript:applySearchPackageExpire(1,10)">10</a></li>
+                    <li><a class="dropdown-item" href="javascript:applySearchPackageExpire(1,50)">50</a></li>
+                    <li><a class="dropdown-item" href="javascript:applySearchPackageExpire(1,100)">100</a></li>
+                    <li><a class="dropdown-item" href="javascript:applySearchPackageExpire(1,200)">200</a></li>
+                    <li><a class="dropdown-item" href="javascript:applySearchPackageExpire(1,500)">500</a></li>
+                  </ul>
+                </div>
+                <p class="mb-2 mb-md-0">@Messages("Bản ghi/trang")</p>
+                <div id="pagingTablePackageExpire" class="justify-content-md-end"></div>
+              </div>
+
+            </div>
+        <button type="button" class="btn btn-telco" style="background: #FFFFFF; color: #EA0033;"
+          onclick="resetModalPackageExpire()" data-bs-dismiss="modal">@Messages("btnClose")</button>
+        <button type="button" class="btn btn-telco" style="background: #FFFFFF; color: #EA0033;"
+          onclick="downloadExcelPackageExpire(1)">@Messages("Export")</button>
+        <a href="@routes.TelcoUtilitiesController.utilitiesManage(userId)" target="_blank" type="button" class="btn btn-telco"
+          style="background: #EA0033; color: #FFFFFF; width: auto;">@Messages("Mua gói Data")</a>
+      </div>
+    </div>
+  </div>
+</div>

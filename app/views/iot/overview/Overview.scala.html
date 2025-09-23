@@ -1,0 +1,381 @@
+@import helper._
+@import vn.m2m.utils.DateUtil
+@import vn.m2m.common.models.User
+@import vn.m2m.iot.models.DeviceIot
+@import vn.m2m.utils.UserHelper
+@import vn.m2m.common.models.forms.SearchObjectData
+@(currentUser:User, projectId:String)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("overview.title")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+
+    <link href="@routes.Assets.versioned("stylesheets/views/group/style.min.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("stylesheets/views/modal-right.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("stylesheets/views/overview/slider.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("stylesheets/views/overview/slider2.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("stylesheets/views/overview/overview.css")" rel="stylesheet" />
+
+    @*<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >*@
+    <link href='@routes.Assets.versioned("stylesheets/fonts/roboto.css")' type='text/css'>
+    <link href="@routes.Assets.versioned("stylesheets/fonts/fonts.googleapis/fontsgoogleapis.css")" rel="stylesheet">
+    <link href="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.min.css")" rel="stylesheet" >
+
+  </head>
+  <body class="bg-theme">
+    @views.html.iot.tags.Menu(currentUser, projectId)
+
+    @views.html.iot.tags.Header(currentUser)
+
+    <div class="page-wrapper">
+      <div class="page-content">
+        <h4 id="nameProjectTitle"></h4>
+
+        @*bang dieu khien*@
+        <div class="col-md-12 mt-3">
+          <div class="row mb-4">
+            <div class="col-sm-9">
+              <div class="breadcrumb-title pe-3 breadcrumbTitle" >@Messages("overview.monitor")</div>
+            </div>
+            <div class="col-sm-3">
+              <div class="inner-addon left-addon">
+                <input id="searchDashboard" class="form-control inputSearch" type="text" placeholder="" maxlength="50">
+                <i class="glyphicon bx bx-search"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <h6 class="mb-0 mb-2" id="titleNotDashboard" style="display: none">@Messages("overview.youNotDashboard")</h6>
+
+          <div class="col-md-12">
+            <div class='demo-container'>
+              <div class='carousel' id="listDashboard">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        @*ung dung*@
+        <div class="col-md-12 mt-3">
+          <div class="row mb-4">
+            <div class="col-sm-9">
+              <div class="breadcrumb-title pe-3 breadcrumbTitle" >@Messages("overview.app")</div>
+            </div>
+            <div class="col-sm-3">
+              <div class="inner-addon left-addon">
+                <input id="searchApp" class="form-control inputSearch" type="text" placeholder="" maxlength="50">
+                <i class="glyphicon bx bx-search"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <h6 class="mb-0 mb-2">@Messages("overview.youNotApp")</h6>
+          <div class="col-md-4">
+            <div class="card w-100">
+              <div class="row g-0">
+                <div class="card-header border-bottom" style="background-color: #aaa;">
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <h6 class="mb-0" style="color: white; text-transform: uppercase;">Ứng dụng mẫu</h6>
+                    </div>
+                    <div class="font-22 ms-auto text-white"><i class="bx bx-dots-horizontal-rounded"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row g-0">
+                <div class="col-md-6">
+                  <img src="@routes.Assets.versioned("images/dashboard/comingSoon.png")" alt="..." class="card-img" style="height: 100%; padding: 15px">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body" style="height: 100%;overflow: auto; min-height: 100px">
+                    @*<h5 class="card-title">Card title</h5>*@
+                    <p class="card-text">Ngày tạo: 20 - 11 - 2021</p>
+                    <p class="card-text"><small class="">Thông tin mô tả : ...comming soon!</small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="ml-auto mr-auto text-center" style="">
+              <button type="button" class="btn px-5 radius-15 modal-title" style="padding: 15px; background-color: #aaa; color: white; float: left">
+                <i class="bx bx-plus-circle mr-1"></i>Tạo mới ứng dụng
+              </button>
+            </div>
+          </div>
+        </div>
+
+        @*flow*@
+        <div class="col-md-12 mt-3">
+          <div class="row mb-4">
+            <div class="col-sm-9">
+              <div class="breadcrumb-title pe-3 breadcrumbTitle" >@Messages("overview.flow")</div>
+            </div>
+            <div class="col-sm-3">
+              <div class="inner-addon left-addon">
+                <input id="searchFlow" class="form-control inputSearch" type="text" placeholder="" maxlength="50">
+                <i class="glyphicon bx bx-search"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <h6 class="mb-0 mb-2" id="titleNotFlow" style="display: none">@Messages("overview.youNotFlow")</h6>
+          <div class="col-md-12">
+            <div class='carousel' id="listFlowEngine">
+
+            </div>
+          </div>
+        </div>
+
+        @*tong quan du lieu*@
+        <div class="col-md-12 mt-3">
+          <div class="row mb-4">
+            <div class="col-sm-9">
+              <div class="breadcrumb-title pe-3 breadcrumbTitle" >@Messages("overview.overviewData")</div>
+            </div>
+            <div class="col-sm-3">
+              <div class="inner-addon left-addon">
+                <input id="searchData" class="form-control inputSearch" type="text" placeholder="" maxlength="50">
+                <i class="glyphicon bx bx-search"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card w-100">
+              <div class="col">
+                <div class="card bg-transparent shadow-none mb-0">
+                  <div class="card-body text-center">
+                    <p class="mb-1 text-danger">Tổng số thiết bị</p>
+                    <h3 class="text-danger" id="countDevice">0</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card w-100">
+              <div class="col">
+                <div class="card bg-transparent shadow-none mb-0">
+                  <div class="card-body text-center">
+                    <p class="mb-1 text-danger">Tổng số user online </p>
+                    <h3 class="text-danger" id="countMess">0</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card w-100">
+              <div class="col">
+                <div class="card bg-transparent shadow-none mb-0">
+                  <div class="card-body text-center">
+                    <p class="mb-1 text-danger">Tổng số người dùng</p>
+                    <h3 class="text-danger" id="countUser">0</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="card-body">
+              @fromTime = @{
+                import java.util.Calendar
+                import java.text.SimpleDateFormat
+
+                val today = Calendar.getInstance
+                today.add(Calendar.DATE,-1);
+                val curTimeFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm")
+                curTimeFormat.format(today.getTime)
+              }
+              @toTime = @{
+                import java.util.Calendar
+                import java.text.SimpleDateFormat
+                //import java.util.TimeZone
+
+                val today = Calendar.getInstance()
+                // today.setTimeZone(TimeZone.getTimeZone("GMT+7"))
+                val curTimeFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm")
+                curTimeFormat.setTimeZone(TimeZone.getTimeZone("GMT+7"));
+                curTimeFormat.format(today.getTime)
+              }
+
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <div class="row">
+                    <label class="col-md-3 col-form-label" style="text-align: center">@Messages("Từ ")</label>
+                    <div class="col-md-9">
+                      <div class="form-group">
+                        <input class="result form-control" type="text" id="date_timepicker_start" value="@fromTime">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <div class="row">
+                    <label class="col-md-3 col-form-label" style="text-align: center">@Messages("Đến ")</label>
+                    <div class="col-md-9">
+                      <div class="form-group has-default">
+                        <input class="result form-control" type="text" id="date_timepicker_end" value="@toTime">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                  <div class="row">
+                    <label class="col-md-5 col-form-label" style="text-align: center">@Messages("Method")</label>
+                    <div class="col-md-7">
+                      <div class="form-group has-default">
+                        <select class="form-control" id="methodRequest">
+                          <option value="POST">@Messages("POST")</option>
+                          <option value="GET">@Messages("GET")</option>
+                          <option value="PUT">@Messages("PUT")</option>
+                          <option value="DELETE">@Messages("DELETE")</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                  <div class="row">
+                    <label class="col-md-5 col-form-label" style="text-align: center">@Messages("URL")</label>
+                    <div class="col-md-7">
+                      <div class="form-group has-default">
+                        <select class="form-control" id="urlRequest">
+                          <option value="devices">@Messages("devices")</option>
+                          <option value="users">@Messages("users")</option>
+                          <option value="organizations">@Messages("organizations")</option>
+                          <option value="events">@Messages("events")</option>
+                          <option value="groups">@Messages("groups")</option>
+                          <option value="attributes">@Messages("attributes")</option>
+                          <option value="rpc">@Messages("rpc")</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="btn-group col-md-2" role="group">
+                  <a type="button" class="btn btn-danger" id="buttonGetDataChart" onclick="getDataStatistical()" style="width: 48%">@Messages("Áp dụng ")</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card w-100">
+              <div class="col">
+                <div class="card bg-transparent shadow-none mb-0">
+                  <div class="card-body text-center">
+                    <p class="mb-1 text-danger">Thời gian request trung bình </p>
+                    <h3 class="text-danger" id="avgLatency">0</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card w-100">
+              <div class="col">
+                <div class="card bg-transparent shadow-none mb-0">
+                  <div class="card-body text-center">
+                    <p class="mb-1 text-danger">Tổng số request</p>
+                    <h3 class="text-danger" id="totalRequest">0</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card w-100">
+              <div class="col">
+                <div class="card bg-transparent shadow-none mb-0">
+                  <div class="card-body text-center">
+                    <p class="mb-1 text-danger">Tỉ lệ thành công </p>
+                    <h3 class="text-danger" id="successRate">0</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        @*thong tin thanh toan*@
+        @*views.html.iot.overview.Overview_customerPay()*@
+
+      </div>
+
+      @views.html.Loading()
+
+    </div>
+      <!--  END OF PAPER WRAP -->
+
+    @views.html.iot.tags.Main_js()
+
+    <script>
+      var projectId = '@projectId';
+
+      var img = '@routes.Assets.versioned("images/overview/flow.jpg")';
+      var img1 = '@routes.Assets.versioned("images/overview/flow1.png")';
+      var img2 = '@routes.Assets.versioned("images/overview/flow2.png")';
+      var dashboard = '@routes.Assets.versioned("images/overview/dashboard.png")';
+      var dashboard2 = '@routes.Assets.versioned("images/overview/dashboard2.png")';
+      var dashboard3 = '@routes.Assets.versioned("images/overview/dashboard3.jpg")';
+
+            $(document).ready(function () {
+              $("#menu-overview").addClass("mm-active");
+
+              $("#menu").metisMenu();
+              for (var e = window.location, o = $(".metismenu li a").filter(function() {
+                return this.href == e
+              }).addClass("").parent().addClass("mm-active"); o.is("li");) o = o.parent("").addClass("mm-show").parent("").addClass("mm-active");
+
+              $('#date_timepicker_start').bootstrapMaterialDatePicker({
+                format: 'DD/MM/YYYY HH:mm',
+//                time: false
+              });
+              $('#date_timepicker_end').bootstrapMaterialDatePicker({
+                format: 'DD/MM/YYYY HH:mm',
+//                time: false
+              });
+            })
+    </script>
+
+    <script src="@routes.Assets.versioned("assets/plugins/apexcharts-bundle/js/apexcharts.min.js")"></script>
+    <script src="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.min.js")"></script>
+
+    <script src="@routes.Assets.versioned("javascripts/views/overview/listDashboard.js")" type="text/javascript"></script>
+
+    <script src="@routes.Assets.versioned("javascripts/views/overview/Overview.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/overview/Overview_flow.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/overview/Overview_chart.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/overview/Overview_statistical.js")" type="text/javascript"></script>
+
+  </body>
+</html>

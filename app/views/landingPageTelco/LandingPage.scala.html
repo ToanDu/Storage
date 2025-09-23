@@ -1,0 +1,405 @@
+@import helper._
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="author" content="Viettel IoT Cloud">
+        <meta name="title" content="Viettel IoT Cloud | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt.">
+        <meta name="description" content="Viettel IoT Cloud | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt. Nền tảng IoT Cloud hàng đầu Việt Nam.">
+        <link rel="canonical" href="https://iot.viettel.vn/">
+        <meta property="og: locale" content="vi_VN">
+        <meta property="og: type" content="website">
+        <meta property="og:title" content="Viettel IoT Cloud | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt.">
+        <title>Viettel IoT Cloud | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt.</title>
+        <meta property="og:locale" content="vi_VN">
+        <meta property="og:type" content="website">
+        <meta name="og:image" content=" https://iot.viettel.vn/assets/images/landingPageTelco/Viettel.svg">
+        <meta name="image" property="og:image" content=" https://iot.viettel.vn/assets/images/landingPageTelco/Viettel.svg">
+        <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/landingPageTelco/Viettel.svg")">
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@@400;500&display=swap" rel="stylesheet">
+        <link href='@routes.Assets.versioned("stylesheets/fonts/roboto.css")' type='text/css'>
+        <link href="@routes.Assets.versioned("stylesheets/fonts/fonts.googleapis/fontsgoogleapis.css")" rel="stylesheet">
+
+            <!-- CSS Files -->
+        <link href="@routes.Assets.versioned("stylesheets/landingPage/argon-design-system.css?v=1.2.2")" rel="stylesheet" />
+        <link rel="stylesheet" href="@routes.Assets.versioned("assets/plugins/notifications/css/lobibox.min.css")" />
+
+        <link href="@routes.Assets.versioned("assets/plugins/carousel/css/owl.carousel.min.css")" rel="stylesheet">
+        <link href="@routes.Assets.versioned("assets/plugins/carousel/css/owl.theme.default.min.css")" rel="stylesheet">
+        <link href="@routes.Assets.versioned("assets/css/icons.css")" rel="stylesheet">
+
+
+        <link href="@routes.Assets.versioned("stylesheets/landingPage/landingPageTelco.css")" rel="stylesheet" />
+        <script>
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','GTM-WM56JR3');
+        </script>
+        <script type="application/ld+json">
+    {
+      "context":"https://schema.org",
+      "type":"WebSite",
+      "author":{"type":"Person","name”:”Viette”l Telco Platform},
+        "description":"Viettel IoT Cloud là Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt. Quản lý thiết bị, thu thập, xử lý và hiển thị dữ liệu cho giải pháp IoT của bạn. Kết nối vô hạn, mở vạn tiềm năng!",
+        "headline":"Viettel IoT Cloud | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt.",
+        "name":"Viettel IoT Cloud ",
+        "publisher":{"type":"Organization",
+          "logo":{"type":"ImageObject",
+            "url":"https://innoway.vn/assets/images/landingPageTelco/Logo_Viettel.svg"},
+          "name”:”Viettel IoT Cloud”},
+          "sameAs":["https://twitter.com/ViettelInnoway",
+            "http://www.linkedin.com/in/viettelinnoway",
+            "https://www.facebook.com/innoway.vn",
+            "https://www.instagram.com/innoway.vn"
+            “https://www.youtube.com/channel/UClr7WnjIVvPKiWmONu4r8zA”],
+            "url":"https://iot.viettel.vn/"
+            }
+    </script>
+        <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3V6KNSHZZ"></script>
+
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-S3V6KNSHZZ');
+
+    </script>
+    </head>
+
+    <body class="landing-page">
+        <div class="wrapper">
+            @views.html.landingPageTelco.LandingPage_navbar(currentUser)
+            <div class="section features-6 mt-1" id="divgioithieu" style="z-index: 5;  top: -74px;">
+                <div class="container mt-1">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="info info-horizontal info-hover-primary">
+                                <div class="description">
+                                    <p class="title41">@Messages("landingPageTelco.introduction")</p>
+                                </div>
+                                <div class="info info-horizontal info-hover-primary-primary mt-3">
+                                    <div class="description">
+                                        <p class="description opacity-8">@Messages("landingPageTelco.simDataService")</p>
+                                    </div>
+                                    <div class="info info-horizontal info-hover-primary">
+                                        <div class="description">
+                                            <img class="img-introduces" src="@routes.Assets.versioned("images/landingPageTelco/Vector.svg")">
+                                            <p class="descriptionsss opacity-8">@Messages("landingPageTelco.m2mTechnology")</p>
+                                        </div>
+                                        <div class="description">
+                                            <img class="img-introduces" src="@routes.Assets.versioned("images/landingPageTelco/Vector.svg")">
+                                            <p class="descriptionsss opacity-8">@Messages("landingPageTelco.m2mDataService")</p>
+                                        </div>
+                                        <div class="description">
+                                            <img class="img-introduces" src="@routes.Assets.versioned("images/landingPageTelco/Vector.svg")">
+                                            <p class="descriptionsss opacity-8">@Messages("landingPageTelco.iotTechnology")</p>
+                                        </div>
+                                    </div>
+                                    <div class="info info-horizontal info-hover-primary">
+                                        <div class="description">
+                                            <a onclick="goToByScroll('divGioicuoc')"  rel="nofollow" target="_blank" class="btn btn-danger-2"  style="background: #EA0033; border-radius: 8px 8px 8px 0px; font-weight: 700; font-size: 16px; line-height: 22px; display: flex; align-items: flex-end; text-align: center; color: #FFFFFF;">@Messages("landingPageTelco.viewProducts")<span style="margin-left: 4px;">&#8599;</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mx-md-auto">
+                            <img class="img-introduces" src="@routes.Assets.versioned("images/landingPageTelco/Group_45.svg")" width="100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @views.html.landingPageTelco.LandingPage_Giaiphap(currentUser)
+            <div class="section features-1" id="divGioicuoc" style=" background: #f9f9f9;background-image: url(@routes.Assets.versioned("images/landingPageTelco/BG1.png"));    background-repeat: no-repeat;  background-size: 100% 100%;">
+                <div class="container">
+                    <div class="col-md-12 mx-auto text-center">
+                        <p class="value">@Messages("landingPageTelco.m2mPackageProducts")</p>
+                        <h3 class="display-3 title-section-1">@Messages("landingPageTelco.diversePackages")</h3>
+                    </div>
+                    <div class="container">
+                        <div class="description">
+                            <h4 class="cdata">@Messages("landingPageTelco.packageType")</h4>
+                            <div class="cdata">@Messages("landingPageTelco.fourGFiveG")</div>
+                            <label class="switch">
+                                <input type="checkbox" id="switch1" aria-label="Switch1">
+                                <span class="iots"></span>
+                            </label>
+                            <p class="datatable1">@Messages("landingPageTelco.nbIot")</p>
+                            <p class="datatable1">@Messages("landingPageTelco.nbIot")</p>
+                        </div>
+                        <div class="descriptionsss" style="display:-webkit-inline-box">
+                            <h4 class="cdata">@Messages("landingPageTelco.subscription")</h4>
+                            <div class="cdata">@Messages("landingPageTelco.prepaid")</div>
+                            <label class="switch">
+                                <input type="checkbox" id="switch2" aria-label="Switch2">
+                                <span></span>
+                            </label>
+                            <p class="datatable">@Messages("landingPageTelco.postpaid")</p>
+                        </div>
+                        <button id="btncompare" type="button" class="btn btn-danger-3" style="color: #EA0033; height: 42px;margin-top: -6px; margin-left: 2rem "  onclick="clickCompare()" data-toggle="modal" data-target="#questionModal3">@Messages("landingPageTelco.comparePackages")</button>
+
+                    </div>
+                    @views.html.landingPageTelco.LandingPage_Sosanh()
+
+                    @views.html.landingPageTelco.LandingPage_GoiCuocM2M()
+                    @views.html.landingPageTelco.LandingPage_orderSim()
+
+                </div>
+            </div>
+            @views.html.landingPageTelco.LandingPage_Sanpham()
+
+            @views.html.landingPageTelco.LandingPage_Dathang(currentUser)
+
+            @views.html.landingPageTelco.LandingPage_client()
+@*            <div class="shape">*@
+@*                <div class="container">*@
+@*                    <div class="row" style="background-image: url(@routes.Assets.versioned("images/landingPageTelco/BG_1.jpg"));">*@
+@*                        <div class="col-md-6">*@
+@*                            <div class="description">*@
+@*                                <p class="content-center">@Messages("landingPageTelco.attractive")</p>*@
+@*                            </div>*@
+@*                        </div>*@
+@*                        <div class="col-md-6">*@
+@*                            <div class="form-group ml-5 mr-5" style="padding-top: 65px;">*@
+@*                                <div class="descriptionss">*@
+@*                                    <p class="input-group">@Messages("landingPageTelco.fullName2")</p>*@
+@*                                    <input class="form-control input7" type="text" id="name" maxlength="50">*@
+@*                                </div>*@
+@*                            </div>*@
+@*                            <div class="form-group ml-5 mr-5">*@
+@*                                <div class="descriptionss">*@
+@*                                    <p class="input-group">@Messages("landingPageTelco.phoneNumber")</p>*@
+@*                                    <input class="form-control input7" type="number" id="name" maxlength="50">*@
+@*                                </div>*@
+@*                            </div>*@
+@*                            <div class="form-group ml-5 mr-5">*@
+@*                                <div class="descriptionss">*@
+@*                                    <p class="input-group">@Messages("landingPageTelco.companyName")</p>*@
+@*                                    <input class="form-control input7" type="text" id="name" maxlength="50">*@
+@*                                </div>*@
+@*                            </div>*@
+@*                            <div class="form-group mt-3 text-center">*@
+@*                                <button class="btn btn-danger radiuss-40" onclick="" id="buttonSubmitContacts">@Messages("landingPageTelco.send")</button>*@
+@*                            </div>*@
+@*                        </div>*@
+@*                    </div>*@
+@*                </div>*@
+@*            </div>*@
+            <div class="section features-1" id="divHoiDap" style="background: #F9F9F9;background-image: url(@routes.Assets.versioned("images/landingPageTelco/Group_42.png"));background-repeat: no-repeat;  background-size: 100% 100%;">
+                <div class="container">
+                    <div class="col-md-12 mx-auto text-center">
+                        <p class="value">@Messages("landingPageTelco.faq")</p>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-md-6">
+                            <div class="accordion my-3" id="accordionExample">
+                                <div class="card" style="border: 0 solid rgba(0, 0, 0, 0.05);">
+                                    <div class="card-header" id="heading1" style="background-color: white;">
+                                        <button class="btn btn-link text-primary text-left" id="btn-shows" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1" onclick="Clickme(1)" style="white-space: inherit;">
+                                            <img id="shows" src="@routes.Assets.versioned("images/landingPageTelco/Group_5411.png")">
+                                            <img id="hide" src="@routes.Assets.versioned("images/landingPageTelco/Group_5412.png")">
+                                            <span class="text-center question-title">@Messages("landingPageTelco.faq1")</span>
+                                        </button>
+                                    </div>
+                                    <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionExample">
+                                        <div class="card-bodys opacity-8">
+                                            <label> @Messages("landingPageTelco.faq1.answer1")</label>
+                                            <label> @Messages("landingPageTelco.faq1.answer2")</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="accordion my-3" id="accordionExample">
+                                <div class="card" style="border: 0 solid rgba(0, 0, 0, 0.05);">
+                                    <div class="card-header" id="heading2" style="background-color: white;">
+                                        <button class="btn btn-link text-primary text-left" id="btn-shows1" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2" onclick="Clickme(2)"style="white-space: inherit;">
+                                            <img id="shows1" src="@routes.Assets.versioned("images/landingPageTelco/Group_5411.png")">
+                                            <img id="hide1" src="@routes.Assets.versioned("images/landingPageTelco/Group_5412.png")">
+                                            <span class="text-center question-title">@Messages("landingPageTelco.faq2")</span>
+                                        </button>
+                                    </div>
+                                    <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
+                                        <div class="card-bodys opacity-8">
+                                            <label>@Messages("landingPageTelco.faq2.answer")</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="accordion my-3" id="accordionExample">
+                                <div class="card" style="border: 0 solid rgba(0, 0, 0, 0.05);">
+                                    <div class="card-header" id="heading2" style="background-color: white;">
+                                        <button class="btn btn-link text-primary text-left" id="btn-shows2" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3" onclick="Clickme(3)" style="white-space: inherit;">
+                                            <img id="shows2" src="@routes.Assets.versioned("images/landingPageTelco/Group_5411.png")">
+                                            <img id="hide2" src="@routes.Assets.versioned("images/landingPageTelco/Group_5412.png")">
+                                            <span class="text-center question-title">@Messages("landingPageTelco.faq3")</span>
+                                        </button>
+                                    </div>
+                                    <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
+                                        <div class="card-bodys opacity-8">
+                                            <label>@Messages("landingPageTelco.faq3.intro") </label>
+                                            <label> @Messages("landingPageTelco.faq3.answer1") </label>
+                                            <label> @Messages("landingPageTelco.faq3.answer2") </label>
+                                            <label> @Messages("landingPageTelco.faq3.answer3") </label>
+                                            <label> @Messages("landingPageTelco.faq3.answer4")</label>
+                                            <label> @Messages("landingPageTelco.faq3.answer5")</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="accordion my-3" id="accordionExample">
+                                <div class="card" style="border: 0 solid rgba(0, 0, 0, 0.05);">
+                                    <div class="card-header" id="heading2" style="background-color: white;">
+                                        <button class="btn btn-link text-primary text-left" id="btn-shows3" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4" onclick="Clickme(4)" style="white-space: inherit;">
+                                            <img id="shows3" src="@routes.Assets.versioned("images/landingPageTelco/Group_5411.png")">
+                                            <img id="hide3" src="@routes.Assets.versioned("images/landingPageTelco/Group_5412.png")">
+                                            <span class="text-center question-title">@Messages("landingPageTelco.faq4")</span>
+                                        </button>
+                                    </div>
+                                    <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+                                        <div class="card-bodys opacity-8">
+                                            <label>@Messages("landingPageTelco.faq4.answer1")</label>
+                                            <label>@Messages("landingPageTelco.faq4.answer2")</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section features-1" id="divhotro" style="background-image: url(@routes.Assets.versioned("images/landingPageTelco/bg_4.png"));    background-repeat: no-repeat;  background-size: 100% 100%;">
+                <div class="container">
+                    <div class="row" style="">
+                        <div class="col-md-4" id="text-footer">
+                            <div class="description">
+                                <p class="content-user">@Messages("landingPageTelco.customerSupport")</p>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group ml-5 mr-5" style="">
+                                <div class="descriptionss">
+                                    <p class="input-group" style="color: #FFFFFF">@Messages("landingPageTelco.fullName")@Messages("landingPageTelco.required")</p>
+                                    <input class="form-control input7" type="text" id="name" maxlength="50">
+                                </div>
+                            </div>
+                            <div class="form-group ml-5 mr-5">
+                                <div class="descriptionss">
+                                    <p class="input-group" style="color: #FFFFFF">@Messages("landingPageTelco.email")@Messages("landingPageTelco.required")</p>
+                                    <input class="form-control input7" type="text" id="email" maxlength="50">
+                                </div>
+                            </div>
+                            <div class="form-group ml-5 mr-5">
+                                <div class="descriptionss">
+                                    <p class="input-group" style="color: #FFFFFF">@Messages("landingPageTelco.phoneNumber")@Messages("landingPageTelco.required")</p>
+                                    <input class="form-control input7" type="number" id="phone" maxlength="11">
+                                </div>
+                            </div>
+                            <div class="form-group ml-5 mr-5">
+                                <div class="descriptionss">
+                                    <p class="input-group" style="color: #FFFFFF">@Messages("landingPageTelco.supportContent")@Messages("landingPageTelco.required")</p>
+                                    <textarea id="content" name="content" type="text" class="form-control" rows="5" autocomplete="off" maxlength="500"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3 text-center">
+                                <button class="btn btn-danger radiuss-40" onclick="submitFormContactTelco()" id="buttonSubmitContacts">@Messages("landingPageTelco.send")</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section features-1" style="background-color: #3A3A3A;" id="divlienhe">
+                <div class="navbar-container">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="">
+                                <img src="@routes.Assets.versioned("images/landingPageTelco/viettel.svg")" alt="..." class="card-img">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <div class="">
+                                <span class="footer-text-1">@Messages("landingPageTelco.viettelTelecom")</span>
+                                <br>
+                                <span class="footer-text-2">@Messages("landingPageTelco.businessCode")</span>
+                                <br>
+                                <span class="footer-text-2">@Messages("landingPageTelco.contentResponsible")</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-4">
+                            <div class="">
+                                <div>
+                                    <a href="" target="_blank">
+                                        <a href="mailto:  iot@@viettel.com.vn" target="_blank" class="descriptions opacity-8" style="color: #FFFFFF;">@Messages("landingPageTelco.businessContact")</a>
+                                        <a href="tel: 18008044" target="_blank" class="descriptions opacity-8" style="color: #FFFFFF;">@Messages("landingPageTelco.businessPhone")</a>
+                                    </a>
+                                </div>
+                                <div style="margin-top: 15px;">
+                                    <a href="" target="_blank">
+                                        <a href="mailto:  cskh@@viettel.com.vn" target="_blank" class="descriptions opacity-8" style="color: #FFFFFF;">@Messages("landingPageTelco.customerCare")</a>
+                                        <a href="tel: 198" target="_blank" class="descriptions opacity-8" style="color: #FFFFFF;">@Messages("landingPageTelco.customerCarePhone")</a>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr style="border-top: 1px solid #4D4D4D; width: 1200px; margin: 20px auto;">
+                <div class="container">
+                    <div class="row" id="footer-menu">
+                        <div class="col-md-6" style="">
+                            <span class="footer-text-4">@Messages("landingPageTelco.copyright")</span>
+                        </div>
+                        <div class="col-md-6" id="center_footer">
+                            <span class="footer-text-4">@Messages("landingPageTelco.followUs")</span>
+                            <a href="https://www.facebook.com/innoway.vn/" class="fa fa-facebook-square" target="_blank" style="font-size: 23px; color: #B1B1B1; "></a>
+                            <a href="https://twitter.com/VInnoway" class="fa fa-twitter-square" target="_blank" style="font-size: 23px; color: #B1B1B1; margin-left: 10px;"></a>
+                            <a href="https://www.instagram.com/innoway.vn/" class="fa fa-instagram" target="_blank" style="font-size: 23px; color: #B1B1B1; margin-left: 10px;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="@routes.JsController.jsMessages()"></script>
+    <script type="text/javascript" src="@routes.JsController.javascriptRoutes"></script>
+
+    <script src="@routes.Assets.versioned("javascripts/landingPage/jquery.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/landingPage/popper.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/landingPage/bootstrap.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("assets/plugins/carousel/js/owl.carousel.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("assets/js/bootstrap.bundle.min.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/landingPage/argon-design-system.js?v=1.2.2")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("assets/plugins/notifications/js/lobibox.min.js")"></script>
+    <script src="@routes.Assets.versioned("assets/plugins/notifications/js/notifications.min.js")"></script>
+    <script src="@routes.Assets.versioned("assets/plugins/notifications/js/notification-custom-script.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/ShowNotification.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/landingPage/landingPageTelco.js")" type="text/javascript"></script>
+   <script>
+            @if(currentUser != null ){
+                var userId = '@currentUser.getId';
+                var flagLogin = "login";
+            }else{
+                var flagLogin = "notLogin";
+            }
+
+   </script>
+
+    @views.html.BackToTop()
+</html>

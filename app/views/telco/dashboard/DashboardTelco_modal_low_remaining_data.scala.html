@@ -1,0 +1,76 @@
+@import helper._
+@import vn.m2m.common.models.User
+@(userId:String)
+<div class="modal fade" id="modal_low_remaining_data" data-bs-backdrop="static" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable shadow-none">
+    <div class="modal-content">
+      <div class="modal-header pb-0">
+        <h3 class="modal-title mb-3" id="title_modal_low_remaining_data" style="color: #001737;">@Messages("Danh sách thuê bao có lưu lượng data còn lại dưới 20% ")</h3>
+        <div class="row mb-1 text-start">
+          <div class="col-md-1">
+            <em>** Chú ý:</em>
+          </div>
+          <div class="col-md-11">
+            <em>- Dữ liệu được thống kê dựa trên tổng dung lượng của mỗi gói data mà thuê bao đã đăng ký,  chu kì cập nhật dữ liệu 24h/1 lần.</em> <br>
+            <em>- Các gói cước có chu kì data 1 ngày/1 lần có thể bị cảnh báo trễ.</em>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12" style="border-radius: 8px;">
+            <table class="table table-striped" id="table_modal_low_remaining_data" style="width: 100%;">
+              <thead style="background-color: #FBCCD6;">
+                <th class="text-center">STT</th>
+                <th class="text-center">Số thuê bao</th>
+                <th class="text-center">GPKD</th>
+                <th class="text-center">Gói cước</th>
+                <th class="text-center">Dung lượng data còn lại</th>
+                <th class="text-center">Thời gian cập nhật</th>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <div>
+              <input id="pageLowRemainingData" value="1" style="display: none">
+              <input id="pageSizeLowRemainingData" value="10" style="display: none">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer mt-1 pt-0" id="footer_modal_red_alert">
+        <div class="row">
+          <div class="col-md-4 d-flex align-items-center justify-content-center justify-content-md-start mb-3">
+            <p class="mb-0">Tổng <span id="total_record_LowRemainingData">0</span> bản ghi</p>
+          </div>
+          <div
+            class="col-md-8 d-flex flex-column flex-md-row justify-content-end align-items-center gap-2 gap-md-3 mb-3">
+            <div class="dropdown mb-2 mb-md-0">
+              <button class="btn btn-sm dropdown-toggle btn-outline-dark" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false" id="countPageLowRemainingData" style="margin-left: 5px;">
+                10
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="javascript:applySearchLowRemainingData(1,10)">10</a></li>
+                <li><a class="dropdown-item" href="javascript:applySearchLowRemainingData(1,50)">50</a></li>
+                <li><a class="dropdown-item" href="javascript:applySearchLowRemainingData(1,100)">100</a></li>
+                <li><a class="dropdown-item" href="javascript:applySearchLowRemainingData(1,200)">200</a></li>
+                <li><a class="dropdown-item" href="javascript:applySearchLowRemainingData(1,500)">500</a></li>
+              </ul>
+            </div>
+            <p class="mb-2 mb-md-0">@Messages("Bản ghi/trang")</p>
+            <div id="pagingTableLowRemainingData" class="justify-content-md-end"></div>
+          </div>
+      
+        </div>
+          <button type="button" class="btn btn-telco" style="background: #FFFFFF; color: #EA0033;"
+          onclick="resetModalLowRemainingData()" data-bs-dismiss="modal">@Messages("btnClose")</button>
+        <button type="button" class="btn btn-telco" style="background: #FFFFFF; color: #EA0033;"
+          onclick="downloadExcelLowRemainingData(1)">@Messages("Export")</button>
+        <a href="@routes.TelcoUtilitiesController.utilitiesManage(userId)" target="_blank" type="button" class="btn btn-telco"
+          style="background: #EA0033; color: #FFFFFF; width: auto;">@Messages("Mua gói Data")</a>
+          
+      </div>
+    </div>
+  </div>
+</div>

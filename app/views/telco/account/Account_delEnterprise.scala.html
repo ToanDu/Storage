@@ -1,0 +1,29 @@
+<div class="modal fade" id="delEnterpriseModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block; ">
+        <h5 class="modal-title" id="myModalLabel">@Messages("account.confirmDeleteEnterprise")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <input type="text" class="form-control" id="idEnterpriseDel" readonly hidden>
+          <input type="number" class="form-control" id="sttEnterpriseDel" readonly hidden>
+
+          <div class="col-12 mt-3">
+            <label class="form-label">@Messages("account.enterprise")</label>
+            <input type="text" class="form-control" id="nameEnterpriseDel" readonly>
+          </div>
+          <div class="col-12 mt-3">
+            <label class="form-label">@Messages("account.businessLicenseNumber")</label>
+            <input type="text" class="form-control" id="gpkdEnterpriseDel" readonly>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick="processRemoveInfoEnterprise()">@Messages("common.confirm")</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("common.close")</button>
+      </div>
+    </div>
+  </div>
+</div>

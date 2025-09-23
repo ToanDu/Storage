@@ -1,0 +1,609 @@
+@import helper._
+@import vn.m2m.common.models.User
+@(currentUser: User)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Viettel InnoWay">
+    <meta name="title" content="Viettel InnoWay | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt.">
+    <meta name="description" content="Viettel InnoWay | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt. Nền tảng IoT hàng đầu Việt Nam. Nền tảng IoT giá rẻ nhất. Giải pháp IoT. InnoWay là giải pháp thông minh cho mọi nhà phát triển ứng dụng IoT. Quản lý thiết bị, thu thập, xử lý và hiển thị dữ liệu cho giải pháp IoT của bạn. Kết nối vô hạn, mở vạn tiềm năng!">
+    <meta name="keywords" content="iot, nen tang iot, internet of things, technology, iot vietnam, nha thong minh, nong trai thong minh, dinh vi thong minh, camera thong minh, nang luong thong minh, quan ly tai san, thanh pho thong minh, van phong thong minh, do thi thong minh, giai phap iot, smarthome, smart home, quan ly xe, dong ho dien thong minh, dong ho nuoc thong minh, vtag viettel, vhome viettel, vtag, vhome, vtracking, v-tracking, vtracking viettel, v-tracking viettel">
+    <meta name="og:keywords" content="iot, nen tang iot, internet of things, technology, iot vietnam, nha thong minh, nong trai thong minh, dinh vi thong minh, camera thong minh, nang luong thong minh, quan ly tai san, thanh pho thong minh, van phong thong minh, do thi thong minh, giai phap iot, smarthome, smart home, quan ly xe, dong ho dien thong minh, dong ho nuoc thong minh, vtag viettel, vhome viettel, vtag, vhome, vtracking, v-tracking, vtracking viettel, v-tracking viettel">
+    <link rel="canonical" href="https://innoway.vn/">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index,follow,all">
+    <meta property="og:title" content="Viettel InnoWay | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt.">
+    <meta name="title" property="og:title" content="Viettel InnoWay | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt.">
+    <meta property="og:description" content="Viettel InnoWay | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt. Nền tảng IoT hàng đầu Việt Nam. Nền tảng IoT giá rẻ nhất. Giải pháp IoT. InnoWay là giải pháp thông minh cho mọi nhà phát triển ứng dụng IoT. Quản lý thiết bị, thu thập, xử lý và hiển thị dữ liệu cho giải pháp IoT của bạn. Kết nối vô hạn, mở vạn tiềm năng!">
+    <meta name="description" property="og:description" content="Viettel InnoWay | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt. Nền tảng IoT hàng đầu Việt Nam. Nền tảng IoT giá rẻ nhất. Giải pháp IoT. InnoWay là giải pháp thông minh cho mọi nhà phát triển ứng dụng IoT. Quản lý thiết bị, thu thập, xử lý và hiển thị dữ liệu cho giải pháp IoT của bạn. Kết nối vô hạn, mở vạn tiềm năng!">
+    <meta property="og:url" content="https://innoway.vn/">
+    <meta property="og:site_name" content="innoway.vn">
+    <meta name="og:image" content=" https://innoway.vn/assets/images/login/logo.svg">
+    <meta name="image" property="og:image" content=" https://innoway.vn/assets/images/login/logo.svg">
+    <title>Viettel InnoWay | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt.</title>
+    <meta name="copyright" content="Viettel InnoWay">
+    <meta name="twitter:url" content=" https://innoway.vn/">
+    <meta name="twitter:title" content="Viettel InnoWay | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt.">
+    <meta name="twitter:description" content=" Viettel InnoWay | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt. Nền tảng IoT hàng đầu Việt Nam. Nền tảng IoT giá rẻ nhất. Giải pháp IoT. InnoWay là giải pháp thông minh cho mọi nhà phát triển ứng dụng IoT. Quản lý thiết bị, thu thập, xử lý và hiển thị dữ liệu cho giải pháp IoT của bạn. Kết nối vô hạn, mở vạn tiềm năng!">
+    <meta name="twitter:card" content="app">
+    <meta name="twitter:site" content=" Tổng Công ty Công nghiệp Công nghệ cao Viettel (VHT)">
+    <meta name="twitter:text:title" content="Viettel InnoWay | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt.">
+    <meta name="twitter:description" content=" Viettel InnoWay | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt. Nền tảng IoT hàng đầu Việt Nam. Nền tảng IoT giá rẻ nhất. Giải pháp IoT. InnoWay là giải pháp thông minh cho mọi nhà phát triển ứng dụng IoT. Quản lý thiết bị, thu thập, xử lý và hiển thị dữ liệu cho giải pháp IoT của bạn. Kết nối vô hạn, mở vạn tiềm năng!">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="resource-type" content="Document">
+    <meta name="distribution" content="Global">
+    <meta http-equiv="audience" content="General">
+    <meta http-equiv="content-language" content="vi_VN">
+    <meta name="revisit-after" content="1 days">
+      <!-- Google Tag Manager -->
+    <script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-WM56JR3');
+    </script>
+      <!-- Your SDK code -->
+    <script type="application/ld+json">
+    {
+      "context":"https://schema.org",
+      "type":"WebSite",
+      "author":{"type":"Person","name”:”Viette”l InnoWay},
+        "description":"Viettel InnoWay là Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt. Quản lý thiết bị, thu thập, xử lý và hiển thị dữ liệu cho giải pháp IoT của bạn. Kết nối vô hạn, mở vạn tiềm năng!",
+        "headline":"Viettel InnoWay | Nền tảng IoT toàn diện phục vụ chuyển đổi số cho doanh nghiệp Việt.",
+        "image":{"twitter”:”/assets/images/landingPage/Logo.png",
+          "facebook”:”/assets/images/landingPage/Logo.png",
+          "url":"https://innoway.vn/assets/images/landingPage/Logo.png",
+          "type":"imageObject"},
+        "name":"Viettel InnoWay ",
+        "publisher":{"type":"Organization",
+          "logo":{"type":"ImageObject",
+            "url":"https://innoway.vn/assets/images/landingPage/Logo.png"},
+          "name”:”Viettel InnoWay”},
+          "sameAs":["https://twitter.com/ViettelInnoway",
+            "http://www.linkedin.com/in/viettelinnoway",
+            "https://www.facebook.com/innoway.vn",
+            "https://www.instagram.com/innoway.vn"
+            “https://www.youtube.com/channel/UClr7WnjIVvPKiWmONu4r8zA”],
+            "url":"https://innoway.vn/"
+            }
+    </script>
+      <!-- End Google Tag Manager -->
+
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='@routes.Assets.versioned("stylesheets/fonts/roboto.css")' type='text/css'>
+    <link href="@routes.Assets.versioned("stylesheets/fonts/fonts.googleapis/fontsgoogleapis.css")" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@@400;500&display=swap" rel="stylesheet">
+      <!-- CSS Files -->
+    <link href="@routes.Assets.versioned("stylesheets/landingPage/argon-design-system.css?v=1.2.2")" rel="stylesheet" />
+
+    <link rel="stylesheet" href="@routes.Assets.versioned("assets/plugins/notifications/css/lobibox.min.css")" />
+    <link href="@routes.Assets.versioned("assets/css/icons.css")" rel="stylesheet">
+
+    <link href="@routes.Assets.versioned("stylesheets/landingPage/landingPage.css0")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("stylesheets/landingPage/carousel.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("stylesheets/landingPage/link.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("stylesheets/landingPage/landingPage2.css")" rel="stylesheet" />
+
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSR7287P4E"></script>
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-BSR7287P4E');
+    </script>
+  </head>
+
+  <body class="landing-page">
+
+    @views.html.landingPage.LandingPage_navbar(currentUser)
+
+    <div class="wrapper">
+
+      @views.html.landingPage.LandingPage_overview()
+
+      <div class="">
+        <div class="section features-12">
+          <div class="container">
+            <div class="row" style="margin-top: -15px;" >
+              <div class="col-md-7 mx-auto text-center">
+                <div class="section features-1" id="">
+                  <div class="container">
+                    <h3 class="display-3 title21">@Messages("Nền tảng IoT tốt nhất cho phép bạn xây dựng nguyên mẫu, mở rộng và quản lý các dự án dễ dàng!")</h3>
+                    <p class="lead title22">@Messages("Bạn đã sẵn sàng bắt đầu xây dựng các sản phẩm IoT?")</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5 mx-auto text-center">
+                <div class="section features-1" id="">
+                  <div class="container">
+                    <a class="btn btn-danger" href="@routes.Application.register()">@Messages("Đăng ký ngay!")</a>
+                    <label style="margin-left: 15px;">@Messages("hoặc dùng thử ")<a class="cursor-pointer" href="@routes.AppDebugController.solutionMaketPage()" style="text-decoration: underline red; color: red; margin-left: 5px;">@Messages("Giải pháp mẫu")</a></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        @views.html.landingPage.LandingPage_giaiPhap()
+
+        @views.html.landingPage.LandingPage_develop()
+
+        @views.html.landingPage.LandingPage_video()
+
+        @views.html.landingPage.LandingPage_usecase()
+
+        <div class="shape" style="background-image: url(@routes.Assets.versioned("images/landingPage/section3.png")); background-size: 100% 100%;">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 mt-5">
+                <h5 class="display-1 text-white why-title">@Messages("Tại sao lại chọn InnoWay?")</h5>
+                <p class="text-white mt-4">@Messages("Với vai trò tiên phong cung cấp giải pháp IoT toàn diện trong cuộc cách mạng chuyển đổi số Việt, chúng tôi mang đến những lựa chọn tốt nhất, tối ưu nhất dành cho các nhà phát triển các ứng dụng IoT tại Việt Nam.")</p>
+                <div class="row mt-5 mb-5">
+                  <div class="col-md-6" id="text-md">
+                    <h6 class="display-3 text-white why-text">@Messages("1$/năm")</h6>
+                    <p class="text-white ">@Messages("Chi phí nền tảng thấp")</p>
+                  </div>
+                  <div class="col-md-6" id="text1-md">
+                    <h6 class="display-3 text-white why-text">@Messages("0.1$/tháng")</h6>
+                    <p class="text-white ">@Messages("Chi phí kết nối")</p>
+                  </div>
+                  <div class="col-md-6 mt-4">
+                    <h6 class="display-3 text-white why-text">@Messages("~100ms")</h6>
+                    <p class="text-white ">@Messages("Độ trễ xử lý tin")</p>
+                  </div>
+                  <div class="col-md-6 mt-4">
+                    <h6 class="display-3 text-white why-text">@Messages("20triệu/tháng")</h6>
+                    <p class="text-white ">@Messages("Chi phí hạ tầng tối thiếu")</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6" id="text-md1">
+                <div class="row">
+                  <div class="col-md-6 mt-5">
+                    <div class="card p-4" style="box-shadow: 0px 12px 36px rgba(0, 0, 0, 0.12); border-radius: 15px; height: 100%; ">
+                      <img id="card1" src="@routes.Assets.versioned("images/landingPage/why1.svg")" width="64px">
+                      <h3 class="mt-31" style="color: #000000; font-weight: 700; margin-top: 20px;">@Messages("Đội ngũ hỗ trợ")</h3>
+                      <p class="mt-card1">@Messages("Là các chuyên gia, có nhiều kinh nghiệm triển khai các dự án IoT lớn, nắm rõ hạ tầng và am hiểu thị trường Việt Nam.")</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mt-5">
+                    <div class="card p-4" style="box-shadow: 0px 12px 36px rgba(0, 0, 0, 0.12); border-radius: 15px; height: 100%;">
+                      <img id="card1" src="@routes.Assets.versioned("images/landingPage/why2.svg")" width="64px">
+                      <h3 class="mt-31" style="color: #000000; font-weight: 700; margin-top: 20px;">@Messages("Hệ thống linh hoạt ")</h3>
+                      <p class="mt-card1">@Messages("Hệ thống cho phép mở rộng hoặc thu gọn đáp ựng mọi nhu cầu với chi phí tối ưu")</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mt-5">
+                    <div class="card p-4" style="box-shadow: 0px 12px 36px rgba(0, 0, 0, 0.12); border-radius: 15px; height: 100%;">
+                      <img id="card1" src="@routes.Assets.versioned("images/landingPage/why3.svg")" width="64px">
+                      <h3 class="mt-31" style="color: #000000; font-weight: 700; margin-top: 20px;">@Messages("Giải pháp mẫu")</h3>
+                      <p class="mt-card1">@Messages("Các giải pháp mẫu đa dạng, rút ngắn thời gian phát triển dự án IoT của bạn.")</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mt-5 why-card-4">
+                    <div class="card p-4" style="box-shadow: 0px 12px 36px rgba(0, 0, 0, 0.12); border-radius: 15px; height: 100%;">
+                      <img id="card1" src="@routes.Assets.versioned("images/landingPage/why4.svg")" width="64px">
+                      <h3 class="mt-31" style="color: #000000; font-weight: 700; margin-top: 20px;">@Messages("Tuỳ chỉnh và tích hợp")</h3>
+                      <p class="mt-card1">@Messages("Khả năng tuỳ biến và phát triển các tính năng không giới hạn.")</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        @views.html.landingPage.LandingPage_customer()
+
+        @*vTag*@
+        <div class="section features-6 mt-1">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 mx-md-auto">
+                <img class="img-product" src="@routes.Assets.versioned("images/landingPage/img-vTag.svg")" width="100%">
+              </div>
+              <div class="col-lg-6">
+                <div class="info info-horizontal info-hover-primary">
+                  <div class="description">
+                    <p class="title41">@Messages("landing4.title1")</p>
+                    @*<hr style="border: 1px solid red; width: 50px;">*@
+                    <div style="border-bottom: 1px solid red; width: 80px;"></div>
+                  </div>
+
+                </div>
+                <div class="info info-horizontal info-hover-primary mt-3">
+                  <div class="description">
+                    <p class="description opacity-8">@Messages("landing4.title2")</p>
+                  </div>
+                </div>
+                <div class="info info-horizontal info-hover-primary">
+                  <div class="description">
+                    <button class="btn" style="border: 1.4px solid #EE0033; border-radius: 55px; color: #EE0033; font-size: 18px; font-weight: 500; line-height: 26px;line-height: 26px; " data-bs-toggle="modal" data-bs-target="#downloadVtagModal">
+                      @Messages("Tải về ngay")<i class="fa fa-long-arrow-down" style="margin-left: 4px;"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        @views.html.landingPage.LandingPage_download_vtag()
+
+        @*smarthome*@
+        <div class="section features-6 section-smarthome">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="info info-horizontal info-hover-primary">
+                  <div class="description">
+                    <p class="title41">@Messages("VHome - Viettel SmartHome")</p>
+                    <div style="border-bottom: 1px solid red; width: 80px;"></div>
+                  </div>
+
+                </div>
+                <div class="info info-horizontal info-hover-primary mt-3">
+                  <div class="description">
+                    <p class="description opacity-8">@Messages("VHome là ứng dụng giám sát camera, giúp người dùng dễ dàng quản lý từ xa ở mọi nơi bất cứ thời gian nào.")</p>
+                    <p style="color: #333333; font-weight: 500; font-size: 18px; line-height: 26px;">@Messages("Các tính năng chính: ")</p>
+                    <p class="description opacity-8">@Messages("- Điều khiển thiết bị camera từ xa qua internet.")</p>
+                    <p class="description opacity-8">@Messages("- Giao diện thiết kế đơn giản, dễ dàng sử dụng.")</p>
+                    <p class="description opacity-8">@Messages("- Hỗ trợ chức năng hẹn giờ, thiết lập kịch bản hoạt động.")</p>
+                    <p class="description opacity-8">@Messages("- Server Cloud được đặt tại Viettel, đảm bảo đường truyền ổn định, bảo mật thông tin.")</p>
+                    <p class="description opacity-8">@Messages("- Các chức năng mới sẽ được cập nhật liên tục.")</p>
+                    <p style="color: #333333; font-weight: 500;font-size: 18px; line-height: 26px;">@Messages("Mục tiêu mà chúng tôi hướng tới: ")</p>
+                    <p class="description opacity-8">@Messages("- Cung cấp thiết bị giám sát kiểu dáng đơn giản, sang trọng, dễ sử dụng và lắp đặt.")</p>
+                    <p class="description opacity-8">@Messages("- Nghiên cứu và ứng dụng các công nghệ tiên tiến nhất.")</p>
+                  </div>
+                </div>
+                <div class="info info-horizontal info-hover-primary">
+                  <div class="description">
+                    <button class="btn" style="border: 1.4px solid #EE0033; border-radius: 55px; color: #EE0033; font-size: 18px; font-weight: 700; line-height: 26px;line-height: 26px; " data-bs-toggle="modal" data-bs-target="#downloadSmarthomeModal">@Messages("Tải về ngay")<i class="fa fa-long-arrow-down" style="margin-left: 4px;"></i></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 mx-md-auto">
+                <img class="img-products" src="@routes.Assets.versioned("images/landingPage/Img_Vhome.svg")" width="100%">
+              </div>
+            </div>
+          </div>
+        </div>
+        @views.html.landingPage.LandingPage_download_smarthome()
+
+        @*fleet*@
+        <div class="section features-6 section-fleet">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 mx-md-auto">
+                <img class="img-product" src="@routes.Assets.versioned("images/landingPage/img-Fleet.svg")" width="100%">
+              </div>
+              <div class="col-lg-6">
+                <div class="info info-horizontal info-hover-primary">
+                  <div class="description">
+                    <p class="title41">@Messages("Fleet Management - Quản lý đội xe")</p>
+                    <div style="border-bottom: 1px solid red; width: 80px;"></div>
+                  </div>
+
+                </div>
+                <div class="info info-horizontal info-hover-primary mt-3">
+                  <div class="description">
+                    <p class="description opacity-8">@Messages("Giải pháp hỗ trợ các luồng xử lý bản tin định vị, cảnh báo vùng an toàn, pin yếu, cảnh báo khẩn cấp tới người sử dụng. Người sử dụng cũng có thể cấu hình từ xa cho thiết bị về chu kỳ gửi bản tin, chế độ tiết kiệm năng lượng, chế độ hòa mạng, hoặc cấu hình nhận cảnh báo qua SMS hoặc Notification từ App.")</p>
+                  </div>
+                </div>
+                <div class="info info-horizontal info-hover-primary">
+                  <div class="description">
+                    <a class="btn" style="border: 1.4px solid #EE0033; border-radius: 55px; color: #EE0033;  font-size: 18px; font-weight: 500; line-height: 26px;line-height: 26px;" href="@routes.AppDebugController.solutionMaketPage()" target="_blank">@Messages("Xem thêm")</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        @*smart mettering*@
+        <div class="section features-6 section-mettering">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="info info-horizontal info-hover-primary">
+                  <div class="description">
+                    <p class="title41">@Messages("Smart Metering - Đồng hồ điện/nước thông minh")</p>
+                    <div style="border-bottom: 1px solid red; width: 80px;"></div>
+                  </div>
+
+                </div>
+                <div class="info info-horizontal info-hover-primary mt-3">
+                  <div class="description">
+                    <p class="description opacity-8">@Messages("Giải pháp cung cấp khả năng giám sát và cảnh báo từ xa cũng như cung cấp các công cụ phân tích dữ liệu mạnh mẽ để giúp các công ty và người dùng cá nhân tối ưu hóa mức tiêu thụ năng lượng, nước, khí đốt hoặc nhiên liệu của họ.")</p>
+                    <p style="color: #333333; font-weight: 500;font-size: 18px; line-height: 26px;">@Messages("Đồng hồ nước thông minh: ")</p>
+                    <p class="description opacity-8">@Messages("Đây là dòng thiết bị tối ưu năng lượng sử dụng, với chu kỳ gửi bản tin hàng ngày hoặc hàng giờ để người sử dụng có thể theo dõi lưu lượng sử dụng, nhận cảnh báo khi có hiện tượng nhảy số thất thường, vấn đề về từ tính, vỡ ống nước, rỏ rỉ nước hoặc cạn nước. Đồng thời nhà quản lý cũng có thể thao tác tổng hợp số nước sử dụng, đặt lại đồng hồ từ xa mà không cần đội ngũ kiểm tra đồng hồ nước định kỳ theo tháng.")</p>
+                    <p style="color: #333333; font-weight: 500;font-size: 18px; line-height: 26px;">@Messages("Đồng hồ điện thông minh:")</p>
+                    <p class="description opacity-8">@Messages("Hệ thống cung cấp khả năng đo lường tự động và từ xa việc sử dụng điện, kết nối và ngắt kết nối dịch vụ, phát hiện giả mạo, xác định và cách ly sự cố mất điện cũng như giám sát điện áp.")</p>
+                  </div>
+                </div>
+                <div class="info info-horizontal info-hover-primary">
+                  <div class="description">
+                    <a class="btn" style="border: 1.4px solid #EE0033; border-radius: 55px; color: #EE0033; font-weight: 500;font-size: 18px; line-height: 26px; letter-spacing: 1px;" href="@routes.AppDebugController.solutionMaketPage()" target="_blank">@Messages("Xem thêm")</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 mx-md-auto">
+                <img class="" src="@routes.Assets.versioned("images/landingPage/img_smart_mettering.svg")" width="100%">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        @views.html.landingPage.LandingPage_partner()
+
+        <div class="section features-1" id="divHoiDap">
+          <div class="container">
+            <div class="col-md-12 mx-auto text-center">
+              <img class="imgQuestion" src="@routes.Assets.versioned("images/landingPage/icon009.png")">
+            </div>
+            <div class="col-md-12 mt-5">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="accordion my-3" id="accordionExample" style="box-shadow: 0px 12px 44px rgba(13, 38, 59, 0.12); border-radius: 20px;">
+                    <div class="card">
+                      <div class="card-header" id="heading1" style="background-color: white;">
+                        <button class="btn btn-link text-primary text-left question-sometime" id="btn-shows" type="" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1" onclick="Clickme()">
+                          <img id="shows" src="@routes.Assets.versioned("images/landingPage/Group_5411.png")">
+                          <img id="hide" src="@routes.Assets.versioned("images/landingPage/Group_5412.png")">
+                          <span class="text-center question-title">@Messages("InnoWay là gì?")</span>
+                        </button>
+                      </div>
+                      <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordionExample">
+                        <div class="card-bodys opacity-8">
+                          InnoWay là nền tảng IoT cho phép bạn theo dõi và kiểm soát các thiết bị IoT của mình. Nó phục vụ việc thu thập, truyền tải, phân tích, lưu trữ và mô tả trực quan dữ liệu kết nối từ hệ thống thiết bị của người dùng. Nếu đây là lần đầu tiên bạn trải nghiệm nền tảng này, chúng tôi khuyên bạn nên xem <a href="https://vht-iot.gitbook.io/innoway/" class="use-manual" style="color: #5e72e4">hướng dẫn sử dụng </a> để dễ dàng tìm hiểu các thông tin.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                      <div class="card-header" id="heading2" style="background-color: white;">
+                        <button class="btn btn-link text-primary text-left" id="btn-shows1" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2" onclick="Clickme1()">
+                          <img id="shows1" src="@routes.Assets.versioned("images/landingPage/Group_5411.png")">
+                          <img id="hide1" src="@routes.Assets.versioned("images/landingPage/Group_5412.png")">
+                          <span class="text-center question-title">@Messages(" Bắt đầu như thế nào?")</span>
+                        </button>
+                      </div>
+                      <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
+                        <div class="card-bodys opacity-8">
+                        @Messages("Bạn có thể bắt đầu trải nghiệm cùng Innoway bằng cách đăng ký tài khoản trả phí hoặc miễn phí. Thông tin chi tiết, bạn có thể tham khảo tại đây.")
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-line"></div>
+                    <div class="card">
+                      <div class="card-header" id="heading3" style="background-color: white;">
+                        <button class="btn btn-link text-primary text-left" id="btn-shows2" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="flase" aria-controls="collapse3" onclick="Clickme2()">
+                          <img id="shows2" src="@routes.Assets.versioned("images/landingPage/Group_5411.png")">
+                          <img id="hide2" src="@routes.Assets.versioned("images/landingPage/Group_5412.png")">
+                          <span class="text-center question-title">@Messages(" Tôi có thể làm gì với InnoWay?")</span>
+                        </button>
+                      </div>
+                      <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
+                        <div class="card-bodys opacity-8">
+                          @Messages("Innoway là nền tảng toàn diện để xây dựng các giải pháp IoT. Với Innoway, bạn có thể (bao gồm nhưng không giới hạn):")
+                          <label>@Messages("+ Kết nối, quản lý, giám sát và điều khiển các thiết bị IoT một cách nhanh chóng, thuận tiện")</label><br>
+                          <label>@Messages("+ Lựa chọn phương án lưu trữ phù hợp: tại chỗ (on-premise) hoặc đám mây (cloud)")</label><br>
+                          <label>@Messages("+ Thiết lập hệ thống báo cáo linh hoạt, trực quan")</label><br>
+                          <label>@Messages("Chi tiết vui lòng tham khảo tại đây.")</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-line"></div>
+                    <div class="card">
+                      <div class="card-header" id="heading4" style="background-color: white;">
+                        <button class="btn btn-link text-primary text-left" id="btn-shows3" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="flase" aria-controls="collapse4"onclick="Clickme3()">
+                          <img id="shows3" src="@routes.Assets.versioned("images/landingPage/Group_5411.png")">
+                          <img id="hide3" src="@routes.Assets.versioned("images/landingPage/Group_5412.png")">
+                          <span class="text-center question-title">@Messages(" Làm thế nào để kết nối thiết bị của tôi?")</span>
+                        </button>
+                      </div>
+                      <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
+                        <div class="card-bodys opacity-8">
+                        @Messages("Innoway hỗ trợ kết nối cho hầu hết các thiết bị IoT. Để có thể biết rõ cách thức kết nối cho thiết bị của bạn, vui lòng tham khảo tại đây")
+                        </div>
+                      </div>
+                    </div>
+                    <div class="horizontal-line"></div>
+                    <div class="card">
+                      <div class="card-header" id="heading5" style="background-color: white;">
+                        <button class="btn btn-link text-primary text-left" id="btn-shows4" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="flase" aria-controls="collapse5" onclick="Clickme4()">
+                          <img id="shows4" src="@routes.Assets.versioned("images/landingPage/Group_5411.png")">
+                          <img id="hide4" src="@routes.Assets.versioned("images/landingPage/Group_5412.png")">
+                          <span class="text-center question-title">@Messages(" Tôi có cần sử dụng SDK không?")</span>
+                        </button>
+                      </div>
+                      <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
+                        <div class="card-bodys opacity-8 mb-3">
+                        @Messages("Không, nhiều thiết bị IoT không thể  nhúng SDK của bên thứ ba. Innoway cung cấp API khá đơn giản trên các giao thức IoT phổ biến. Bạn có thể chọn bất kỳ thư viện phía máy khách nào bạn thích hoặc sử dụng thư viện của riêng bạn. Tham khảo thêm tại đây")
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="col-lg-12 mx-auto text-center">
+                  <h3 id="center">@Messages("Bạn có câu hỏi cần giải đáp?")</h3>
+                  <label style="font-size: 18px; color: #4F5053;">@Messages("Hãy để các chuyên gia của chúng tôi hỗ trợ bạn")</label><br>
+                  <button class="btn mt-4" style="background: #EE0033; border-radius: 28px; color: white;" data-bs-toggle="modal" data-bs-target="#questionModal">@Messages("Đặt câu hỏi ngay ")</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        @views.html.landingPage.LandingPage_question()
+      </div>
+      @views.html.landingPage.LandingPage_contact()
+
+      <div class="shape4" style="">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8" id="shape3">
+              <div class="content">
+                <div class="use-content">
+                  <p class="use-content-text">Trở thành nhà phát triển</p>
+                </div>
+                <div class="img-use">
+                  <img class="" src="@routes.Assets.versioned("images/landingPage/Rectangle 1.png")">
+                </div>
+              </div>
+              <div class="">
+                <h3 class="text-use-content" style="color: #FFFFFF;">Sẵn sàng để thử trải nghiệm công việc khác nhau ngay bây giờ ?</h3>
+              </div>
+              <p class="text-use-content-1">Có được trải nghiệm làm việc tốt nhất mà bạn chưa từng cảm thấy trước đây </p>
+              <a class="btn btn-danger radius-30 " href="https://blog.innoway.vn/tuyen-dung" target="_blank">
+                @Messages("Tham gia ngay")
+              </a>
+            </div>
+            <div class="col-md-4" id="shape3">
+              <div class="shape4">
+                <img class="shape-img" src="@routes.Assets.versioned("images/landingPage/avatar_Dev_IoT.png")">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="shape1" style="">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <img class="imglogo" src="@routes.Assets.versioned("images/landingPage/Logo.png")">
+            </div>
+            <div class="col-md-2 mt1">
+              <p class="text-shape">Hotline miễn phí(24/7)</p>
+              <a href="tel: 0869999904" target="_blank" class="descriptionss opacity-8">@Messages("Hotline: 0869999904")</a>
+            </div>
+            <div class="col-md-2 mt2">
+              <p class="text-shape">Chăm sóc khác hàng</p>
+              <a href="mailto: innowayviettel.com.vn" target="_blank" class="descriptionsss opacity-8">@Messages("Email: innoway@viettel.com.vn")</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section features-1" style="background-color: #0D2C4A">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="info text-white">
+                <p class="descriptions opacity-8" style="margin-top: 15px; font-weight: 500;">@Messages("LIÊN HỆ CHÚNG TÔI ")</p>
+                <a href="https://goo.gl/maps/swYZ4EVoXY4yB1DJ7" target="_blank" class="descriptions opacity-8" style="margin-top: 15px"><i class="bx bx-location-plus"></i> @Messages("Địa chỉ: 380 Lạc Long Quân, Hà Nội")</a>
+                <a href="tel: 0869999904" target="_blank" class="descriptions opacity-8"><i class="bx bx-phone"></i>@Messages("Hotline: 0869999904")</a>
+                <a href="mailto: innoway@@viettel.com.vn" target="_blank" class="descriptions opacity-8"><i class="bx bx-envelope"></i> @Messages("Email: innoway@viettel.com.vn")</a>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="info text-white">
+                <p class="descriptions opacity-8" style="margin-top: 15px; font-weight: 500;">@Messages("INNOWAY ")</p>
+                <a class="descriptions opacity-8" style="margin-top: 15px" href="https://blog.innoway.vn/gioi-thieu" target="_blank">@Messages("Giới thiệu")</a>
+                <a class="descriptions opacity-8" style="margin-top: 15px" href="https://innoway.vn/registerDeveloper" target="_blank">@Messages("Hợp tác")</a>
+                <a class="descriptions opacity-8" style="margin-top: 15px" href="https://blog.innoway.vn/tuyen-dung" target="_blank" >@Messages("Tuyển dụng ")</a>
+                <a class="descriptions opacity-8" style="margin-top: 15px" href="https://blog.innoway.vn/lien-he" target="_blank">@Messages("Liên hệ")</a>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="info text-white">
+                <p class="description opacity-8" style="margin-top: 15px; font-weight: 500;">@Messages("DEVELOPERS ")</p>
+                <a href="https://vht-iot.gitbook.io/innoway/" target="_bank" class="descriptions opacity-8" style="margin-top: 15px">@Messages("Hướng dẫn sử dụng")</a>
+                @if(currentUser != null){
+                  <a href="@routes.ProjectController.project()" class="descriptions opacity-8" style="margin-top: 15px">@Messages("Bắt đầu 1 dự án mới")</a>
+                } else {
+                  <a href="#" onclick="notiMustLogin()" class="descriptions opacity-8" style="margin-top: 15px">@Messages("Bắt đầu 1 dự án")</a>
+                }
+                <a href="@routes.AppDebugController.solutionMaketPage()" target="_blank" class="descriptions opacity-8" style="margin-top: 15px">@Messages("App SDK")</a>
+                <a href="@routes.AppDebugController.appDebugPage()" target="_blank" class="descriptions opacity-8" style="margin-top: 15px">@Messages("Vsmart Debug")</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="info text-white">
+                <p class="descriptions opacity-8" style="margin-top: 15px; font-weight: 500;">@Messages("NHẬN TIN TỨC ")</p>
+                <p class="descriptionss opacity-8" style="margin-top: 15px">@Messages("Đăng ký ngay để nhận thông tin từ InnoWay.vn")</p>
+                <form class="email">
+                  <input type="text" name="email" class="form-control" placeholder="Nhập email">
+                  <i class='bx bx-right-arrow-alt' onclick="notiSendMail()" style="width: 40px; height: 36px; right: 8px; top: 4px; border-radius: 4px;" ></i>
+                </form>
+                <p style="font-size"></p>
+                <a href="https://www.facebook.com/innoway.vn/" class="fa fa-facebook-square" target="_blank" style="font-size: 23px; color: red; "></a>
+                <a href="https://twitter.com/VInnoway" class="fa fa-twitter-square" target="_blank" style="font-size: 23px; color: red; margin-left: 10px;"></a>
+                <a href="https://www.youtube.com/channel/UClr7WnjIVvPKiWmONu4r8zA" class="fa fa-youtube-square" target="_blank" style="font-size: 23px; color: red; margin-left: 10px;"></a>
+                <a href="https://www.instagram.com/innoway.vn/" class="fa fa-instagram" target="_blank" style="font-size: 23px; color: red; margin-left: 10px;"></a>
+                <p class="description opacity-8" style="margin-top: 15px"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      @views.html.Loading()
+
+      @views.html.landingPage.LandingPage_iconLink()
+
+    </div>
+  </body>
+  <script type="text/javascript" src="@routes.JsController.jsMessages()"></script>
+  <script type="text/javascript" src="@routes.JsController.javascriptRoutes"></script>
+  <script src="@routes.Assets.versioned("javascripts/js/core/jquery.min.js")" type="text/javascript"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/landingPage/jquery.min.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/landingPage/popper.min.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/landingPage/bootstrap.min.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("assets/js/bootstrap.bundle.min.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/landingPage/landingPage.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/landingPage/argon-design-system.js?v=1.2.2")" type="text/javascript"></script>
+
+  <script src="@routes.Assets.versioned("assets/plugins/notifications/js/lobibox.min.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/notifications/js/notifications.min.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/notifications/js/notification-custom-script.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/ShowNotification.js")" type="text/javascript"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/views/landingPage/landingPage.js")" type="text/javascript"></script>
+
+  @views.html.BackToTop()
+
+  <script>
+          var chatbox = document.getElementById('fb-customer-chat');
+          chatbox.setAttribute("page_id", "105733635516877");
+          chatbox.setAttribute("attribution", "biz_inbox");
+  </script>
+
+    <!-- Your SDK code -->
+  <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              xfbml            : true,
+              version          : 'v14.0'
+            });
+          };
+          (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <style id="antiClickjack">body{display:none !important;}</style>
+  <script type="text/javascript">
+          if (self === top) {
+            var antiClickjack = document.getElementById("antiClickjack");
+            antiClickjack.parentNode.removeChild(antiClickjack);
+          } else {
+            top.location = self.location;
+          }
+  </script>
+</html>

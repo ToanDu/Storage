@@ -1,0 +1,98 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<header>
+    <div class="topbar d-flex align-items-center" style="background: #585757; border-radius: 8px 0px 0px 0px;">
+        <nav class="navbar navbar-expand">
+            <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
+            </div>
+
+            <div class="top-menu ms-auto">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item dropdown dropdown-large">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative text-white" href="https://vht-iot.gitbook.io/innoway/" target="_blank" style="font-size: 18px">
+                            <i class='bx bx-notepad'></i>@Messages("Hướng dẫn sử dụng")
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown dropdown-large" style="margin-left: 10px">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative text-white" id="nameHeaderProject" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 18px">
+                            <img src="@routes.Assets.versioned("images/overview/qlda.svg")"> @Messages("project.manage")<i class='bx bx-caret-down'></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a href="javascript:;">
+                                <div class="msg-header">
+                                    <p class="msg-header-title" >@Messages("project.list")</p>
+                                    @*<p class="msg-header-clear ms-auto">Marks all as read</p>*@
+                                </div>
+                            </a>
+                            <div class="header-message-list" id="headerListProject" style="overflow: auto">
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown dropdown-large" style="margin-left: 10px">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative text-white" style="font-size: 18px">
+                            <img src="@routes.Assets.versioned("images/overview/config.svg")"> <span>@Messages("Cài đặt")</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown dropdown-large" style="margin-left: 10px">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 18px">
+                            <img src="@routes.Assets.versioned("images/overview/cskh.svg")"> @Messages("Hỗ trợ")<i class='bx bx-caret-down'></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a href="javascript:;">
+                                <div class="msg-header">
+                                    <p class="msg-header-title" >@Messages("Vui lòng liên hệ ngay với bộ phận hỗ trợ kĩ thuật của chúng tôi")</p>
+                                </div>
+                            </a>
+                            <div class="header-message-list" style="height: auto">
+                                <a href="tel: 0349784555" target="_blank" class="dropdown-item" ><i class="bx bx-phone"></i> @Messages("Số điện thoại: 0349784555")</a>
+                                <a href="https://chat.zalo.me" target="_blank" class="dropdown-item" ><i class="bx bx-chat"></i> @Messages("Zalo: 0349784555")</a>
+                                <a href="mailto: innoway@@viettel.com.vn" target="_blank" class="dropdown-item" ><i class="bx bx-envelope"></i> @Messages("Email: ntheanhbk@gmail.com")</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="user-box dropdown">
+                <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="@routes.Assets.versioned("images/avatar_small2x.jpg")" class="user-img" alt="user avatar">
+                    <div class="user-info ps-3">
+                        <p class="user-name mb-0 text-white">@currentUser.getUsername</p>
+@*                        <p class="designattion mb-0">@currentUser.getToken</p>*@
+                    </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="@routes.LandingPageController.home()" target="_blank"><i class="bx bx-home"></i><span>@Messages("header.nav.home")</span></a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="@routes.ProjectController.project()" target="_blank">
+                            <i class="bx bx-cog"></i><span>@Messages("project.list")</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="javascript:;" data-bs-toggle="modal" data-bs-target="#createDeviceTokenModal">
+                            <i class='bx bx-home-circle'></i><span>@Messages("user.createDeviceToken")</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="javascript:;" data-bs-toggle="modal" data-bs-target="#getDeviceTokenModal">
+                            <i class='bx bx-download'></i><span>@Messages("user.deviceToken")</span>
+                        </a>
+                    </li>
+                    <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-vector'></i><span>@Messages("header.info.version")@currentUser.getVersion</span></a>
+                    </li>
+                    <li>
+                        <div class="dropdown-divider mb-0"></div>
+                    </li>
+                    <li><a class="dropdown-item" href="@routes.Application.logout()"><i class='bx bx-log-out-circle'></i><span>@Messages("header.user.logout")</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+@views.html.user.UserList_createDeviceToken()
+@views.html.iot.DeviceIot.DeviceIot_getToken(currentUser)
+<script src="@routes.Assets.versioned("javascripts/views/user/User_deviceToken.js")" type="text/javascript"></script>

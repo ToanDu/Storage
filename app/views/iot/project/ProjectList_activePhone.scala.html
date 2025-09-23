@@ -1,0 +1,32 @@
+<div class="modal fade" id="activePhoneModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("Xác thực số điện thoại")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+
+          <div class="col-12">
+            <label class="form-label">@Messages("Nhập số điện thoại")</label>
+            <div class="input-group">
+              <input type="number" name="phone" class="form-control border-end-0" id="phoneUser" maxlength="11">
+            </div>
+          </div>
+          <div class="col-12 mt-3">
+            <label class="form-label">@Messages("Nhập mã OTP kích hoạt")</label>
+            <div class="input-group">
+              <input type="text" name="optPhone" class="form-control border-end-0" id="inputOtpPhone" maxlength="50">
+              <a id="buttonGetOtpPhone" onclick="getOtpPhone()" class="input-group-text cursor-pointer">@Messages("Nhận mã OTP")</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick="processActivePhone()">@Messages("btnComfirm")</button>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="modal fade" id="editConfirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalLabel" >@Messages("Xác nhận xử lý")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-md-12">
+            <input id="idContactEdit" type="text" class="form-control" autocomplete="off" readonly hidden>
+            <div class="row mb-1">
+              <label class="col-sm-3 col-form-label">@Messages("Trạng thái")</label>
+              <div class="col-sm-9">
+                <select id="statusContactEdit" class="form-select">
+                  <option value="true">@Messages("Đã xử lý")</option>
+                  <option value="false">@Messages("Chưa xử lý")</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="processEditContact()">@Messages("btnComfirm")</button>
+      </div>
+    </div>
+  </div>
+</div>

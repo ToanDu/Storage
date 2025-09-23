@@ -1,0 +1,4 @@
+[0m[[31merror[0m] [0mD:\VHT_Projects\cmp-fe-dev-dev_multiLang\app\views\landingPageTelco\LandingPage_navbar.scala.html:127: Not parsed?[0m
+[0m[[31merror[0m] [0m                }[0m
+[0m[[31merror[0m] [0m                ^[0m
+[0m[[31merror[0m] [0m(compile:[31mtwirlCompileTemplates[0m) Twirl compilation failed[0m

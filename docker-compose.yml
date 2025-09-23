@@ -1,0 +1,30 @@
+version: '3.6'
+
+services:
+  mongo:
+    image: mongo:4.4.1
+    container_name: iotplatform-ui-mongo
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_DATABASE=iotm2mdb
+      - MONGO_INITDB_ROOT_USERNAME=dev
+      - MONGO_INITDB_ROOT_PASSWORD=ViettelRD!@#$$
+      - MONGO_INITDB_USERNAME=gpsadmin
+      - MONGO_INITDB_PASSWORD=ViettelRD!@#$$
+    volumes:
+      - ./docker/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh
+
+#  hazelcast:
+#    image: hazelcast/hazelcast:4.0.1
+#    container_name: iotplatform-ui-hazelcast
+#    ports:
+#      - 5701:5701
+#
+#  hazelcast-management-center:
+#    image: hazelcast/management-center:4.0.3
+#    container_name: iotplatform-ui-hazelcast-management
+#    environment:
+#      - MC_INIT_CMD=./mc-conf.sh cluster add -H=/data -ma hazelcast:5701 -cn dev
+#    ports:
+#      - 5702:8080

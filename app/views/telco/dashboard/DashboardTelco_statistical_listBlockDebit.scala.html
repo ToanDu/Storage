@@ -1,0 +1,43 @@
+<div class="modal fade" id="listBlockDebitModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title" id="myModalLabel">@Messages("Danh sách thuê bao chặn 1 chiều nợ cước")</span>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12" style="border-radius: 8px;">
+            <table class="table table-striped" id="tableBlockDebit" style="width: 100%;">
+              <thead style="background-color: #ff000054;">
+                <tr>
+                  <th>@Messages("STT")</th>
+                  <th>@Messages("Số thuê bao")</th>
+                  @*<th>@Messages("TK gốc")</th>*@
+                  <th>@Messages("Trạng thái chặn cắt")</th>
+                  @*<th>@Messages("Trạng thái hoạt động")</th>*@
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <div class="material-datatables row row-cols-auto g-3" style="margin: 10px 15px 5px 0px;">
+              <div class="row">
+                <div class="col-md-4">
+                  </div>
+                <div class="col-md-8">
+                  <div class="dataTables_paginate paging_full_numbers" id="pagingTableBlockDebit" style="cursor: pointer; right: 15px; position: absolute;"></div>
+                </div>
+              </div>
+
+              <input id="pageBlockDebit" value="1" style="display: none">
+              <input id="pageSizeBlockDebit" value="10" style="display: none">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer mt-1">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+        <button type="button" class="btn btn-success" onclick="downloadBlockDebit(1)">@Messages("Download")</button>
+      </div>
+    </div>
+  </div>
+</div>

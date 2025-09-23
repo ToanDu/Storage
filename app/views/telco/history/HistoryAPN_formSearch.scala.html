@@ -1,0 +1,70 @@
+@import vn.m2m.common.models.User
+@import vn.m2m.utils.UserHelper
+@(currentUser: User)
+
+<div class="card">
+  <div class="card-body">
+    <span class="text-search font-weight-bold">@Messages("subscriber.searchInfo")</span>
+
+    <div class="row mt-3">
+
+      <!-- Cột bên trái -->
+      <div class="col-md-6">
+        <div class="form-group row mb-3">
+          <label class="col-sm-4 col-lg-3 col-form-label">@Messages("history.apn.subscriber.number")</label>
+          <div class="col-sm-8 col-lg-8">
+            <input id="sdtHistoryAPN" type="text" class="form-control input-form" placeholder="@Messages("subscriber.inputPlaceholder")" maxlength="250">
+          </div>
+          <div class="col-sm-0 col-lg-1"></div>
+
+        </div>
+        <div class="form-group row mb-3">
+          <label class="col-sm-4 col-lg-3 col-form-label">@Messages("history.apn.action.type")</label>
+          <div class="col-sm-8 col-lg-8 input-icons" >
+            <select id="actionHistoryAPN" class="form-control" style="border: 0.5px solid #C0C0C0; border-radius: 8px">
+              <option value="" disabled selected hidden>@Messages("history.apn.select.action.type")</option>
+              <option value="reg_def">@Messages("history.apn.assign.default.apn")</option>
+              <option value="reg_prv">@Messages("history.apn.assign.private.apn")</option>
+              <option value="unreg_def">@Messages("history.apn.cancel.default.apn")</option>
+              <option value="unreg_prv">@Messages("history.apn.cancel.private.apn")</option>
+            </select>
+          </div>
+          <div class="col-sm-0 col-lg-1"></div>
+        </div>
+      </div>
+
+      <!-- Cột bên phải -->
+      <div class="col-md-6">
+        <div class="form-group row mb-3">
+          <div class="col-sm-0 col-lg-2"></div>
+          <label class="col-sm-3 col-lg-2 col-form-label">@Messages("filter.logDate")</label>
+          <div id="fromHistoryAPN-field" class="col-sm-4 col-lg-4 mb-3">
+            <input id="fromHistoryAPN" type="text" class="form-control input-form datetimepicker" placeholder="@Messages("subscriber.fromDate")" onchange="validateDate()">
+             <div class="helper-text form-text text-danger mt-2" style="min-height: 14px;"></div>
+          </div>
+          <div id="toHistoryAPN-field" class="col-sm-4 col-lg-4 mb-3">
+            <input id="toHistoryAPN"  type="text" class="form-control input-form datetimepicker" placeholder="@Messages("subscriber.toDate")" onchange="validateDate()">
+             <div class="helper-text form-text text-danger mt-2" style="min-height: 14px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="text-center mt-4">
+      @if(UserHelper.isFeatureRole(currentUser, "view_contract")) {
+        <button type="button" class="btn btn-danger mr-2 mb-3 btn-telco" onclick="getListHistoryApnAction()">
+          @Messages("subscriber.search")
+        </button>
+      }
+      @if(UserHelper.isFeatureRole(currentUser, "export_contract")) {
+        <button type="button" class="btn btn-outline-danger mr-2 mb-3 btn-telco" id="buttonExportApn" onclick="onlickButtonExport()">
+          @Messages("Export")
+        </button>
+      }
+      <button type="button" class="btn btn-outline-danger btn-telco mb-3" onclick="resetFormSearch()">
+        @Messages("Reset")
+      </button>
+    </div>
+  </div>
+</div>

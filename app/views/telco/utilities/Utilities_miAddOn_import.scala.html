@@ -1,0 +1,53 @@
+<div class="modal fade" id="importListSubMiAddonModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <span class="modal-title" id="exampleModalLabel">@Messages("utilities.importSubscriberList")</span>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; right: 1rem; top: 1rem; filter: grayscale(100%) brightness(60%) contrast(100%);"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row mb-3">
+              <span class="col-sm-4 col-form-label">@Messages("utilities.uploadSubscriberList")</span>
+              <div class="col-sm-4">
+                <input type="file" id="filesMiAddOnSubs" name="files" style="background-color: #aaa; width: 100%;" hidden/>
+                <input type="text" class="form-control input-form" id="nameFileMiAddOnSubs" readonly/>
+              </div>
+              <label class="col-sm-4 col-form-label title-section-2" style="text-align: left; cursor: pointer; color: #EA0033;" onclick="importFileMiAddOnSubs()">
+                <i class="bx bx-upload"></i> @Messages("utilities.importList")
+              </label>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("utilities.downloadSampleFile")</span>
+              <span class="col-sm-4 col-form-label align-items-center">@Messages("List_Subs.xlsx")</span>
+              <div class="col-sm-4 col-form-label">
+                <a style="color: #EA0033; cursor: pointer;" onclick="downloadTemplateBlockSubs()"><i class="bx bx-download"></i> @Messages("Download")</a>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("utilities.validSubscribers")</span>
+              <span class="col-sm-4 col-form-label align-items-center" id="countMiAddonSubsTrue">@Messages("0")</span>
+              <div class="col-sm-4 col-form-label">
+                <a style="color: #EA0033; cursor: pointer;" onclick="exportListSubsMiAddonTrue()"><i class="bx bx-download"></i> @Messages("Download")</a>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("utilities.invalidSubscribers")</span>
+              <span class="col-sm-4 col-form-label align-items-center" id="countMiAddonSubsFalse">@Messages("0")</span>
+              <div class="col-sm-4 col-form-label">
+                <a style="color: #EA0033; cursor: pointer;" onclick="exportListSubsMiAddonFalse()"><i class="bx bx-download"></i> @Messages("Download")</a>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cancle" onclick="cancleImportFileMiAddon()">@Messages("btnCancle")</button>
+              <button type="button" class="btn btn-red" id="checkChangeInformation" disabled onclick="comfirmTableListSubsMiAddon()" data-bs-dismiss="modal">@Messages("btnComfirm")</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

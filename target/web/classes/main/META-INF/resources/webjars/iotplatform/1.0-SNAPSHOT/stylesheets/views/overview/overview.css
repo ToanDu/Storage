@@ -1,0 +1,61 @@
+.cardTitle {
+    background: #858687;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.breadcrumbTitle {
+    height: 100%;
+    background-color: #EC1B2E;
+    opacity: 0.85;
+    border-radius: 0px 4px 4px 0px;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding-top: 8px;
+    padding-left: 50px;
+    margin-left: -1.5rem;
+}
+
+/*input search*/
+.inner-addon {
+    position: relative;
+}
+
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 14px;
+    pointer-events: none;
+    font-size: 16px;
+    color: #fff;
+}
+
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 16px;
+    color: #333333;
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.btn-flat {
+    color: white;
+}

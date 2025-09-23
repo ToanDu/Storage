@@ -1,0 +1,134 @@
+@import helper._
+@import vn.m2m.common.models.User
+@(currentUser:User, projectId:String, userId:String)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("Pay")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+
+    <link href="@routes.Assets.versioned("stylesheets/views/modal-right.css")" rel="stylesheet" />
+
+  </head>
+  <body class="bg-theme">
+    @views.html.iot.tags.Menu(currentUser, projectId)
+
+    @views.html.iot.tags.Header(currentUser)
+
+    <div class="page-wrapper">
+      <div class="page-content">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Thông tin gói cước</h5><hr>
+                <p class="card-text" id="namePackUserCurrent">Tên: </p>
+                @*<p class="card-text" id="idPackUserCurrent">Mã ID:  </p>*@
+                <p class="card-text" id="datePackUserCurrent">Ngày áp dụng gói cước:  </p>
+                <p class="card-text" id="cyclePackUserCurrent">Chu kỳ:   </p>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Dữ liệu gói cước</h5><hr>
+                <div class="card-group shadow">
+                  <div class="card border-end shadow-none">
+                    <div class="card-body">
+                      <h5 class="card-title align-items-center">Số lượng kết nối (hiện tại/tối đa)</h5>
+                    </div>
+                    <div class="card-footer">
+                      <h4 class="card-title" style="text-align: center" id="countMaxConnectUser">0</h4>
+                    </div>
+                  </div>
+                  <div class="card border-end shadow-none">
+                    <div class="card-body">
+                      <h5 class="card-title align-items-center">Số lượng bản tin (hiện tại/tối đa)</h5>
+                    </div>
+                    <div class="card-footer">
+                      <h4 class="card-title" style="text-align: center" id="countMaxMessUser">0</h4>
+                    </div>
+                  </div>
+                  <div class="card shadow-none">
+                    <div class="card-body">
+                      <h5 class="card-title align-items-center">Số lượng bản tin phụ trội</h5>
+                    </div>
+                    <div class="card-footer">
+                      <h4 class="card-title" style="text-align: center" id="countMessChargingUser">0</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Cước tạm tính</h5><hr>
+                <div class="card-group shadow">
+                  <div class="card border-end shadow-none">
+                    <div class="card-body">
+                      <h5 class="card-title align-items-center">Cước theo gói</h5>
+                    </div>
+                    <div class="card-footer">
+                      <h4 class="card-title" style="text-align: center" id="feeWithPack">0</h4>
+                    </div>
+                  </div>
+                  <div class="card border-end shadow-none">
+                    <div class="card-body">
+                      <h5 class="card-title align-items-center">Cước phụ trội</h5>
+                    </div>
+                    <div class="card-footer">
+                      <h4 class="card-title" style="text-align: center" id="feeCharging">0</h4>
+                    </div>
+                  </div>
+                  <div class="card shadow-none">
+                    <div class="card-body">
+                      <h5 class="card-title align-items-center">Tổng cước tạm tính</h5>
+                    </div>
+                    <div class="card-footer">
+                      <h4 class="card-title" style="text-align: center" id="totalFee">0</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    @views.html.Loading()
+  </body>
+
+  @views.html.iot.tags.Main_js()
+
+  <script>
+    var userid = '@userId';
+    var projectId = '@projectId';
+
+          $(document).ready(function () {
+            $("#menu-pay").addClass("mm-active");
+
+            $("#menu").metisMenu();
+            for (var e = window.location, o = $(".metismenu li a").filter(function() {
+              return this.href == e
+            }).addClass("").parent().addClass("mm-active"); o.is("li");) o = o.parent("").addClass("mm-show").parent("").addClass("mm-active");
+          })
+
+          function focusSearchTree() {
+            $("#search-selectOrg").focus();
+          }
+  </script>
+
+  <script src="@routes.Assets.versioned("javascripts/views/pay/customer/pay.js")"></script>
+
+</html>

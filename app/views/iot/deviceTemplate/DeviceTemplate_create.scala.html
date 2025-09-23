@@ -1,0 +1,50 @@
+<div class="modal fade" id="addDeviceTemplateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("deviceTemplate.create")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+
+          <div class="col-md-12">
+            <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+              <span class="input-group-text" style="width: 100%; background-color:#858687; color: #FFFFFF; text-transform: uppercase;">@Messages("deviceTemplate.name")</span>
+            </div>
+
+            <div class="card" style="padding: 20px; border: 1px solid #858687;">
+              <div class="row mb-2">
+                <div class="col-sm-6">
+                  <input id="nameDeviceTemplateAdd" type="text" class="form-control" maxlength="30" autocomplete="off" required>
+                </div>
+                <h7 class="textNote">@Messages("manage.group.org.30char")</h7>
+              </div>
+            </div>
+
+            <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+              <span class="input-group-text" style="width: 100%; background-color:#858687; color: #FFFFFF; text-transform: uppercase;">@Messages("deviceTemplate.listFlow")</span>
+            </div>
+
+            <div class="card" style="padding: 20px; border: 1px solid #858687;">
+              <div class="row mb-2">
+                <div class="col-sm-12" id="tableListFlowAdd">
+
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="d-flex flex-column align-items-center text-center">
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="postCreateDeviceTemplate()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

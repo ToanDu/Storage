@@ -1,0 +1,68 @@
+#map-canvas {
+    height: 100%;
+    width: 100%;
+}
+.marker {width:0; height:0;}
+
+.marker span {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-sizing:border-box;
+    width: 36px;
+    height: 36px;
+    color:#fff;
+    background: #c3112a;
+    /*border:solid 1px;*/
+    border-radius: 50%;
+    box-shadow:0 0 2px #000;
+    cursor: pointer;
+    transform-origin:5.5px 12.5px;
+    transform: rotateZ(-135deg);
+}
+
+.markerCell span {
+    background: #e68a00;
+}
+
+.marker b {transform: rotateZ(135deg)}
+
+/*.marker .signal {transform: rotateZ(-45deg)}*/
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.vtmapgl-popup-close-button {
+    display: none;
+}
+.vtmapgl-popup-content {
+    padding-bottom: 0px;
+}
+
+.font-600 {
+    font-weight: 600;
+}
+.font-400 {
+    font-weight: 400;
+}
+
+.btn-search {
+    background: #EA0033;
+    color: #ffffff;
+    border: 1px solid #EA0033;
+    border-radius: 8px;
+    width: 100%;
+    font-weight: 600;
+    margin: 0px;
+}
+
+#listHistoryMapTable > tbody > tr:hover {
+    color: white;
+    --bs-table-accent-bg: #ff000059;
+}

@@ -1,0 +1,94 @@
+<div class="modal fade" id="registerDeveloperModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block;">
+        <h5 class="modal-title" id="exampleModalLabel" style="font-weight: 500; color: #000000;">@Messages("Lợi ích khi đăng ký trở thành Nhà tích hợp - Nhà phát triển")</h5>
+      </div>
+      <div class="modal-body" style="background-color: #EE0033;">
+        <div class="row" >
+          <div class="col-md-3">
+            <h4 class="text-white" style="text-align: center; font-weight: 600;">@Messages("30%")</h4>
+            <h6 class="text-white" style="text-align: center; font-weight: 300;">@Messages("Được hưởng chiết khấu cao lên đến 30%")</h6>
+          </div>
+          <div class="col-md-3">
+            <h4 class="text-white" style="text-align: center; font-weight: 600;">@Messages("1.000$")</h4>
+            <h6 class="text-white" style="text-align: center; font-weight: 300;">@Messages("Nhận ngay 1.000$ tiền hoa hồng khi giới thiệu đối tác")</h6>
+          </div>
+          <div class="col-md-3">
+            <h4 class="text-white" style="text-align: center; font-weight: 600;">@Messages("180")</h4>
+            <h6 class="text-white" style="text-align: center; font-weight: 300;">@Messages("Tặng tài khoản V.I.P lên đến 180 ngày")</h6>
+          </div>
+          <div class="col-md-3">
+            <h4 class="text-white" style="text-align: center; font-weight: 600;">@Messages("24/7")</h4>
+            <h6 class="text-white" style="text-align: center; font-weight: 300;">@Messages("Đào tạo kiến thức và hỗ trợ kỹ thuật nhiệt tình 24/7")</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <h6>@Messages("Đăng ký trở thành Nhà tích hợp / Nhà phát triển ngay hôm nay để nhận những thông tin và ưu đãi lớn nhất từ Nền tảng InnoWay.vn")</h6>
+        <h4 style="font-weight: 500;">@Messages("Thông tin của bạn")</h4>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row mt-3">
+              <label class="col-form-label">@Messages("Vai trò *")</label>
+              <div class="col-sm-12">
+                <input id="roleRegister" type="text" class="form-control" autocomplete="off" placeholder="Nhà tích hợp, Nhà phát triển">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <label class="col-form-label">@Messages("Lĩnh vực phát triển *")</label>
+              <div class="col-sm-12">
+                <input id="fieldRegister" type="text" class="form-control" autocomplete="off" placeholder="Nhà thông minh, nông trại thông minh, ...">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <label class="col-form-label">@Messages("Số lượng thiết bị *")</label>
+              <div class="col-sm-12">
+                <input id="countDeviceRegister" type="text" class="form-control" autocomplete="off" placeholder="Số lượng thiết bị ước tính anh chị muốn tích hợp trong giải pháp của mình">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <label class="col-form-label">@Messages("Số lượng người dùng *")</label>
+              <div class="col-sm-12">
+                <input id="countUserRegister" type="number" class="form-control" autocomplete="off" placeholder="Số lượng khách hàng anh chị muốn phục vụ ">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row mt-3">
+              <label class="col-form-label">@Messages("Email *")</label>
+              <div class="col-sm-12">
+                <input id="emailRegister" type="text" class="form-control" autocomplete="off">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <label class="col-form-label">@Messages("Tên công ty *")</label>
+              <div class="col-sm-12">
+                <input id="nameCompanyRegister" type="text" class="form-control" autocomplete="off">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <label class="col-form-label">@Messages("Họ và tên liên hệ *")</label>
+              <div class="col-sm-12">
+                <input id="nameRegister" type="text" class="form-control" autocomplete="off" >
+              </div>
+            </div>
+            <div class="row mt-3">
+              <label class="col-form-label">@Messages("Số điện thoại *")</label>
+              <div class="col-sm-12">
+                <input id="phoneRegister" type="number" class="form-control" autocomplete="off" >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick="registerDeveloper()">@Messages("Gửi thông tin đăng ký")</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("Đóng")</button>
+      </div>
+
+    </div>
+  </div>
+</div>

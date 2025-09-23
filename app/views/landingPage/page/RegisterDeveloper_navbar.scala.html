@@ -1,0 +1,134 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<!-- Navbar -->
+<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light py-2" style="background-color: white;">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12 container" style="">
+        <div class="" >
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbar_global">
+            <div class="navbar-collapse-header">
+              <div class="row">
+                <div class="col-9 collapse-brand">
+                  <a style="font-weight: bold; color: red">
+                    @Messages("landing.title1")
+                  </a>
+                </div>
+                <div class="col-3 collapse-close">
+                  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+              <li class="nav-item dropdown navbar-logo">
+                <a class="navbar-brand mr-lg-5" href="@routes.LandingPageController.home()">
+                  <img src="@routes.Assets.versioned("images/login/logo.svg")" style="height: 40px;">
+                </a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a href="@routes.LandingPageController.home()" class="nav-link" role="button">
+                  <span class="nav-link-inner--text">@Messages("Trang chủ")</span>
+                  <span class="nav-link-inner--text showMobile">@Messages("Landing Page")</span>
+                </a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a href="https://blog.innoway.vn/forum/dien-dan-iot" target="_blank" class="nav-link" role="button">
+                  <span class="nav-link-inner--text">@Messages("Cộng đồng")</span>
+                  <span class="nav-link-inner--text showMobile">@Messages("Diễn đàn Iot")</span>
+                </a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a href="@routes.MarketPlaceController.marketPlace()" class="nav-link" role="button">
+                  <span class="nav-link-inner--text">@Messages("Market Place")</span>
+                  <span class="nav-link-inner--text showMobile">@Messages("Chợ công nghệ IoT")</span>
+                </a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a onclick="" href="#" class="nav-link" data-toggle="dropdown" role="button">
+                  <span class="nav-link-inner--text">@Messages("Developers ")</span> <i class="fa fa-angle-down text-black-50"></i>
+                  <span class="nav-link-inner--text showMobile">@Messages("Công cụ lập trình ")</span>
+                </a>
+                <div class="dropdown-menu" style="z-index: 999;">
+                  <a href="@routes.LandingPageController.registerDeveloper()" target="_blank" class="dropdown-item">@Messages("Đăng ký trở thành Dev/SI")</a>
+                  <a href="https://vht-iot.gitbook.io/innoway/" target="_blank" class="dropdown-item">@Messages("Hướng dẫn sử dụng")</a>
+                  @if(currentUser != null){
+                    <a href="@routes.ProjectController.project()" class="dropdown-item">@Messages("Bắt đầu 1 dự án")</a>
+                  } else {
+                    <a href="#" onclick="notiMustLogin()" class="dropdown-item">@Messages("Bắt đầu 1 dự án")</a>
+                  }
+                  <a href="@routes.AppDebugController.solutionMaketPage()" target="_blank" class="dropdown-item">@Messages("Giải pháp mẫu")</a>
+                  <a href="@routes.AppDebugController.appSdkPage()" target="_blank" class="dropdown-item">@Messages("App SDK")</a>
+                  <a href="@routes.AppDebugController.appDebugPage()" target="_blank" class="dropdown-item">@Messages("Vsmart Debug")</a>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a onclick="" href="#" class="nav-link" data-toggle="dropdown" role="button">
+                  <span class="nav-link-inner--text">@Messages("Công ty ")</span> <i class="fa fa-angle-down text-black-50"></i>
+                  <span class="nav-link-inner--text showMobile">@Messages("Giới thiệu về Innoway")</span>
+                </a>
+                <div class="dropdown-menu" style="z-index: 999;">
+                  <a href="https://blog.innoway.vn/giao-duc" target="_blank" class="dropdown-item">@Messages("Giáo dục ")</a>
+                  <a href="https://blog.innoway.vn" target="_blank" class="dropdown-item">@Messages("Blog")</a>
+                  <a href="https://blog.innoway.vn/tuyen-dung" target="_blank" class="dropdown-item">@Messages("Tuyển dụng ")</a>
+                  <a href="https://blog.innoway.vn/tin-tuc" target="_blank" class="dropdown-item">@Messages("Tin tức ")</a>
+                  <a href="https://blog.innoway.vn/forums" target="_blank" class="dropdown-item">@Messages("Hỏi đáp ")</a>
+                </div>
+              </li>
+
+
+            </ul>
+
+            <ul class="navbar-nav navbar-nav-hover align-items-lg-center navbar-login" style="">
+            @if(currentUser != null){
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link" data-toggle="dropdown" role="button">
+                  @*<img src="@routes.Assets.versioned("images/avatarDefault.png")" class="user-img" alt="user avatar">*@
+                  <span class="nav-link-inner--text">@Messages("")@currentUser.getUsername</span> <i class="fa fa-angle-down text-black-50"></i>
+                </a>
+                <div class="dropdown-menu" style="z-index: 999;">
+                  @if(currentUser.getSystemRole == User.SystemRole.SYSTEM_ADMIN.getCode()){
+                    <a href="@routes.AdminOverviewController.adminOverview()" class="dropdown-item">@Messages("Quản trị hệ thống ")</a>
+                  } else {
+                    <a href="@routes.ProjectController.project()" class="dropdown-item">@Messages("Quản trị dự án ")</a>
+                    <a href="@routes.ProductListController.productList(currentUser.getId)" class="dropdown-item">@Messages("Quản lý sản phẩm ")</a>
+                  }
+                  <a href="@routes.Application.logout()" class="dropdown-item">@Messages("Đăng xuất ")</a>
+                </div>
+              </li>
+            } else {
+              <li class="nav-item dropdown">
+                <a href="@routes.Application.login()" class="nav-link" role="button">
+                  <i class="ni ni-collection d-lg-none"></i>
+                  <span class="nav-link-inner--text">@Messages("landing.dangnhap")</span>
+                  @*<span class="nav-link-inner--text showMobile">@Messages("landing.dangnhap1")</span>*@
+                </a>
+              </li>
+
+              <li class="nav-item dropdown button-register">
+                <a href="@routes.Application.register()" class="nav-link" role="button">
+                  <i class="ni ni-collection d-lg-none"></i>
+                  <span class="nav-link-inner--text">@Messages("landing.dangki")</span>
+                  @*<span class="nav-link-inner--text showMobile">@Messages("landing.dangki1")</span>*@
+                </a>
+              </li>
+            }
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  <!-- End Navbar -->

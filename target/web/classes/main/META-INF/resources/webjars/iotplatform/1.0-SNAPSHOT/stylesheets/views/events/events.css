@@ -1,0 +1,8 @@
+.btn-weekday{
+    background-color: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgb(255 255 255 / 15%);
+}
+.form-switch .form-check-input{
+    width: 4em;
+    height: 2em;
+}

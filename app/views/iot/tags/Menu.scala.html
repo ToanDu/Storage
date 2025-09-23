@@ -1,0 +1,236 @@
+@import vn.m2m.common.models.User
+@import vn.m2m.utils.UserHelper
+@(currentUser:User, id:String)
+<div class="wrapper">
+    <div class="sidebar-wrapper" data-simplebar="true" style="background-color: #F4F5F6;">
+        <div class="sidebar-header" style="background-color: white;">
+            <div>
+                <img src="@routes.Assets.versioned("images/dashboard/logo.svg")" class="logo-icon" alt="logo icon" style="width: 150px; margin-left: 35px;">
+            </div>
+            <div class="toggle-icon ms-auto" id="arrowMenu" style="display: none"><i class='bx bx-arrow-to-left'></i>
+            </div>
+        </div>
+            <!--navigation-->
+        <ul class="metismenu" id="menu">
+
+            <li id="menu-overview">
+                <a href="@routes.OverviewController.overview(id)">
+                    <div class="parent-icon">
+                        <img src="@routes.Assets.versioned("images/menu/tongquan.png")" class="logo-icon" alt="logo icon" style="">
+                    </div>
+                    <div class="menu-title">@Messages("manage.home")</div>
+                </a>
+            </li>
+
+
+
+            <li class="">
+                <a class="has-arrow" aria-expanded="false">
+                    <div class="parent-icon">
+                        <img src="@routes.Assets.versioned("images/menu/device.png")" class="logo-icon" alt="logo icon" style="">
+                    </div>
+                    <div class="menu-title">@Messages("manage.device")</div>
+                </a>
+                <ul class="mm-collapse">
+                    <li id="menu-devkit">
+                        <a href="@routes.DevkitController.devkit(id)">
+                            @*<i class='bx bx-devices'></i>*@
+                            <span style="margin-left: 40px">@Messages("Devkit")</span>
+                        </a>
+                    </li>
+                    <li id="menu-module">
+                        <a href="@routes.ModuleController.module(id)">
+                            @*<i class='bx bx-border-inner'></i>*@
+                            <span style="margin-left: 40px">@Messages("Module")</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="">
+                <a class="has-arrow" aria-expanded="false">
+                    <div class="parent-icon">
+                        <img src="@routes.Assets.versioned("images/menu/cloud.png")" class="logo-icon" alt="logo icon" style="">
+                    </div>
+                    <div class="menu-title">@Messages("manage.cloud")</div>
+                </a>
+                <ul class="mm-collapse">
+                    <li id="menu-orgView">
+                        <a href="@routes.OrginazationController.orginazationView(id)">
+                            <span style="margin-left: 40px">@Messages("manage.group.orgView")</span>
+                        </a>
+                    </li>
+                    <li id="menu-org">
+                        <a href="@routes.GroupController.orgList(id)">
+                            @*<i class='bx bx-group'></i>*@
+                            <span style="margin-left: 40px">@Messages("manage.group.title")</span>
+                        </a>
+                    </li>
+                    <li id="menu-deviceTemplate">
+                        <a href="@routes.DeviceTemplateController.deviceTemplate(id)">
+                            @*<i class='bx bx-folder-plus'></i>*@
+                            <span style="margin-left: 40px">@Messages("deviceTemplate.title")</span>
+                        </a>
+                    </li>
+                    <li id="menu-ruleChain">
+                        <a href="@routes.RuleChainController.ruleChain(id)">
+                            @*<i class='bx bx-chip'></i>*@
+                            <span style="margin-left: 40px">@Messages("manage.ruleChain")</span>
+                        </a>
+                    </li>
+                    <li id="menu-dashboard">
+                        <a href="@routes.DashboardV3Controller.dashboardList(id)">
+                            @*<i class='bx bx-laptop'></i>*@
+                            <span style="margin-left: 40px">@Messages("manage.dashboard")</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="">
+                <a class="has-arrow" aria-expanded="false">
+                    <div class="parent-icon">
+                        <img src="@routes.Assets.versioned("images/menu/app.png")" class="logo-icon" alt="logo icon" style="">
+                    </div>
+                    <div class="menu-title">@Messages("manage.app")</div>
+                </a>
+                <ul class="mm-collapse">
+                    <li id="menu-appSdk">
+                        <a href="@routes.AppDebugController.appSdk(id)">
+                            @*<i class='bx bx-devices'></i>*@
+                            <span style="margin-left: 40px">@Messages("manage.appSdk")</span>
+                        </a>
+                    </li>
+                    <li id="menu-appDebug">
+                        <a href="@routes.AppDebugController.appDebug(id)">
+                            @*<i class='bx bx-bug'></i>*@
+                            <span style="margin-left: 40px">@Messages("manage.debug")</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="">
+                <a class="has-arrow" aria-expanded="false">
+                    <div class="parent-icon">
+                        <img src="@routes.Assets.versioned("images/menu/pay.png")" class="logo-icon" alt="logo icon" style="">
+                    </div>
+                    <div class="menu-title">@Messages("manage.pay")</div>
+                </a>
+                <ul class="mm-collapse">
+                    @if(currentUser.isAdmin){
+                        <li id="menu-packData">
+                            <a href="@routes.PayPackDataController.packData(id)">
+                                @*<i class='bx bx-layer'></i>*@
+                                <span style="margin-left: 40px">@Messages("manage.group.packData")</span>
+                            </a>
+                        </li>
+                        <li id="menu-customer">
+                            <a href="@routes.PayCustomerController.payCustomer(id)">
+                                @*<i class='bx bx-body'></i>*@
+                                <span style="margin-left: 40px">@Messages("manage.group.customer")</span>
+                            </a>
+                        </li>
+                        <li id="menu-subs">
+                            <a href="@routes.PaySubsController.subsList(id)">
+                                <span style="margin-left: 40px">@Messages("manage.group.subs")</span>
+                            </a>
+                        </li>
+                        <li id="menu-bill">
+                            <a href="@routes.PayBillController.billList(id)">
+                                <span style="margin-left: 40px">@Messages("manage.group.bill")</span>
+                            </a>
+                        </li>
+                    }
+                    <li id="menu-customerPay">
+                        <a class="has-arrow" href="javascript:;">
+                            <span style="margin-left: 20px"><i class='bx bx-id-card'></i>@Messages("manage.customer")</span>
+                        </a>
+                        <ul>
+                            <li id="menu-billUser">
+                                <a href="@routes.PayBillController.billUserList(id, currentUser.getId)">
+                                    <span style="margin-left: 40px">@Messages("manage.group.billUser")</span>
+                                </a>
+                            </li>
+                            <li id="menu-pay">
+                                <a href="@routes.PayCustomerController.payment(id, currentUser.getId)">
+                                    <span style="margin-left: 40px">@Messages("manage.group.pay")</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li id="menu-sim">
+                <a href="@routes.ManageSimController.manageSim(id)">
+                    <div class="parent-icon">
+                        <i class="bx bx-memory-card" style="width: 30px; color: red;"></i>
+                    </div>
+                    <div class="menu-title">@Messages("manage.group.sim")</div>
+                </a>
+            </li>
+
+            <li class="">
+                <a class="has-arrow" aria-expanded="false">
+                    <div class="parent-icon">
+                        <img src="@routes.Assets.versioned("images/menu/connect.png")" class="logo-icon" alt="logo icon" style="">
+                    </div>
+                    <div class="menu-title">@Messages("manage.integrated")</div>
+                </a>
+                <ul class="mm-collapse">
+                    <li id="menu-tracking">
+                        <a class="has-arrow" href="javascript:;">
+                            <span style="margin-left: 20px"><i class='bx bx-map-alt'></i>@Messages("manage.tracking")</span>
+                        </a>
+                        <ul>
+                            <li id="menu-tracking-map">
+                                <a href="@routes.SolutionTrackingController.monitorMap(id)">
+                                    <span style="margin-left: 40px">@Messages("manage.tracking.map")</span>
+                                </a>
+                            </li>
+                            <li id="menu-tracking-history">
+                                <a href="@routes.SolutionTrackingController.historyMap(id)">
+                                    <span style="margin-left: 40px">@Messages("manage.tracking.history")</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="menu-smarthome">
+                        <a class="has-arrow" href="javascript:;">
+                            <span style="margin-left: 20px"><i class='bx bx-home'></i>@Messages("manage.smarthome")</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            @*if(UserHelper.isSAdmin(currentUser)){*@
+                @*<li class="menu-label">@Messages("QR CODE")</li>*@
+                @*<li id="menu-qrCode">*@
+                    @*<a href="@routes.QrCodeController.qrCodeList()">*@
+                        @*<div class="parent-icon"><i class='bx bx-barcode-reader'></i>*@
+                        @*</div>*@
+                        @*<div class="menu-title">@Messages("manage.qrCodeList")</div>*@
+                    @*</a>*@
+                @*</li>*@
+                @*<li id="menu-qrCodeHistory">*@
+                    @*<a href="@routes.QrCodeController.qrCodeHistoryList()">*@
+                        @*<div class="parent-icon"><i class='bx bxs-barcode'></i>*@
+                        @*</div>*@
+                        @*<div class="menu-title">@Messages("manage.qrCodeHistory")</div>*@
+                    @*</a>*@
+                @*</li>*@
+            @*}*@
+
+            <hr>
+            <li>
+                <a href="@routes.Application.logout()">
+                    <div class="parent-icon"><i class='bx bx-log-out'></i>
+                    </div>
+                    <div class="menu-title">@Messages("manage.logout")</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script src="@routes.Assets.versioned("javascripts/menu.js")" type="text/javascript"></script>

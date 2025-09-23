@@ -1,0 +1,53 @@
+
+@(hasDate: Boolean = false)
+<div class="card" id="statisticalReportSearchForm">
+  <div class="card-body">
+    <span class="text-search">@Messages("Thông tin tìm kiếm")</span>
+    <div class="row mt-3">
+      <div class="col-sm-6 col-md-5 m-t-3">
+        <div class="row m-b-4 align-items-center">
+          <label class="col-sm-4 col-form-label title-section-2 text-start">@Messages("Số thuê bao")</label>
+          <div class="col-sm-8">
+            <input id="isDn" type="text" class="form-control input-form" placeholder="Nhập số thuê bao" onkeypress="return isNumberKey(event)" maxlength="11">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+      <div class="col-sm-6 col-md-5 m-t-3">
+         <div class="row m-b-4 align-items-center">
+          <label class="col-sm-4 col-form-label title-section-2 text-start">@Messages("Mã hợp đồng")</label>
+          <div class="col-sm-8">
+            <input id="contractId" type="text" class="form-control input-form" placeholder="Nhập mã hợp đồng" onkeypress="return isNumberKey(event)" maxlength="11">
+          </div>
+        </div>
+      </div>
+    </div>
+    @if(hasDate) {<div class="row mt-3">
+      <div class="col-sm-6 col-md-5 m-t-3">
+        <div class="row m-b-4 align-items-center">
+          <label class="col-sm-4 col-form-label title-section-2 text-start">@Messages("Ngày hết hạn")</label>
+          <div class="col-sm-4">
+            <input id="dateFrom" type="text" class="form-control input-form datetimepicker" placeholder="Từ ngày">
+          </div>
+          <div class="col-sm-4">
+            <input id="dateTo" type="text" class="form-control input-form datetimepicker" placeholder="Đến ngày">
+          </div>
+        </div>
+      </div>
+    </div>}
+    <div class="d-flex flex-column align-items-center text-center">
+      <div>
+        @if(hasDate) {
+        <button type="button" class="btn mt-3 btn-telco" style="background: #EA0033; color: #FFFFFF;" onclick="getExpiratedPackages(true)">@Messages("Tra cứu")</button>
+        <button type="button" class="btn mt-3 btn-telco d-none" style="background: #FFFFFF; color: #EA0033;" data-bs-toggle="modal" data-bs-target="#exportReportModal">@Messages("Export")</button>
+        <button type="button" class="btn mt-3 btn-telco" style="background: #FFFFFF; color: #EA0033;" onclick="handleResetAllExpiratedPackages()">@Messages("Reset")</button>
+      
+        }else {
+        <button type="button" class="btn mt-3 btn-telco" style="background: #EA0033; color: #FFFFFF;" onclick="getRedBarings(true)">@Messages("Tra cứu")</button>
+        <button type="button" class="btn mt-3 btn-telco d-none" style="background: #FFFFFF; color: #EA0033;" data-bs-toggle="modal" data-bs-target="#exportReportModal">@Messages("Export")</button>
+        <button type="button" class="btn mt-3 btn-telco" style="background: #FFFFFF; color: #EA0033;" onclick="handleResetAllRedBarings()">@Messages("Reset")</button>
+        }
+        </div>
+    </div>
+  </div>
+</div>

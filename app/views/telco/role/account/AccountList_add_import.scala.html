@@ -1,0 +1,33 @@
+<div class="modal fade" id="importAddEnterpriseModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <span class="modal-title" id="exampleModalLabel">@Messages("Import danh sách doanh nghiệp")</span>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row mb-3">
+              <span class="col-sm-4 col-form-label" style="text-align: right;">@Messages("Tải danh sách doanh nghiệp")</span>
+              <div class="col-sm-4">
+                <input class="form-control input-form" type="text" id="nameFilesAddEnterprise" readonly/>
+                <input type="file" id="filesAddEnterprise" name="files" style="background-color: #aaa; width: 100%;" hidden/>
+              </div>
+              <label class="col-sm-4 col-form-label title-section-2" style="text-align: left; cursor: pointer; color: #EA0033;" onclick="importFileAddEnterprise()">
+                <i class="bx bx-upload"></i> @Messages("Import danh sách")
+              </label>
+            </div>
+            <div class="row mb-3" id="tableAddEnterprise" style="padding: 15px;">
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cancle" onclick="cancleImportAddEnterprise()">@Messages("btnCancle")</button>
+              <button type="button" class="btn btn-red" onclick="comfirmImportAddEnterprise()">@Messages("btnComfirm")</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

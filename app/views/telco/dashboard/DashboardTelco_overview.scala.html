@@ -1,0 +1,72 @@
+@import vn.m2m.common.models.User
+@import vn.m2m.utils.UserHelper
+@(currentUser:User)
+<div class="" style="height: 100%;">
+  <div class="card-body">
+
+    <div class="row">
+      <span class="title-card">@Messages("Thuê bao")</span>
+    </div>
+    @if(UserHelper.isFeatureRole(currentUser, "view_dashboard_total_sub")){
+      <div class="row mt-4" style="padding: 35px; background-color: #dee2e6;">
+        <div class="col-md-2 align-items-center">
+          <span class="count-card-1">@Messages("Tổng số thuê bao")</span>
+        </div>
+        <div class="col-md-8 align-items-center">
+          <span class="count-card" id="totalSub">@Messages("0")</span>
+        </div>
+        <div class="col-md-2" style="text-align: right;">
+          <span style="font-size: 22px; font-weight: bold;" id="pieIncreaseSubs"></span>
+        </div>
+      </div>
+    }
+
+    <div class="row" style="padding: 35px; padding-right: 0px;">
+      @if(UserHelper.isFeatureRole(currentUser, "view_dashboard_status_sub")){
+        <div class="col-md-2 align-items-center">
+          <span class="count-card-1">@Messages("Trạng thái thuê bao")</span>
+        </div>
+        <div class="col-md-10 align-items-center" style="padding-right: 0px;">
+          <div class="progress" style="height: 48px;">
+            <div class="progress-bar" role="progressbar" style="background-color: #EA0033;" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" id="pieAtiveSubs"></div>
+            <div class="progress-bar" role="progressbar" style="background-color: #999;" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" id="pieBlock1Subs"></div>
+            <div class="progress-bar" role="progressbar" style="background-color: #aaaaaae3;" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" id="pieBlock2Subs"></div>
+            <div class="progress-bar" role="progressbar" style="background-color: #dee2e6;" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" id="pieCancleSubs"></div>
+          </div>
+        </div>
+      }
+
+      @if(UserHelper.isFeatureRole(currentUser, "view_dashboard_paytype_sub")){
+        <div class="col-md-2 align-items-center m-t-3">
+          <span class="count-card-1">@Messages("Loại hình thuê bao")</span>
+        </div>
+        <div class="col-md-10 align-items-center m-t-3" style="padding-right: 0px;">
+          <div class="progress" style="height: 48px;">
+            <div class="progress-bar" role="progressbar" style="background-color: #EA0033;" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" id="piePrevSubs"></div>
+            <div class="progress-bar" role="progressbar" style="background-color: #aaa;" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" id="piePostSubs"></div>
+          </div>
+        </div>
+      }
+
+    </div>
+
+    <hr style="border: 1px solid #EA0033;">
+
+    @if(UserHelper.isFeatureRole(currentUser, "view_dashboard_monthly_sub")){
+      <div class="row">
+        <span class="title-card" style="text-align: center;">@Messages("Thuê bao lũy kế theo tháng")</span>
+      </div>
+      <div class="row m-t-3">
+        <div class="col-md-6 align-items-center m-t-3" style="padding-left: 0px;">
+          <span class="count-card-1">@Messages("TK thuê bao hoạt động")</span>
+          <div id="chartActiveSubWithMonth" style="padding-top: 10px;"></div>
+        </div>
+        <div class="col-md-6 align-items-center m-t-3" style="padding-right: 0px;">
+          <span class="count-card-1">@Messages("TK thuê bao cắt hủy")</span>
+          <div id="chartCancledSubWithMonth" style="padding-top: 10px;"></div>
+        </div>
+      </div>
+    }
+
+  </div>
+</div>

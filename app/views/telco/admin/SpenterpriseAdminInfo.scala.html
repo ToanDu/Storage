@@ -1,0 +1,71 @@
+<div class="modal fade" id="infoAdminSuperenModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="background-color: red; border-radius: 16px 16px 0px 0px;">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("Duyệt thông tin Admin/Đại lý")</h5>
+      </div>
+
+      <div class="modal-body">
+        <input id="idUserAdminSperen" type="text" class="form-control input-form" readonly hidden>
+        <div class="col-md-12 m-t-3">
+          <div class="row">
+            <div >
+              <div class="table-responsive mb-3" style="border-radius: 8px;">
+                <table class="table table-striped" id="listEnterpriseTable" style="width: 100%;">
+                  <thead style="background-color: #FBCCD6;">
+                    <tr>
+                      <th>@Messages("STT")</th>
+                      <th>@Messages("Tên DN")</th>
+                      <th>@Messages("GPKD")</th>
+                      <th>@Messages("Thao tác")</th>
+                      <th style="text-align: center">@Messages("Kiểm duyệt")</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+                <h5 id="notiNotDataDetail" style="text-align: center;"></h5>
+              </div>
+              <div class="material-datatables row row-cols-auto g-3" style="margin-bottom: 5px; margin-right: 10px;" id="">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="dropdown">
+                      <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="countPageSizeDetail" style="background-color: rgb(0 0 0 / 50%);">10</button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="javascript:ApplyFilterDetail(1,10,true)">10</a></li>
+                        <li><a class="dropdown-item" href="javascript:ApplyFilterDetail(1,50,true)">50</a></li>
+                        <li><a class="dropdown-item" href="javascript:ApplyFilterDetail(1,100,true)">100</a></li>
+                        <li><a class="dropdown-item" href="javascript:ApplyFilterDetail(1,200,true)">200</a></li>
+                        <li><a class="dropdown-item" href="javascript:ApplyFilterDetail(1,500,true)">500</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="dataTables_paginate paging_full_numbers" id="pagingTableDetail" style="cursor: pointer; right: 15px; position: absolute;"></div>
+                  </div>
+                </div>
+
+                <input name="pageDetail" id="pageDetail" value="1" style="display: none">
+                <input name="pageSizeDetail" id="pageSizeDetail" value="10" style="display: none">
+                <input name="isResetPageDetail" id="isResetPage" value="false" style="display: none">
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <div class="row">
+            <label class="col-sm-2 col-form-label title-section-2">@Messages("Lý do từ chối")</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" id="descriptionDetail" rows="2" maxlength="500"></textarea>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="" data-bs-dismiss="modal">@Messages("Đóng")</button>
+      </div>
+
+    </div>
+  </div>
+</div>

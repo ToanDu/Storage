@@ -1,0 +1,514 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<div class="col-lg-9 col-md-8">
+
+  <div class="row">
+    <div class="col-md-12 m-t-3">
+      <span class="display-4 title-section-1">@Messages("1. Thông tin khách hàng")</span>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Nhóm loại KH")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <select class="form-control" id="nhom_loai_kh">
+            <option value="VTL" selected>@Messages("KH doanh nghiệp")</option>
+            <option value="VIE" >@Messages("KH cá nhân")</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Loại KH")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <select class="form-control" id="loai_kh">
+            <option value="DCT" selected>@Messages("Công ty TNHH, Cổ phần, Hợp danh, Liên doanh")</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Tên DN")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <input id="ten_dn" type="text" class="form-control input-form" maxlength="255" placeholder="Nhập nội dung">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Mã số thuế")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <input id="ma_so_thue" type="text" class="form-control input-form" maxlength="255">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Ngày thành lập")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <input id="ngay_thanh_lap" type="text" class="form-control input-form date_timepicker">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Địa chỉ")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col-sm-4">
+              <select class="form-control" id="tinh_tp" onchange="selectDistrict()">
+                <option value="">@Messages("Tỉnh/ TP")</option>
+              </select>
+            </div>
+            <div class="col-sm-4">
+              <select class="form-control" id="quan_huyen" onchange="selectWard()">
+                <option value="">@Messages("Huyện/ Quận")</option>
+              </select>
+            </div>
+            <div class="col-sm-4">
+              <select class="form-control" id="phuong_xa">
+                <option value="">@Messages("Phường/Xã")</option>
+              </select>
+            </div>
+            <div class="col-sm-12" style="margin-top: 0.5rem;">
+              <input id="dia_chi_chi_tiet" type="text" class="form-control input-form" maxlength="500" placeholder="Địa chỉ chi tiết">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Thông tin giấy tờ")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col-sm-6 m-b-3">
+              <select class="form-control" id="loai_giay_to">
+                <option value="BUS">@Messages("GPKD")</option>
+              </select>
+            </div>
+            <div class="col-sm-6 m-b-3">
+              <input id="so_giay_to" type="text" class="form-control input-form" maxlength="500" placeholder="Số giấy tờ">
+            </div>
+            <div class="col-sm-6">
+              <input id="noi_cap" type="text" class="form-control input-form" maxlength="500" placeholder="Nơi cấp">
+            </div>
+            <div class="col-sm-6">
+              <input id="ngay_cap" type="text" class="form-control input-form date_timepicker" maxlength="500" placeholder="Ngày cấp" onchange="checkDateCustomer()">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Quốc tịch")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <input id="quoc_tich" type="text" class="form-control input-form" maxlength="255" value="Việt Nam">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Mã postcode")</label>
+        <div class="col-sm-6">
+          <input id="ma_postcode" type="text" class="form-control input-form" maxlength="255" value="100000">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Ghi chú")</label>
+        <div class="col-sm-6">
+          <input id="ghi_chu" type="text" class="form-control input-form" maxlength="255" placeholder="Nhập nội dung">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @*thong tin nguoi dai dien*@
+  <div class="row">
+    <div class="col-md-12 m-t-3">
+      <span class="display-4 title-section-1">@Messages("2. Thông tin  người đại diện")</span>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Tên khách hàng")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <input id="ten_khach_hang" type="text" class="form-control input-form" maxlength="255" placeholder="Nhập nội dung">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Nhóm loại KH")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <select class="form-control" id="nhom_loai_kh_2">
+            <option value="1" selected>@Messages("Cá nhân trong nước")</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Loại KH")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <select class="form-control" id="loai_kh_2">
+            <option value="VIE" selected>@Messages("Tư nhân trong nước")</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Ngày sinh ")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <input id="ngay_sinh" type="text" class="form-control input-form date_timepicker" maxlength="255" placeholder="DD/MM/YYYY" onchange="checkDateBirth1()">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Giới tính ")</label>
+        <div class="col-sm-6">
+          <select class="form-control" id="gioi_tinh_2">
+            <option value="M" selected>@Messages("Nam")</option>
+            <option value="F">@Messages("Nữ")</option>am
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Quốc tịch")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <input id="quoc_tich_2" type="text" class="form-control input-form" maxlength="255" value="Việt Nam">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Địa chỉ")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col-sm-4">
+              <select class="form-control" id="tinh_tp_2" onchange="selectDistrict_2()">
+                <option value="">@Messages("Tỉnh/ TP")</option>
+              </select>
+            </div>
+            <div class="col-sm-4">
+              <select class="form-control" id="quan_huyen_2" onchange="selectWard_2()">
+                <option value="">@Messages("Huyện/ Quận")</option>
+              </select>
+            </div>
+            <div class="col-sm-4">
+              <select class="form-control" id="phuong_xa_2">
+                <option value="">@Messages("Phường/Xã")</option>
+              </select>
+            </div>
+            <div class="col-sm-12" style="margin-top: 0.5rem;">
+              <input id="dia_chi_chi_tiet_2" type="text" class="form-control input-form" maxlength="500" placeholder="Địa chỉ chi tiết">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Thông tin giấy tờ")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col-sm-6 m-b-3">
+              <select class="form-control" id="loai_giay_to_2">
+                <option value="ID">@Messages("CMND")</option>
+                <option value="IDC" selected>@Messages("CCCD")</option>
+              </select>
+            </div>
+            <div class="col-sm-6 m-b-3">
+              <input id="so_giay_to_2" type="number" class="form-control input-form" maxlength="500" placeholder="Số giấy tờ">
+            </div>
+            <div class="col-sm-12 m-b-3">
+              <input id="noi_cap_2" type="text" class="form-control input-form" maxlength="500" placeholder="Nơi cấp">
+            </div>
+            <div class="col-sm-6 m-b-3">
+              <input id="ngay_cap_2" type="text" class="form-control input-form date_timepicker" maxlength="500" placeholder="Ngày cấp" onchange="checkDateRepresentative()">
+            </div>
+            <div class="col-sm-6">
+              <input id="ngay_het_han_2" type="text" class="form-control input-form date_timepicker" maxlength="500" placeholder="Ngày hết hạn" onchange="checkExpirationDate2()">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Ghi chú")</label>
+        <div class="col-sm-6">
+          <input id="ghi_chu_2" type="text" class="form-control input-form" maxlength="255" placeholder="Nhập nội dung">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @*thong tin nguoi su dung*@
+  <div class="row">
+    <div class="col-md-12 m-t-3">
+      <span class="display-4 title-section-1">@Messages("3. Thông tin người sử dụng")</span>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Tên khách hàng")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <input id="ten_khach_hang_3" type="text" class="form-control input-form" maxlength="255" placeholder="Nhập nội dung">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Nhóm loại KH")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <select class="form-control" id="nhom_loai_kh_3">
+            <option value="1" selected>@Messages("Cá nhân trong nước")</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Loại KH")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <select class="form-control" id="loai_kh_3">
+            <option value="VIE" selected>@Messages("Tư nhân trong nước")</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Ngày sinh ")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <input id="ngay_sinh_3" type="text" class="form-control input-form date_timepicker" maxlength="255" placeholder="DD/MM/YYYY" onchange="checkDateBirth()">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Giới tính ")</label>
+        <div class="col-sm-6">
+          <select class="form-control" id="gioi_tinh_3">
+            <option value="M" selected>@Messages("Nam")</option>
+            <option value="F">@Messages("Nữ")</option>am
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Quốc tịch")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-6">
+          <input id="quoc_tich_3" type="text" class="form-control input-form" maxlength="255" value="Việt Nam">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Địa chỉ")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col-sm-4">
+              <select class="form-control" id="tinh_tp_3" onchange="selectDistrict_3()">
+                <option value="">@Messages("Tỉnh/ TP")</option>
+              </select>
+            </div>
+            <div class="col-sm-4">
+              <select class="form-control" id="quan_huyen_3" onchange="selectWard_3()">
+                <option value="">@Messages("Huyện/ Quận")</option>
+              </select>
+            </div>
+            <div class="col-sm-4">
+              <select class="form-control" id="phuong_xa_3">
+                <option value="">@Messages("Phường/Xã")</option>
+              </select>
+            </div>
+            <div class="col-sm-12" style="margin-top: 0.5rem;">
+              <input id="dia_chi_chi_tiet_3" type="text" class="form-control input-form" maxlength="500" placeholder="Địa chỉ chi tiết">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Thông tin giấy tờ")<span class="text-red">@Messages("*")</span></label>
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col-sm-6 m-b-3">
+              <select class="form-control" id="loai_giay_to_3">
+                <option value="ID">@Messages("CMND")</option>
+                <option value="IDC" selected>@Messages("CCCD")</option>
+              </select>
+            </div>
+            <div class="col-sm-6 m-b-3">
+              <input id="so_giay_to_3" type="number" class="form-control input-form" maxlength="500" placeholder="Số giấy tờ">
+            </div>
+            <div class="col-sm-12 m-b-3">
+              <input id="noi_cap_3" type="text" class="form-control input-form" maxlength="500" placeholder="Nơi cấp">
+            </div>
+            <div class="col-sm-6 m-b-3">
+              <input id="ngay_cap_3" type="text" class="form-control input-form date_timepicker" maxlength="500" placeholder="Ngày cấp" onchange="checkDateUsed()">
+            </div>
+            <div class="col-sm-6 m-b-3">
+              <input id="ngay_het_han_3" type="text" class="form-control input-form date_timepicker" maxlength="500" placeholder="Ngày hết hạn" onchange="checkExpirationDate3()">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row m-b-3">
+        <label class="col-sm-3 col-form-label title-section-2">@Messages("Ghi chú")</label>
+        <div class="col-sm-6">
+          <input id="ghi_chu_3" type="text" class="form-control input-form" maxlength="255" placeholder="Nhập nội dung">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @*views.html.telco.order.OrderSubscriber_sim_infoKH_img()*@
+
+</div>
+<script>
+      function checkDateBirth(){
+        var input = document.getElementById('ngay_sinh_3').value;
+        var registerDay = new Date(input.split("/").reverse().join("-"));
+        var currentDay = new Date();
+        currentDay.setHours(0, 0, 0, 0);
+        if ( currentDay - registerDay < 441763200000 ) {
+          showNotification('danger',Messages("Thông tin người sử dụng không đủ 14 tuổi"));
+          document.getElementById('ngay_sinh_3').value = "";
+        }
+      }
+
+      function checkDateBirth1(){
+        var input = document.getElementById('ngay_sinh').value;
+        var registerDay = new Date(input.split("/").reverse().join("-"));
+        var currentDay = new Date();
+        currentDay.setHours(0, 0, 0, 0);
+        if ( currentDay - registerDay < 441763200000 ) {
+          showNotification('danger',Messages("Thông tin người đại diện không đủ 14 tuổi"));
+          document.getElementById('ngay_sinh').value = "";
+        }
+      }
+
+      function checkDateCustomer() {
+        var input = document.getElementById('ngay_cap').value;
+
+        // Kiểm tra xem ngày nhập vào có trước ngày hiện tại không
+        var registerDay = new Date(input.split("/").reverse().join("-"));
+        var currentDay = new Date();
+
+        if (registerDay > currentDay) {
+          showNotification('danger',Messages(" Ngày cấp không được lớn hơn ngày hiện tại"));
+          document.getElementById('ngay_cap').value = "";
+        }
+      }
+      function checkDateRepresentative() {
+        var input = document.getElementById('ngay_cap_2').value;
+
+        // Kiểm tra xem ngày nhập vào có trước ngày hiện tại không
+        var registerDay = new Date(input.split("/").reverse().join("-"));
+        var currentDay = new Date();
+        if (registerDay > currentDay) {
+          showNotification('danger',Messages(" Ngày cấp không được lớn hơn ngày hiện tại"));
+          document.getElementById('ngay_cap_2').value = "";
+        }
+      }
+      function checkDateUsed() {
+        var input = document.getElementById('ngay_cap_3').value;
+
+        // Kiểm tra xem ngày nhập vào có trước ngày hiện tại không
+        var registerDay = new Date(input.split("/").reverse().join("-"));
+        var currentDay = new Date();
+        if (registerDay > currentDay) {
+          showNotification('danger',Messages("Ngày cấp không được lớn hơn ngày hiện tại"));
+          document.getElementById('ngay_cap_3').value = "";
+        }
+      }
+      function checkExpirationDate2() {
+        var input = document.getElementById('ngay_het_han_2').value;
+        var expirationDate = new Date(input.split("/").reverse().join("-"));
+        var currentDay = new Date();
+        currentDay.setHours(0, 0, 0, 0);
+        if (expirationDate <= currentDay) {
+          showNotification('danger',Messages("Ngày hết hạn không được nhỏ hơn ngày hiện tại"));
+          document.getElementById('ngay_het_han_2').value = "";
+        }
+      }
+      function checkExpirationDate3() {
+        var input = document.getElementById('ngay_het_han_3').value;
+        var expirationDate = new Date(input.split("/").reverse().join("-"));
+        var currentDay = new Date();
+        currentDay.setHours(0, 0, 0, 0);
+        if (expirationDate <= currentDay) {
+          showNotification('danger',Messages("Ngày hết hạn không được nhỏ hơn ngày hiện tại"));
+          document.getElementById('ngay_het_han_3').value = "";
+        }
+      }
+  </script>

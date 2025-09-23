@@ -1,0 +1,302 @@
+<div class="modal fade" id="updateTypeBusinessModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: red; border-radius: 16px 16px 0px 0px;">
+        <span class="modal-title text-white" id="myModalLabel">@Messages("Khảo sát")</span>
+        <h6 class="text-white">@Messages("Kính gửi quý khách hàng, để cung cấp dịch vụ được tốt hơn, chúng tôi xin một số thông tin khảo sát về sản phẩm, dịch vụ, làm định hướng nâng cấp hệ thống trong giai đoạn tiếp theo. Rất mong quý khách hàng bỏ chút thời gian phản hồi đủ các nội dung.")</h6><h6 class="text-white">@Messages("Xin trân trọng cảm ơn quý khách hàng.")</h6>
+      </div>
+      @*<h6>@Messages("Bạn vui lòng thực hiện bài khảo sát để chúng tôi nâng cao chất lượng sản phẩm hơn nữa.")</h6>*@
+      <div class="modal-body">
+        <div class="m-t-3" style="border: 1px solid #dee2e6; padding: 15px;">
+          <div class="row" style="margin-top: 5px;">
+            <label class="col-sm-3 col-form-label title-section-2">Tên khách hàng *</label>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" id="tenKhachHang" maxlength="50">
+            </div>
+          </div>
+          <div class="row" style="margin-top: 5px;">
+            <label class="col-sm-3 col-form-label title-section-2">Người liên hệ *</label>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" id="ngLienHe" maxlength="50">
+            </div>
+          </div>
+          <div class="row" style="margin-top: 5px;">
+            <label class="col-sm-3 col-form-label title-section-2">Chức vụ *</label>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" id="chucVu" maxlength="50">
+            </div>
+          </div>
+            <div class="row" style="margin-top: 5px;">
+                <label class="col-sm-3 col-form-label title-section-2">Số lượng thuê bao *</label>
+                <div class="col-sm-6">
+                    <input class="form-control" type="number" id="soThueBao" readonly>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="modal-body" style="padding-top: 0px;">
+
+        <h6 class="m-t-3">@Messages("1. Anh/chị có gặp bất tiện gì trong quá trình sử dụng không? Nếu có, xin cụ thể vấn đề gây khó chịu nhất? *")</h6>
+        <textarea class="form-control" id="q1" maxlength="1000" rows="2" placeholder="...tối đa 1000 kí tự"></textarea>
+
+
+        <h6 class="m-t-3">@Messages("2. Có tính năng nào anh chị chưa thử dùng trên CMP? (chọn 1 hoặc nhiều phương án) *")</h6>
+        <div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q2" type="checkbox" id="q2-1" value="1">
+            <label class="form-check-label" for="q2-1">@Messages("Xem thông tin thuê bao")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q2" type="checkbox" id="q2-2" value="2">
+            <label class="form-check-label" for="q2-2">@Messages("Quản lý hợp đồng")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q2" type="checkbox" id="q2-3" value="3">
+            <label class="form-check-label" for="q2-3">@Messages("Tra cứu cước")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q2" type="checkbox" id="q2-4" value="4">
+            <label class="form-check-label" for="q2-4">@Messages("Theo dõi nội dung thuê bao đã dùng")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q2" type="checkbox" id="q2-5" value="5">
+            <label class="form-check-label" for="q2-5">@Messages("Định vị thuê bao")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q2" type="checkbox" id="q2-6" value="6">
+            <label class="form-check-label" for="q2-6">@Messages("Đầu nối SIM")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q2" type="checkbox" id="q2-7" value="7">
+            <label class="form-check-label" for="q2-7">@Messages("Chặn mở SIM")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q2" type="checkbox" id="q2-8" value="8">
+            <label class="form-check-label" for="q2-8">@Messages("Nạp tiền cho thuê bao")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q2" type="checkbox" id="q2-9" value="9">
+            <label class="form-check-label" for="q2-9">@Messages("Phân quyền user (theo phân cấp đơn vị) ")</label>
+          </div><br>
+        </div>
+        <h6 class="m-t-3">@Messages("Có 3 tính năng nâng cao sắp tới sẽ đưa vào triển khai, bạn thấy tính năng nào sẽ có ý nghĩa nhất với doanh nghiệp của mình? (chọn 1 phương án)*")</h6>
+        <div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q3" type="radio" id="q3_1" name="q3" value="1">
+            <label class="form-check-label" for="q3_1">Tính năng tư vấn gói cước dựa trên lưu lượng tiêu dùng thực tế</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q3" type="radio" id="q3_2" name="q3" value="2">
+            <label class="form-check-label" for="q3_2">Tính năng định vị thuê bao (cho bạn biết vị trí thực tế của từng thuê bao)</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q3" type="radio" id="q3_3" name="q3" value="3">
+            <label class="form-check-label" for="q3_3">Hỗ trợ quản lý thiết bị (quản lý trạng thái, quản lý phiên bản phần mềm thiết bị, nâng cấp phần mềm thiết bị từ xa)</label>
+          </div><br>
+        </div>
+        <h6 class="m-t-3">@Messages(" Theo anh chị, hệ thống cần bổ sung thêm tính năng nào để Doanh nghiệp quản lý thuê bao tốt hơn? *")</h6>
+        <textarea class="form-control" id="q4" maxlength="1000" rows="2" placeholder="...tối đa 1000 kí tự"></textarea>
+        <h6 class="m-t-3">@Messages("3. CMP có giúp đơn vị giảm được nhân sự vận hành hệ thống không? *")</h6>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q5" type="radio" id="q5_1" name="q5" value="1">
+          <label class="form-check-label" for="q5_1">Có</label>
+        </div><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q5" type="radio" id="q5_2" name="q5" value="2">
+          <label class="form-check-label" for="q5_2">Không</label>
+        </div><br>
+        <h6 class="m-t-3">@Messages("CMP giúp doanh nghiệp tiết kiệm thời gian trong khâu nào nhất? (quản lý SIM, nạp tiền, chặn/mở chặn, đấu nối SIM) *")</h6>
+        <textarea class="form-control" id="q6" maxlength="1000" rows="2" placeholder="...tối đa 1000 kí tự"></textarea>
+        <h6 class="m-t-3">@Messages("4. Anh/chị có biết đến tính năng Quản lý hợp đồng của CMP không? *")</h6>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q7" type="radio" id="q7_1" name="q7" value="1">
+          <label class="form-check-label" for="q5_1">Có</label>
+        </div><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q7" type="radio" id="q7_2" name="q7" value="2">
+          <label class="form-check-label" for="q7_2">Không</label>
+        </div><br>
+        <h6 class="m-t-3">@Messages("Anh/chị có biết đến tính năng mua gói data/Mi của CMP không? *")</h6>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q8" type="radio" id="q8_1" name="q8" value="1">
+          <label class="form-check-label" for="q8_1">Có</label>
+        </div><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q8" type="radio" id="q8_2" name="q8" value="2">
+          <label class="form-check-label" for="q8_2">Không</label>
+        </div><br>
+        <h6 class="m-t-3">@Messages("Anh/chị có biết đến tính năng nạp tiền của CMP không? *")</h6>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q9" type="radio" id="q9_1" name="q9" value="1">
+          <label class="form-check-label" for="9_1">Có</label>
+        </div><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q9" type="radio" id="q9_2" name="q9" value="2">
+          <label class="form-check-label" for="q9_2">Không</label>
+        </div><br>
+        <h6 class="m-t-3">@Messages("Anh/chị có biết đến tính năng mở chiều/chặn chiều thuê bao của CMP không? *")</h6>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q10" type="radio" id="q10_1" name="q10" value="1">
+          <label class="form-check-label" for="q10_1">Có</label>
+        </div><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q10" type="radio" id="q10_2" name="q10" value="2">
+          <label class="form-check-label" for="q10_2">Không</label>
+        </div><br>
+        <h6 class="m-t-3">@Messages("Anh/chị có biết đến tính năng đấu nối/đặt hàng thuê bao của CMP không? *")</h6>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q11" type="radio" id="q11_1" name="q11" value="1">
+          <label class="form-check-label" for="q11_1">Có</label>
+        </div><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q11" type="radio" id="q11_2" name="q11" value="2">
+          <label class="form-check-label" for="q11_2">Không</label>
+        </div><br>
+        <h6 class="m-t-3">@Messages("Anh/chị có biết đến tính năng tạo user/phân quyền của CMP không? *")</h6>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q12" type="radio" id="q12" name="q12" value="1">
+          <label class="form-check-label" for="q12_1">Có</label>
+        </div><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q12" type="radio" id="q12_2" name="q12" value="2">
+          <label class="form-check-label" for="q12_2">Không</label>
+        </div><br>
+        <h6 class="m-t-3">@Messages("Anh/chị có biết đến tính năng định vị thuê bao của CMP không? (bạn có thể biết thuê bao nằm ở khu vực nào, đã di chuyển qua những nơi nào trong vòng 1 tuần, 1 tháng) *")</h6>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q13" type="radio" id="q13_1" name="q13" value="1">
+          <label class="form-check-label" for="q13_1">Có</label>
+        </div><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q13" type="radio" id="q13_2" name="q13" value="2">
+          <label class="form-check-label" for="q13_2">Không</label>
+        </div><br>
+        <h6 class="m-t-3">@Messages("Anh/chị có biết đến tính năng tư vấn gói cước phù hợp, dựa trên lưu lượng sử dụng thực tế của thuê bao không? *")</h6>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q14" type="radio" id="q14_1" name="q14" value="1">
+          <label class="form-check-label" for="q14_1">Có</label>
+        </div><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q14" type="radio" id="q14_2" name="q14" value="2">
+          <label class="form-check-label" for="q14_2">Không</label>
+        </div>
+        <h6 class="m-t-3">@Messages("5. Doanh nghiệp các anh chị, có đang duy trì đội ngũ phát triển ứng dụng, bảo trì hệ thống phần mềm cho sản phẩm dịch vụ của mình không? Đội ngũ bao nhiêu người (nếu có?) *")</h6>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q15" type="radio" id="q15_1" name="q15" value="1">
+          <label class="form-check-label" for="q15_1">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q15" type="radio" id="q15_2" name="q15" value="2">
+          <label class="form-check-label" for="q15_2">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q15" type="radio" id="q15_3" name="q15" value="3">
+          <label class="form-check-label" for="q15_3">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q15" type="radio" id="q15_4" name="q15" value="4">
+          <label class="form-check-label" for="q15_4">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q15" type="radio" id="q15_5" name="q15" value="5">
+          <label class="form-check-label" for="q15_5">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input q15" type="radio" id="q15_6" name="q15" value="6">
+          <label class="form-check-label" for="q15_6"> &gt 5</label>
+        </div>
+        <h6 class="m-t-3">@Messages("Ứng dụng IoT của doanh nghiệp bạn thuộc lĩnh vực nào? (chọn nhiều phương án) *")</h6>
+        <div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q16" type="checkbox" id="q16_1" value="1">
+            <label class="form-check-label" for="q16_1">@Messages("Giao thông")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q16" type="checkbox" id="q16_2" value="2">
+            <label class="form-check-label" for="q16_2">@Messages("Vận tải ( khách, hàng hóa)")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q16" type="checkbox" id="q16_3" value="3">
+            <label class="form-check-label" for="q16_3">@Messages("Quản lý thú cưng, tài sản")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q16" type="checkbox" id="q16_4" value="4">
+            <label class="form-check-label" for="q16_4">@Messages("Y tế - Chăm sóc sức khỏe")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q16" type="checkbox" id="q16_5" value="5">
+            <label class="form-check-label" for="q16_5">@Messages("Đo lường (điện, nước)")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q16" type="checkbox" id="q16_6" value="6">
+            <label class="form-check-label" for="q16_6">@Messages("Phát wifi")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q16" type="checkbox" id="q16_7" value="7">
+            <label class="form-check-label" for="q16_7">@Messages("Camera giám sát")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q16" type="checkbox" id="q16_8" value="8">
+            <label class="form-check-label" for="q16_8">@Messages("Đèn đường")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q16" type="checkbox" id="q2-9" value="9">
+            <label class="form-check-label" for="q16_9">@Messages("Nông nghiệp (cây trồng) ")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q16" type="checkbox" id="q16_10" value="10">
+            <label class="form-check-label" for="q16_10">@Messages("Thủy canh (tôm, cá) ")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q16" type="checkbox" id="q16_11" value="11">
+            <label class="form-check-label" for="q16_11">@Messages("Quan trắc môi trường (nguồn nước, không khí, nước thải) ")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q16" type="checkbox" id="q16_12" value="12">
+            <label class="form-check-label" for="q16_12">@Messages("Sản xuất - truyền tải điệ ")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q16" type="checkbox" id="q16_13" value="13">
+            <label class="form-check-label" for="q16_13">@Messages("Đồng hồ thông minh (trẻ em, thể thao) ")</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q16" type="checkbox" id="q16_14" value="14">
+            <label class="form-check-label" for="q16_14">@Messages("Lĩnh vực khác... ")</label>
+          </div><br>
+        </div>
+        <h6 class="m-t-3">@Messages("Số lượng kết nối của Doanh nghiệp hiện tại đang là bao nhiêu? *")</h6>
+        <textarea class="form-control" id="q17" maxlength="1000" rows="2" placeholder="...tối đa 1000 kí tự"></textarea>
+        <h6 class="m-t-3">@Messages("Nếu Viettel hỗ trợ chuyển đổi nền tảng phần mềm (gồm tích hợp thiết bị, web, mobile app), đồng thời tối ưu chi phí vận hành cho doanh nghiệp (thấp hơn mức hiện phải chi trả), thì doanh nghiệp có sẵn sàng thử nghiệm dùng nền tảng phần mềm của Viettel không? *")</h6>
+        <div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q18" type="radio" id="q18_1" name="q18" value="1">
+            <label class="form-check-label" for="q18_1">Không</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q18" type="radio" id="q18_2" name="q18" value="2">
+            <label class="form-check-label" for="q18_2">Xem xét</label>
+          </div><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input q18" type="radio" id="q18_3" name="q18" value="3">
+            <label class="form-check-label" for="q18_3">Sẵn sàng</label>
+          </div><br>
+        </div>
+        <h6 class="m-t-3">@Messages("7. Điều gì của CMP sẽ khiến các bạn giới thiệu cho bạn bè (đồng nghiệp) biết đến và sử dụng phần mềm này?  *")</h6>
+        <textarea class="form-control" id="q19" maxlength="1000" rows="2" placeholder="...tối đa 1000 kí tự"></textarea>
+        <h6 class="m-t-3">@Messages("Bạn có gợi ý nào để chúng tôi có thể hoàn thiện sản phẩm CMP tốt hơn cho nhu cầu của doanh nghiệp bạn? *")</h6>
+        <textarea class="form-control" id="q20" maxlength="1000" rows="2" placeholder="...tối đa 1000 kí tự"></textarea>
+        <h6 class="m-t-3">@Messages("Nếu bạn chỉ mô tả CMP bằng 1 câu, thì bạn sẽ mô tả thế nào? *")</h6>
+        <textarea class="form-control" id="q21" maxlength="1000" rows="2" placeholder="...tối đa 1000 kí tự"></textarea>
+
+      </div>
+
+      <h5 style="text-align: center">@Messages("Cảm ơn quý khách hàng đã tham gia khảo sát")</h5>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-red" onclick="comfirmSurvey()">@Messages("btnComfirm")</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="@routes.Assets.versioned("javascripts/views/telco/survey/Survey.js")" type="text/javascript"></script>

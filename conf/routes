@@ -1,0 +1,676 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+GET     /                           controllers.LandingPageController.home()
+GET     /tra_cuu_don_hang           controllers.OrderSearchController.OrderSearchView()
+GET     /landingPage                controllers.LandingPageController.landingPage()
+POST    /submitFormContactTelco     controllers.LandingPageController.submitFormContactTelco()
+GET     /getListProductOfferPack    controllers.LandingPageController.getListProductOfferPack(offerType: String, payType: String, category: String)
+POST    /submitFormContact          controllers.LandingPageController.submitFormContact()
+POST    /submitRegisterDeveloper    controllers.LandingPageController.submitRegisterDeveloper()
+GET     /registerDeveloper          controllers.LandingPageController.registerDeveloper()
+GET     /login                      controllers.Application.login()
+GET     /loginDemo                   controllers.Application.authenticateDemo()
+
+GET     /lang/:lang                 controllers.Application.setLang(lang:String)
+
+
+POST    /checkIpLogin               controllers.Application.checkIpLogin()
+POST    /verifyPhone                controllers.Application.verifyPhone()
+GET     /ChangePass                 controllers.Application.ChangePass()
+GET     /createAccount              controllers.Application.createAccount()
+POST    /login                      controllers.Application.authenticate()
+GET     /logout                     controllers.Application.logout()
+GET     /register                   controllers.Application.register()
+#POST    /registerPost               controllers.Application.registerPost()
+POST    /newRegisterPost            controllers.Application.newRegisterPost()
+GET     /password                   controllers.Application.forgotPassPage()
+POST    /userGetCodeChangePass      controllers.FogotPassController.userGetCodeChangePass()
+POST    /ForgetPassword             controllers.Application.ForgetPassword()
+POST    /ChangePassword             controllers.FogotPassController.ChangePassword()
+POST    /getOtpEmail                controllers.Application.getOtpEmail()
+POST    /getOtpPhone                controllers.Application.getOtpPhone()
+GET     /version                    controllers.Application.version()
+GET     /termsOfUse                 controllers.HomeController.termsOfUse()
+
+GET     /innoway-sitemap.xml        controllers.Application.sitemap()
+GET     /sitemap.xml                controllers.Assets.at(path="/public", file = "sitemap.xml")
+GET     /sitemap_index.xml          controllers.Assets.at(path="/public", file = "sitemap_index.xml")
+GET     /robots.txt                 controllers.Assets.at(path="/public", file = "robots.txt")
+GET     /dieu-khoan.txt                 controllers.Assets.at(path="/public", file = "dieu-khoan.txt")
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+#i18n
+GET     /messages.js                controllers.JsController.jsMessages()
+#Javascript Route
+GET     /javascriptRoutes           controllers.JsController.javascriptRoutes()
+
+GET     /getImg/:id                 controllers.HomeController.getImg(id : String)
+GET     /success                    controllers.HomeController.success()
+GET     /cancel                     controllers.HomeController.cancel()
+GET     /provision                  controllers.HomeController.provision()
+GET     /pageSuccess                controllers.HomeController.pageSuccess()
+
+#download
+GET     /download                   controllers.DownloadPageController.download()
+
+#project
+GET     /project                    controllers.ProjectController.project()
+POST    /getProject                 controllers.ProjectController.getProject()
+POST    /createProjectForm          controllers.ProjectController.createProjectForm()
+POST    /addProject                 controllers.ProjectController.addProject()
+POST    /editProject                controllers.ProjectController.editProject()
+POST    /delProject                 controllers.ProjectController.delProject()
+GET     /getNameProject/:id         controllers.ProjectController.getNameProject(id:String)
+POST    /sendJsonProjectTemplate    controllers.ProjectController.sendPostJsonProjectTemplate()
+POST    /sendPutJsonProjectTemplate controllers.ProjectController.sendPutJsonProjectTemplate()
+POST    /createDashboardTemplate    controllers.ProjectController.createDashboardTemplate()
+GET     /getListTag                 controllers.ProjectController.getListTag()
+POST    /activePhone                controllers.ProjectController.activePhone()
+
+#overview
+GET     /overview/:id               controllers.OverviewController.overview(id : String)
+GET     /countDeviceAndUser/:id     controllers.OverviewController.countDeviceAndUser(id:String)
+GET     /countDevice7Day/:id        controllers.OverviewController.countDevice7Day(id:String)
+GET     /countUser7Day/:id          controllers.OverviewController.countUser7Day(id:String)
+GET     /countMess7Day/:id          controllers.OverviewController.countMess7Day(id:String)
+POST    /countDataLatency           controllers.OverviewController.countDataLatency()
+POST    /countDataSuccessRate       controllers.OverviewController.countDataSuccessRate()
+
+GET     /userList                   controllers.UserController.userList()
+POST    /addNewUser                 controllers.UserController.addNewUser()
+POST    /getTokenSendPassUser       controllers.UserController.getTokenSendPassUser()
+POST    /editUser                   controllers.UserController.editUser()
+POST    /deleteUser                 controllers.UserController.deleteUser()
+POST    /addUserRole                controllers.UserController.addRoleForUser()
+POST    /updateUserOrg              controllers.UserController.updateUserOrg()
+
+#health check
+GET     /healthCheck                controllers.Assets.at(path="/public", file = "health.html")
+
+#send mail api
+POST    /sendMail                   controllers.ApiController.sendMail()
+GET     /getJsonWidget/:id          controllers.ApiController.getJsonWidget(id:String)
+
+#socket
+GET     /wsSocket                   controllers.SocketController.wsSocket()
+
+#send api
+POST    /getDataWithParam                   controllers.SendApiController.getDataWithParam()
+POST    /portDataWithParam                  controllers.SendApiController.portDataWithParam()
+POST    /putDataWithParam                   controllers.SendApiController.putDataWithParam()
+POST    /upfileImage                        controllers.SendApiController.upfileImage()
+POST    /deleteDataWithParam                controllers.SendApiController.deleteDataWithParam()
+
+#downloadFile
+GET    /downloadFile                       controllers.DownloadFileController.downloadFileFromApi(param:String)
+
+#dashboard
+GET     /dashboard                                  controllers.DashboardController.dashboard()
+POST    /getMarkersWithPaging                       controllers.DashboardController.getMarkersWithPaging()
+POST    /getListDeviceWithPaging                    controllers.DashboardController.getListDeviceWithPaging()
+GET     /loadDeviceDataCurrent/:id                  controllers.DashboardController.loadDeviceDataCurrent(id: String)
+
+GET     /dashboardVer2/:id                          controllers.DashboardWidgetController.dashboardVer2(id:String)
+POST    /getListDeviceWithWidgetMap                 controllers.DashboardWidgetController.getListDeviceWithWidgetMap()
+GET     /getDeviceDataCurrent                       controllers.DashboardWidgetController.getDeviceDataCurrent(deviceId: String, latId: String, longId: String)
+POST    /getHistoryRpc                              controllers.DashboardWidgetController.getHistoryRpc()
+
+GET     /dashboardList/:id                          controllers.DashboardV3Controller.dashboardList(id:String)
+POST    /getListDashboard                           controllers.DashboardV3Controller.getListDashboard()
+POST    /addNewDashboard                            controllers.DashboardV3Controller.addNewDashboard()
+POST    /editContentDashboard                       controllers.DashboardV3Controller.editContentDashboard()
+POST    /deleteDashboard                            controllers.DashboardV3Controller.deleteDashboard()
+GET     /dashboard/:id/:dashboardId                 controllers.DashboardV3Controller.dashboard(id:String, dashboardId:String)
+POST    /getDashboardWithId                         controllers.DashboardV3Controller.getDashboardWithId()
+POST    /saveDashboard                              controllers.DashboardV3Controller.saveDashboard()
+POST    /moveDashboardToOrg                         controllers.DashboardV3Controller.moveDashboardToOrg()
+
+
+#deviesManage
+GET         /telco/deviceManage/:userId           controllers.TelcoDeviceController.deviceManage(userId:String)
+
+#dashboard for app
+GET     /appDashboard/:id/:dashboardId/:token       controllers.DashboardAppController.appDashboard(id:String, dashboardId:String, token:String, deviceId: String ?= null, deviceToken: String ?= null)
+POST    /getDashboardWithIdApp                      controllers.DashboardAppController.getDashboardWithId()
+POST    /getPositionDeviceByAttributeApp            controllers.DashboardAppController.getPositionDeviceByAttributeApp()
+POST    /getListDeviceWithWidgetMapApp              controllers.DashboardAppController.getListDeviceWithWidgetMapApp()
+POST    /getDataAttributeByIdApp                    controllers.DashboardAppController.getDataAttributeByIdApp()
+POST    /getLastValueAttributeApp                   controllers.DashboardAppController.getLastValueAttributeApp()
+POST    /sendMessageOnOffApp                        controllers.DashboardAppController.sendMessageOnOffApp()
+
+#widgetPage
+GET     /widgetPage/:id/:idDashboard                controllers.WidgetListController.widgetPage(id:String, idDashboard:String)
+POST    /saveWidgetData                             controllers.WidgetListController.saveWidgetData()
+GET     /getWidgetCurrent                           controllers.WidgetListController.getWidgetCurrent()
+
+#device
+GET     /deviceIotList/:id                          controllers.DeviceIotController.deviceIotList(id:String)
+POST    /addNewDevice                               controllers.DeviceIotController.addNewDevice()
+POST    /createDeviceWithSerialSim                  controllers.DeviceIotController.createDeviceWithSerialSim()
+POST    /deleteDevice                               controllers.DeviceIotController.deleteDevice()
+POST    /editNameDevice                             controllers.DeviceIotController.editNameDevice()
+POST    /updateDevice                               controllers.DeviceIotController.updateDevice()
+POST    /configGpsDevice                            controllers.DeviceIotController.configGpsDevice()
+GET     /getConfigOfDeviceIot/:id                   controllers.DeviceIotController.getConfigOfDeviceIot(id : String)
+GET     /getListDeviceIot                           controllers.DeviceIotController.getListDeviceIot()
+GET     /getListDeviceByGroup/:id                   controllers.DeviceIotController.getListDeviceByGroup(id: String)
+GET     /getListDeviceVarByDevice/:id               controllers.DeviceIotController.getListDeviceVarsByDevice(id: String)
+GET     /getListDeviceByOrg/:id/:projectId          controllers.DeviceIotController.getListDeviceByOrg(id: String, projectId:String)
+GET     /getListDeviceAndAttrByOrg/:id/:projectId   controllers.DeviceIotController.getListDeviceAndAttrByOrg(id: String, projectId:String)
+GET     /getListDeviceByDeviceType/:id              controllers.DeviceIotController.getListDeviceByDeviceType(id: String)
+
+#attribute
+GET     /attributeDevice/:id/:deviceId              controllers.AttributeController.attributeDevice(id:String, deviceId:String)
+POST    /getAttributeList                           controllers.AttributeController.getAttributeList()
+POST    /getAttributeHistory                        controllers.AttributeController.getAttributeHistory()
+
+GET     /attributeUser/:id/:userId                  controllers.AttributeController.attributeUser(id:String, userId:String)
+GET     /attributeEvent/:id/:eventId                controllers.AttributeController.attributeEvent(id:String, eventId:String)
+GET     /attributeTemplate/:id/:templateId          controllers.AttributeController.attributeTemplate(id:String, templateId:String)
+GET     /attributeGroup/:id/:groupId                controllers.AttributeController.attributeGroup(id:String, groupId:String)
+
+#variable of device
+GET     /deviceVariable/:projectId/:id              controllers.DeviceVariableController.deviceVariable(projectId:String, id:String)
+POST    /addVariable                                controllers.DeviceVariableController.addVariable()
+POST    /delVariable                                controllers.DeviceVariableController.delVariable()
+POST    /getDataVariableById                        controllers.DeviceVariableController.getDataVariableById()
+GET     /getListVarByIdDevice/:id                   controllers.DeviceVariableController.getListVarByIdDevice(id : String)
+
+#Attribute
+POST    /addAttribute                               controllers.AttributeController.addAttribute()
+POST    /deleteAttributeOrg                         controllers.AttributeController.deleteAttributeOrg()
+POST    /editAttributeOrg                           controllers.AttributeController.editAttributeOrg()
+POST    /getDataAttributeById                       controllers.AttributeController.getDataAttributeById()
+POST    /getLastValueAttribute                      controllers.AttributeController.getLastValueAttribute()
+POST    /getPositionDeviceByAttribute               controllers.AttributeController.getPositionDeviceByAttribute()
+POST    /getValueAttributeWithTime                  controllers.AttributeController.getValueAttributeWithTime()
+
+#message
+GET     /messagesDevice/:id                         controllers.MessagesDeviceController.messagesDevice(id: String)
+POST    /getMetadata                                controllers.MessagesDeviceController.getMetadata()
+POST    /sendMetadata                               controllers.MessagesDeviceController.sendMetadata()
+POST    /sendMessageToDevice                        controllers.MessagesDeviceController.sendMessageToDevice()
+POST    /getMessageFormDevice                       controllers.MessagesDeviceController.getMessageFormDevice()
+POST    /postCreateDeviceToken                      controllers.MessagesDeviceController.postCreateDeviceToken()
+POST    /sendMessageData                            controllers.MessagesDeviceController.sendMessageData()
+POST    /sendMessageOnOff                           controllers.MessagesDeviceController.sendMessageOnOff()
+POST    /sendMessageOnOffApp                        controllers.MessagesDeviceController.sendMessageOnOffApp()
+POST    /sendCommandRPC                             controllers.MessagesDeviceController.sendCommandRPC()
+
+#log
+GET     /logDeviceList                              controllers.LogDeviceController.logDeviceList()
+POST    /getAllLogMessage                           controllers.LogDeviceController.getAllLogMessage()
+
+#type
+GET     /deviceTypeList/:id                         controllers.DeviceTypeController.deviceTypeList(id:String)
+POST    /addNewDeviceType                           controllers.DeviceTypeController.addNewDeviceType()
+POST    /deleteDeviceType                           controllers.DeviceTypeController.deleteDeviceType()
+POST    /editDeviceType                             controllers.DeviceTypeController.editDeviceType()
+POST    /getListTypes                               controllers.DeviceTypeController.getListTypes()
+
+#deviceTemplate
+GET     /deviceTemplate/:id                         controllers.DeviceTemplateController.deviceTemplate(id:String)
+POST    /createDeviceTemplate                       controllers.DeviceTemplateController.createDeviceTemplate()
+POST    /getListDeviceTemplate                      controllers.DeviceTemplateController.getListDeviceTemplate()
+POST    /deleteDeviceTemplate                       controllers.DeviceTemplateController.deleteDeviceTemplate()
+POST    /createTemDevice                            controllers.DeviceTemplateController.createTemDevice()
+
+#flow
+POST    /getListFlow                                controllers.FlowEngineController.getListFlow()
+POST    /addFlow                                    controllers.FlowEngineController.addFlow()
+
+#org list
+GET         /orginazationView/:id                   controllers.OrginazationController.orginazationView(id:String)
+
+GET         /orgList/:id                            controllers.GroupController.orgList(id:String)
+POST        /getInfoOrg                             controllers.GroupController.getInfoOrg()
+POST        /getAttributeOrg                        controllers.GroupController.getAttributeOrg()
+POST        /getChildByGroupId                      controllers.GroupController.getGroupChildByGroupId()
+POST        /getListGroupOfOrg                      controllers.GroupController.getListGroupOfOrg()
+POST        /getListUserOfOrg                       controllers.GroupController.getListUserOfOrg()
+POST        /getListDeviceOfOrg                     controllers.GroupController.getListDeviceOfOrg()
+POST        /getListEventOfOrg                      controllers.GroupController.getListEventOfOrg()
+POST        /getListRoleOfOrg                       controllers.GroupController.getListRoleOfOrg()
+POST        /updateOrg                              controllers.GroupController.updateGroup()
+POST        /deleteOrg                              controllers.GroupController.deleteGroup()
+POST        /updateRoleToGroupUser                  controllers.GroupController.updateRoleToGroupUser()
+POST        /updateUserToGroupDevice                controllers.GroupController.updateUserToGroupDevice()
+POST        /addGroupRoot                           controllers.GroupController.addGroupRoot()
+GET         /getListOrganizations/:id               controllers.GroupController.getListOrganizations(id:String)
+POST        /processMoveUserToGroupOther            controllers.GroupController.processMoveUserToGroupOther()
+POST        /processMoveDeviceToGroupOther          controllers.GroupController.processMoveDeviceToGroupOther()
+POST        /createUserInOrg                        controllers.GroupController.createUserInOrg()
+POST        /updateRoleForUser                      controllers.GroupController.updateRoleForUser()
+
+#group
+GET         /groupsList                             controllers.GroupListController.groupsList()
+POST        /addNewGroups                           controllers.GroupListController.addNewGroups()
+POST        /deleteGroup                            controllers.GroupListController.deleteGroup()
+POST        /editNameGroups                         controllers.GroupListController.editNameGroups()
+POST        /updateOrgIdForGroups                   controllers.GroupListController.updateOrgIdForGroups()
+POST        /getListGroups                          controllers.GroupListController.getListGroups()
+POST        /getGroupWithEntityType                 controllers.GroupListController.getGroupWithEntityType()
+POST        /getListGroupUser                       controllers.GroupListController.getListGroupUser()
+POST        /getListGroupDevice                     controllers.GroupListController.getListGroupDevice()
+POST        /getListGroupEvent                      controllers.GroupListController.getListGroupEvent()
+POST        /getListGroupOrganization               controllers.GroupListController.getListGroupOrganization()
+
+#test api
+GET         /pageTestApi                                controllers.HomeController.pageTestApi()
+POST        /testPostFormUrlencoded                     controllers.HomeController.testPostFormUrlencoded()
+POST        /testPostJson                               controllers.HomeController.testPostJson()
+POST        /testGetByToken                             controllers.HomeController.testGetByToken()
+POST        /getDashboardByIdOrg                        controllers.HomeController.getDashboardByIdOrg()
+POST        /getDashboardByProjectId                    controllers.HomeController.getDashboardByProjectId()
+
+#role
+GET         /roleList                               controllers.RoleController.roleList()
+POST        /addNewRole                             controllers.RoleController.addNewRole()
+POST        /deleteRole                             controllers.RoleController.deleteRole()
+GET         /roleDetail                             controllers.RoleController.getRole()
+POST        /updateRole                             controllers.RoleController.updateRole()
+
+#event
+GET         /eventList                              controllers.EventController.eventList()
+POST        /addNewEvent                            controllers.EventController.addNewEvent()
+POST        /addNewSchedule                         controllers.EventController.addNewSchedule()
+POST        /editEvent/:id                          controllers.EventController.editEvent(id:String)
+POST        /editSchedule/:id                       controllers.EventController.editSchedule(id:String)
+POST        /onclickEvent                           controllers.EventController.onclickEvent()
+GET         /variableList                           controllers.EventController.getVarsByDevice()
+POST        /deleteEvent                            controllers.EventController.deleteEvent()
+POST        /eventDetail                            controllers.EventController.getEvent()
+POST        /UpdateEvent                            controllers.EventController.updateEvent()
+POST        /changeEventOrg                         controllers.EventController.changeEventOrg()
+POST        /removeEventOrg                         controllers.EventController.removeEventOrg()
+POST        /activeEvent                            controllers.EventController.activeEvent()
+POST        /deActiveEvent                          controllers.EventController.deActiveEvent()
+
+#rule engine
+GET         /ruleEngine/:id                         controllers.RuleChainController.ruleChain(id:String)
+GET         /flowEngineWithId/:projectId/:idFlow    controllers.RuleChainController.flowEngineWithId(projectId:String, idFlow:String)
+
+#pay
+GET         /packData/:id                           controllers.PayPackDataController.packData(id:String)
+POST        /getListPackdata                        controllers.PayPackDataController.getListPackdata()
+POST        /addNewPackdata                         controllers.PayPackDataController.addNewPackdata()
+POST        /getInfoPackdata                        controllers.PayPackDataController.getInfoPackdata()
+POST        /editPackdata                           controllers.PayPackDataController.editPackdata()
+POST        /deletePackdata                         controllers.PayPackDataController.deletePackdata()
+POST        /getInfoVendor                          controllers.PayCustomerController.getInfoVendor()
+POST        /createVendor                           controllers.PayCustomerController.createVendor()
+POST        /updateVendor                           controllers.PayCustomerController.updateVendor()
+POST        /getSubscription                        controllers.PayCustomerController.getSubscription()
+POST        /createSubscription                     controllers.PayCustomerController.createSubscription()
+POST        /cancelSubscription                     controllers.PayCustomerController.cancelSubscription()
+
+GET         /payCustomer/:id                        controllers.PayCustomerController.payCustomer(id:String)
+GET         /payment/:id/:userId                    controllers.PayCustomerController.payment(id:String, userId:String)
+POST        /getListUserInOrg                       controllers.PayCustomerController.getListUserInOrg()
+POST        /addPackdataNewForUser                  controllers.PayCustomerController.addPackdataNewForUser()
+POST        /postPricingOfCustomer                  controllers.PayCustomerController.postPricingOfCustomer()
+POST        /getInfoCustomer                        controllers.PayCustomerController.getInfoCustomer()
+POST        /createInfoCustomer                     controllers.PayCustomerController.createInfoCustomer()
+POST        /updateInfoCustomer                     controllers.PayCustomerController.updateInfoCustomer()
+
+GET         /billList/:id                           controllers.PayBillController.billList(id:String)
+POST        /getAllBill                             controllers.PayBillController.getAllBill()
+POST        /getLinkPayment                         controllers.PayBillController.getLinkPayment()
+POST        /getInfoBill                            controllers.PayBillController.getInfoBill()
+GET         /billUserList/:id/:userId               controllers.PayBillController.billUserList(id:String, userId:String)
+POST        /getBillOfUser                          controllers.PayBillController.getBillOfUser()
+
+GET         /subsList/:id                           controllers.PaySubsController.subsList(id:String)
+POST        /getAllSubs                             controllers.PaySubsController.getAllSubs()
+POST        /getInfoSub                             controllers.PaySubsController.getInfoSub()
+POST        /getLinkPaymentSub                      controllers.PaySubsController.getLinkPaymentSub()
+
+GET         /manageSim/:id                          controllers.ManageSimController.manageSim(id:String)
+POST        /getDataCustomer                        controllers.ManageSimController.getDataCustomer()
+GET         /detailSim/:projectId/:simnb            controllers.ManageSimController.detailSim(projectId:String, simnb:String)
+
+#devkit
+GET         /devkit/:id                             controllers.DevkitController.devkit(id:String)
+
+GET         /module/:id                             controllers.ModuleController.module(id:String)
+
+#app
+GET         /appDebug/:id                           controllers.AppDebugController.appDebug(id:String)
+GET         /appDebugPage                           controllers.AppDebugController.appDebugPage()
+GET         /appSdk/:id                             controllers.AppDebugController.appSdk(id:String)
+GET         /appSdkPage                             controllers.AppDebugController.appSdkPage()
+GET         /solutionMaketPage                      controllers.AppDebugController.solutionMaketPage()
+
+#page qr code
+#GET        /qrCode                                 controllers.QrCodeController.qrCode()
+GET         /qrCodeList                             controllers.QrCodeController.qrCodeList()
+POST        /createQrCode                           controllers.QrCodeController.createQrCode()
+GET         /qrCodeImg/:id                          controllers.QrCodeController.qrCodeImg(id: String)
+GET         /getListQrCode                          controllers.QrCodeController.getListQrCode()
+POST        /deleteQrCode                           controllers.QrCodeController.deleteQrCode()
+GET         /qrCodeHistoryList                      controllers.QrCodeController.qrCodeHistoryList()
+POST        /editQrCode                             controllers.QrCodeController.editQrCode()
+
+GET         /qrCodeCam                              controllers.QrCodeCamController.qrCodeCam()
+POST        /createQrCodeCam                        controllers.QrCodeCamController.createQrCodeCam()
+POST        /deleteQrCodeCam                        controllers.QrCodeCamController.deleteQrCodeCam()
+
+#oauth
+GET         /oauth/login                            controllers.OAuthController.getLogin(login_challenge: String ?= null)
+POST        /oauth/login                            controllers.OAuthController.postLogin()
+GET         /oauth/consent                          controllers.OAuthController.getConsent(consent_challenge: String ?= null)
+POST        /oauth/consent                          controllers.OAuthController.postConsent()
+GET         /oauth/callback                         controllers.OAuthController.callback(code: String ?= null)
+
+#solution
+#tracking
+GET         /monitorMap/:id                         controllers.SolutionTrackingController.monitorMap(id:String)
+POST        /getListGpsDevice                       controllers.SolutionTrackingController.getListGpsDevice()
+POST        /getInfoDevice                          controllers.SolutionTrackingController.getInfoDevice()
+GET         /historyMap/:id                         controllers.SolutionTrackingController.historyMap(id:String)
+POST        /loadLocationHistory                    controllers.SolutionTrackingController.loadLocationHistory()
+
+#waterClock
+GET         /waterClock                             controllers.WaterClockController.waterClock()
+POST        /getListClock                           controllers.WaterClockController.getListClock()
+POST        /getHistoryClock                        controllers.WaterClockController.getHistoryClock()
+
+#TODO: ADMIN
+GET         /templateDeviceList                     controllers.TemplateDeviceController.templateDeviceList()
+POST        /addTemplateDevice                      controllers.TemplateDeviceController.addTemplateDevice()
+POST        /getListTemplateDevice                  controllers.TemplateDeviceController.getListTemplateDevice()
+POST        /getTemplateDeviceById                  controllers.TemplateDeviceController.getTemplateDeviceById()
+POST        /editTemplateDevice                     controllers.TemplateDeviceController.editTemplateDevice()
+POST        /deleteTemplateDeviceById               controllers.TemplateDeviceController.deleteTemplateDevice()
+
+GET         /adminOverview                          controllers.AdminOverviewController.adminOverview()
+POST        /getTotalOverview                       controllers.AdminOverviewController.getTotalOverview()
+POST        /postJsonTotalOverview                  controllers.AdminOverviewController.postJsonTotalOverview()
+POST        /getInfoOVerviewSmarthome               controllers.AdminOverviewController.getInfoOVerviewSmarthome()
+POST        /getInfoOVerviewVtag                    controllers.AdminOverviewController.getInfoOVerviewVtag()
+POST        /getInfoOVerviewFleet                   controllers.AdminOverviewController.getInfoOVerviewFleet()
+POST        /getInfoOVerviewMetter                  controllers.AdminOverviewController.getInfoOVerviewMetter()
+POST        /getListProjectWithPaging               controllers.AdminOverviewController.getListProjectWithPaging()
+
+GET         /adminManageSim                         controllers.AdminManageSimController.adminManageSim()
+POST        /getAllProjectWithPaging                controllers.AdminManageSimController.getAllProjectWithPaging()
+POST        /getListDeviceWithProjectId             controllers.AdminManageSimController.getListDeviceWithProjectId()
+POST        /getAttrSimDevice                       controllers.AdminManageSimController.getAttrSimDevice()
+
+GET         /systemHealth                           controllers.AdminSystemHealthController.systemHealth()
+
+GET         /adminOverviewProject/:id               controllers.AdminOverviewProjectController.adminOverviewProject(id:String)
+
+
+GET         /registerDeveloperList                  controllers.AdminRegisterDeveloperController.registerDeveloperList()
+POST        /registerDeveloperList                  controllers.AdminRegisterDeveloperController.registerDeveloperFilterList()
+POST        /exportRegisterDeveloperList            controllers.AdminRegisterDeveloperController.exportRegisterDeveloperList()
+POST        /deleteRegisterDeveloper                controllers.AdminRegisterDeveloperController.deleteRegisterDeveloper()
+
+#TODO: market place
+GET         /groupProductList                       controllers.AdminGroupProductController.groupProductList()
+POST        /getListGroupProduct                    controllers.AdminGroupProductController.getListGroupProduct()
+POST        /addGroupProduct                        controllers.AdminGroupProductController.addGroupProduct()
+POST        /deleteGroupProduct                     controllers.AdminGroupProductController.deleteGroupProduct()
+POST        /editGroupProduct                       controllers.AdminGroupProductController.editGroupProduct()
+
+GET         /productList/:id                        controllers.ProductListController.productList(id:String)
+POST        /createProduct                          controllers.ProductListController.createProduct()
+POST        /getProductByUser                       controllers.ProductListController.getProductByUser()
+POST        /deleteProduct                          controllers.ProductListController.deleteProduct()
+POST        /getProductById                         controllers.ProductListController.getProductById()
+POST        /editProduct                            controllers.ProductListController.editProduct()
+
+GET         /manageProductList                      controllers.ProductListController.manageProductList()
+POST        /manageProductList                      controllers.ProductListController.manageProductFilterList()
+POST        /changeStatusProduct                    controllers.ProductListController.changeStatusProduct()
+POST        /requestApproveProduct                  controllers.ProductListController.requestApproveProduct()
+
+#marketPlace
+GET         /marketPlace                            controllers.MarketPlaceController.marketPlace()
+GET         /marketPlace/solution                   controllers.MarketPlaceController.marketPlaceSolution()
+GET         /marketPlace/device                     controllers.MarketPlaceController.marketPlaceDevice()
+POST        /getProductMarket                       controllers.MarketPlaceController.getProductMarket()
+POST        /getAllProduct                          controllers.MarketPlaceController.getAllProduct()
+POST        /getAllGroupProduct                     controllers.MarketPlaceController.getAllGroupProduct()
+POST        /getAllGroupSolution                    controllers.MarketPlaceController.getAllGroupSolution()
+POST        /getAllGroupDevice                      controllers.MarketPlaceController.getAllGroupDevice()
+POST        /getAllSolution                         controllers.MarketPlaceController.getAllSolution()
+POST        /getAllDevice                           controllers.MarketPlaceController.getAllDevice()
+GET         /marketPlace/product/:id                controllers.MarketPlaceController.detailProduct(id:String)
+POST        /getDetailProductWithId                 controllers.MarketPlaceController.getDetailProductWithId()
+POST        /getSameProduct                         controllers.MarketPlaceController.getSameProduct()
+
+GET         /productContactList                     controllers.MarketPlaceContactController.productContactList()
+POST        /productContactList                     controllers.MarketPlaceContactController.productContactFilterList()
+POST        /sendContactMarket                      controllers.MarketPlaceContactController.sendContactMarket()
+POST        /editContactMarket                      controllers.MarketPlaceContactController.editContactMarket()
+
+POST        /commentWithProductId                   controllers.MarketPlaceCommentController.commentWithProductId()
+POST        /getListCommentProduct                  controllers.MarketPlaceCommentController.getListCommentProduct()
+
+#user tenant
+GET         /userTenantList                         controllers.UserTenantListController.userTenantList()
+POST        /getListUserTenant                      controllers.UserTenantListController.getListUserTenant()
+POST        /createUserTenant                       controllers.UserTenantListController.createUserTenant()
+POST        /delUserTenant                          controllers.UserTenantListController.delUserTenant()
+POST        /editUserTenant                         controllers.UserTenantListController.editUserTenant()
+POST        /getListRoleOfOrg                       controllers.UserTenantListController.getListRoleOfOrg()
+POST        /updateRoleUserPermission               controllers.UserTenantListController.updateRoleUserPermission()
+POST        /delRoleUserPermission                  controllers.UserTenantListController.delRoleUserPermission()
+
+#TELCO
+GET         /telco/orderSubs/:userId                controllers.TelcoOrderController.orderSubs(userId:String)
+GET         /getDataTelcoByUrl/:url                 controllers.TelcoOrderController.getDataTelcoByUrl(url:String)
+POST        /checkValidateSerialSim                 controllers.TelcoOrderController.checkValidateSerialSim()
+POST        /getListReasonFull                      controllers.TelcoOrderController.getListReasonFull()
+POST        /getConnectSubscriberRamdom             controllers.TelcoOrderController.getConnectSubscriberRamdom()
+POST        /searchSubscriberByStock                controllers.TelcoOrderController.searchSubscriberByStock()
+POST        /blockIsdnVht                           controllers.TelcoOrderController.blockIsdnVht()
+POST        /unlockIsdnVht                          controllers.TelcoOrderController.unlockIsdnVht()
+POST        /connectSubscriberSim                   controllers.TelcoOrderController.connectSubscriberSim()
+POST        /getListProductOffer                    controllers.TelcoOrderController.getListProductOffer()
+POST        /getListSaleService                     controllers.TelcoOrderController.getListSaleService()
+POST        /getListSaleService1                    controllers.TelcoOrderController.getListSaleService1()
+POST        /processOrderBuySim                     controllers.TelcoOrderController.processOrderBuySim()
+
+GET         /apn/:userId                            controllers.TelcoAPNController.APNview(userId:String)
+GET         /apn/getIpAllow/:isdn                   controllers.TelcoAPNController.getIpAllow(isdn:String,userId:String)
+POST        /apn/getAPNByPhone                      controllers.TelcoAPNController.getAPNByPhone()
+POST        /apn/registerAPN                        controllers.TelcoAPNController.registerAPN()
+POST        /apn/unRegisterAPN                      controllers.TelcoAPNController.unRegisterAPN()
+
+GET         /telco/buySim/:userId                   controllers.TelcoOrderController.buySim(userId:String)
+GET         /telco/manageOrder/:userId              controllers.TelcoOrderController.manageOrder(userId:String)
+POST        /getListOrderBuySim                     controllers.TelcoOrderController.getListOrderBuySim()
+POST        /upfilePycTelco                         controllers.TelcoOrderController.upfilePycTelco()
+POST        /getCustomerType                        controllers.TelcoOrderController.getCustomerType()
+POST        /getListCt                              controllers.TelcoOrderController.getListCt()
+
+GET         /logConnectSim/:userId                  controllers.TelcoLogController.logConnectSim(userId:String)
+POST        /getLogConnectSim                       controllers.TelcoLogController.getLogConnectSim()
+
+GET         /telco/dashboard/:userId                controllers.TelcoDashboardController.telcoDashboard(userId:String)
+POST        /getDataDashboardTelco                  controllers.TelcoDashboardController.getDataDashboardTelco()
+POST        /getDataDashboardWithMonth              controllers.TelcoDashboardController.getDataDashboardWithMonth()
+POST        /getTop5DataUsersOfMonth                controllers.TelcoDashboardController.getTop5DataUsersOfMonth()
+POST        /getAlertDashboard                      controllers.TelcoDashboardController.getAlertDashboard()
+POST        /getDetailAlertDashboard                controllers.TelcoDashboardController.getDetailAlertDashboard()
+POST        /getSubscriberStatistics               controllers.TelcoDashboardController.getSubscriberStatistics()
+POST        /getBalanceDashboardTelco               controllers.TelcoDashboardController.getBalanceDashboardTelco()
+POST        /getListSubsDashboardByKey              controllers.TelcoDashboardController.getListSubsDashboardByKey()
+POST        /getListSubsDashboardBlockDebit         controllers.TelcoDashboardController.getListSubsDashboardBlockDebit()
+POST         /getDetailRedAlert                      controllers.TelcoDashboardController.getDetailRedAlert()
+POST         /getDetailPrepaidExpired                      controllers.TelcoDashboardController.getDetailPrepaidExpired()
+POST         /getDetailLowRemainingData                      controllers.TelcoDashboardController.getDetailLowRemainingData()
+POST         /getDetailPackageExpired                      controllers.TelcoDashboardController.getDetailPackageExpired()
+
+GET         /telco/accountInfo/:userId              controllers.TelcoAccountController.accountInfo(userId:String)
+POST        /updateAccountInfo                      controllers.TelcoAccountController.updateDetailAccountTelco()
+POST        /updateInfoCompanyTelco                 controllers.TelcoAccountController.updateInfoCompanyTelco()
+POST        /deleteInfoCompany                      controllers.TelcoAccountController.deleteInfoCompany()
+POST        /getInfoAccount                         controllers.TelcoAccountController.getInfoAccount()
+POST        /getInfoCompany                         controllers.TelcoAccountController.getInfoCompany()
+POST        /getInfoCompanyEnterprise               controllers.TelcoAccountController.getInfoCompanyEnterpriseLv2()
+POST        /getListArea                            controllers.TelcoAccountController.getListArea()
+GET         /getInfoGpkdApproved                    controllers.TelcoAccountController.getInfoGpkdApproved()
+GET         /getCategoryBusinessAndDevice           controllers.TelcoAccountController.getCategoryBusinessAndDevice()
+POST        /updateCategoryBusinessAndDevice        controllers.TelcoAccountController.updateCategoryBusinessAndDevice()
+GET         /getSearchOrder/:orderId                controllers.OrderSearchController.getSearchOrder(orderId: String)
+
+#admin telco
+GET         /approvedInfoCompanyTelco               controllers.AdminTelcoController.approvedInfoCompanyTelco()
+POST        /getListInfoApproved                    controllers.AdminTelcoController.getListInfoApproved()
+POST        /processComfirmInfoAccountCmp           controllers.AdminTelcoController.processComfirmInfoAccountCmp()
+POST        /processComfirmInfoCompany              controllers.AdminTelcoController.processComfirmInfoCompany()
+POST        /getListEnterpriseByBrowser             controllers.AdminTelcoController.getListEnterpriseByBrowser()
+POST        /getListEnterpriseSubmitOfAdminSpe      controllers.AdminTelcoController.getListEnterpriseSubmitOfAdminSpe()
+
+GET         /telco/subscriberManage/:userId         controllers.TelcoSubscriberController.subscriberManage(userId:String)
+POST        /getListSubscriber                      controllers.TelcoSubscriberController.getListSubscriber()
+POST        /getListSubsByBeVht                     controllers.TelcoSubscriberController.getListSubsByBeVht()
+POST        /getDetailSubscriber                    controllers.TelcoSubscriberController.getDetailSubscriber()
+GET         /subscriberDetail/:id/:subs             controllers.TelcoSubscriberController.subscriberDetail(id:String, subs:String)
+POST        /getListProductOffering                 controllers.TelcoSubscriberController.getListProductOffering()
+POST        /getInfoDataAccount                     controllers.TelcoSubscriberController.getInfoDataAccount()
+POST        /getTotalSubscriber                     controllers.TelcoSubscriberController.getTotalSubscriber()
+POST        /getHybridInfo                          controllers.TelcoSubscriberController.getHybridInfo()
+POST        /getCtkm                                controllers.TelcoSubscriberController.getCtkm()
+POST        /getBalanceInfo                         controllers.TelcoSubscriberController.getBalanceInfo()
+POST        /getDebitSubscriber                     controllers.TelcoSubscriberController.getDebitSubscriber()
+POST        /getKttkAndKtmi                         controllers.TelcoSubscriberController.getKttkAndKtmi()
+POST        /blockSubcriber                         controllers.TelcoSubscriberController.blockSubcriber()
+POST        /openSubcriber                          controllers.TelcoSubscriberController.openSubcriber()
+POST        /open2wSubcriber                        controllers.TelcoSubscriberController.open2wSubcriber()
+
+GET         /telco/contractManage/:userId           controllers.TelcoContractController.contractManage(userId:String)
+POST        /getListAccountContract                 controllers.TelcoContractController.getListAccountContract()
+POST        /getDebitContract                       controllers.TelcoContractController.getDebitContract()
+POST        /getTotalAccount                        controllers.TelcoContractController.getTotalAccount()
+POST        /getListContractByIdNo                  controllers.TelcoContractController.getListContractByIdNo()
+
+GET         /telco/utilitiesManage/:userId          controllers.TelcoUtilitiesController.utilitiesManage(userId:String)
+GET         /telco/utilitiesTopup/:userId          controllers.TelcoUtilitiesController.utilitiesTopup(userId:String)
+GET         /telco/utilitiesBlock/:userId          controllers.TelcoUtilitiesController.utilitiesBlock(userId:String)
+GET         /telco/utilitiesBuyPackage/:userId      controllers.TelcoUtilitiesController.utilitiesBuyPackage(userId:String)
+POST        /getListPackMiAndAddOn                  controllers.TelcoUtilitiesController.getListPackMiAndAddOn()
+POST        /registerMiAddon                        controllers.TelcoUtilitiesController.registerMiAddon()
+POST        /unregisterMiAddon                      controllers.TelcoUtilitiesController.unregisterMiAddon()
+POST        /unextendMiAddon                        controllers.TelcoUtilitiesController.unextendMiAddon()
+POST        /getInfoOrderId                         controllers.TelcoUtilitiesController.getInfoOrderId()
+POST        /rechargeSubcriber                      controllers.TelcoUtilitiesController.rechargeSubcriber()
+POST        /getListOrderIdByAction                 controllers.TelcoUtilitiesController.getListOrderIdByAction()
+POST        /getHistoryBlockUnblock                 controllers.TelcoUtilitiesController.getHistoryBlockUnblock()
+POST        /validateSubs                           controllers.TelcoUtilitiesController.validateSubs()
+GET        /prepayCharges                     controllers.TelcoUtilitiesController.prepayCharges(userId:String)
+GET        /prepayCharges/bill/:userId/:isdn/:orderId      controllers.TelcoUtilitiesController.prepayChargesBill(userId:String, isdn:String, orderId:String)
+GET        /getDataPrepaidInfo                      controllers.TelcoUtilitiesController.getDataPrepaidInfo( prom_code:String, product_code:String)
+POST        /rechargePrepaid                           controllers.TelcoUtilitiesController.rechargePrepaid()
+POST        /getHistoryPrepayCharges                           controllers.TelcoUtilitiesController.getHistoryPrepayCharges()
+GET         /telco/payPostpaidBill/:userId          controllers.TelcoUtilitiesController.payPostpaidBill(userId:String)
+POST        /payDebit                           controllers.TelcoUtilitiesController.payDebit()
+GET        /telco/payPostpaidBill/detail/:userId/:orderId      controllers.TelcoUtilitiesController.payPostpaidBillDetail(userId:String, orderId:String)
+POST        /getHistoryPayPostBill                           controllers.TelcoUtilitiesController.getHistoryPayPostBill()
+
+GET         /invoiceOfContract/:userId/:invoice     controllers.TelcoInvoiceController.invoiceOfContract(userId:String, invoice:String)
+POST        /getListInvoiceOfContract               controllers.TelcoInvoiceController.getListInvoiceOfContract()
+POST        /getLinkDownloadInvoice                 controllers.TelcoInvoiceController.getLinkDownloadInvoice()
+
+#Telco api key
+GET         /telco/apiKey/:userId                controllers.TelcoApiKeyController.apiKeyManage(userId:String)
+GET        /getListApiKey                controllers.TelcoApiKeyController.getListApiKey()
+
+
+#role CMP
+GET         /telco/accountList                      controllers.TelcoRoleAccountController.accountList()
+POST        /getListAccountCmp                      controllers.TelcoRoleAccountController.getListAccountCmp()
+POST        /addAccountCmp                          controllers.TelcoRoleAccountController.addAccountCmp()
+POST        /addAccountCmpV2                          controllers.TelcoRoleAccountController.addAccountCmpV2()
+GET         /telco/infoAccountCmp/:id               controllers.TelcoRoleAccountController.infoAccountCmp(id:String)
+POST        /getInfoAccountCmp                      controllers.TelcoRoleAccountController.getInfoAccountCmp()
+POST        /generatePassAccountCmp                 controllers.TelcoRoleAccountController.generatePassAccountCmp()
+POST        /addEnterpriseBySAdmin                  controllers.TelcoRoleAccountController.addEnterpriseBySAdmin()
+POST        /addEnterpriseByAdminOrSEnterprise      controllers.TelcoRoleAccountController.addEnterpriseByAdminOrSEnterprise()
+POST        /deleteEnterprise                       controllers.TelcoRoleAccountController.deleteEnterprise()
+POST        /editEnterprise                         controllers.TelcoRoleAccountController.editEnterprise()
+POST        /updateEnterprise                       controllers.TelcoRoleAccountController.updateEnterprise()
+POST        /deleteAccountCmp                       controllers.TelcoRoleAccountController.deleteAccountCmp()
+POST        /validateGpkd                           controllers.TelcoRoleAccountController.validateGpkd()
+POST        /validateGpkdExist                      controllers.TelcoRoleAccountController.checkValidateGpkd()
+POST        /updatRoleAccountCmp                    controllers.TelcoRoleAccountController.updatRoleAccountCmp()
+
+#qrcode
+GET         /qrcodeList                             controllers.TelcoQrcodeController.qrcodeList()
+POST        /getListQrcodeCmp                       controllers.TelcoQrcodeController.getListQrcodeCmp()
+POST        /checkValidateSerialAdm1                controllers.TelcoQrcodeController.checkValidateSerialAdm1()
+POST        /getListGpkd                            controllers.TelcoQrcodeController.getListGpkd()
+POST        /saveFileChungTu                        controllers.TelcoQrcodeController.saveFileChungTu()
+POST        /createQrcode                           controllers.TelcoQrcodeController.createQrcode()
+GET         /provisioning/qr/:id                    controllers.TelcoQrcodeController.qrCodeConnect(id:String)
+POST        /getInfoConnectSubs                     controllers.TelcoQrcodeController.getInfoConnectSubs()
+POST        /paymentConnectSubs                     controllers.TelcoQrcodeController.paymentConnectSubs()
+POST        /delQrcodeById                          controllers.TelcoQrcodeController.delQrcodeById()
+
+#history
+GET         /historyPackMiAddon/:userId             controllers.TelcoHistoryController.historyPackMiAddon(userId:String)
+GET         /historyDeposit/:userId                 controllers.TelcoHistoryController.historyDeposit(userId:String)
+GET         /historyPrepayCharges/:userId           controllers.TelcoHistoryController.historyPrepayCharges(userId:String)
+GET         /historyAPN/:userId                     controllers.TelcoHistoryController.historyApn(userId:String)
+GET         /historyBlockUnblock/:userId            controllers.TelcoHistoryController.historyBlockUnblock(userId:String)
+POST        /getHistoryPackMiAddon                  controllers.TelcoHistoryController.getHistoryPackMiAddon()
+POST        /getHistoryAPN                          controllers.TelcoHistoryController.getHistoryApn()
+GET         /historyPostPaidBill/:userId                 controllers.TelcoHistoryController.historyPostPaidBill(userId:String)
+
+#listChildUser
+GET         /telco/listChildUser/:userId            controllers.TelcoChildUserController.listChildUser(userId:String)
+POST        /getListChildUser                       controllers.TelcoChildUserController.getListChildUser()
+POST        /addChildUserCmp/:userId                controllers.TelcoChildUserController.addChildUserCmp(userId:String)
+POST        /getRolesOfChildUser                    controllers.TelcoChildUserController.getRolesOfChildUser()
+POST        /updateRolesOfChildUser                 controllers.TelcoChildUserController.updateRolesOfChildUser()
+GET         /childUserDetail/:userId/:childUserId/:email        controllers.TelcoChildUserController.childUserDetail(userId:String, childUserId:String, email:String)
+POST        /getListSubsOfChildUser                 controllers.TelcoChildUserController.getListSubsOfChildUser()
+POST        /addSubToChildUser                      controllers.TelcoChildUserController.addSubToChildUser()
+POST        /addSubToChildUser1                      controllers.TelcoChildUserController.addSubToChildUser1()
+POST        /validateSubToChildUser1                controllers.TelcoChildUserController.validateSubToChildUser1()
+POST        /removeSubOfChildUser                   controllers.TelcoChildUserController.removeSubOfChildUser()
+
+#feedback
+GET         /feedback/:userId                       controllers.TelcoFeedbackController.feedback(userId:String)
+POST        /sendFeedback                           controllers.TelcoFeedbackController.sendFeedback()
+GET         /logFeedback                            controllers.TelcoFeedbackController.logFeedback()
+POST        /getLogListFeedback                     controllers.TelcoFeedbackController.getLogListFeedback()
+
+#log cmp
+GET         /logCmp                                 controllers.TelcoLogController.logCmp()
+POST        /getLogListCmp                          controllers.TelcoLogController.getLogListCmp()
+POST        /updateFormCustomerSurvey               controllers.TelcoLogController.updateFormCustomerSurvey()
+GET         /logCustomerSurvey                      controllers.TelcoLogController.logCustomerSurvey()
+POST        /getLogListCustomerSurvey               controllers.TelcoLogController.getLogListCustomerSurvey()
+POST        /editSurvey                             controllers.TelcoLogController.editSurvey()
+POST        /deleteSurvey                           controllers.TelcoLogController.deleteSurvey()
+POST        /getInfoSurvey                          controllers.TelcoLogController.getInfoSurvey()
+POST        /exportLogCustomerSurvey                controllers.TelcoLogController.exportLogCustomerSurvey()
+POST        /saveFormCustomerSurvey                 controllers.TelcoLogController.saveFormCustomerSurvey()
+
+#AEP vs CMP
+GET         /aepUtilities/:userId                   controllers.TelcoAepController.aepUtilities(userId:String)
+POST        /requestDataAepWeather                  controllers.TelcoAepController.requestDataAepWeather()
+POST        /requestDataAepGps                      controllers.TelcoAepController.requestDataAepGps()
+
+#location isdn
+GET         /telcoLocation/:userId                  controllers.TelcoLocationController.telcoLocation(userId:String)
+POST        /searchByIsdn                           controllers.TelcoLocationController.searchByIsdn()
+
+#Invoice Manager
+GET         /telco/invoiceManage/:userId            controllers.InvoiceManagerController.invoiceManage(userId:String)
+POST        /telco/getInvoices                      controllers.InvoiceManagerController.getInvoices()
+POST        /telco/getInvoiceBase64                 controllers.InvoiceManagerController.getInvoiceBase64()
+
+#Statistic Report
+GET         /telco/report/subscriberBanned/:userId   controllers.TelcoStatisticalReportController.RedBaring(userId:String)
+POST        /telco/report/getRedBarings      controllers.TelcoStatisticalReportController.getRedBarings()
+GET         /telco/report/pakageTime/:userId         controllers.TelcoStatisticalReportController.ExpiratedPackage(userId:String)
+POST        /telco/report/getExpiratedPackages            controllers.TelcoStatisticalReportController.getExpiratedPackages()
+

@@ -1,0 +1,52 @@
+html, body, .map-canvas {
+    height : 100% ;
+    width: 100%;
+    padding : 0 ;
+}
+
+body .card {
+    margin: 10px 15px;
+}
+
+.paper-middle {
+    padding :0px;
+    height: 94%;
+    padding-bottom: 15px;
+}
+
+.grid-stack {
+    background: #ffffff;
+}
+
+.grid-stack-item-content {
+    position: relative;
+    /*display: flex;*/
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #f8f9fa!important;
+    background-clip: border-box;
+    border: 0 solid transparent;
+    border-radius: .25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0.3rem 0.8rem rgb(0 0 0 / 12%);
+}
+
+.card-body {
+    padding: 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.card-title {
+    background-color: #858687;
+    color: white;
+    padding: 5px 5px 5px 20px;
+}
+
+.switcher-btn {
+    background: #f41127;
+}
+
+.switcher-wrapper {
+    background: #f8f9fa;
+}

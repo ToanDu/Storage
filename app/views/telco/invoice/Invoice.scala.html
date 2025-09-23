@@ -1,0 +1,112 @@
+@import vn.m2m.utils.DateUtil
+@import vn.m2m.common.models.User
+@import vn.m2m.utils.UserHelper
+@(currentUser:User, userId:String)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("manage.group.bill")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+
+    <link href="@routes.Assets.versioned("stylesheets/views/modal-right.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("assets/plugins/input-tags/css/tagsinput.css")" rel="stylesheet" />
+    @*<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >*@
+    <link href='@routes.Assets.versioned("stylesheets/fonts/roboto.css")' type='text/css'>
+    <link href="@routes.Assets.versioned("stylesheets/fonts/fonts.googleapis/fontsgoogleapis.css")" rel="stylesheet">
+    <link href="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.min.css")" rel="stylesheet" >
+    <link href="@routes.Assets.versioned("stylesheets/component/Tabs.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("stylesheets/views/invoice/index.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("stylesheets/views/telco/telco.css")" rel="stylesheet" />
+
+  </head>
+  <body class="bg-theme">
+    @views.html.telco.Menu(currentUser, "", userId)
+    @views.html.telco.Header(currentUser)
+    <div class="page-wrapper">
+      <div class="page-content">
+        <div class="section features-1">
+          <div class="container-1 bg-white" >
+            <ul class="nav nav-tabs" role="tablist" id="invoiceTab">
+              <li class="nav-item" role="presentation" onclick="">
+                <a class="nav-link d-flex align-items-end gap-2 active display-4" id="service_invoice_tab" data-bs-toggle="tab" href="#tab1" role="tab"
+                  aria-selected="false">
+                  <img src="@routes.Assets.versioned("images/telco/information.svg")" class="icon-tab" alt="icon tab"/>
+                  @Messages("invoice.service.title")
+                </a>
+              </li>
+              <li class="nav-item" role="presentation" onclick="">
+                <a class="nav-link d-flex align-items-end gap-2 display-4" id="fee_invoice_tab" data-bs-toggle="tab" href="#tab2" role="tab"
+                  aria-selected="false">
+                  <img src="@routes.Assets.versioned("images/telco/childUser.svg")" class="icon-tab" alt="icon tab"/>
+                  @Messages("invoice.fee.title")
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content tab-recharge">
+              <div class="tab-pane fade show active" id="tab1" style="margin-bottom: 2rem;margin-top: 1rem" role="tabpanel">
+                @views.html.telco.invoice.service.searchForm()
+                @views.html.telco.invoice.service.invoiceTable()
+              </div>
+    
+              <div class="tab-pane fade" id="tab2" style="margin-bottom: 2rem;margin-top: 1rem" role="tabpanel">
+                @views.html.telco.invoice.fee.searchForm()
+                @views.html.telco.invoice.fee.invoiceTable()
+              </div>
+            </div>
+    
+          </div>
+        </div>
+    
+        <!-- form search -->
+    
+    
+    
+      </div>
+    
+      @views.html.telco.Loading()
+    
+    </div>
+    @views.html.telco.mainJs()
+    @views.html.telco.invoice.InvoiceProviewModal()
+    <script>
+      var userId = '@userId';
+      $(document).ready(function () {
+        $("#menu-InvoiceManage").addClass("mm-active");
+        $("#menu").metisMenu();
+      })
+
+      $('#service_invoice #dateFrom').bootstrapMaterialDatePicker({
+        format: 'DD/MM/YYYY',
+        time: false
+      });
+      $('#service_invoice #dateFrom').bootstrapMaterialDatePicker('setDate', moment().startOf('month'));
+      $('#service_invoice #dateTo').bootstrapMaterialDatePicker({
+        format: 'DD/MM/YYYY',
+        time: false
+      });
+      $('#service_invoice #dateTo').bootstrapMaterialDatePicker('setDate', moment());
+
+      $('#fee_invoice #dateFrom').bootstrapMaterialDatePicker({
+        format: 'DD/MM/YYYY',
+        time: false
+      });
+      $('#fee_invoice #dateFrom').bootstrapMaterialDatePicker('setDate', moment().startOf('month'));
+      $('#fee_invoice #dateTo').bootstrapMaterialDatePicker({
+        format: 'DD/MM/YYYY',
+        time: false
+      });
+      $('#fee_invoice #dateTo').bootstrapMaterialDatePicker('setDate', moment());
+    </script>
+    <script src="@routes.Assets.versioned("javascripts/exportfile/table3export.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/validateForm.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/invoice/index.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/invoice/validate.js")" type="text/javascript"></script>
+  </body>
+</html>

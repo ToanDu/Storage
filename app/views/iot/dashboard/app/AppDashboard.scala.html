@@ -1,0 +1,113 @@
+@import helper._
+@import vn.m2m.utils.DateUtil
+@import vn.m2m.common.models.User
+@import vn.m2m.utils.UserHelper
+@(projectId:String, idDashboard:String, token: String, deviceId: String, deviceToken: String)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("App Dashboard")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+
+    <link href="@routes.Assets.versioned("assets/plugins/highcharts/css/highcharts-white.css")" rel="stylesheet" />
+    <script type="text/javascript" src="@UserHelper.linkGoogleMapApi"> </script>
+
+    <link href="@routes.Assets.versioned("stylesheets/views/dashboard/ver2/dashboard.css")" rel="stylesheet"/>
+    <link href="@routes.Assets.versioned("javascripts/views/dashboard/widget/gridstack.min.css")" rel="stylesheet"/>
+    @*<link href="@routes.Assets.versioned("stylesheets/views/dashboard/widget/round-switch.css")" rel="stylesheet"/>*@
+    <link href="@routes.Assets.versioned("stylesheets/views/dashboard/widget/switchSocket.css")" rel="stylesheet"/>
+
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-body">
+        <div style="background-color: #eceff1;" id="bodyDashboard">
+        </div>
+      </div>
+    </div>
+
+    @views.html.Loading()
+  </body>
+
+  @views.html.iot.tags.Main_js()
+
+  <script>
+    var projectId = '@projectId';
+    var idDashboard = '@idDashboard';
+    var token = '@token';
+    var deviceId = '@deviceId';
+  </script>
+
+  <script>
+          var device_vtag = "@routes.Assets.versioned("images/dashboard/marker.png")";
+
+          var circleSignal_run = "@routes.Assets.versioned("images/signal/greenCircle.gif")";
+          var circleSignal_parking = "@routes.Assets.versioned("images/signal/blueCircle.gif")";
+          var circleSignal_lost_Gps = "@routes.Assets.versioned("images/signal/yellowCircle.gif")";
+          var circleSignal_lost_connect = "@routes.Assets.versioned("images/signal/grayCircle.gif")";
+          var circleSignal_alarm = "@routes.Assets.versioned("images/signal/redCircle.gif")";
+
+  </script>
+  <script src="@routes.Assets.versioned("assets/plugins/apexcharts-bundle/js/apexcharts.min.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/plugins/loader.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/chartist/chartist.min.js")"></script>
+
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/highcharts.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/highcharts-more.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/variable-pie.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/solid-gauge.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/highcharts-3d.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/cylinder.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/funnel3d.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/exporting.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/export-data.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/highcharts/js/accessibility.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/mustache/js/mustache.min.js")"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/widget/gridstack-h5.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/MapPositionMarkerCluster.js")" type="text/javascript"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/app/dashboard.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/app/dashboard_map.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/app/Dashboard_map_markerSignal.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/app/Dashboard_map_markerCluster.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/app/Dashboard_map_infoWindow.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/app/Dashboard_map_updateMarker.js")"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/app/dashboard_chart.js")"></script>
+  <script id="dashboard-widget-table-template" type="x-tmpl-mustache">
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Thiết bị</th>
+                <th scope="col">Thuộc tính</th>
+                <th scope="col">Dữ liệu</th>
+                <th scope="col">Thời gian</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            {{#.}}
+              <tr>
+                    <th scope="row">{{device}}</th>
+                    <td>{{var}}</td>
+                    <td>{{data}}</td>
+                    <td>{{time}}</td>
+              </tr>
+            {{/.}}
+        </tbody>
+    </table>
+  </script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/app/dashboard_table.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/app/dashboard_gauge.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/app/dashboard_round_switch.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/dashboard/app/dashboard_data.js")"></script>
+
+</html>

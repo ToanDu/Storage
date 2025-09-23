@@ -1,0 +1,33 @@
+<div class="col-md-12">
+  <div class="row">
+    <img src="@routes.Assets.versioned("images/market/banner.svg")" class="card-img cursor-pointer" alt="...">
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <div class="sort-bar">
+        <span>@Messages("Sắp xếp theo")</span>
+        <select class="form-select ml-3" id="priceSort" style="width: 200px;" onchange="getListProduct()">
+          <option value="ASC">@Messages("Giá: thấp nhất")</option>
+          <option value="DESC">@Messages("Giá: cao nhất")</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3" style="display: flex;">
+    <div class="col-md-3">
+      <h5 class="mb-0 text-uppercase">@Messages("BỘ LỌC TÌM KIẾM")</h5>
+      <div class="card" style="margin-top: 1rem;">
+        <div class="card-body" style="font-size: 0.85rem;">
+          <h6>@Messages("Theo nhóm sản phẩm")</h6>
+          <div id="listGroupProduct"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="row" id="girdProductList"></div>
+    </div>
+  </div>
+</div>

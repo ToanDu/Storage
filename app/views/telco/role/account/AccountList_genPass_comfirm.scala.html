@@ -1,0 +1,14 @@
+<div class="modal fade" id="comfirmGenPassModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: red; border-radius: 16px 16px 0px 0px;">
+        <span class="modal-title text-white" id="myModalLabel">@Messages("Bạn chắc chắn muốn generate pass mới?")</span>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-cancle" data-bs-dismiss="modal">@Messages("btnClose")</button>
+        <button type="button" class="btn btn-red" data-bs-dismiss="modal" onclick="generatePass()">@Messages("btnComfirm")</button>
+      </div>
+    </div>
+  </div>
+</div>

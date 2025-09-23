@@ -1,0 +1,189 @@
+@import vn.m2m.utils.DateUtil
+@import vn.m2m.common.models.User
+@(currentUser:User, userId:String)
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>@Messages("payPostpaidBill.title")</title>
+  <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
+
+  @views.html.iot.tags.Main_css()
+
+  <link href="@routes.Assets.versioned("stylesheets/views/modal-right.css")" rel="stylesheet" />
+  <link href="@routes.Assets.versioned("assets/plugins/input-tags/css/tagsinput.css")" rel="stylesheet" />
+  @*
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">*@
+  <link href='@routes.Assets.versioned("stylesheets/fonts/roboto.css")' type='text/css'>
+  <link href="@routes.Assets.versioned("stylesheets/fonts/fonts.googleapis/fontsgoogleapis.css")" rel="stylesheet">
+  <link href="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.min.css")" rel="stylesheet">
+
+  <link href="@routes.Assets.versioned("stylesheets/views/telco/utilites/utilites.css")" rel="stylesheet" />
+  <link href="@routes.Assets.versioned("stylesheets/views/telco/telco.css")" rel="stylesheet" />
+  <style>
+    .border-post-paid {
+     border-top: 1px solid #D9D9D9;
+      padding: 10px 0;
+    }
+    #pay_postpai_notice {
+      padding-bottom: 10rem;
+    }
+    .input-wrapper {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .input-wrapper input {
+        padding-right: 30px; /* chừa chỗ cho nút X */
+    }
+
+    .clear-btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: #999;
+      cursor: pointer;
+      display: none; /* mặc định ẩn */
+    }
+
+    .clear-btn:hover {
+        color: #333;
+    }
+
+  </style>
+</head>
+
+<body class="bg-theme">
+  @views.html.telco.Menu(currentUser, "", userId)
+
+  @views.html.telco.Header(currentUser)
+
+  <div class="page-wrapper">
+    <div class="page-content">
+      @views.html.telco.payPostpaidBill.PayPostpaidBill_formSearch(currentUser)
+      
+      <form id="pay_postpai_Form" class="card p-4 pt-3">
+        <p id="pay_postpai_notice" class="border-post-paid fst-italic">@Messages("payPostpaidBill.noData")</p>
+
+        <div id="pay_postpai_FormContent" class="d-none">
+          <p class="text-search mb-3 border-post-paid">
+          @Messages("payPostpaidBill.paymentInfo")
+          </p>
+          <div class="row">
+            <!-- Thông tin đóng cước -->
+            <div class="col-md-7 col-lg-9 d-flex justify-content-center"
+            
+              style="border-right: 1px solid #C5C5C5;">
+              <div class="col-md-10">
+                <div class="mb-4 row">
+                  <label class="col-lg-4 col-form-label">@Messages("payPostpaidBill.contractNumber")</label>
+                  <div class="col-lg-8">
+                    <input type="text" class="form-control input-form" id="contractNumber" readonly>
+                  </div>
+                </div>
+        
+                <div class="mb-4 row ">
+                  <label class="col-lg-4 col-form-label">@Messages("payPostpaidBill.totalDebt")</label>
+                  <div class="col-lg-8">
+                    <input type="text" class="form-control input-form" id="totalDebt" readonly>
+                  </div>
+                </div>
+        
+                <div class="mb-4 row ">
+                  <label class="col-lg-4 col-form-label">@Messages("payPostpaidBill.payment")</label>
+                  <div class="col-lg-8">
+                    <div class="input-wrapper">
+                      <input type="text" class="form-control input-form" id="paymentAmount" placeholder="@Messages("payPostpaidBill.paymentPlaceholder")" required>
+                      <span class="clear-btn">&times;</span>
+                    </div>
+                    <p class="title-section-2 text-darker fst-italic pt-3">
+                      @Messages("payPostpaidBill.paymentNotice")
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Thông tin thanh toán -->
+            <div class="col-md-5 col-lg-3 payment-box d-flex justify-content-center">
+              <div class="col-md-10">
+              <h5 class="mb-4">@Messages("payPostpaidBill.paymentInfoBox")</h5>
+              <div class="d-flex justify-content-between flex-wrap align-items-center gap-1 mb-5">
+                <strong> @Messages("payPostpaidBill.totalPayment")</strong> <strong id="total">@Messages("payPostpaidBill.js.zeroAmount")</strong>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="button" class="btn ms-0 btn-telco disabled" id="btn_confirm_payment" style="background: #EA0033; color: #FFFFFF;">@Messages("payPostpaidBill.payButton")</button>
+              </div>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      
+      </form>
+      <!-- Modal xác nhận đóng cước trước -->
+      <div class="modal fade" id="modalpay_confirm_payment" tabindex="-1" aria-labelledby="modalpay_confirm_paymentLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="box-shadow:none">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title mt-3 mb-3" id="modalpay_confirm_paymentLabel">@Messages("payPostpaidBill.confirmTitle")</h5>
+            </div>
+            <div class="modal-body text-center pt-0 pb-0" id="modalpay_confirm_paymentBody">
+              <p class="mb-0">@Messages("payPostpaidBill.confirmQuestion1")</p>
+              <p class="mb-0">@Messages("payPostpaidBill.confirmQuestion2") <strong id="confirm_payment_amount"></strong> @Messages("payPostpaidBill.confirmQuestion3") <strong id="confirm_payment_contract"></strong> ?</strong>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn mt-3 btn-telco" style="background: #EA0033; color: #FFFFFF;"
+                id="btnpay_confirm_payment">@Messages("payPostpaidBill.confirmButton")</button>
+              <button type="button" class="btn mt-3 btn-telco" style="background: #FFFFFF; color: #EA0033;"
+                data-bs-dismiss="modal">@Messages("payPostpaidBill.cancelButton")</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="modal fade" id="comfirmRechargeModal" data-bs-backdrop="static" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="box-shadow:none">
+          <div class="modal-content" id="theme16">
+            <div class="modal-header" style="text-align: center; display: block">
+              <img src="@routes.Assets.versioned("images/telco/successIcon.png")" alt="..."
+                style="width: 56px; height: 56px;" class="card-img mt-3"><br>
+              <h6 class="modal-title mt-3">@Messages("payPostpaidBill.successMessage")
+              </h6>
+  
+              <button type="button" class="btn btn-red mt-5" data-bs-dismiss="modal"
+                onclick="showBill()">@Messages("payPostpaidBill.confirmButtonSuccess")</button>
+            </div>
+          </div>
+        </div> <!-- modal-bialog .// -->
+      </div>
+    </div>
+    @views.html.telco.Loading()
+  </div>
+  <!--  END OF PAPER WRAP -->
+
+  @views.html.telco.mainJs()
+
+  <script>
+    var userId = '@userId';
+  </script>
+  <script src="@routes.Assets.versioned("javascripts/exportfile/table3export.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/js/moment.min.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.min.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/validateForm.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/PayPostpaidBill/PayPostpaidBill.js")" type="text/javascript"></script>
+
+</body>
+
+</html>

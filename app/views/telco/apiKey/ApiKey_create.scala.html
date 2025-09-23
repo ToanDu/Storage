@@ -1,0 +1,71 @@
+<div class="modal fade" id="createApiKeyModal" tabindex="-1" aria-labelledby="apiKeyModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="apiKeyModal">Tạo mới API Key</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+@*                        <label for="recipient-name" class="text-recharge-2 mt-3">Tên:</label>*@
+                        <span class="col-sm-4 col-form-label">@Messages("Tên")</span>
+                        <input type="text" class="form-control" id="nameKey">
+
+
+                    </div>
+@*                    <div class="mb-3">*@
+@*                        <label for="message-text" class="col-form-label">Miêu tả:</label>*@
+@*                        <textarea class="form-control" id="message-text"></textarea>*@
+@*                    </div>*@
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn mt-3 btn-telco" style="background: #FFFFFF; color: #EA0033;" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" class="btn mt-3 btn-telco" style="background: #EA0033; color: #FFFFFF;"  data-bs-target="#resultApiKey" data-bs-dismiss="modal" data-bs-toggle="modal" onclick="createApiKey()">Gửi</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="resultApiKey" tabindex="-1" aria-labelledby="apiKeyModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="apiKeyModal">Tạo mới API Key</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body custom-modal-body">
+                <a>Vì lý do bảo mật, chúng tôi chỉ hiển thị API Key một lần khi tạo và</a><a style="font-weight: bold;"> không hiển thị lại.</a><a> Vui lòng lưu api key vào nơi an toàn.</a>
+                <form>
+                    <label for="recipient-name" class="text-recharge-2 mt-3">Mã API Key:</label>
+                    <div class="mb-3 d-flex align-items-center">
+                        <input type="text" class="form-control input-form" id="nameKeyView" readonly>
+                        <button type="button" class="btn btn-telco" style="background: #FFFFFF; color: #EA0033; width: 50px;border-radius: 8px 8px 8px 8px;" onclick="copyFunction()" aria-label="Copy">
+                            <span class="btn-label-wrap"><span class="btn-node"><svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2V5Zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1v2ZM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1H5Z" clip-rule="evenodd"></path></svg></span></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn mt-3 btn-telco" style="background: #EA0033; color: #FFFFFF;" data-bs-dismiss="modal" onclick="getApiKey()">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="confirmDeleteModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xác nhận xóa</h5>
+            </div>
+            <div class="modal-body">
+                <p>API Key sẽ mất hiệu lực ngay khi bạn xóa, bạn có chắc chắn muốn xóa không?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Hủy</button>
+                <button type="button" class="btn btn-danger" onclick="deleteConfirmed()">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,362 @@
+@import vn.m2m.utils.DateUtil
+@import vn.m2m.common.models.User
+@import vn.m2m.utils.UserHelper
+@(currentUser:User, userId:String)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("dashboard.telco.title")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+
+    <link href="@routes.Assets.versioned("stylesheets/views/telco/telco.css")" rel="stylesheet" />
+
+    <link href="@routes.Assets.versioned("assets/plugins/select2/css/select2.min.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("assets/plugins/select2/css/select2-bootstrap4.css")" rel="stylesheet" />
+
+    <link href="@routes.Assets.versioned("stylesheets/views/telco/dashboard/dashboard.css")" rel="stylesheet" />
+    <link href="https://files-maps.viettel.vn/sdk/vtmap-gl-js/v1.13.1/vtmap-gl.css" rel="stylesheet" />
+  </head>
+  <body class="bg-theme">
+    @views.html.telco.Menu(currentUser, "", userId)
+
+    @views.html.telco.Header(currentUser)
+
+  <div class="page-wrapper">
+    <div class="page-content" style="background-color: #DEDEDE;">
+      <div id="dashboard__telco">
+          <!-- Features -->
+        <div class="telco__features mb-3" id="telcoFeatures">
+        </div>
+
+        <!-- Totals -->
+        <div class="telco__totals mb-3">
+          <div class="telco__totals-item">
+            <div class="telco__totals-item-header">
+              <h5 class="telco__totals-item-title">@Messages("dashboard.telco.totalSubscribers")</h5>
+              <p id="pieIncreaseSubs">@Messages("dashboard.telco.increasePercent")</p>
+            </div>
+            <strong class="telco__totals-item-number" id="totalSub">0</strong>
+          </div>
+          <div class="telco__totals-item">
+            <div class="telco__totals-item-header">
+              <h5 class="telco__totals-item-title">@Messages("dashboard.telco.newThisMonth")</h5>
+            </div>
+            <strong class="telco__totals-item-number" id="totalSubNow">0</strong>
+          </div>
+          <div class="telco__totals-item">
+            <div class="telco__totals-item-header">
+              <h5 class="telco__totals-item-title">@Messages("dashboard.telco.totalDataThisMonth") 
+                <span id="tooltip_date" data-toggle="tooltip" data-placement="top" title="@Messages("dashboard.telco.dataTooltip")" style="cursor: pointer;">
+                  <i class='bx bxs-time'></i>
+                </span>
+              </h5>
+            </div>
+            <strong class="telco__totals-item-number" id="totalUsedData">0</strong>
+          </div>
+          <div class="telco__totals-item">
+            <div class="telco__totals-item-header">
+              <h5 class="telco__totals-item-title">@Messages("dashboard.telco.totalCostMonth")</h5>
+            </div>
+            <strong class="telco__totals-item-number">--</strong>
+          </div>
+          <!-- <div class="telco__totals-item">
+            <div class="telco__totals-item-header">
+              <h5 class="telco__totals-item-title">Tổng</h5>
+            </div>
+            <strong class="telco__totals-item-number">--</strong>
+          </div> -->
+        </div>
+
+          <!-- Chart -->
+          <div class="row mb-2">
+            <div class="col-lg-4 mb-3 d-flex">
+              <div class="card_dashboard w-100 h-100 ">
+                <span class="telco__charts-item-title">@Messages("dashboard.telco.subscriberDistribution")</span>
+                <div id="chart-subscriber-distribution"></div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-3 d-flex">
+              <div class="card_dashboard w-100 h-100 ">
+                <div class="d-flex justify-content-between">
+                  <span class="telco__charts-item-title">@Messages("dashboard.telco.activeSubscribers")</span>
+                  <span id="totalSub_data">0</span>
+                </div>
+                <div id="subscriber-statistics-container">
+                  <div class="d-flex justify-content-center flex-column" id="chart-subscriber-statistics-prepaid"></div>
+                  <div class="d-flex justify-content-center flex-column" id="chart-subscriber-statistics-postpaid"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-3 d-flex">
+              <div class="card_dashboard w-100 h-100 ">
+                <div class="d-flex justify-content-between mb-3">
+                  <span class="telco__charts-item-title mb-0">@Messages("dashboard.telco.warnings")
+                    <svg class="warning-svg" width="35" height="30" viewBox="0 0 45 40" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M43.7602 11.6036C43.5959 11.196 43.2108 10.9347 42.754 10.8576L42.7573 10.8434L36.5994 10.4438L37.8428 4.96555L37.8308 4.9645C37.8533 4.75028 37.8181 4.54084 37.7283 4.3531C37.6384 4.16537 37.4963 4.00461 37.3135 3.88382C37.1296 3.76376 36.9103 3.6873 36.6733 3.66063C36.4362 3.63395 36.1882 3.65782 35.9492 3.73029L35.9443 3.71831L29.987 6.11987L27.9936 1.17495L27.9814 1.17985C27.8791 0.998086 27.7261 0.845608 27.5346 0.734745C27.3431 0.623881 27.1185 0.557742 26.879 0.541678C26.6389 0.526217 26.3907 0.561684 26.1547 0.645175C25.9188 0.728665 25.7017 0.857809 25.5214 1.02205L25.5099 1.01436L21.2808 5.64993L16.6879 2.63258L16.6794 2.64188C16.4798 2.5413 16.2498 2.48666 16.008 2.48239C15.7662 2.47813 15.5193 2.52435 15.2874 2.61733C14.7978 2.81471 14.4475 3.18878 14.301 3.60228L14.2851 3.60119L13.0487 9.04881L6.9792 8.65475L6.97664 8.66595C6.73322 8.67349 6.48793 8.73132 6.26059 8.83478C6.03325 8.93823 5.83025 9.08441 5.66799 9.26149C5.50632 9.43937 5.39025 9.64305 5.32916 9.85604C5.26808 10.069 5.26372 10.2853 5.31643 10.4874L5.30149 10.4934L7.2832 15.4093L1.41212 17.7761L1.41602 17.7858C1.19396 17.8994 0.999072 18.0542 0.847117 18.2377C0.695161 18.4211 0.5904 18.6281 0.5413 18.8419C0.493317 19.0559 0.50251 19.2704 0.568133 19.4682C0.633756 19.6659 0.753965 19.8412 0.919026 19.9799L0.9089 19.9915L5.49832 23.0065L1.3081 27.5996L1.31772 27.6059C1.17654 27.7952 1.08431 28.0055 1.04847 28.2199C1.01264 28.4342 1.03421 28.6465 1.11144 28.8396C1.27575 29.2472 1.66104 29.509 2.1177 29.5856L2.11441 29.5998L8.27231 29.9994L7.02889 35.4777L7.04071 35.4783C7.01824 35.6925 7.05336 35.902 7.14323 36.0897C7.2331 36.2774 7.3752 36.4382 7.55804 36.559C7.7419 36.679 7.96122 36.7555 8.19825 36.7822C8.43527 36.8088 8.68333 36.785 8.92232 36.7125L8.92733 36.7249L14.8842 34.3236L16.8774 39.2681L16.8896 39.2632C17.092 39.6185 17.4866 39.8684 17.9919 39.9013C18.2321 39.9164 18.4801 39.8807 18.716 39.7973C18.9519 39.7138 19.169 39.5849 19.3496 39.421L19.361 39.4287L23.5901 34.7931L28.183 37.8104L28.1915 37.8011C28.3911 37.9017 28.6211 37.9564 28.8629 37.9606C29.1047 37.9649 29.3516 37.9187 29.5836 37.8257C30.0732 37.6283 30.4234 37.2542 30.5701 36.8412L30.5853 36.8421L31.8217 31.3944L37.8917 31.7883L37.8943 31.7771C38.1377 31.7695 38.383 31.7117 38.6104 31.6082C38.8377 31.5048 39.0407 31.3586 39.2029 31.1815C39.3646 31.0036 39.4807 30.8 39.5418 30.587C39.6029 30.374 39.6072 30.1577 39.5545 29.9556L39.5695 29.9496L37.5879 25.0342L43.4596 22.6672L43.4557 22.6575C43.6777 22.5439 43.8726 22.3891 44.0246 22.2056C44.1765 22.0221 44.2813 21.8151 44.3304 21.6014C44.3784 21.3873 44.3693 21.1726 44.3036 20.9748C44.2379 20.777 44.1177 20.6016 43.9525 20.4629L43.9628 20.4518L39.3734 17.4368L43.5636 12.8436L43.554 12.8373C43.6951 12.648 43.7874 12.4377 43.8232 12.2234C43.859 12.0091 43.8375 11.7968 43.7602 11.6036Z"
+                        fill="#D5002E" />
+                      <rect x="20" y="11" width="4" height="13" fill="white" />
+                      <rect x="20" y="26" width="4" height="3" fill="white" />
+                    </svg>
+                  </span>
+                  <i class='bx bx-refresh refresh-icon' id="refreshIcon" onclick="getAlertDashboard()"></i>
+                </div>
+                <div class="telco__charts-grid">
+                  <div class="telco__charts-box telco__charts-box--pink">
+                    <p class="telco__charts-box-name">@Messages("dashboard.warning.redAlert")</p>
+                    <p class="telco__charts-box-value" id="RED_ALERT">0</p>
+                    <p class="telco__charts-box-sub">@Messages("dashboard.warning.subscribers")</p>
+                    <a href="#" class="telco__charts-box-link" onclick="getDetailRedAlert()">@Messages("dashboard.warning.details")</a>
+                  </div>
+                  <div class="telco__charts-box telco__charts-box--purple">
+                    <p class="telco__charts-box-name">@Messages("dashboard.warning.prepaidExpired")</p>
+                    <p class="telco__charts-box-value" id="PREPAID_EXPIRED">0</p>
+                    <p class="telco__charts-box-sub">@Messages("dashboard.warning.subscribers")</p>
+                    <a href="#" class="telco__charts-box-link" onclick="getDetailPrepaidExpired()">@Messages("dashboard.warning.details")</a>
+                  </div>
+                  <div class="telco__charts-box telco__charts-box--cream">
+                    <p class="telco__charts-box-name">@Messages("dashboard.warning.blockDebit")</p>
+                    <p class="telco__charts-box-value">--</p>
+                    <p class="telco__charts-box-sub">@Messages("dashboard.warning.subscribers")</p>
+                    <a href="#" class="telco__charts-box-link">@Messages("dashboard.warning.details")</a>
+                  </div>
+                  <div class="telco__charts-box telco__charts-box--mint">
+                    <p class="telco__charts-box-name">@Messages("dashboard.warning.packageExpired")</p>
+                    <p class="telco__charts-box-value" id="PACKAGE_EXPIRED">0</p>
+                    <p class="telco__charts-box-sub">@Messages("dashboard.warning.subscribers")</p>
+                    <a href="#" class="telco__charts-box-link" onclick="getDetailPackageExpire()">@Messages("dashboard.warning.details")</a>
+                  </div>
+                  <div class="telco__charts-box telco__charts-box--blue">
+                    <p class="telco__charts-box-name">@Messages("dashboard.warning.lowBalance")</p>
+                        <p class="telco__charts-box-value" id="lowMoneyCount">0</p>
+                        <p class="telco__charts-box-sub">@Messages("dashboard.warning.subscribers")</p>
+                        <a href="#" class="telco__charts-box-link" onclick="showListSubsLowMoney()">@Messages("dashboard.warning.details")</a>
+                  </div>
+                  <div class="telco__charts-box telco__charts-box--yellow">
+                    <p class="telco__charts-box-name">@Messages("dashboard.warning.lowRemainingData")</p>
+                    <p class="telco__charts-box-value" id="LOW_REMAINING_DATA">0</p>
+                    <p class="telco__charts-box-sub">@Messages("dashboard.warning.subscribers")</p>
+                    <a href="#" class="telco__charts-box-link" onclick="getDetailLowRemainingData()">@Messages("dashboard.warning.details")</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Datas -->
+          <div class="row mb-2">
+            <div class="col-lg-4 mb-3 d-flex">
+              <div class="card_dashboard w-100 h-100">
+                <span class="telco__charts-item-title">@Messages("dashboard.telco.cumulativeSubscribers")</span>
+                <div id="chart-cumulative"></div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-3 d-flex">
+              <div class="card_dashboard w-100 h-100">
+                <span class="telco__charts-item-title">@Messages("dashboard.telco.dataUsage")</span>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <p class="mb-0" style="color: #615E83; font-weight: 500; font-size: 14px;">@Messages("dashboard.telco.dataUsageGB")</p>
+                  <div class="toggle-buttons">
+                    <button class="tab-btn active" id="filterByDay">@Messages("dashboard.telco.filterByDay")</button>
+                    <button class="tab-btn" id="filterByMonth">@Messages("dashboard.telco.filterByMonth")</button>
+                  </div>
+                </div>
+                <div id="chart-data-usage"></div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-3 d-flex">
+              <div class="card_dashboard w-100 h-100">
+                <span class="telco__charts-item-title">@Messages("dashboard.telco.postpaidStatistics")</span>
+                <ul class="list-group mb-3" id="list-group-custom">
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>@Messages("dashboard.postpaid.startBalance")</span>
+                    <span id="staOfCycleBalance">0</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>@Messages("dashboard.postpaid.adjustAmount")</span>
+                    <span id="adjustAmountBalance">0</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>@Messages("dashboard.postpaid.payment")</span>
+                    <span id="paymentBalance">0</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>@Messages("dashboard.postpaid.excessCash")</span>
+                    <span id="excessCashBalance">0</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>@Messages("dashboard.postpaid.remainAmount")</span>
+                    <span id="remainAmountBalance">0</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>@Messages("dashboard.postpaid.hotCharge")</span>
+                    <span id="hotChargeBalance">0</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Map -->
+          <div class="row mb-2">
+            <div class="col-sm-12 col-md-12 col-lg-8 mb-3 ">
+              <div class="tel__map">
+                <span class="telco__charts-item-title">@Messages("dashboard.telco.subscriberDistributionMap")</span>
+                <div class="tel__map-box">
+                  <div id="viettel_map"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4 mb-3 ">
+              <div class="tel__map">
+                <span class="telco__charts-item-title">@Messages("dashboard.telco.topDataUsers")</span>
+                <div class="table-box">
+                  <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th class="p-3">@Messages("manage.stt")</th>
+                        <th class="p-3">@Messages("dashboard.table.subscriber.number")</th>
+                        <th class="p-3">@Messages("dashboard.table.usage.gb")</th>
+                      </tr>
+                    </thead>
+                    <tbody ib="top5DataUsersOfMonth">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      @views.html.telco.dashboard.DashboardTelco_company()
+      @views.html.telco.dashboard.DashboardTelco_statistical_listLowMoney(userId)
+      @views.html.telco.dashboard.DashboardTelco_statistical_listBlockDebit()
+      @views.html.telco.dashboard.DashboardTelco_statistical_listOutOfData(userId)
+      @views.html.telco.dashboard.DashboardTelco_modalPackageExpire(userId)
+      @views.html.telco.dashboard.DashboardTelco_modal_red_alert(userId)
+      @views.html.telco.dashboard.DashboardTelco_modal_prepaid_expired(userId)
+      @views.html.telco.dashboard.DashboardTelco_modal_low_remaining_data(userId)
+
+      @views.html.telco.Loading()
+    </div>
+  </div>
+    <!--  END OF PAPER WRAP -->
+
+    @views.html.telco.mainJs()
+
+  <script>
+              var imgDefault = '@routes.Assets.versioned("images/market/default.png")';
+              var userId = '@userId';
+              var username = '@currentUser.getUsername';
+              var view_dashboard_total_sub = '@UserHelper.isFeatureRole(currentUser, "view_dashboard_total_sub")';
+              var view_dashboard_status_sub = '@UserHelper.isFeatureRole(currentUser, "view_dashboard_status_sub")';
+              var view_dashboard_paytype_sub = '@UserHelper.isFeatureRole(currentUser, "view_dashboard_paytype_sub")';
+              var view_dashboard_warning = '@UserHelper.isFeatureRole(currentUser, "view_dashboard_warning")';
+              var view_dashboard_monthly_sub = '@UserHelper.isFeatureRole(currentUser, "view_dashboard_monthly_sub")';
+              var view_dashboard_debit = '@UserHelper.isFeatureRole(currentUser, "view_dashboard_debit")';
+
+              $(document).ready(function () {
+                $("#menu-dashboardManage").addClass("mm-active");
+                $("#menu").metisMenu();
+              })
+      </script>
+  <script src="@routes.Assets.versioned("assets/plugins/input-tags/js/tagsinput.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/exportfile/table3export.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/apexcharts-bundle/js/apexcharts.min.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/plugins/moment.min.js")" type="text/javascript"></script>    
+  <script src="@routes.Assets.versioned("assets/plugins/select2/js/select2.min.js")"></script>
+
+    @*<script src="@routes.Assets.versioned("javascripts/views/telco/subs/subscriber.js")" type="text/javascript"></script>*@
+  <script src="@routes.Assets.versioned("javascripts/views/telco/dashboard/dashboard.js")" type="text/javascript"></script>
+    @*<script src="@routes.Assets.versioned("javascripts/views/telco/dashboard/dashboard_company.js")" type="text/javascript"></script>*@
+
+  <script src="@routes.Assets.versioned("javascripts/views/telco/dashboard/dashboard_overview.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/dashboard/dashboard_columnChart.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/dashboard/dashboard_pieChart.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/dashboard/dashboard_pieChart_lowMoney.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/dashboard/dashboard_pieChart_blockDebit.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/dashboard/dashboard_pieChart_outOfData.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/dashboard/dashboard_modal_package_expire.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/dashboard/dashboard_modal_red_alert.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/dashboard/dashboard_modal_prepaid_expired.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/dashboard/dashboard_modal_low_remaining_data.js")" type="text/javascript"></script>
+  <script src="https://files-maps.viettel.vn/sdk/vtmap-gl-js/v1.13.1/vtmap-gl.js" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/dashboard/location_viettelmap.js")" type="text/javascript"></script>
+  <link href="@routes.Assets.versioned("stylesheets/views/telco/location/Location.css")" rel="stylesheet" />
+
+  <script>
+    // Mảng chứa dữ liệu menu
+    const menuItems = [
+      {
+        href: '@routes.TelcoUtilitiesController.utilitiesManage(userId)',
+        imgSrc: '@routes.Assets.versioned("images/dashboardnew/muagoidata.svg")',
+        alt: '@Messages("dashboard.features.buyDataPackage")',
+        name: '@Messages("dashboard.features.buyDataPackage")'
+      },
+      {
+        href: '@routes.TelcoUtilitiesController.utilitiesTopup(userId)',
+        imgSrc: '@routes.Assets.versioned("images/dashboardnew/naptienn.svg")',
+        alt: '@Messages("dashboard.features.topup")',
+        name: '@Messages("dashboard.features.topup")'
+      },
+      {
+        href: '@routes.TelcoUtilitiesController.utilitiesBlock(userId)',
+        imgSrc: '@routes.Assets.versioned("images/dashboardnew/chanmothuebao.svg")',
+        alt: '@Messages("dashboard.features.blockUnblock")',
+        name: '@Messages("dashboard.features.blockUnblock")'
+      },
+      {
+        href: '@routes.TelcoUtilitiesController.utilitiesManage(userId)',
+        imgSrc: '@routes.Assets.versioned("images/dashboardnew/doigoii.svg")',
+        alt: '@Messages("dashboard.features.changePackage")',
+        name: '@Messages("dashboard.features.changePackage")'
+      },
+      {
+        href: '@routes.TelcoUtilitiesController.utilitiesManage(userId)',
+        imgSrc: '@routes.Assets.versioned("images/dashboardnew/huygiahangoi.svg")',
+        alt: '@Messages("dashboard.features.cancelAutoRenewal")',
+        name: '@Messages("dashboard.features.cancelAutoRenewal")'
+      },
+      {
+        href: '@routes.TelcoOrderController.buySim(userId)',
+        imgSrc: '@routes.Assets.versioned("images/dashboardnew/datdoisim.svg")',
+        alt: '@Messages("dashboard.features.orderSim")',
+        name: '@Messages("dashboard.features.orderSim")'
+      },
+      {
+        href: '@routes.TelcoLocationController.telcoLocation(userId)',
+        imgSrc: '@routes.Assets.versioned("images/dashboardnew/bandogiamsat.svg")',
+        alt: '@Messages("dashboard.features.monitoringMap")',
+        name: '@Messages("dashboard.features.monitoringMap")'
+      },
+      @*{*@
+      @*  href: '@routes.TelcoUtilitiesController.prepayCharges(userId)',*@
+      @*  imgSrc: '@routes.Assets.versioned("images/dashboardnew/dongcuoctruoc.svg")',*@
+      @*  alt: 'Đóng cước trước',*@
+      @*  name: 'Đóng cước trước'*@
+      @*}*@
+    ];
+
+    // Lặp qua mảng và tạo các phần tử HTML
+    const telcoFeaturesContainer = document.getElementById('telcoFeatures');
+
+    menuItems.forEach(item => {
+      const linkElement = `
+              <a href="${item.href}" class="telco__features-item">
+                  <img class="telco__features-item-img" src="${item.imgSrc}"  alt="${item.alt}">
+                  <span class="telco__features-item-name">${item.name}</span>
+              </a>
+          `;
+      telcoFeaturesContainer.innerHTML += linkElement;
+    });
+  </script>
+  </body>
+</html>

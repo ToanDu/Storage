@@ -1,0 +1,48 @@
+<div class="col-lg-9 col-md-8" id="tabChooseSubsForPackdata">
+
+  <div class="row">
+    <div class="col-md-12 m-t-4">
+      <span class="display-4 title-section-1">@Messages("buySim.chooseSubscriberForPlan")</span>
+    </div>
+    <div class="col-md-12 mt-3">
+      <div class="row m-b-3">
+        <div class="col-sm-5">
+          <input class="form-check-input" name="inlineRadio_1" type="radio" id="" onclick="getConnectSubscriberChoose(1)"><label class="form-check-label" for="">@Messages("buySim.chooseSubscriber")</label>
+        </div>
+        <div class="col-sm-7">
+          <input class="form-check-input" name="inlineRadio_1" type="radio" id="" onclick="getConnectSubscriberRamdom(1)" checked><label class="form-check-label" for="">@Messages("buySim.randomSubscriber")</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 mt-3">
+      <div class="card-body">
+        <div id="tabChooseSubsRamdom_1" style="display: none">
+          <div class="row">
+            <label class="col-sm-3 col-form-label title-section-2" style="text-align: left">@Messages("buySim.subscribersNeeded")</label>
+            <div class="col-sm-4">
+              <input class="form-control countSubscriberBuy" id="countSubscriberBuy_1" type="number" readonly>
+            </div>
+          </div>
+        </div>
+
+        <div id="tabChooseSubsSearch_1" style="display: none">
+          <div class="row">
+            <label class="col-sm-3 col-form-label title-section-2" style="text-align: left">@Messages("buySim.searchSubscriber")</label>
+            <div class="col-sm-4">
+              <input class="form-control" id="textSearchChooseSubs_1" type="number" onchange="" placeholder="@Messages("buySim.searchPlaceholder")" onKeyPress="if(this.value.length==15) return false;">
+            </div>
+            <div class="col-sm-3">
+              <button type="button" class="btn btn-search float-start" onclick="searchSubscriberByStock(1)" style="background: #FFFFFF; color: #EA0033; border: 1px solid #EA0033;">@Messages("buySim.search")</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="table-responsive mt-3" id="tableBuySubscriber_1"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

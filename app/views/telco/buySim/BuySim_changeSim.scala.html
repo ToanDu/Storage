@@ -1,0 +1,94 @@
+<div class=" features-1" style="padding-bottom: 0px;">
+    <div class="col-md-12">
+      <div class="main-content ">
+        <div class="row justify-content-center">
+          <div class="col-md-11 text-center">
+            <div class="step-container py-4 my-2" data-group-id="changeSim">
+              <div class="step active">
+                <div class="circle">1</div>
+                <span class="fw-bold step-title">@Messages("step.customerInfo")</span>
+              </div>
+              <div class="arrow"><i class='bx bx-chevron-right'></i></div>
+              <div class="step ">
+                <div class="circle">2</div>
+                <span class="fw-bold step-title">@Messages("step.subscriberInfo")</span>
+              </div>
+              <div class="arrow"><i class='bx bx-chevron-right'></i></div>
+              <div class="step ">
+                <div class="circle">3</div>
+                <span class="fw-bold step-title">@Messages("step.confirmChangeSim")</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="section features-1">
+    <div class="col-lg-12 text-center">
+      <div class="main-content">
+  
+        <div class="row step-content justify-content-center" id="cardSection">
+            @views.html.telco.buySim.BuySim_infoCustomerChangeSim()
+
+            <div class="col-lg-9 col-md-8 mt-5">
+                <button type="button" 
+                        class="btn btn-telco" 
+                        onclick="nextProcess(this, 'changeSim')" 
+                        value="1"
+                        style="background: #EA0033; color: #FFFFFF;">
+                    @Messages("nav.continue")
+                </button>
+            </div>
+        </div>
+      
+        <div class="row step-content justify-content-center" style="display: none;">
+            @views.html.telco.buySim.BuySim_SubsInfor()
+            
+            <div class="col-lg-9 col-md-8 mt-3">
+                <button type="button" 
+                        class="btn btn-telco" 
+                        onclick="backProcess(this, 'changeSim')" 
+                        style="background: #FFFFFF; color: #EA0033; border: 1px solid #EA0033;">
+                    @Messages("nav.back")
+                </button>
+
+                <button type="button" 
+                        class="btn btn-telco" 
+                        value="2" 
+                        style="background: #EA0033; color: #FFFFFF;" 
+                        disabled 
+                        id="checkChangeInformation" 
+                        onclick="nextProcess(this, 'changeSim')">
+                    @Messages("nav.continue")
+                </button>
+            </div>
+        </div>
+      
+        <div class="row step-content justify-content-center" style="display: none;">
+            @views.html.telco.buySim.BuySim_confirmChangeSim()
+
+            <div class="col-lg-9 col-md-8 mt-3">
+                <button type="button" 
+                        class="btn btn-telco" 
+                        onclick="backProcess(this, 'changeSim')" 
+                        style="background: #FFFFFF; color: #EA0033; border: 1px solid #EA0033;">
+                    @Messages("nav.back")
+                </button>
+
+                <button type="button" 
+                        class="btn btn-telco" 
+                        value="3" 
+                        id="buttonCommfirmChangeSim" 
+                        onclick="nextProcess(this, 'changeSim')" 
+                        style="background: #EA0033; color: #FFFFFF;">
+                    @Messages("nav.confirm")
+                </button>
+            </div>
+        </div>
+    
+    </div>
+    
+    </div>
+  </div>

@@ -1,0 +1,118 @@
+<div class="modal fade" id="infoCompanyModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="background-color: red;">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("Duyệt thông tin doanh nghiệp")</h5>
+      </div>
+
+      <div class="modal-body">
+        <input id="idUser" type="text" class="form-control input-form" readonly hidden>
+        <label class="col-sm-12 col-form-label title-section-2" style="font-weight: 600;">@Messages("1. Thông tin cá nhân")</label>
+        <div class="col-md-12 m-t-3">
+          <div class="row" style="">
+            <div class="col-md-4">
+              <div class="row mb-3">
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("Email")</label>
+                <div class="col-sm-9">
+                  <input id="emailUser" type="text" class="form-control input-form" maxlength="255" readonly>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("Họ tên")</label>
+                <div class="col-sm-9">
+                  <input id="fullNameUser" type="text" class="form-control input-form" maxlength="255" readonly>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("Số CMT")</label>
+                <div class="col-sm-9">
+                  <input id="cmtUser" type="text" class="form-control input-form" maxlength="255" readonly>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("SĐT")</label>
+                <div class="col-sm-9">
+                  <input id="phoneUser" type="text" class="form-control input-form" maxlength="255" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="row mb-3">
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("Mặt trước CMT/CCCD")</label>
+                <div class="col-sm-9 position-relative">
+                  <div class="row">
+                    <div class="col-md-12 position-relative">
+                      <div class="d-flex flex-column align-items-center text-center square-item" >
+                        <img src="@routes.Assets.versioned("images/market/default.png")" id="imgCmtFront" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 60%;object-fit: contain;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("Giấy ủy quyền")</label>
+                <div class="col-sm-9 position-relative">
+                  <div class="row">
+                    <div class="col-md-12 position-relative">
+                      <div class="d-flex flex-column align-items-center text-center square-item" >
+                        <img src="@routes.Assets.versioned("images/market/default.png")" id="imgAuthorization" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 60%;object-fit: contain;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="row mb-3">
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("Mặt sau CMT/CCCD")</label>
+                <div class="col-sm-9 position-relative">
+                  <div class="row">
+                    <div class="col-md-12 position-relative">
+                      <div class="d-flex flex-column align-items-center text-center square-item" >
+                        <img src="@routes.Assets.versioned("images/market/default.png")" id="imgCmtBack" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 60%;object-fit: contain;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label class="col-sm-3 col-form-label title-section-2">@Messages("Phiếu đăng ký tài khoản")</label>
+                <div class="col-sm-9 position-relative">
+                  <div class="row">
+                    <div class="col-md-12 position-relative">
+                      <div class="d-flex flex-column align-items-center text-center square-item" >
+                        <img src="@routes.Assets.versioned("images/market/default.png")" id="imgRegistration" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 60%;object-fit: contain;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label title-section-2">@Messages("Lý do từ chối")</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" id="descriptionAccount" rows="2" maxlength="500"></textarea>
+              </div>
+              <label class="col-sm-12 col-form-label title-section-2" id="notiApprovedAccount"></label>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" id="buttonApproved" onclick="processComfirmInfoAccount('APPROVED')">@Messages("btnComfirm")</button>
+              <button type="button" class="btn btn-danger" id="buttonRejected" onclick="processComfirmInfoAccount('REJECTED')">@Messages("Từ chối")</button>
+              <button type="button" class="btn btn-secondary" onclick="closeModal()" data-bs-dismiss="modal">@Messages("Đóng")</button>
+            </div>
+          </div>
+
+          <label class="col-sm-12 col-form-label title-section-2 m-t-3" style="font-weight: 600;">@Messages("2. Thông tin doanh nghiệp")</label>
+          <div id="tab_info_company">
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

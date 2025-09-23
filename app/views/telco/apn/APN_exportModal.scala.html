@@ -1,0 +1,72 @@
+<div class="modal fade" id="exportAPNModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">@Messages("apn.export.title")</h5>
+      </div> 
+      <div class="modal-body" style="padding-left: 3rem; padding-right: 3rem;">
+        <div class="row g-3 justify-content-center">
+          <div class="col-md-12">
+            <div class="row mt-3">
+              <label class="col-sm-4 col-form-label title-section-2 text-end">@Messages("apn.export.recordsPerFile")</label>
+              <div id="apn-page-size-field" class="col-sm-8">
+                <input id="apn-page-size" type="text" onkeyup="validatePageSize()" class="form-control form-info" value="1000" onkeypress="return isNumberKey(event)" autocomplete="off" required>
+                <div class="helper-text form-text mt-2">
+                  @Messages("apn.export.maxRecordsNote")
+                </div>
+                <div class="error-text text-danger form-text mt-2">
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3 justify-content-center">
+              <button type="button" class="btn_cmp is-primary fs-6 fw-normal" style="width: 10rem;"
+                onclick="getSubscriberFiles(1)">@Messages("apn.export.createDataFile")</button>
+            </div>
+          </div>
+        </div>
+        <div class="mx-2">
+          <hr />
+        </div>
+        <div class="row g-3 mt-3">
+          <div class="text-end mb-2" id="addBtnDownloadAll">
+            <span class="text-darker" id="btnDownloadAll" style="cursor: pointer; text-decoration: underline;">@Messages("apn.export.downloadAll")</span>
+          </div>
+          <div class="row mx-1 mb-1" id="apn-export-table-container">
+            <table id="file_export" class="table table-striped table-bordered" cellspacing="0" width="100%">
+              <thead style="background-color: #FBCCD6;">
+                <tr>
+                  <th class="text-center">@Messages("apn.export.serialNumber")</th>
+                  <th>@Messages("apn.export.file")</th>
+                  <th>@Messages("apn.export.action")</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="3" class="text-center">@Messages("apn.export.noData")</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="material-datatables row row-cols-auto g-3 mx-1" id="divPagingTable">
+            <div class="row">
+              <div class="col-md-4">
+              </div>
+              <div class="col-md-8">
+                <div class="dataTables_paginate paging_full_numbers" id="pagingAPNTable"
+                  style="cursor: pointer; right: 3rem; position: absolute;"></div>
+              </div>
+            </div>
+
+            <input name="page" id="apn-page" value="1" style="display: none">
+            <input name="isResetPage" id="isResetPage" value="false" style="display: none">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn_cmp is-outline mt-3 fs-6 fw-normal"
+          data-bs-dismiss="modal">@Messages("common.close")</button>
+
+      </div>
+    </div>
+  </div>
+</div>

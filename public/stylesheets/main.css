@@ -1,0 +1,51 @@
+.modal-body .form-group label {
+  color: #888888;
+  font-size: 12px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.modal-body .form-group label.error {
+  text-transform: none;
+  color: #fb404b;
+}
+
+/* Button */
+.btn_cmp {
+  min-width: 120px;
+  height: 40;
+  gap: 10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: 1px solid #ea0033;
+}
+
+.btn_cmp:hover {
+  box-shadow: 0 0 0 0.1rem rgba(13, 110, 253, 0.25);
+  transform: translateY(-0.0304531px);
+}
+.btn_cmp:focus {
+  outline: 0;
+}
+.btn_cmp.is-primary {
+  background-color: #ea0033;
+  color: #ffffff;
+}
+.btn_cmp.is-outline {
+  background-color: #ffffff;
+  color: #ea0033;
+}
+
+.btn_cmp:disabled, .btn_cmp[disabled], .btn_cmp.disabled {
+  background-color: transparent;
+  border-color: #888888;
+  color: #888888;
+	pointer-events: none;
+}
+
+
+.cursor-pointer {
+    cursor: pointer;
+}

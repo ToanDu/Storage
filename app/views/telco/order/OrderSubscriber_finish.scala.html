@@ -1,0 +1,22 @@
+@import vn.m2m.common.models.User
+@(currentUser:User, userId:String)
+<div class="modal fade" id="notificationModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16" style="align-items: center;">
+      <div class="modal-header">
+        <img src="@routes.Assets.versioned("images/telco/successIcon.png")" alt="..." style="width: 56px; height: 56px;" class="card-img mt-3">
+      </div>
+      <div class="modal-body text-darker" style="text-align: center;">
+        <h4 class="modal-title">@Messages("Bạn đã thanh toán thành công?")</h4>
+        <small style="margin-top: 15px;">@Messages("Xác nhận đã thanh toán thành công, bạn vui lòng quay lại trang quản lý thuê bao để kiểm tra danh sách thuê bao đã được đấu nối!")</small>
+        <div class="" id="iframePaymentConnectSim">
+          @*<iframe src="https://viettel.vn/partner-checkout" height="300px" width="100%"></iframe>*@
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a type="button" class="btn btn-telco" href="@routes.TelcoSubscriberController.subscriberManage(userId)" style="background: #EA0033; color: #FFFFFF;">@Messages("btnComfirm")</a>
+        <a type="button" class="btn btn-telco" data-bs-dismiss="modal" style="background: #FFFFFF; color: #EA0033; border: 1px solid #EA0033;">@Messages("btnCancel")</a>
+      </div>
+    </div>
+  </div>
+</div>
