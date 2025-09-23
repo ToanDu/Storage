@@ -226,7 +226,7 @@ function getListProductOfferPack2(a, b, c) {
                                        </div>
                                       <div class="description">
                                             <i class="fa fa-check" aria-hidden="true"></i>  
-                                          <p class="descriptions opacity-8">${listProductOfferPack2[i].monthlyFee} ${Messages("monthly subscriber")}</p>
+                                          <p class="descriptions opacity-8">${listProductOfferPack2[i].monthlyFee} cước thuê bao tháng</p>
                                       </div>
                                       <div class="description">
                                             <i class="fa fa-check" aria-hidden="true"></i>  
@@ -289,7 +289,7 @@ function getListProductOfferPack2(a, b, c) {
                                        </div>
                                       <div class="description">
                                             <i class="fa fa-check" aria-hidden="true"></i>  
-                                          <p class="descriptions opacity-8">${listProductOfferPack2[i].monthlyFee}+ ${Messages("monthly subscriber")}</p>
+                                          <p class="descriptions opacity-8">${listProductOfferPack2[i].monthlyFee} cước thuê bao tháng</p>
                                       </div>
                                       <div class="description">
                                             <i class="fa fa-check" aria-hidden="true"></i>  
