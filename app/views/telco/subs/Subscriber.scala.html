@@ -1,0 +1,197 @@
+@import vn.m2m.utils.DateUtil
+@import vn.m2m.common.models.User
+@import vn.m2m.utils.UserHelper
+@(currentUser:User, userId:String)
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("subscriber.title")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+
+    <link href="@routes.Assets.versioned("stylesheets/views/modal-right.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("assets/plugins/input-tags/css/tagsinput.css")" rel="stylesheet" />
+    @*<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >*@
+      <link href='@routes.Assets.versioned("stylesheets/fonts/roboto.css")' type='text/css'>
+      <link href="@routes.Assets.versioned("stylesheets/fonts/fonts.googleapis/fontsgoogleapis.css")" rel="stylesheet">
+    <link href="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.min.css")" rel="stylesheet" >
+    @*<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">*@
+    <link href="@routes.Assets.versioned("stylesheets/views/telco/telco.css")" rel="stylesheet" />
+  </head>
+  <body class="bg-theme">
+    @views.html.telco.Menu(currentUser, "", userId)
+
+    @views.html.telco.Header(currentUser)
+    <div style="background-color: #ff4d4f;color: white;font-weight: bold;padding: 8px 16px;text-align: center;z-index: 999;">
+
+    </div>
+    <div class="page-wrapper">
+      <div class="page-content">
+        @views.html.telco.subs.Subscriber_formSearch(currentUser)
+
+        <div class="card">
+          <div class="table-responsive mb-3" style="border-radius: 8px;">
+            <table class="table table-striped" id="listSubsTable" style="width: 100%;">
+              <thead style="background-color: #FBCCD6;">
+                <tr>
+                  <th>@Messages("subscriber.stt")</th>
+                  <th>@Messages("subscriber.phoneNumber")</th>
+                  <th>@Messages("subscriber.subscriberCode")</th>
+                  <th>@Messages("subscriber.servicePackage")</th>
+                  <th>@Messages("subscriber.promotionCode")</th>
+                  <th>@Messages("subscriber.contractCode")</th>
+                  <th>@Messages("subscriber.customerCode")</th>
+                  <th>@Messages("subscriber.simSerial")</th>
+                  <th>@Messages("subscriber.blockStatus")</th>
+                  <th>@Messages("subscriber.activation")</th>
+                  <th>@Messages("subscriber.connection")</th>
+                  <th>@Messages("subscriber.serviceType")</th>
+                  @if(UserHelper.isFeatureRole(currentUser, "view_data_sub")){
+                    <th style="text-align: center">@Messages("subscriber.check")</th>
+                  }
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <h5 id="notiNotDataSubs" style="text-align: center;"></h5>
+          </div>
+          <div class="material-datatables row row-cols-auto g-3" style="margin-bottom: 5px; margin-bottom: 10px; display: none;" id="divPagingTable">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="dropdown">
+                  <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="countPageSize" style="background-color: rgb(0 0 0 / 50%); margin-left: 5px;">10</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="javascript:ApplyFilter(1,10,true)">10</a></li>
+                    <li><a class="dropdown-item" href="javascript:ApplyFilter(1,50,true)">50</a></li>
+                    <li><a class="dropdown-item" href="javascript:ApplyFilter(1,100,true)">100</a></li>
+                    <li><a class="dropdown-item" href="javascript:ApplyFilter(1,200,true)">200</a></li>
+                    <li><a class="dropdown-item" href="javascript:ApplyFilter(1,500,true)">500</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="dataTables_paginate paging_full_numbers" id="pagingTable" style="cursor: pointer; right: 5px; position: absolute;"></div>
+              </div>
+            </div>
+
+            <input name="page" id="page" value="1" style="display: none">
+            <input name="pageSize" id="pageSize" value="10" style="display: none">
+            <input name="isResetPage" id="isResetPage" value="false" style="display: none">
+          </div>
+      </div>
+
+      @*<div class="switcher-wrapper">*@
+        @*<div class="switcher-btn" title="@Messages("subscriber.advancedSearch")" data-bs-toggle='modal' data-bs-target='#searchModal'><i class='bx bx-cog bx-spin'></i>*@
+        @*</div>*@
+      @*</div>*@
+
+      @views.html.telco.subs.Subscriber_search()
+      @views.html.telco.subs.Subscriber_info()
+      @views.html.telco.subs.Subscriber_formSearch_importTB()
+      @views.html.telco.subs.Subscriber_formSearch_importSerial()
+      @views.html.telco.subs.Subscriber_formSearch_importAccount()
+      @views.html.telco.subs.Subscriber_export()
+      @views.html.telco.role.account.InfoDataAccount()
+      @views.html.telco.Loading()
+        <div id="zaloButton" class="zalo-chat-widget" data-oaid="1814378069399742003" data-welcome-message="@Messages("zalo.welcome.message")" data-autopopup="1" data-width="350" data-height="420">
+        <script src="https://sp.zalo.me/plugins/sdk.js"></script>
+
+            <!-- JavaScript để di chuyển nút -->
+        <script>
+                // Lấy phần tử Zalo Button
+                var zaloButton = document.getElementById("zaloButton");
+
+                // Hàm xử lý sự kiện di chuyển
+                function dragElement(elmnt) {
+                    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+                    elmnt.onmousedown = dragMouseDown;
+
+                    function dragMouseDown(e) {
+                        e = e || window.event;
+                        e.preventDefault();
+                        // Lấy vị trí ban đầu của con trỏ
+                        pos3 = e.clientX;
+                        pos4 = e.clientY;
+                        document.onmouseup = closeDragElement;
+                        document.onmousemove = elementDrag;
+                    }
+
+                    function elementDrag(e) {
+                        e = e || window.event;
+                        e.preventDefault();
+                        // Tính toán vị trí mới của con trỏ
+                        pos1 = pos3 - e.clientX;
+                        pos2 = pos4 - e.clientY;
+                        pos3 = e.clientX;
+                        pos4 = e.clientY;
+                        // Đặt lại vị trí của phần tử
+                        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+                    }
+
+                    function closeDragElement() {
+                        // Dừng di chuyển khi nhả chuột
+                        document.onmouseup = null;
+                        document.onmousemove = null;
+                    }
+                }
+
+                // Kích hoạt hàm drag cho nút Zalo OA
+                dragElement(zaloButton);
+        </script>
+    </div>
+      <!--  END OF PAPER WRAP -->
+
+    @views.html.telco.mainJs()
+
+    <script>
+            var imgDefault = '@routes.Assets.versioned("images/market/default.png")';
+            var userId = '@userId';
+            var view_sub = '@UserHelper.isFeatureRole(currentUser, "view_sub")';
+            var view_detail_sub = '@UserHelper.isFeatureRole(currentUser, "view_detail_sub")';
+            var view_data_sub = '@UserHelper.isFeatureRole(currentUser, "view_data_sub")';
+
+            $(document).ready(function () {
+              $("#menu-subscriberManage").addClass("mm-active");
+              $("#menu").metisMenu();
+
+              $('.datetimepicker').bootstrapMaterialDatePicker({
+                format: 'DD/MM/YYYY',
+                time: false
+              });
+
+              document.getElementById('filesSearchSubs').addEventListener('change', uploadSearchSubs, false);
+              document.getElementById('filesSearchSerial').addEventListener('change', uploadSearchSerial, false);
+              document.getElementById('filesSearchAccount').addEventListener('change', uploadSearchAccount, false);
+
+            })
+    </script>
+    <script src="@routes.Assets.versioned("assets/plugins/input-tags/js/tagsinput.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/exportfile/table3export.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/validateForm.js")" type="text/javascript"></script>
+    @*<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>*@
+
+    <script src="@routes.Assets.versioned("javascripts/views/telco/subs/subscriber_listGpkd.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/subs/subscriber.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/subs/subscriber_listProductOffering.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/subs/subscriber_info.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/subs/subscriber_export.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/subs/subscriber_export_subs.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/subs/subscriber_export_serial.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/subs/subscriber_importSearch.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/subs/subscriber_importSearchSerial.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/subs/subscriber_importSearchAccount.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/subs/subscriber_search_byVht.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/role/accountList/infoDataAccount.js")" type="text/javascript"></script>
+
+    @*if(currentUser.getCmpRole != User.CmpRole.SUPER_ENTERPRISE.getCode() && currentUser.getCmpRole != User.CmpRole.SUPER_ADMIN.getCode() && currentUser.getCmpRole != User.CmpRole.ADMIN.getCode()){
+      @views.html.telco.survey.Survey()
+    }*@
+
+  </body>
+</html>

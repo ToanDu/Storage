@@ -1,0 +1,39 @@
+.back-to-top {
+
+    display: none;
+
+    width: 60px;
+
+    height: 60px;
+
+    line-height: 40px;
+
+    text-align: center;
+
+    font-size: 26px;
+
+    color: #fff;
+
+    position: fixed;
+
+    border-radius: 60px;
+
+    bottom: 20px;
+
+    right: 24px;
+
+    background-color: #ee0033;
+
+    z-index: 5
+
+}
+
+.back-to-top:hover {
+
+    color: #fff;
+
+    background-color: #e00b36;
+
+    transition: all .5s
+
+}

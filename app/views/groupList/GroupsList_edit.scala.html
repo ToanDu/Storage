@@ -1,0 +1,24 @@
+<div class="modal fade" id="editConfirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="theme16">
+            <div class="modal-header">
+                <h5 class="modal-title text-darker" id="exampleModalLabel">@Messages("group.edit")</h5><hr>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3">
+                    <div class="col-md-12" hidden>
+                        <input id="idGroupEdit" name="id" type="text" class="form-control" maxlength="50" autocomplete="off" required>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label text-darker">@Messages("manage.group.name")@Messages(" *")</label>
+                        <input id="nameGroupEdit" name="name" type="text" class="form-control" maxlength="50" autocomplete="off" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="postEditNameGroup()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+        </div>
+    </div>
+</div>

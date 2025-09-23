@@ -1,0 +1,78 @@
+@import helper._
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("Template Device")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+
+  </head>
+  <body class="bg-theme">
+    @views.html.admin.navbar()
+
+    @views.html.admin.header(currentUser)
+
+    <div class="page-wrapper">
+      <div class="page-content">
+
+        <div class="card ">
+          <div class="card-header card-header-primary card-header-icon">
+            <div class="toolbar" style="float: right">
+              <button class="btn btn-success px-5 radius-30" onclick="" data-bs-toggle="modal" data-bs-target="#addConfirmModal" >
+                <i class="bx bx-plus" aria-hidden="true"></i> @Messages("Tạo mới")
+              </button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="table-responsive" id="listTemplateDeviceDiv">
+
+              <table id="dataTables" class="table table-bordered">
+                <thead class="cf">
+                  <th>@Messages("STT")</th>
+                  <th>@Messages("Business Type")</th>
+                  <th>@Messages("Device Type")</th>
+                  <th>@Messages("Device Name")</th>
+                  <th>@Messages("Url Image")</th>
+                  <th>@Messages("Attributes")</th>
+                  <th>@Messages("Action")</th>
+                </thead>
+                <tbody align="left">
+
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      @views.html.admin.templateDevice.TemplateDeviceList_add()
+      @views.html.admin.templateDevice.TemplateDeviceList_edit()
+      @views.html.admin.templateDevice.TemplateDeviceList_del()
+
+    </div>
+      <!--  END OF PAPER WRAP -->
+    @views.html.Loading()
+
+  </body>
+
+  @views.html.admin.mainJs()
+
+  <script>
+          $(document).ready(function () {
+            $("#menu-templateDevice").addClass("mm-active");
+            $("#menu").metisMenu();
+          })
+  </script>
+  <script src="@routes.Assets.versioned("javascripts/views/admin/templateDevice.js")" type="text/javascript"></script>
+
+</html>

@@ -1,0 +1,82 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<div class="card">
+  <div class="card-body">
+    <span class="text-search">@Messages("history.search.info")</span>
+    <input id="gpkd" type="text" class="form-control" readonly hidden>
+
+    <div class="row mt-3">
+      @*<div class="col-md-6 m-t-3">*@
+        @*<div class="row m-b-4">*@
+          @*<div class="col-sm-1"></div>*@
+          @*<label class="col-sm-3 col-form-label title-section-2">@Messages("Trạng thái")</label>*@
+          @*<div class="col-sm-8">*@
+            @*<input id="orderStatus" type="text" class="form-control input-form" placeholder="Nhập nội dung" maxlength="100">*@
+          @*</div>*@
+        @*</div>*@
+      @*</div>*@
+      <div class="row">
+        <!-- Cột trái -->
+        <div class="col-md-6">
+          <!-- Mã đơn hàng -->
+          <div class="mb-3 row">
+            <label for="orderId" class="col-sm-2 col-form-label">@Messages("history.search.order.code")</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="orderId" placeholder="@Messages("history.search.placeholder.enter.content")" maxlength="256" oninput="if(this.value.length > 256) this.value = this.value.slice(0, 256);">
+            </div>
+          </div>
+      
+          <!-- Loại đơn hàng -->
+          <div class="mb-3 row">
+            <label for="orderType" class="col-sm-2 col-form-label">@Messages("history.search.order.type")</label>
+            <div class="col-sm-10">
+              <select id="orderType" class="form-control">
+                <option value="">@Messages("history.search.select.choose")</option>
+                <option value="order">@Messages("history.search.order.type.order")</option>
+                <option value="change">@Messages("history.search.order.type.change")</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Cột phải -->
+        <div class="col-md-6">
+          <!-- Thời gian -->
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">@Messages("history.search.time")</label>
+            <div class="col-sm-10">
+              <div class="row">
+                <div class="col-sm-6">
+                  <input type="text" class="form-control datetimepicker" id="fromDate" placeholder="@Messages("history.search.placeholder.from.date")">
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control datetimepicker" id="toDate" placeholder="@Messages("history.search.placeholder.to.date")">
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Trạng thái -->
+          <div class="mb-3 row">
+            <label for="status" class="col-sm-2 col-form-label">@Messages("history.search.status")</label>
+            <div class="col-sm-10">
+              <select id="status" class="form-control">
+                <option value="">@Messages("history.search.select.choose")</option>
+                <option value="1">@Messages("history.search.status.success")</option>
+                <option value="0">@Messages("history.search.status.failed")</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="d-flex flex-column align-items-center text-center">
+      <div class="">
+        <button type="button" class="btn mt-3 btn-telco" style="background: #EA0033; color: #FFFFFF;" onclick="onlickButtonSearch()">@Messages("history.search.button.search")</button>
+        <button type="button" id="btn_export_data" class="btn mt-3 btn-telco" style="background: #FFFFFF; color: #EA0033;" onclick="onclickButtonExport()">@Messages("Export")</button>
+        <button type="button" class="btn mt-3 btn-telco" style="background: #FFFFFF; color: #EA0033;" onclick="resetFormSearch()">@Messages("history.search.button.reset")</button>
+      </div>
+    </div>
+  </div>
+</div>

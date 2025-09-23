@@ -1,0 +1,78 @@
+<div class="modal fade" id="exportListFileModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+  <span class="modal-title" id="exampleModalLabel">@Messages("subscriber.modal.export.title")</span>
+      </div>
+      <div class="modal-body bg-white">
+        <div class="row justify-content-center">
+          <div class="col-md-11">
+            <div class="row mb-3">
+              <span class="col-sm-4 col-form-label" style="text-align: right;">@Messages("subscriber.modal.export.dataType")</span>
+              <div class="col-sm-8">
+                <select id="select_type_data" class="form-select" style="border-radius: 8px;">
+                  <option value="1" selected>@Messages("subscriber.modal.export.dataType.info")</option>
+                  <option value="2">@Messages("subscriber.modal.export.dataType.usage")</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <span class="col-sm-4 col-form-label" style="text-align: right;">@Messages("subscriber.modal.export.unit")</span>
+              <div class="col-sm-8">
+                <select id="select_type_unit" class="form-select" style="border-radius: 8px;">
+                  <option value="GB">GB</option>
+                  <option value="MB" selected>MB</option>
+                  <option value="KB">KB</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <span class="col-sm-4 col-form-label" style="text-align: right;">@Messages("subscriber.modal.export.recordsPerFile")</span>
+              <div class="col-sm-8">
+                <input class="form-control mb-2" type="text" style="border-radius: 8px;" id="countOnefileExport" value="5000" placeholder="@Messages("subscriber.modal.export.placeholder.recordsPerFile")" onkeypress="return isNumberKey(event)">
+                <small>@Messages("subscriber.modal.export.recordsPerFile.note")</small>
+              </div>
+             
+            </div>
+            <div class="row mb-3" id="select_date" style="display: none;">
+              <span class="col-sm-4 col-form-label" style="text-align: right;">@Messages("subscriber.modal.export.time")</span>
+              <div class="col-sm-8">
+                <input class="form-control datetimepicker mb-2" type="text" id="fromDate" value="" placeholder="@Messages("subscriber.modal.export.placeholder.fromDate")">
+                <input class="form-control datetimepicker mb-2" type="text" id="toDate" value="" placeholder="@Messages("subscriber.modal.export.placeholder.toDate")">
+                <small>@Messages("subscriber.modal.export.time.note")</small>
+              </div>
+            </div>
+           
+            <div class="row justify-content-center">
+              <button type="button" class="btn btn-red" onclick="getListFileExport()">@Messages("subscriber.modal.export.createFiles")</button>
+            </div>
+            <hr>
+            <div class="text-end mb-2" id="addBtnDownloadAll">
+            </div>
+            <div class="row mb-1" id="tabListFileExport" style="padding: 0px 15px 15px 15px;">
+              <table id="file_export" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead style="background-color: #FBCCD6;">
+                  <tr>
+                    <th>@Messages("subscriber.modal.export.table.index")</th>
+                    <th>@Messages("subscriber.modal.export.table.file")</th>
+                    <th>@Messages("subscriber.modal.export.table.action")</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td colspan="3" class="text-center">@Messages("subscriber.modal.export.table.noData")</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cancle" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

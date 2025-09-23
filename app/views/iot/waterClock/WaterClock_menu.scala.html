@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <div class="sidebar-wrapper" data-simplebar="true" style="background-color: #F4F5F6;">
+    <div class="sidebar-header" style="background-color: white;">
+      <div>
+        <img src="@routes.Assets.versioned("images/dashboard/logo.svg")" class="logo-icon" alt="logo icon" style="width: 150px; margin-left: 35px;">
+      </div>
+      <div class="toggle-icon ms-auto" id="arrowMenu" style="display: none"><i class='bx bx-arrow-to-left'></i>
+      </div>
+    </div>
+      <!--navigation-->
+    <ul class="metismenu" id="menu">
+
+      <li id="menu-waterClock">
+        <a href="@routes.WaterClockController.waterClock()">
+          <div class="parent-icon">
+            <img src="@routes.Assets.versioned("images/menu/tongquan.png")" class="logo-icon" alt="logo icon" style="">
+          </div>
+          <div class="menu-title">@Messages("manage.home")</div>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>
+<script src="@routes.Assets.versioned("javascripts/menu.js")" type="text/javascript"></script>

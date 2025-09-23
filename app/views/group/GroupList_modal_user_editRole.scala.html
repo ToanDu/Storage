@@ -1,0 +1,38 @@
+<div class="modal fade" id="editRoleUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("Cập nhật vai trò user")</h5>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <div class="col-md-12">
+            <input type="text" id="idUserEdit" class="form-control" readonly hidden>
+
+            <div class="row mb-4">
+              <label class="col-sm-3 col-form-label">@Messages("manage.user.email")@Messages(" *")</label>
+              <div class="col-sm-8">
+                <input type="text" id="emailUserEdit" class="form-control" name="email" type="email" maxlength="50" autocomplete="off" readonly>
+              </div>
+            </div>
+
+
+            <div class="row mb-4">
+              <label class="col-sm-3 col-form-label">@Messages("role.title")@Messages(" *")</label>
+              <div class="col-sm-8">
+                <select id="chooseRoleUserEdit" class="form-select">
+                  <option selected disabled>@Messages("role.title")</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick="processEditRoleUser()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+      </div>
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

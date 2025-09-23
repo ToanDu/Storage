@@ -1,0 +1,166 @@
+@import helper._
+@import vn.m2m.common.models.User
+@(currentUser:User, projectId:String, templateId:String)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("Template Attribute")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+
+
+    <link href='@routes.Assets.versioned("stylesheets/fonts/roboto.css")' type='text/css'>
+    <link href="@routes.Assets.versioned("stylesheets/fonts/fonts.googleapis/fontsgoogleapis.css")" rel="stylesheet">
+    @*<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">*@
+    <link rel="stylesheet" href="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.min.css")">
+
+    <style>
+            .form-control:disabled, .form-control[readonly] {
+              background-color: #aaa;
+              opacity: 1;
+            }
+            .form-control {
+              background-color: #aaa;
+              color: #dee2e6;
+            }
+    </style>
+
+  </head>
+  <body class="bg-theme">
+    @views.html.iot.tags.Menu(currentUser, projectId)
+
+    @views.html.iot.tags.Header(currentUser)
+
+    <div class="page-wrapper">
+      <div class="page-content">
+
+        <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+          <span class="input-group-text" style="width: 100%; background-color:#EC1B2E; color: #FFFFFF;">
+            @Messages("deviceTemplate.title") <i class="bx bx-caret-right" aria-hidden="true"></i>
+            @Messages("btnAttr")@Messages(" (Template ID: ")@templateId@Messages(")")
+          </span>
+        </div>
+
+        <div class="card mt-3">
+          <div class="card-body">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item" role="presentation" onclick="">
+                <a class="nav-link active" data-bs-toggle="tab" href="#listAttribute" role="tab" aria-selected="false">
+                  <div class="d-flex align-items-center">
+                    <div class="tab-icon"><i class='bx bx-list-ol font-18 me-1'></i>
+                    </div>
+                    <div class="tab-title">@Messages("Danh sách thuộc tính")</div>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" href="#historyAttribute" role="tab" aria-selected="false">
+                  <div class="d-flex align-items-center">
+                    <div class="tab-icon"><i class='bx bx-history font-18 me-1'></i>
+                    </div>
+                    <div class="tab-title">@Messages("Lịch sử bản tin")</div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content py-3">
+              <div class="tab-pane fade show active" id="listAttribute" role="tabpanel">
+                <div class="card-body">
+                  <div id="tabAttribute" class="body-nest"></div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="historyAttribute" role="tabpanel">
+                <div class="card-body">
+
+                  <form class="row g-3">
+                    <div class="col-md-5"></div>
+
+                    @fromTime = @{
+                      import java.util.Calendar
+                      import java.text.SimpleDateFormat
+
+                      val today = Calendar.getInstance
+                      today.add(Calendar.DATE, -1);
+                      val curTimeFormat = new SimpleDateFormat("dd/MM/yyyy")
+                      curTimeFormat.format(today.getTime)
+                    }
+                    @toTime = @{
+                      import java.util.Calendar
+                      import java.text.SimpleDateFormat
+
+                      val today = Calendar.getInstance()
+                      today.add(Calendar.DATE, +1);
+                      val curTimeFormat = new SimpleDateFormat("dd/MM/yyyy")
+                      curTimeFormat.format(today.getTime)
+                    }
+                    <div class="col-md-3">
+                      <div class="input-group" id="datePickerFrom">
+                        <span class="input-group-text"><i class='bx bxs-calendar'></i></span>
+                        <input class="result form-control" type="text" id="dateFrom" value="@fromTime" placeholder="Từ...">
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="input-group" id="datePickerTo">
+                        <span class="input-group-text"><i class='bx bxs-calendar'></i></span>
+                        <input class="result form-control" type="text" id="dateTo" value="@toTime" placeholder="Đến...">
+                      </div>
+                    </div>
+                    <div class="col-md-1">
+                      <button type="button" class="btn btn-secondary" onclick="searchHistoryAttributeTemplate()"><i class="bx bxs-search"></i>@Messages("Tìm")</button>
+                    </div>
+                  </form>
+
+                  <div id="tabHistory" class="body-nest mt-3"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    @views.html.iot.attribute.template.AttributeTemplate_add()
+    @views.html.iot.attribute.template.AttributeTemplate_edit()
+    @views.html.iot.attribute.template.AttributeTemplate_del()
+
+    @views.html.Loading()
+  </body>
+
+  @views.html.iot.tags.Main_js()
+
+  <script>
+    var iconEdit = "@routes.Assets.versioned("images/icon/edit.png")";
+    var iconDelete = "@routes.Assets.versioned("images/icon/delete.png")";
+
+          var projectId = '@projectId';
+          var templateId = '@templateId';
+
+          $(document).ready(function () {
+            $("#menu-deviceTemplate").addClass("mm-active");
+
+            $("#menu").metisMenu();
+
+            $('#dateFrom').bootstrapMaterialDatePicker({
+              time: false,
+              format: 'DD-MM-YYYY'
+            });
+            $('#dateTo').bootstrapMaterialDatePicker({
+              time: false,
+              format: 'DD-MM-YYYY'
+            });
+          })
+  </script>
+
+  <script src="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.min.js")"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/views/attribute/template/AttributeTemplate.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/attribute/template/AttributeTemplate_history.js")"></script>
+
+</html>

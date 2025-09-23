@@ -1,0 +1,39 @@
+<div class="modal fade" id="templateModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: red; border-radius: 16px 16px 0px 0px;">
+        <span class="modal-title text-white" id="myModalLabel">@Messages("Mẫu thiết bị")</span>
+      </div>
+      <div class="modal-body" style="padding-bottom: 0px;">
+        <div class="row mt-3">
+          <label class="col-sm-4 col-form-label title-section-2">@Messages("Tên *")</label>
+          <div class="col-sm-8">
+            <input id="nameTemplateAdd" type="text" class="form-control input-form" placeholder="Nhập nội dung" maxlength="50">
+          </div>
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" onclick="addTemplate()">@Messages("Tạo mới")</button>
+        </div>
+        <hr>
+      </div>
+
+      <div class="modal-body" style="padding-top: 0px;">
+        <div class="row mt-3">
+          <label class="col-sm-4 col-form-label title-section-2">@Messages("Chọn Mẫu thiết bị *")</label>
+          <div class="col-sm-8">
+            <select id="chooseTemplateAdd" class="form-control">
+              <option value="">@Messages("---Chọn Template---")</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-cancle" onclick="backModalAddFlow()">@Messages("btnBack")</button>
+        <button type="button" class="btn btn-cancle" data-bs-dismiss="modal">@Messages("btnCancle")</button>
+        <button type="button" class="btn btn-red" onclick="nextModalAddDevice()">@Messages("btnNext")</button>
+      </div>
+    </div>
+  </div>
+</div>

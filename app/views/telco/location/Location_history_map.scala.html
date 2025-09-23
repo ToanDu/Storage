@@ -1,0 +1,76 @@
+<div class="modal fade" id="mapHistoryModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <span class="modal-title" id="exampleModalLabel">@Messages("Lịch sử vị trí")</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute;top: 30px;right: 15px; background-color: #aaa;"></button>
+      </div>
+      <div class="modal-body" style="padding-top: 0px;">
+        <div class="card-body" style="padding-bottom: 0px;">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="row">
+                <label class="col-form-label title-section-2">@Messages("Thuê bao")</label>
+                <input id="isdnHistoryMap" type="text" class="form-control input-form" readonly>
+                <input id="serialHistoryMap" type="text" class="form-control input-form" readonly hidden>
+              </div>
+              <div class="row">
+                @fromTime = @{
+                  import java.util.Calendar
+                  import java.text.SimpleDateFormat
+
+                  val today = Calendar.getInstance
+                  today.add(Calendar.DATE,-6);
+                  val curTimeFormat = new SimpleDateFormat("dd/MM/yyyy")
+                  curTimeFormat.format(today.getTime)
+                }
+                <label class="col-form-label title-section-2">@Messages("Từ ngày")</label>
+                <input class="form-control datetimepicker" type="text" id="fromDateHistoryMap" value="@fromTime" placeholder="Đến ngày">
+              </div>
+              <div class="row">
+                @toTime = @{
+                  import java.util.Calendar
+                  import java.text.SimpleDateFormat
+                  //import java.util.TimeZone
+
+                  val today = Calendar.getInstance()
+                  // today.setTimeZone(TimeZone.getTimeZone("GMT+7"))
+                  val curTimeFormat = new SimpleDateFormat("dd/MM/yyyy")
+                  curTimeFormat.setTimeZone(TimeZone.getTimeZone("GMT+7"));
+                  curTimeFormat.format(today.getTime)
+                }
+                <label class="col-form-label title-section-2">@Messages("Đến ngày")</label>
+                <input class="form-control datetimepicker" type="text" id="toDateHistoryMap" value="@toTime" placeholder="Đến ngày">
+              </div>
+              <div class="row mt-3">
+                <button type="button" class="btn btn-search" onclick="searchHistoryMap()" style="width: 100%">@Messages("btnSearch")</button>
+              </div>
+              <div class="row mt-3" style="height: 258px;">
+                <div class="table-responsive" style="padding: 0; height: 100%;">
+                  <table class="table table-striped" id="listHistoryMapTable" style="width: 100%; margin-bottom: 0px; max-height: 258px;">
+                    <thead style="background-color: #eee;">
+                      <tr>
+                        <th>STT</th>
+                        <th>Thời gian</th>
+                        <th>Vị trí</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                  <h5 class="mt-3" id="notiNotHistoryMap" style="text-align: center;"></h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card" style="height: 550px;">
+                <div class="big-map" id="map-history" style="height: 100%;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

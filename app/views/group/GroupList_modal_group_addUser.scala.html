@@ -1,0 +1,33 @@
+<div class="modal fade" id="addUserToGroupDeviceModal" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("Gán user cho nhóm device")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+
+          <div class="col-md-12">
+            <div class="row mb-4" hidden>
+              <input id="idGroupdevice" type="text" class="form-control" readonly>
+            </div>
+            <div class="row mb-4">
+              <label class="col-sm-4 col-form-label">@Messages("Danh sách user")</label>
+              <div class="col-sm-7">
+                <select class="form-control" id="listUsersAddGroupdevice">
+
+                </select>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" onclick="proccessUpdateUserToGroupdevice()">@Messages("btnSave")</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

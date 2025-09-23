@@ -1,0 +1,85 @@
+<div class="modal fade" id="editConfirmModal" data-bs-backdrop="static"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalLabel" >@Messages("Sửa thiết bị mẫu")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-md-12">
+            <input id="idTemplateDeviceEdit" type="text" class="form-control" autocomplete="off" readonly hidden>
+            <div class="row mb-1">
+              <label class="col-sm-3 col-form-label">@Messages("Business type")</label>
+              <div class="col-sm-9">
+                <input id="businessTypeEdit" type="text" class="form-control" autocomplete="off" required>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <label class="col-sm-3 col-form-label">@Messages("Kiểu thiết bị ")</label>
+              <div class="col-sm-9">
+                <input id="deviceTypeEdit" type="text" class="form-control" autocomplete="off" required>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <label class="col-sm-3 col-form-label">@Messages("Nhóm thiết bị ")</label>
+              <div class="col-sm-9">
+                <input id="deviceGroupEdit" type="text" class="form-control" autocomplete="off" required>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <label class="col-sm-3 col-form-label">@Messages("Tên thiết bị ")</label>
+              <div class="col-sm-9">
+                <input id="deviceNameEdit" type="text" class="form-control" autocomplete="off" required>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <label class="col-sm-3 col-form-label">@Messages("Giao thức truyền thông ")</label>
+              <div class="col-sm-9">
+                <input id="protocolEdit" type="text" class="form-control" autocomplete="off" required>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <label class="col-sm-3 col-form-label">@Messages("Link ảnh ")</label>
+              <div class="col-sm-9">
+                <input id="urlImageEdit" type="text" class="form-control" autocomplete="off" required>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <label class="col-sm-12 col-form-label">@Messages("Thuộc tính ")</label>
+              <div class="col-sm-12">
+                <div class="row">
+                  <div class="col-sm-1 pt-sm-2"></div>
+                  <div class="col-sm-3">
+                    <label class="col-form-label">@Messages("Attribute Name")</label>
+                  </div>
+                  <div class="col-sm-2">
+                    <label class="col-form-label">@Messages("Attribute Type")</label>
+                  </div>
+                  <div class="col-sm-2">
+                    <label class="col-form-label">@Messages("Save Log")</label>
+                  </div>
+                  <div class="col-sm-4">
+                    <label class="col-form-label">@Messages("Attribute Content")</label>
+                  </div>
+                </div>
+                <div class="row" id="listAttributeEdit"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="appendResourcesAttrEdit()">@Messages("Thêm attribute")</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="processEditTemplatDevice()">@Messages("btnComfirm")</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+<div class=" features-1" style="padding-bottom: 0px;">
+  <div class="col-md-12">
+    <div class="main-content ">
+      <div class="row justify-content-center">
+        <div class="col-md-11 text-center">
+          <div class="step-container py-4 my-2" data-group-id="orderSim">
+            <div class="step active">
+              <div class="circle">1</div>
+              <span class="fw-bold step-title">@Messages("step.customerInfo")</span>
+            </div>
+            <div class="arrow"><i class='bx bx-chevron-right'></i></div>
+            <div class="step ">
+              <div class="circle">2</div>
+              <span class="fw-bold step-title">@Messages("step.selectSimAndPlan")</span>
+            </div>
+            <div class="arrow"><i class='bx bx-chevron-right'></i></div>
+            <div class="step ">
+              <div class="circle">3</div>
+              <span class="fw-bold step-title">@Messages("step.confirmOrder")</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section features-1">
+  <div class="col-lg-12 text-center">
+    <div class="main-content">
+
+      <div class="row step-content justify-content-center" id="cardSection">
+          @views.html.telco.buySim.BuySim_infoCustomer()
+  
+          <div class="col-lg-9 col-md-8 mt-5">
+              <button
+                  type="button"
+                  class="btn btn-telco"
+                  value="1"
+                  onclick="nextProcess(this, 'orderSim')"
+                  style="background: #EA0033; color: #FFFFFF;">
+                  @Messages("nav.continue")
+              </button>
+          </div>
+      </div>
+  
+      <div class="row step-content justify-content-center" style="display: none;">
+          @views.html.telco.buySim.BuySim_packData()
+  
+          <div class="col-lg-9 col-md-8 mt-3">
+              <button
+                  type="button"
+                  class="btn btn-telco"
+                  onclick="backProcess(this, 'orderSim')"
+                  style="background: #FFFFFF; color: #EA0033; border: 1px solid #EA0033;">
+                  @Messages("nav.back")
+              </button>
+  
+              <button
+                  type="button"
+                  class="btn btn-telco"
+                  value="2"
+                  onclick="nextProcess(this, 'orderSim')"
+                  style="background: #EA0033; color: #FFFFFF;">
+                  @Messages("nav.continue")
+              </button>
+          </div>
+      </div>
+  
+      <div class="row step-content justify-content-center" style="display: none;">
+          @views.html.telco.buySim.BuySim_comfirmOrder()
+  
+          <div class="col-lg-9 col-md-8 mt-3">
+              <button
+                  type="button"
+                  class="btn btn-telco"
+                  onclick="backProcess(this, 'orderSim')"
+                  style="background: #FFFFFF; color: #EA0033; border: 1px solid #EA0033;">
+                  @Messages("nav.back")
+              </button>
+  
+              <button
+                  type="button"
+                  class="btn btn-telco"
+                  id="buttonCommfirmBuySim"
+                  value="3"
+                  onclick="nextProcess(this, 'orderSim')"
+                  style="background: #EA0033; color: #FFFFFF;"
+                  disabled>
+                  @Messages("nav.confirm")
+              </button>
+          </div>
+      </div>
+  
+  </div>
+    
+  </div>
+</div>

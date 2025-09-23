@@ -1,0 +1,148 @@
+@import vn.m2m.utils.DateUtil
+@import vn.m2m.common.models.User
+@(currentUser:User, userId:String)
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>@Messages("prepayCharges.title")</title>
+  <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
+
+  @views.html.iot.tags.Main_css()
+
+  <link href="@routes.Assets.versioned("stylesheets/views/modal-right.css")" rel="stylesheet" />
+  <link href="@routes.Assets.versioned("assets/plugins/input-tags/css/tagsinput.css")" rel="stylesheet" />
+  @*
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">*@
+  <link href='@routes.Assets.versioned("stylesheets/fonts/roboto.css")' type='text/css'>
+  <link href="@routes.Assets.versioned("stylesheets/fonts/fonts.googleapis/fontsgoogleapis.css")" rel="stylesheet">
+  <link href="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.min.css")" rel="stylesheet">
+
+  <link href="@routes.Assets.versioned("stylesheets/views/telco/utilites/utilites.css")" rel="stylesheet" />
+  <link href="@routes.Assets.versioned("stylesheets/views/telco/telco.css")" rel="stylesheet" />
+</head>
+
+<body class="bg-theme">
+  @views.html.telco.Menu(currentUser, "", userId)
+
+  @views.html.telco.Header(currentUser)
+
+  <div class="page-wrapper">
+    <div class="page-content">
+      @views.html.telco.prepayCharges.PrepayCharges_formSearch(currentUser)
+
+      <form id="prepayForm" class="card p-4 pt-3">
+        <span class="text-search"
+         style="border-top: 1px solid #D9D9D9; padding: 10px 0;">
+         @Messages("prepayCharges.info")
+        </span>
+        <p id="prepayCharges_no_data">@Messages("prepayCharges.noData")</p>
+        <div id="form_info" class="d-none">
+        <div class="row">
+          <!-- Thông tin đóng cước -->
+          <div class="col-md-7 col-lg-9" id="prepayChargesInfo">
+            <div class="mb-4 row">
+              <label class="col-lg-4 col-form-label">@Messages("prepayCharges.phoneNumber")</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control input-form" id="phoneNumber" readonly>
+              </div>
+            </div>
+      
+            <div class="mb-4 row ">
+              <label class="col-lg-4 col-form-label">@Messages("prepayCharges.package")</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control input-form" id="productCode" readonly>
+              </div>
+            </div>
+
+            <div class="mb-4 row ">
+              <label class="col-lg-4 col-form-label">@Messages("prepayCharges.promotionCode")</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control input-form" id="promotionCode" readonly>
+              </div>
+            </div>
+      
+            <div class="mb-4 row ">
+              <label class="col-lg-4 col-form-label">@Messages("prepayCharges.monthsToPrepay")</label>
+              <div class="col-lg-8">
+                <div class="row" id="prepayOptions">
+                </div>
+                <div><small>@Messages("prepayCharges.priceIncludesBonus")</small></div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Thông tin thanh toán -->
+          <div class="col-md-5 col-lg-3 payment-box">
+            <h5 class="mb-4">@Messages("prepayCharges.payment")</h5>
+            <div class="d-flex justify-content-between flex-wrap align-items-center gap-1 mb-5">
+              <strong> @Messages("prepayCharges.totalPayment")</strong> <strong id="total">0 đ</strong>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button type="button" class="btn ms-0 btn-telco" id="btn_pay" style="background: #EA0033; color: #FFFFFF;">@Messages("prepayCharges.payButton")</button>
+            </div>
+          </div>
+        </div>
+        </div>
+        
+      </form>
+      <!-- Modal xác nhận đóng cước trước -->
+      <div class="modal fade" id="modalPrepayConfirm" tabindex="-1" aria-labelledby="modalPrepayConfirmLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="box-shadow:none">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title mt-3 mb-3" id="modalPrepayConfirmLabel">@Messages("prepayCharges.confirmTitle")
+              </h5>
+            </div>
+            <div class="modal-body text-center pt-0 pb-0" id="modalPrepayConfirmBody">
+              <p class="mb-0">@Messages("prepayCharges.confirmQuestion1")</p>
+              <p class="mb-0">@Messages("prepayCharges.confirmQuestion2") <strong><span id="numMonth_val"></span> @Messages("prepayCharges.confirmMonths")</strong> @Messages("prepayCharges.confirmForSubscriber")
+                <strong><span id="phoneNumber_val"></span>?</strong></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn mt-3 btn-telco" style="background: #FFFFFF; color: #EA0033;"
+                data-bs-dismiss="modal">@Messages("prepayCharges.cancel")</button>
+              <button type="button" class="btn mt-3 btn-telco" style="background: #EA0033; color: #FFFFFF;"
+                id="btnPrepayConfirm">@Messages("prepayCharges.confirm")</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <div class="modal fade" id="comfirmRechargeSubsModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" style="box-shadow:none">
+        <div class="modal-content" id="theme16">
+          <div class="modal-header" style="text-align: center; display: block">
+            <img src="@routes.Assets.versioned("images/telco/successIcon.png")" alt="..." style="width: 56px; height: 56px;" class="card-img mt-3"><br>
+            <h6 class="modal-title mt-3">@Messages("prepayCharges.successMessage")</h6>
+
+            <button type="button" class="btn btn-red mt-5" data-bs-dismiss="modal" onclick="showBill()">@Messages("btnComfirm")</button>
+          </div>
+        </div>
+      </div> <!-- modal-bialog .// -->
+    </div>
+    </div>
+    @views.html.telco.Loading()
+  </div>
+  <!--  END OF PAPER WRAP -->
+
+  @views.html.telco.mainJs()
+
+  <script>
+    var userId = '@userId';
+  </script>
+  <script src="@routes.Assets.versioned("javascripts/exportfile/table3export.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/js/moment.min.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.min.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/validateForm.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/prepayCharges/prepayCharges.js")" type="text/javascript"></script>
+
+</body>
+
+</html>

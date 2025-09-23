@@ -1,0 +1,81 @@
+<div class="modal fade" id="addQrcodeModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <span class="modal-title" id="exampleModalLabel">@Messages("Thông tin đấu nối - gói cước")</span>
+        <a class="close cursor-pointer" data-bs-dismiss="modal" aria-hidden="true" style="float: right; font-size: 20px;">×</a>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-10">
+            <h6 class="">@Messages("1. Thông tin đấu nối")</h6>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("User đấu nối")</span>
+              <div class="col-sm-5">
+                <input type="text" class="form-control input-form" id="staffCode" maxlength="50"/>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("Giấy phép kinh doanh")</span>
+              <div class="col-sm-5">
+                <select class="form-control select-form" id="gpkdList" onchange="getContractByIdno(this)">
+                  <option value="" selected>@Messages("--- Chọn GPKD ---")</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("Tải danh sách TB")</span>
+              <div class="col-sm-5">
+                <input type="file" id="filesSerials" name="files" style="background-color: #aaa; width: 100%;" hidden/>
+                <input type="text" class="form-control input-form" id="nameFileImport" readonly/>
+              </div>
+              <label class="col-sm-3 col-form-label title-section-2" style="text-align: left; cursor: pointer; color: #EA0033;" onclick="importFileConnectSerialAdm1()">
+                <i class="bx bx-upload"></i> @Messages("Import file")
+              </label>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("Tải file mẫu")</span>
+              <span class="col-sm-5 col-form-label">@Messages("List_Serial_Adm1.xlsx")</span>
+              <div class="col-sm-3 col-form-label">
+                <a style="color: #EA0033; cursor: pointer;" onclick="downloadTemplateListSerialConnect()"><i class="bx bx-download"></i> @Messages("Download")</a>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <span class="col-sm-4 col-form-label">@Messages("Số TB hợp lệ")</span>
+              <span class="col-sm-5 col-form-label" id="countSerialAdm1True">@Messages("0")</span>
+              <div class="col-sm-3 col-form-label">
+                <a style="color: #EA0033; cursor: pointer;" onclick="exportListSerialAdm1True()"><i class="bx bx-download"></i> @Messages("Download")</a>
+              </div>
+            </div>
+
+            <h6 class="">@Messages("2. Thông tin gói cước")</h6>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("Gói cước")</span>
+              <div class="col-sm-5">
+                <select class="form-control select-form" id="packDataList" onchange="getReasonWithPackQr()">
+                  <option value="" selected>@Messages("-- Chọn gói cước --")</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("Lý do đấu nối")</span>
+              <div class="col-sm-5">
+                <select class="form-control select-form" id="reasonList">
+                  <option value="" selected>@Messages("--- Chọn lý do ---")</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cancle" data-bs-dismiss="modal">@Messages("btnClose")</button>
+              <button type="button" class="btn btn-red" onclick="validateListSerialConnect()">@Messages("btnPrev")</button>
+            </div>
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

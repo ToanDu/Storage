@@ -1,0 +1,163 @@
+@import vn.m2m.common.models.User
+@import vn.m2m.utils.UserHelper
+@(currentUser:User)
+<div class="card">
+  <div class="card-body">
+    <span class="text-search">@Messages("subscriber.searchInfo")</span>
+    <input id="gpkd" type="text" class="form-control" readonly hidden>
+
+    <div class="row mt-3">
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-6 m-t-3">
+            <div class="row m-b-4">
+              <div class="col-sm-1"></div>
+              <label class="col-sm-3 col-form-label title-section-2">@Messages("subscriber.phoneNumber")</label>
+              <div class="col-sm-8 input-icons">
+                @*<input id="numberSubs" type="text" class="form-control input-form" data-role="tagsinput" placeholder="@Messages("subscriber.inputPlaceholder")" required>*@
+
+                <div class="input-group">
+                  <input id="isdn" type="text" class="form-control input-form" style="border-right: 0px;" placeholder="@Messages("subscriber.inputPlaceholder")" onkeypress="return isNumberKey(event)" maxlength="10000" required>
+                  <a onclick="importSearchListSub()" class="input-group-text cursor-pointer" style="border-left: 0px; background-color: #ffffff">
+                    <img src="@routes.Assets.versioned("images/telco/excel.png")" class="" alt="..." >
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 m-t-3">
+            <div class="row m-b-4">
+              <div class="col-sm-1"></div>
+              <label class="col-sm-3 col-form-label title-section-2">@Messages("subscriber.serialLabel")</label>
+              <div class="col-sm-8">
+                <div class="input-group">
+                  <input id="serialSim" type="text" class="form-control input-form" style="border-right: 0px;" placeholder="@Messages("subscriber.inputPlaceholder")" onkeypress="return isNumberKey(event)"  maxlength="20000" required>
+                  <a onclick="importSearchListSerial()" class="input-group-text cursor-pointer" style="border-left: 0px; background-color: #ffffff">
+                    <img src="@routes.Assets.versioned("images/telco/excel.png")" class="" alt="..." >
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 m-t-3">
+            <div class="row m-b-4">
+              <div class="col-sm-1"></div>
+              <label class="col-sm-3 col-form-label title-section-2">@Messages("subscriber.contractCode")</label>
+              <div class="col-sm-8">
+                <div class="input-group">
+                  <input id="accountId" type="text" class="form-control input-form" placeholder="@Messages("subscriber.inputPlaceholder")" onkeypress="return isNumberKey(event)" maxlength="250" required>
+                  @*<a onclick="importSearchListAccount()" class="input-group-text cursor-pointer" style="border-left: 0px; background-color: #ffffff">*@
+                    @*<img src="@routes.Assets.versioned("images/telco/excel.png")" class="" alt="..." >*@
+                  @*</a>*@
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 m-t-3">
+            <div class="row m-b-4">
+              <div class="col-sm-1"></div>
+              <label class="col-sm-3 col-form-label title-section-2">@Messages("subscriber.serviceType")</label>
+              <div class="col-sm-8">
+                <select id="payType" type="text" class="form-select" onchange="choosePayType(this)">
+                  <option value="" selected>@Messages("subscriber.selectOption")</option>
+                  <option value="1">@Messages("subscriber.postpaid")</option>
+                  <option value="2">@Messages("subscriber.prepaid")</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 m-t-3">
+            <div class="row m-b-4">
+              <div class="col-sm-1"></div>
+              <label class="col-sm-3 col-form-label title-section-2">@Messages("subscriber.servicePackageUsing")</label>
+              <div class="col-sm-8">
+                <select id="productCode" type="text" class="form-select">
+                  <option value="" selected>@Messages("subscriber.selectOption")</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 m-t-3">
+            <div class="row m-b-4">
+              <div class="col-sm-1"></div>
+              <label class="col-sm-3 col-form-label title-section-2">@Messages("subscriber.blockCutStatus")</label>
+              <div class="col-sm-8">
+                <select id="actStatus" type="text" class="form-select">
+                  <option value="" selected>@Messages("subscriber.selectServiceType")</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 m-t-3">
+            <div class="row m-b-4">
+              <div class="col-sm-1"></div>
+              <label class="col-sm-3 col-form-label title-section-2">@Messages("subscriber.activationDate")</label>
+              <div class="col-sm-8">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <input class="form-control datetimepicker" type="text" id="staDatetimeFrom" value="" placeholder="@Messages("subscriber.fromDate")">
+                  </div>
+                  <div class="col-sm-6">
+                    <input class="form-control datetimepicker" type="text" id="staDatetimeTo" value="" placeholder="@Messages("subscriber.toDate")">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 m-t-3">
+            <div class="row m-b-4">
+              <div class="col-sm-1"></div>
+              <label class="col-sm-3 col-form-label title-section-2">@Messages("subscriber.connectionDate")</label>
+              <div class="col-sm-8">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <input class="form-control datetimepicker" type="text" id="activeDateFrom" value="" placeholder="@Messages("subscriber.fromDate")">
+                  </div>
+                  <div class="col-sm-6">
+                    <input class="form-control datetimepicker" type="text" id="activeDateTo" value="" placeholder="@Messages("subscriber.toDate")">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 m-t-3">
+            <div class="row m-b-4">
+              <div class="col-sm-1"></div>
+              <label class="col-sm-3 col-form-label title-section-2">@Messages("subscriber.businessLicenseNumber")</label>
+              <div class="col-sm-8">
+                <div class="input-group">
+                  <select id="idNo" type="text" class="form-select">
+                    <option value="" selected>@Messages("subscriber.selectBusinessLicense")</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card-body" style="height: 100%;">
+          <div class="d-flex flex-column align-items-center text-center" style="height: 100%; background-color: #EA0033; border-radius: 16px;">
+            <img src="@routes.Assets.versioned("images/telco/thuebao.svg")" alt="Admin" class="img-tb" width="110">
+            <div class="mt-3">
+              <span class="text-white count-tb" id="count-tb">0</span><br>
+              <span class="text-white">@Messages("subscriber.subscriberCount")</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column align-items-center text-center">
+      <div class="">
+        @if(UserHelper.isFeatureRole(currentUser, "export_sub")){
+          <button type="button" class="btn mt-3 btn-telco" style="background: #FFFFFF; color: #EA0033;" onclick="onlickButtonExport()">@Messages("subscriber.export")</button>
+        }
+        <button type="button" class="btn mt-3 btn-telco" style="background: #FFFFFF; color: #EA0033;" onclick="resetFormSearch()">@Messages("subscriber.reset")</button>
+        @if(UserHelper.isFeatureRole(currentUser, "view_sub")){
+          <button type="button" class="btn mt-3 btn-telco" style="background: #EA0033; color: #FFFFFF;" onclick="onlickButtonSearch()">@Messages("subscriber.search")</button>
+        }
+      </div>
+    </div>
+  </div>
+</div>

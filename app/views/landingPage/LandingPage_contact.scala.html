@@ -1,0 +1,51 @@
+<div class="section features-6" id="divLienHe">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-2"></div>
+      <div class="col-md-8" style="box-shadow: 0px 12px 44px rgba(13, 38, 59, 0.12); border-radius: 24px;">
+        <div class="row">
+          <div class="col-md-4" id="text-white" style="padding: 0px;">
+            <img class="" src="@routes.Assets.versioned("images/landingPage/imgContact1.png")" height="100%" width="100%">
+            <img class="imgCskh" src="@routes.Assets.versioned("images/landingPage/imgContact2.png")" style="">
+          </div>
+          <div class="col-md-8">
+            <div class="form-group" style="text-align: center">
+              <label class="mt-3 contact-form-1">@Messages("Liên hệ với chúng tôi ")</label>
+            </div>
+            <div class="form-group ml-5 mr-5">
+              <p>@Messages("landing7.name")@Messages("*")</p>
+              <input class="form-control input7" type="text" id="name" maxlength="50">
+            </div>
+            <div class="form-group ml-5 mr-5">
+              <p>@Messages("landing7.email")@Messages("*")</p>
+              <input class="form-control input7" type="email" id="email" maxlength="50">
+            </div>
+            <div class="form-group ml-5 mr-5">
+              <p>@Messages("landing7.phone")@Messages("*")</p>
+              <input class="form-control input7" type="number" id="phone" maxlength="11">
+            </div>
+            <div class="form-group ml-5 mr-5">
+              <p>@Messages("landing7.select")@Messages("*")</p>
+              <select class="form-control input7" style="width: 100%" id="field">
+                <option value="1">@Messages("landing7.select1")</option>
+                <option value="2">@Messages("landing7.select2")</option>
+                <option value="3">@Messages("landing7.select3")</option>
+                <option value="4">@Messages("landing7.select4")</option>
+              </select>
+            </div>
+            <div class="form-group ml-5 mr-5">
+              <p>@Messages("landing7.content")@Messages("*")</p>
+              <textarea id="content" name="content" type="text" class="form-control" rows="5" autocomplete="off" maxlength="500"></textarea>
+            </div>
+            <div class="form-group mt-3 text-center">
+              <button class="btn btn-danger radius-40" onclick="submitFormContact()" id="buttonSubmitContacts">
+              @Messages("Gửi thông tin ngay ")
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+</div>

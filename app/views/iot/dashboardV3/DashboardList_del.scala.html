@@ -1,0 +1,19 @@
+<div class="modal fade" id="deleteDashboardConfirm" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h4 class="modal-title text-white">@Messages("dashboard.del")</h4>
+      </div>
+      <div class="modal-body">
+        <h5 class="modal-body text-darker align-items-center" id="myModalbody">@Messages("noti.confirmDeletebody")</h5>
+        <div class="form-group" hidden>
+          <input id="idDashboardDel" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="processDelDashboard()">@Messages("btnDelete")</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnCancel")</button>
+      </div>
+    </div>
+  </div>
+</div>

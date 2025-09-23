@@ -1,0 +1,29 @@
+<div id="updateConfirmModal" class="modal fixed-left fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-aside" role="document">
+        <div class="modal-content bg-gradient-blues">
+
+            <div class="modal-header">
+                <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("group.updateOrg")</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12" hidden>
+                    <input id="idGroupUpdate" name="id" type="text" class="form-control" maxlength="50" autocomplete="off" required>
+                </div>
+                <div class="row g-3">
+                    <input type="hidden" id="itype" name="itype" value="0" >
+                    <input type="hidden" id="orgIdMove" name="groupId" >
+                    <div class="input-group">
+                        <a class="input-group-text"><i class='bx bx-search'></i></a>
+                        <input id="search-selectOrg" class="search-input form-control border-start-0" style="border-radius: 20px" placeholder=" ...Tìm kiếm tổ chức " onfocus="this.value=''">
+                    </div>
+                    <div id="selectOrganizations" style="overflow: auto"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="postUpdateOrgIdForGroup()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+        </div>
+    </div> <!-- modal-bialog .// -->
+</div>

@@ -1,0 +1,44 @@
+<div class="modal fade" id="editCompanyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("Cập nhật thông tin nhà cung cấp")</h5>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <div class="col-md-12">
+            <input type="text" id="isUpdateVendor" name="isUpdate" class="form-control" maxlength="30" autocomplete="off" readonly hidden>
+
+            <div class="row mb-4">
+              <label class="col-sm-3 col-form-label">@Messages("Tên")@Messages(" *")</label>
+              <div class="col-sm-8">
+                <input type="text" id="nameVendorEdit" class="form-control" maxlength="30" autocomplete="off" required>
+                <br>
+                <h7 class="textNote">@Messages("manage.group.org.30char")</h7>
+              </div>
+            </div>
+
+            <div class="row mb-4">
+              <label class="col-sm-3 col-form-label">@Messages("Mã số thuế")@Messages(" *")</label>
+              <div class="col-sm-8">
+                <input type="number" id="faxVendorEdit" class="form-control" maxlength="50" autocomplete="off" required>
+              </div>
+            </div>
+
+            <div class="row mb-4">
+              <label class="col-sm-3 col-form-label">@Messages("Địa chỉ")@Messages(" *")</label>
+              <div class="col-sm-8">
+                <input type="text" id="addressVendorEdit" class="form-control" maxlength="255" autocomplete="off" required>
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick="updateVendorInfo()"  data-bs-dismiss="modal">@Messages("btnSave")</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="modal fade" id="editConfirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalLabel" >@Messages("Sửa nhóm sản phẩm")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-md-12">
+            <input id="idGroupProductEdit" type="text" class="form-control" autocomplete="off" readonly hidden>
+            <div class="row mb-1">
+              <label class="col-sm-3 col-form-label">@Messages("Mã nhóm ")</label>
+              <div class="col-sm-9">
+                <input id="codeGroupProductEdit" type="text" class="form-control" autocomplete="off" required>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <label class="col-sm-3 col-form-label">@Messages("Tên nhóm")</label>
+              <div class="col-sm-9">
+                <input id="nameGroupProductEdit" type="text" class="form-control" autocomplete="off" required>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <label class="col-sm-3 col-form-label">@Messages("Phân loại ")</label>
+              <div class="col-sm-9">
+                <select id="typeGroupProductEdit" class="form-select">
+                  <option value="0">@Messages("Thiết bị")</option>
+                  <option value="1">@Messages("Giải pháp")</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <label class="col-sm-3 col-form-label">@Messages("Trạng thái")</label>
+              <div class="col-sm-9">
+                <select id="statusGroupProductEdit" class="form-select">
+                  <option value="true">@Messages("Hiện")</option>
+                  <option value="false">@Messages("Ẩn")</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="processEditGroupProduct()">@Messages("btnComfirm")</button>
+      </div>
+    </div>
+  </div>
+</div>

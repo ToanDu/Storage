@@ -1,0 +1,22 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<div class="modal fade" id="getDeviceTokenModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("Device Token")</h5>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <div class="col-md-12">
+            <input id="deviceToken" type="text" value="@currentUser.getDeviceToken" class="form-control" maxlength="50" autocomplete="off" required>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="copyLinkTokenDevice()" data-bs-dismiss="modal">@Messages("btnCopy")</button>
+      </div>
+    </div>
+  </div>
+</div>

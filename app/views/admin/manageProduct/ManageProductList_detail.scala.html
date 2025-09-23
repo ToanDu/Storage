@@ -1,0 +1,84 @@
+<div class="modal fade" id="detailConfirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("Chi tiết sản phẩm")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+
+          <div class="col-md-7">
+            <input id="idProduct" type="text" class="form-control" hidden>
+            <div class="row mb-0">
+              <label class="col-sm-12 col-form-label" >@Messages("Mã sản phẩm")<p class="fw-bold" id="codeProduct"></p></label>
+            </div>
+            <div class="row mb-0">
+              <label class="col-sm-12 col-form-label" id="">@Messages("Tên sản phẩm")<p class="fw-bold" id="nameProduct"></p></label>
+            </div>
+            <div class="row mb-0">
+              <label class="col-sm-12 col-form-label" id="">@Messages("Giá (VND)")<p class="fw-bold" id="priceProduct"></p></label>
+            </div>
+            <div class="row mb-0">
+              <label class="col-sm-12 col-form-label" id="">@Messages("Nhóm sản phẩm")<p class="fw-bold" id="groupProduct"></p></label>
+            </div>
+            <div class="row mb-0">
+              <label class="col-sm-12 col-form-label" id="">@Messages("Hiển thị")<p class="fw-bold" id="showProduct"></p></label>
+            </div>
+            <div class="row mb-0">
+              <label class="col-sm-12 col-form-label" id="">@Messages("Giới thiệu sản phẩm")<p class="fw-bold" id="infoProduct"></p></label>
+            </div>
+            <div class="row mb-0">
+              <label class="col-sm-12 col-form-label" id="">@Messages("Mô tả sản phẩm")<p class="fw-bold" id="contentProduct"></p></label>
+            </div>
+            <div class="row mb-0">
+              <label class="col-sm-12 col-form-label" id="">@Messages("Thông tin người hỗ trợ bán hàng")<p class="fw-bold" id="supportPersionProduct"></p></label>
+            </div>
+            <div class="row mb-0">
+              <label class="col-sm-12 col-form-label" id="">@Messages("Giải pháp đi kèm sản phẩm")<p class="fw-bold" id="solutionProduct"></p></label>
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="col-md-12 position-relative">
+              <label class="form-label">@Messages("manage.group.img")</label>
+              <div class="d-flex flex-column align-items-center text-center" style="border: 1px solid;">
+                <img src="@routes.Assets.versioned("images/iotplatform.png")" id="wizardPicturePreview" alt="Admin" class="p-1" style="margin: 10px;width: 95%;">
+                <input id="wizard-picture-edit" name="avatar" type="file" hidden/>
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <label class="col-sm-12 col-form-label">@Messages("Trạng thái:")</label>
+              <div class="col-sm-12">
+                <select id="statusApproveDetail" class="form-select">
+                  <option value="0">@Messages("Mới khởi tạo")</option>
+                  <option value="1">@Messages("Duyệt")</option>
+                  <option value="2">@Messages("Từ chối")</option>
+                  <option value="3">@Messages("Chờ duyệt")</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <label class="col-sm-12 col-form-label">@Messages("Lý do từ chối duyệt:")</label>
+              <div class="col-sm-12">
+                <textarea class="form-control" id="contentApproveDetail" maxlength="500" rows="3" placeholder="...tối đa 500 kí tự"></textarea>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <label class="col-sm-12 col-form-label" >@Messages("Ngày tạo: ")<p class="fw-bold" id="logDate"></p></label>
+            </div>
+            <div class="row mb-1">
+              <label class="col-sm-12 col-form-label" >@Messages("Cập nhật lần cuối: ")<p class="fw-bold" id="updateDate"></p></label>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" onclick="processChangeStatusProduct()" data-bs-dismiss="modal">@Messages("btnUpdate")</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

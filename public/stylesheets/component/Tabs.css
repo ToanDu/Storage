@@ -1,0 +1,46 @@
+.nav-tabs .nav-link {
+    margin-bottom: -1px;
+    border: 3px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #333333;
+}
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+    color: #ec1b2e;
+    background-color: rgb(255 255 255 / 15%);
+    border-color: #ffffff #ffffff #C0C0C0;
+}
+.nav-tabs .nav-link.disabled {
+    color: #6c757d;
+    background-color: transparent;
+    border-color: transparent
+}
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    color: #ec1b2e;
+    background-color: rgb(255 255 255 / 15%);
+    border-color: #ffffff #ffffff #ec1b2e;
+}
+
+
+.nav-tabs .nav-link .icon-tab:focus,
+.nav-tabs .nav-link:hover .icon-tab {
+    filter: invert(37%) sepia(94%) saturate(5772%) hue-rotate(340deg) brightness(91%) contrast(91%);
+}
+.nav-tabs .nav-link.disabled .icon-tab  {
+    filter: invert(40%) sepia(7%) saturate(453%) hue-rotate(173deg) brightness(93%) contrast(89%);
+}
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active .icon-tab {
+    filter: invert(37%) sepia(94%) saturate(5772%) hue-rotate(340deg) brightness(91%) contrast(91%);
+}
+
+.nav-tabs .nav-link {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    color: #44494D;
+}

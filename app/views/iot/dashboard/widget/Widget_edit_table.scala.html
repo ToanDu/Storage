@@ -1,0 +1,93 @@
+<div class="modal fade" id="editWidgetTableModal" tabindex="-1" aria-labelledby="editTableModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="theme16">
+            <div class="modal-header">
+                <h5 class="modal-title text-white" id="editTableModalLabel">@Messages("Sửa widget bảng dữ liệu")</h5>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3">
+
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="col-md-12" style="background: #858687; padding: 8px">
+                            <span style="color: white; margin-left: 25px">@Messages("HIỂN THỊ")</span>
+                        </div>
+                        <div class="col-md-12 mt-3" style="border: 1px solid #858687;">
+                            <div class="row p-3">
+                                <div class="col-md-6">
+                                    <div class="header-center">
+                                        <label for="idWidgetTableEditTitle" class="col-form-label">@Messages("Tiêu đề *")</label>
+                                        <input type="text" class="form-control col-sm-6" id="idWidgetTableEditTitle" name="idWidgetTableEditTitle">
+                                        <h7 class="textNote">@Messages("manage.group.org.30char")</h7>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 mt-3" style="background: #858687; padding: 8px">
+                            <span style="color: white; margin-left: 25px">@Messages("DỮ LIỆU")</span>
+                        </div>
+                        <div class="col-md-12 mt-3" style="border: 1px solid #858687;">
+                            <div class="row p-3">
+                                <div class="col-md-6">
+                                    <div class="header-center">
+                                        <label for="idWidgetTableEditOption" class="col-sm-6 col-form-label">@Messages("Bộ lọc")</label>
+                                        <select class="form-select mb-3" id="idWidgetTableEditOption" name="idWidgetTableEditOption" onchange="changeOptionWidgetTableEdit(this)">
+                                            <option value="" disabled>Chọn</option>
+                                            <option value="org">Tổ chức</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="header-center filter" id="idWidgetTableOrg" style="display: none">
+                                        <label for="idWidgetTableEditOption" class="col-sm-6 col-form-label">@Messages("Tổ chức")</label>
+                                        <select class="form-select mb-3" id="selectWidgetTableEditOrg" name="selectWidgetTableEditOrg" onchange="changeOrgWidgetTableEdit(this)">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" style="display: inline-flex; justify-content: center;">
+                                    <div class="table-loading"></div>
+                                </div>
+                                <div id="idWidgetTableTable" style="overflow: auto;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="confirmWidgetTable()">@Messages("btnComfirm")</button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="table-edit-table-template" type="x-tmpl-mustache">
+    <input type="hidden" name="widgetTableTableCheckbox" id="widgetTableTableCheckbox"/>
+    <table class="table table-bordered table-nowrap">
+        <thead class="thead-light">
+            <tr>
+                <th>Thiết bị</th>
+                <th colspan=100 style="text-align: center;vertical-align: middle;">Thuộc tính</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            {{#devices}}
+                <tr>
+                    <td scope="row" data-id={{id}}>{{name}}</td>
+                    {{#vars}}
+                        <td>
+                            <input type="checkbox" data-id={{id}} data-name={{name}} id="{{wid}}-{{attribute_key}}" attribute-key={{attribute_key}} attribute-type={{attribute_type}} value-type={{value_type}}>
+                            <label for="{{wid}}-{{id}}">{{attribute_key}}</label>
+                        </td>
+                    {{/vars}}
+                </tr>
+            {{/devices}}
+        </tbody>
+    </table>
+</script>

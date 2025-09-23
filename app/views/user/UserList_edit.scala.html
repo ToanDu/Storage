@@ -1,0 +1,26 @@
+<div class="modal fade" id="editConfirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme14">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("btnEdit")</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <div class="col-md-12" hidden>
+            <input id="idUserEdit" name="id" type="text" class="form-control" maxlength="50" autocomplete="off" required>
+          </div>
+          <div class="col-md-12">
+            <label class="form-label text-white">@Messages("user.add.email")@Messages(" *")</label>
+            <input id="emailUserEdit" name="email" type="text" class="form-control" maxlength="50" autocomplete="off" required>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="postDataEditUser()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+      </div>
+    </div>
+  </div>
+</div>

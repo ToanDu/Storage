@@ -1,0 +1,39 @@
+@import vn.m2m.common.models.Role
+@(roleList: List[Role])
+<div class="modal fade" id="addRoleForUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="theme16">
+            <div class="modal-header">
+                <h5 class="modal-title text-darker" id="exampleModalLabel">@Messages("role.select")</h5>
+                <hr>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3">
+                    <div class="col-md-12">
+                        <label class="form-label text-darker">@Messages("role.title")</label>
+                        <select id="listRoleDrd" class="form-select">
+                            @for((role: Role)<- roleList) {
+                                <option value="@role.getId">@role.getName</option>
+                            }
+                        </select>
+@*                        <div class="btn-group">*@
+@*                            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">*@
+@*                                Vai trò*@
+@*                            </button>*@
+@*                            <ul class="dropdown-menu">*@
+@*                            @for((role: Role)<- roleList) {*@
+@*                                <li><a class="dropdown-item" href="#">@role.getName</a></li>*@
+@*                            }*@
+@*                            </ul>*@
+@*                        </div>*@
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="addRoleForUser()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+        </div>
+    </div>
+</div>

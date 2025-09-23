@@ -1,0 +1,98 @@
+<div class="modal fade" id="addUpfileCustomerModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow: auto;">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <span class="modal-title" id="exampleModalLabel">@Messages("Thông tin hồ sơ khách hàng")</span>
+        <a class="close cursor-pointer" data-bs-dismiss="modal" aria-hidden="true" style="float: right; font-size: 20px;">×</a>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-10">
+            <div class="row mb-2" id="tabHopDongTraSau">
+              <span class="col-sm-2 col-form-label">@Messages("Hợp đồng *")</span>
+              <div class="col-sm-5" style="padding-left: 0px;">
+                <select class="form-control select-form" id="contractList"></select>
+              </div>
+            </div>
+
+            <div id="listChungTu" style=""></div>
+
+            <div class="row mt-3 mb-1">
+              <small class="form-label ">@Messages("* File pdf, jpg, jpeg, png dung lượng file không quá 3mb")</small>
+            </div>
+
+            @*<div class="row mt-3 mb-1">*@
+              @*<span class="col-sm-2 col-form-label">@Messages("Ảnh đại diện")</span>*@
+              @*<div class="col-sm-5">*@
+                @*<div class="row" style="border-radius: 8px; background: #F6F6F6;padding: 10px;">*@
+                  @*<div class="col-md-4 position-relative">*@
+                    @*<div class="d-flex flex-column align-items-center text-center square-item" >*@
+                      @*<img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview1" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">*@
+                      @*<input id="wizard-picture-1" key="HAKH" name="avatar" type="file" hidden/>*@
+                      @*<div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg1" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(1)"></i></div>*@
+                    @*</div>*@
+                  @*</div>*@
+                  @*<div class="col-md-8 position-relative">*@
+                    @*<label class="form-label ">@Messages("Upload image")</label><br>*@
+                    @*<label class="form-label ">@Messages("Kéo thả file ảnh hoặc mở file ")<a onclick="$('#wizard-picture-1').click();" class="cursor-pointer text-danger">@Messages("tại đây")</a></label>*@
+                  @*</div>*@
+                  @*<div class="col-md-12 position-relative">*@
+                    @*<small class="form-label ">@Messages("File jpg, png,... dung lượng file không quá 3mb")</small>*@
+                  @*</div>*@
+                @*</div>*@
+              @*</div>*@
+            @*</div>*@
+
+            @*<div class="row mb-1">*@
+              @*<span class="col-sm-2 col-form-label">@Messages("Ảnh CMT/CCCD")</span>*@
+              @*<div class="col-sm-5">*@
+                @*<div class="row" style="border-radius: 8px; background: #F6F6F6;padding: 10px;">*@
+                  @*<div class="col-md-4 position-relative">*@
+                    @*<div class="d-flex flex-column align-items-center text-center square-item" >*@
+                      @*<img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview2" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">*@
+                      @*<input id="wizard-picture-2" key="CMNDMT" name="avatar" type="file" hidden/>*@
+                      @*<div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg2" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(2)"></i></div>*@
+                    @*</div>*@
+                  @*</div>*@
+                  @*<div class="col-md-8 position-relative">*@
+                    @*<label class="form-label ">@Messages("Mặt trước CMT/CCCD")</label><br>*@
+                    @*<label class="form-label ">@Messages("Kéo thả file ảnh hoặc mở file ")<a onclick="$('#wizard-picture-2').click();" class="cursor-pointer text-danger">@Messages("tại đây")</a></label>*@
+                  @*</div>*@
+                  @*<div class="col-md-12 position-relative">*@
+                    @*<small class="form-label ">@Messages("File jpg, png,... dung lượng file không quá 3mb")</small>*@
+                  @*</div>*@
+                @*</div>*@
+              @*</div>*@
+              @*<div class="col-sm-5">*@
+                @*<div class="row" style="border-radius: 8px; background: #F6F6F6;padding: 10px;">*@
+                  @*<div class="col-md-4 position-relative">*@
+                    @*<div class="d-flex flex-column align-items-center text-center square-item" >*@
+                      @*<img src="@routes.Assets.versioned("images/market/default.png")" id="wizardPicturePreview3" onclick="zoomImg(this)" alt="Admin" class="p-1 zoom" style="width: 100%;object-fit: contain;">*@
+                      @*<input id="wizard-picture-3" key="CMNDMS" name="avatar" type="file" hidden/>*@
+                      @*<div class="position-absolute end-0 m-3 product-discount" id="buttonResetImg3" style="display: none"><i class="bx bx-x cursor-pointer" onclick="resetImageNumber(3)"></i></div>*@
+                    @*</div>*@
+                  @*</div>*@
+                  @*<div class="col-md-8 position-relative">*@
+                    @*<label class="form-label ">@Messages("Mặt sau CMT/CCCD")</label><br>*@
+                    @*<label class="form-label ">@Messages("Kéo thả file ảnh hoặc mở file ")<a onclick="$('#wizard-picture-3').click();" class="cursor-pointer text-danger">@Messages("tại đây")</a></label>*@
+                  @*</div>*@
+                  @*<div class="col-md-12 position-relative">*@
+                    @*<small class="form-label ">@Messages("File jpg, png,... dung lượng file không quá 3mb")</small>*@
+                  @*</div>*@
+                @*</div>*@
+              @*</div>*@
+            @*</div>*@
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cancle" onclick="backModalInfoCustomer()">@Messages("Trở về")</button>
+              <button type="button" class="btn btn-red" onclick="validateStartCreateQr()">@Messages("Tạo mã")</button>
+            </div>
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

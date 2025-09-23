@@ -1,0 +1,60 @@
+<div class="modal fade" id="contactFormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      @*<div class="modal-header">*@
+        @*<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>*@
+      @*</div>*@
+      <div class="modal-body">
+        <span class="title-form-contact-1">@Messages("Gửi thông tin liên hệ")</span>
+        <br>
+        <span class="title-form-contact-2">@Messages("Vui lòng nhập thông tin để liên hệ với người bán")</span>
+        <form class="row g-3 mt-3">
+          <div class="col-md-12">
+            <div class="row mb-1">
+              <span class="col-sm-12 col-form-label">@Messages("Họ tên")</span>
+              <div class="col-sm-12">
+                <input type="text" id="nameContact" class="form-control" maxlength="100" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <span class="col-sm-12 col-form-label">@Messages("Số điện thoại")</span>
+              <div class="col-sm-12">
+                <input type="number" id="phoneContact" class="form-control" maxlength="11" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <span class="col-sm-12 col-form-label">@Messages("Email")</span>
+              <div class="col-sm-12">
+                <input type="text" id="emailContact" class="form-control" maxlength="100" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <span class="col-sm-12 col-form-label">@Messages("Tên công ty")</span>
+              <div class="col-sm-12">
+                <input type="text" id="companyContact" class="form-control" maxlength="255" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="row mb-4">
+              <span class="col-sm-12 col-form-label">@Messages("Nội dung tin nhắn")</span>
+              <div class="col-sm-12">
+                <textarea class="form-control" id="contentContact" maxlength="1000" rows="5" placeholder="...tối đa 1000 kí tự"></textarea>
+              </div>
+            </div>
+
+            <div class="row mb-4">
+              <div class="col-sm-12">
+                <button type="button" class="btn btn-danger text-white" onclick="processSendContactMarket()" style="width: 100%;">
+                @Messages("Gửi thông tin") <img src="@routes.Assets.versioned("images/market/Vector2.svg")" class="" alt="..." style="font-size: 14px;">
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

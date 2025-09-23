@@ -1,0 +1,37 @@
+<div class="modal fade" id="addConfirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="theme16">
+            <div class="modal-header">
+                <h5 class="modal-title text-darker" id="exampleModalLabel">@Messages("manage.group.addNew")</h5><hr>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label text-darker">@Messages("manage.group.name")@Messages(" *")</label>
+                        <input id="nameGroupNew" name="name" type="text" class="form-control" maxlength="50" autocomplete="off" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="organizationAdd" name="name" type="text" class="form-control" maxlength="50" autocomplete="off" hidden>
+                        <label class="form-label text-darker">@Messages("manage.group.org")@Messages(" *")</label>
+                        <div class="ms-9">
+                            <input type="hidden" id="itype" name="itype" value="0" >
+                            <input type="hidden" id="orgIdMoveAdd">
+                            <div class="input-group">
+                                <a class="input-group-text"><i class='bx bx-search'></i></a>
+                                <input id="search-selectOrgAdd"  class="search-input form-control border-start-0" placeholder="...Tìm kiếm tổ chức" maxlength="50">
+                            </div>
+
+                            <hr>
+                            <div id="selectOrganizationsAdd" style="overflow: auto"></div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="postCreateNewGroup()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+        </div>
+    </div> <!-- modal-bialog .// -->
+</div>

@@ -1,0 +1,114 @@
+<div class="modal fade" id="addInfoCustomerModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <span class="modal-title" id="exampleModalLabel">@Messages("Thông tin khách hàng")</span>
+        <a class="close cursor-pointer" data-bs-dismiss="modal" aria-hidden="true" style="float: right; font-size: 20px;">×</a>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-10">
+            <div class="row mb-1">
+              <span class="col-sm-3 col-form-label">@Messages("Tên khách hàng *")</span>
+              <div class="col-sm-5">
+                <input type="text" class="form-control input-form" id="nameCustomer" maxlength="50"/>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-3 col-form-label">@Messages("Loại KH *")</span>
+              <div class="col-sm-5">
+                <select class="form-control select-form" id="typeCustomer">
+                  <option value="VTL" selected>@Messages("KH doanh nghiệp")</option>
+                  <option value="VIE" >@Messages("KH cá nhân")</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-3 col-form-label">@Messages("Ngày sinh *")</span>
+              <div class="col-sm-5">
+                <input id="birthdayCustomer" type="text" class="form-control input-form date_timepicker" maxlength="50" placeholder="DD/MM/YYYY">
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-3 col-form-label">@Messages("Giới tính *")</span>
+              <div class="col-sm-5">
+                <select class="form-control select-form" id="sexCustomer">
+                  <option value="M">@Messages("Nam")</option>
+                  <option value="F">@Messages("Nữ")</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-3 col-form-label">@Messages("Quốc tịch *")</span>
+              <div class="col-sm-5">
+                <select class="form-control" id="nationCustomer">
+                  <option value="vietnam">@Messages("Việt Nam")</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-3 col-form-label">@Messages("Địa chỉ *")</span>
+              <div class="col-sm-9">
+                <div class="row">
+                  <div class="col-sm-4 mb-1">
+                    <select class="form-control" id="tinhTp" onchange="selectDistrict()">
+                      <option value="">@Messages("Tỉnh/ TP")</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-4 mb-1">
+                    <select class="form-control" id="quanHuyen" onchange="selectWard()">
+                      <option value="">@Messages("Huyện/ Quận")</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-4 mb-1">
+                    <select class="form-control" id="phuongXa">
+                      <option value="">@Messages("Phường/Xã")</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-12 mb-1">
+                    <input id="diaChiChiTiet" type="text" class="form-control input-form" maxlength="500" placeholder="Địa chỉ chi tiết">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-3 col-form-label">@Messages("Thông tin giấy tờ *")</span>
+              <div class="col-sm-9">
+                <div class="row">
+                  <div class="col-sm-6 mb-1">
+                    <select class="form-control" id="loai_giay_to">
+                      <option value="ID">@Messages("Chứng mình thư")</option>
+                      <option value="IDC" selected>@Messages("Căn cước công dân")</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6 mb-1">
+                    <input id="so_giay_to" type="text" class="form-control input-form" maxlength="50" placeholder="Số giấy tờ">
+                  </div>
+                  <div class="col-sm-6 mb-1">
+                    <input id="noi_cap" type="text" class="form-control input-form" maxlength="50" placeholder="Nơi cấp">
+                  </div>
+                  <div class="col-sm-6 mb-1">
+                    <input id="ngay_cap" type="text" class="form-control input-form date_timepicker" maxlength="50" placeholder="Ngày cấp">
+                  </div>
+                  <div class="col-sm-6 mb-1">
+                    <input id="ngay_het_han" type="text" class="form-control input-form date_timepicker" maxlength="50" placeholder="Ngày hết hạn">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cancle" onclick="backModalImportSerial()">@Messages("Trở về")</button>
+              <button type="button" class="btn btn-red" onclick="nextModalUpfileCustomer()">@Messages("btnPrev")</button>
+            </div>
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

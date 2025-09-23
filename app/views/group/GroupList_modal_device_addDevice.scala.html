@@ -1,0 +1,45 @@
+<div class="modal fade" id="groupadddevice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="myModalLabel">@Messages("iot.manage.org.AddDeviceToOrg")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-md-12">
+            <div class="row mb-4">
+              <label class="col-sm-3 col-form-label">@Messages("device.add.name")@Messages(" *")</label>
+              <div class="col-sm-8">
+                <input id="nameDeviceAdd" name="name" type="text" class="form-control" maxlength="30" autocomplete="off" required>
+                <br>
+                <h7 class="textNote">@Messages("manage.group.org.30char")</h7>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <label class="col-sm-3 col-form-label">@Messages("manage.group.tructhuoc")@Messages(" *")</label>
+              <div class="col-sm-8">
+                <select id="chooseGroupDeviceAdd" class="form-select">
+                  <option selected disabled>@Messages("manage.group.tructhuoc")</option>
+
+                </select>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <label class="col-sm-3 col-form-label">@Messages("manage.group.templateDevice")@Messages(" *")</label>
+              <div class="col-sm-8">
+                <select id="chooseTemplateDeviceAdd" class="form-select">
+                  <option value="" selected disabled>@Messages("manage.group.templateDevice")</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnAcceptDevice" onclick="processCreateDeviceToOrg()" class="btn btn-danger" data-bs-dismiss="modal">@Messages("btnSave")</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<!-- SIDE MENU -->
+<div id="skin-select">
+  <div id="logo">
+    <h1>IoT
+      <span>v1.1</span>
+    </h1>
+  </div>
+
+  <a id="toggle">
+    <span class="entypo-menu"></span>
+  </a>
+  <div class="dark">
+    <form action="#">
+      <span>
+        <input type="text" name="search" value="" class="search rounded id_search" placeholder="Search Menu..." autofocus />
+      </span>
+    </form>
+  </div>
+
+  <div class="search-hover">
+    <form id="demo-2">
+      <input type="search" placeholder="Search Menu..." class="id_search">
+    </form>
+  </div>
+
+  <div class="skin-part">
+    <div id="tree-wrap">
+      <div class="side-bar">
+        <ul class="topnav menu-left-nest">
+          <li>
+            <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+              <span class="design-kit"></span>
+              <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+            </a>
+          </li>
+
+          <li>
+            <a class="tooltip-tip ajax-load" href="@routes.DashboardController.dashboard()" title="Dashboard">
+              <i class="icon-window"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+
+          @*<li>*@
+            @*<a class="tooltip-tip ajax-load" href="@routes.DeviceIotController.deviceIotList()" title="Device">*@
+              @*<i class="icon-tablet-portrait"></i>*@
+              @*<span>@Messages("Manage Devices")</span>*@
+            @*</a>*@
+          @*</li>*@
+          <li>
+            <a class="tooltip-tip ajax-load" href="@routes.UserController.userList()" title="User">
+              <i class="icon-user"></i>
+              <span>@Messages("Manage Users")</span>
+            </a>
+          </li>
+          <li>
+            <a class="tooltip-tip ajax-load" href="" title="Mail">
+              <i class="icon-mail"></i>
+              <span>mail</span>
+              <div class="noft-blue">289</div>
+            </a>
+          </li>
+
+        </ul>
+
+
+        <div class="side-dash">
+          <h3>
+            <span>Device</span>
+          </h3>
+          <ul class="side-dashh-list">
+            <li>Avg.
+              <span>25k<i style="color:#44BBC1;" class="fa fa-arrow-circle-up"></i>
+                  </span>
+            </li>
+            <li>Visitors
+              <span>80%<i style="color:#AB6DB0;" class="fa fa-arrow-circle-down"></i>
+                  </span>
+            </li>
+            <li>Convertion Rate
+              <span>13m<i style="color:#19A1F9;" class="fa fa-arrow-circle-up"></i>
+                  </span>
+            </li>
+          </ul>
+          <h3>
+            <span>Statistical</span>
+          </h3>
+          <ul class="side-bar-list">
+            <li>Avg.
+              <div class="linebar">5,7,8,9,3,5,3,8,5</div>
+            </li>
+            <li>Visitors
+              <div class="linebar2">9,7,8,9,5,9,6,8,7</div>
+            </li>
+            <li>Convertion Rate
+              <div class="linebar3">5,7,8,9,3,5,3,8,5</div>
+            </li>
+          </ul>
+          <h3>
+            <span>Visitors</span>
+          </h3>
+          <div id="g1" style="height:180px" class="gauge"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- END OF SIDE MENU -->

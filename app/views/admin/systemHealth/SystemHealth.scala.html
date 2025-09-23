@@ -1,0 +1,75 @@
+@import helper._
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("Admin Overview")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+
+  </head>
+  <body class="bg-theme">
+    @views.html.admin.navbar()
+
+    @views.html.admin.header(currentUser)
+
+    <div class="page-wrapper pb-5" style="background-color: white;">
+      <div class="page-content">
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <iframe src="https://grafana.innoway.vn/d-solo/kschASZVk/kqi-dashboard?orgId=2&theme=light&panelId=11" width="100%" height="350" frameborder="0"></iframe>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card">
+              <iframe src="https://grafana.innoway.vn/d-solo/kschASZVk/kqi-dashboard?orgId=2&theme=light&panelId=12" width="100%" height="350" frameborder="0"></iframe>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card">
+              <iframe src="https://grafana.innoway.vn/d-solo/kschASZVk/kqi-dashboard?orgId=2&theme=light&panelId=14" width="100%" height="350" frameborder="0"></iframe>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card">
+              <iframe src="https://grafana.innoway.vn/d-solo/kschASZVk/kqi-dashboard?orgId=2&theme=light&panelId=8" width="100%" height="350" frameborder="0"></iframe>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card">
+              <iframe src="https://grafana.innoway.vn/d-solo/kschASZVk/kqi-dashboard?orgId=2&theme=light&panelId=10" width="100%" height="350" frameborder="0"></iframe>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+      <!--  END OF PAPER WRAP -->
+    @views.html.Loading()
+
+  </body>
+
+  @views.html.admin.mainJs()
+
+  <script>
+          $(document).ready(function () {
+            $("#menu-adminSystemHealth").addClass("mm-active");
+            $("#menu").metisMenu();
+          });
+
+  </script>
+
+</html>

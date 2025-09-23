@@ -1,0 +1,104 @@
+.facebook-icon {
+    width: 60px;
+    height: 60px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 26px;
+    color: #fff;
+    position: fixed;
+    align-items: center;
+    border-radius: 60px;
+    bottom: 140px;
+    right: 24px;
+    background-color: #0A7CFF;
+    z-index: 5
+}
+.facebook-icon:hover {
+    color: #fff;
+    background-color: #000;
+    transition: all .5s
+}
+
+.youtube-icon {
+    width: 60px;
+    height: 60px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 26px;
+    color: #fff;
+    position: fixed;
+    align-items: center;
+    border-radius: 60px;
+    bottom: 210px;
+    right: 24px;
+    background-color: rgb(255 5 5 / 80%);
+    z-index: 5
+}
+.youtube-icon:hover {
+    color: #fff;
+    background-color: #000;
+    transition: all .5s
+}
+
+.instagram-icon {
+    width: 60px;
+    height: 60px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 26px;
+    color: #fff;
+    position: fixed;
+    align-items: center;
+    border-radius: 60px;
+    bottom: 280px;
+    right: 24px;
+    background-color: #F56040;
+    z-index: 5
+}
+.instagram-icon:hover {
+    color: #fff;
+    background-color: #000;
+    transition: all .5s
+}
+
+.twitter-icon {
+    width: 60px;
+    height: 60px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 26px;
+    color: #fff;
+    position: fixed;
+    align-items: center;
+    border-radius: 60px;
+    bottom: 350px;
+    right: 24px;
+    background-color: #1DA1F2;
+    z-index: 5
+}
+.twitter-icon:hover {
+    color: #fff;
+    background-color: #000;
+    transition: all .5s
+}
+
+.linkedin-icon {
+    width: 60px;
+    height: 60px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 26px;
+    color: #fff;
+    position: fixed;
+    align-items: center;
+    border-radius: 60px;
+    bottom: 420px;
+    right: 24px;
+    background-color: #0077B5;
+    z-index: 5
+}
+.linkedin-icon:hover {
+    color: #fff;
+    background-color: #000;
+    transition: all .5s
+}

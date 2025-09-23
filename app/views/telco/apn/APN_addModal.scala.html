@@ -1,0 +1,110 @@
+<div class="modal fade" id="addDefaultAPN" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" >@Messages("apn.modal.assignDefaultAPN")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-md-12 justify-content-center text-center">
+            <div>
+              @Messages("apn.modal.confirmDefaultAPN")
+            </div>
+            <div>
+              @Messages("apn.modal.networkWarning")
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn_cmp is-outline mt-3 fs-6 fw-normal" data-bs-dismiss="modal">@Messages("common.cancel")</button>
+        <button type="button" class="confirm-register-apn btn_cmp is-primary fs-6 fw-normal" data-bs-dismiss="modal" onclick="RegisterAPN(true)">@Messages("common.confirm")</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="addPrivateAPN" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" >@Messages("apn.modal.assignAPNIP")</h5>
+      </div>
+      <div class="modal-body bg-white" style="padding-left: 30px; padding-right: 30px;">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <input id="idGroupProductEdit" type="text" class="form-control" autocomplete="off" readonly hidden>
+            <div class="row mb-3" id="apn-name-field">
+              <label class="col-sm-3 col-form-label">@Messages("apn.modal.apnName") <span
+            class="text-red">@Messages("apn.modal.required")</span></label>
+              <div class="col-sm-9">
+                 <select id="apn-name" class="form-select" onchange="handleChooseAPN()">
+                   <option value="" disabled selected hidden>@Messages("apn.modal.chooseAPN")</option>
+                </select>
+                <div class="helper-text form-text text-danger mt-2" style="min-height: 14px;">
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-3" id="apn-fromDate-field">
+              <label class="col-sm-3 col-form-label">@Messages("apn.modal.fromDate") <span
+            class="text-red">@Messages("*")</span></label>
+              <div class="col-sm-9">
+                <input id="apn-fromDate" type="text" class="form-control datetime-picker" placeholder="DD/MM/YYYY" required onchange="(()=>{validateApnStartDate();validateApnEndDate()})()">
+                  <div class="helper-text form-text text-danger mt-2" style="min-height: 14px;">
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-3" id="apn-reason-field">
+              <label class="col-sm-3 col-form-label">@Messages("apn.add.reason") <span
+            class="text-red">@Messages("*")</span></label>
+              <div class="col-sm-9">
+                <select id="apn-reason" class="form-select" onchange="validateApnReason()" value="299799">
+                  <option value="299799">@Messages("apn.add.customerRequest")</option>
+                </select>
+                  <div class="helper-text form-text text-danger mt-2" style="min-height: 14px;">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row mb-3" id="apn-ip-field">
+              <label class="col-sm-3 col-form-label">@Messages("apn.add.ip") <span
+            class="text-red">@Messages("*")</span></label>
+              <div class="col-sm-9">
+                <select id="apn-ip" class="form-select" onchange="validateApnIp()" aria-placeholder="@Messages("apn.add.chooseIP")">
+                   <option value="" disabled selected hidden>@Messages("apn.add.chooseIP")</option>
+                </select>
+                <div class="helper-text form-text text-danger mt-2" style="min-height: 14px;">
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-3" id="apn-toDate-field">
+              <label class="col-sm-3 col-form-label">@Messages("apn.add.endDate") <span
+            class="text-red">@Messages("*")</span></label>
+              <div class="col-sm-9">
+                <input id="apn-toDate" type="text" class="form-control datetime-picker" placeholder="DD/MM/YYYY" required onchange="(()=>{validateApnEndDate();validateApnStartDate()})()">
+                  <div class="helper-text form-text text-danger mt-2" style="min-height: 14px;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="fst-italic">
+            <div>
+              @Messages("apn.add.note")
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn_cmp is-outline mt-3 fs-6 fw-normal" data-bs-dismiss="modal">@Messages("common.cancel")</button>
+        <button type="button" class="confirm-register-apn btn_cmp is-primary fs-6 fw-normal" onclick="RegisterAPN(false)">@Messages("common.confirm")</button>
+      </div>
+    </div>
+  </div>
+</div>
+

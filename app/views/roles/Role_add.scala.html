@@ -1,0 +1,62 @@
+<form>
+    <div id="addConfirmModal" class="modal fixed-left fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-aside" role="document" style="width: 40%">
+            <div class="modal-content" id="theme16">
+                <div class="modal-header">
+                    <h5 class="modal-title text-darker" id="exampleModalLabel">@Messages("role.addNew")</h5>
+                    <hr>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3">
+                        <div class="col-md-12">
+                            <label class="form-label text-darker">@Messages("role.name")@Messages(" *")</label>
+                            <input id="newRoleName" name="name" type="text" class="form-control" maxlength="50" autocomplete="off" required>
+                        </div><hr>
+
+                        <div class="col-md-12">
+                            <label class="form-label text-darker">@Messages("role.resources")@Messages(" *")</label>
+                            <div id="resourceList">
+                                <div class="row py-3">
+                                    <div class="col-md-3">
+                                        <select id="serviceList" class="form-select service-list">
+                                            <option class="devices" selected value="devices">@Messages("role.service.devices")</option>
+                                            <option class="groups" value="groups">@Messages("role.service.groups")</option>
+                                            <option class="devicetypes" value="devicetypes">@Messages("role.service.devicetypes")</option>
+                                            <option class="topics" value="topics">@Messages("role.service.topics")</option>
+                                            <option class="devicetokens" value="devicetokens">@Messages("role.service.devicetokens")</option>
+                                            <option class="events" value="events">@Messages("role.service.events")</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select id="servicePermissions" data-placeholder="Lựa chọn nghiệp vụ" multiple class="chosen-select permission-list">
+                                            <option value="create" >@Messages("role.permission.create")</option>
+                                            <option value="read" selected>@Messages("role.permission.read")</option>
+                                            <option value="modify">@Messages("role.permission.modify")</option>
+                                            <option value="delete">@Messages("role.permission.delete")</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1 pt-sm-2">
+                                        <i style="font-size: 16px; cursor: pointer;" class="bx bxs-trash-alt icon-remove-resource"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="text-align: center;" class="row">
+                                <i id="addMore" style="font-size: 50px;cursor: pointer;" class="bx bxs-plus-circle"></i>
+                            </div>
+                            <hr>
+
+                        </div>
+
+
+
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="createNewRole()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+                </div>
+            </div>
+        </div> <!-- modal-bialog .// -->
+    </div>
+</form>

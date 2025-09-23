@@ -1,0 +1,104 @@
+<div class="wrapper">
+  <div class="sidebar-wrapper" data-simplebar="true" style="background-color: #F4F5F6;">
+    <div class="sidebar-header" style="background-color: white;">
+      <div>
+        <img src="@routes.Assets.versioned("images/dashboard/logo.svg")" class="logo-icon" alt="logo icon" style="width: 150px; margin-left: 35px;">
+      </div>
+      <div class="toggle-icon ms-auto" id="arrowMenu" style="display: none"><i class='bx bx-arrow-to-left'></i>
+      </div>
+    </div>
+      <!--navigation-->
+    <ul class="metismenu" id="menu">
+
+      <li id="menu-adminOverview">
+        <a href="@routes.AdminOverviewController.adminOverview()">
+          <div class="parent-icon">
+            <i class="bx bx-desktop"></i>
+          </div>
+          <div class="menu-title">@Messages("Tổng quan hệ thống")</div>
+        </a>
+      </li>
+
+      <li id="menu-adminSystemHealth">
+        <a href="@routes.AdminSystemHealthController.systemHealth()">
+          <div class="parent-icon">
+            <i class="bx bx-home-heart"></i>
+          </div>
+          <div class="menu-title">@Messages("Sức khoẻ hệ thống")</div>
+        </a>
+      </li>
+
+      @*<li id="menu-adminManageSim">*@
+        @*<a href="@routes.AdminManageSimController.adminManageSim()">*@
+          @*<div class="parent-icon">*@
+            @*<i class="bx bxs-memory-card"></i>*@
+          @*</div>*@
+          @*<div class="menu-title">@Messages("Quản lý sim ")</div>*@
+        @*</a>*@
+      @*</li>*@
+
+      <li id="menu-templateDevice">
+        <a href="@routes.TemplateDeviceController.templateDeviceList()">
+          <div class="parent-icon">
+            <i class="bx bx-devices"></i>
+          </div>
+          <div class="menu-title">@Messages("Quản lý mẫu thiết bị ")</div>
+        </a>
+      </li>
+
+      <li id="menu-registerDeveloper">
+        <a href="@routes.AdminRegisterDeveloperController.registerDeveloperList()">
+          <div class="parent-icon">
+            <i class="bx bx-list-check"></i>
+          </div>
+          <div class="menu-title">@Messages("DS Đăng kí Developer ")</div>
+        </a>
+      </li>
+
+      <li id="menu-groupProduct">
+        <a href="@routes.AdminGroupProductController.groupProductList()">
+          <div class="parent-icon">
+            <i class="bx bxl-product-hunt"></i>
+          </div>
+          <div class="menu-title">@Messages("Quản lý nhóm sản phẩm")</div>
+        </a>
+      </li>
+
+      <li id="menu-manageProduct">
+        <a href="@routes.ProductListController.manageProductList()">
+          <div class="parent-icon">
+            <i class="bx bx-package"></i>
+          </div>
+          <div class="menu-title">@Messages("Quản lý sản phẩm")</div>
+        </a>
+      </li>
+
+      <li id="menu-manageContact">
+        <a href="@routes.MarketPlaceContactController.productContactList()">
+          <div class="parent-icon">
+            <i class="bx bx-credit-card"></i>
+          </div>
+          <div class="menu-title">@Messages("Quản lý liên hệ")</div>
+        </a>
+      </li>
+
+      <li id="">
+        <a href="@routes.AdminTelcoController.approvedInfoCompanyTelco()">
+          <div class="parent-icon">
+            <i class="bx bx-store"></i>
+          </div>
+          <div class="menu-title">@Messages("Quản lý doanh nghiệp")</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="@routes.Application.logout()">
+          <div class="parent-icon">
+            <i class='bx bx-log-out'></i>
+          </div>
+          <div class="menu-title">@Messages("manage.logout")</div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

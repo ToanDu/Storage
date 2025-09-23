@@ -1,0 +1,104 @@
+<div class="modal fade" id="editWidgetGaugeModal" tabindex="-1" aria-labelledby="editGaugeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="theme16">
+            <div class="modal-header">
+                <h5 class="modal-title text-white" id="editGaugeModalLabel">@Messages("Sửa widget biểu đồ máy đo")</h5>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="col-md-12" style="background: #858687; padding: 8px">
+                            <span style="color: white; margin-left: 25px">@Messages("HIỂN THỊ")</span>
+                        </div>
+                        <div class="col-md-12 mt-3" style="border: 1px solid #858687;">
+                            <div class="row p-3">
+                                <div class="col-md-6">
+                                    <div class="header-center">
+                                        <label for="idWidgetGaugeEditTitle" class="col-form-label">@Messages("Tiêu đề *")</label>
+                                        <input type="text" class="form-control col-sm-6" id="idWidgetGaugeEditTitle" name="idWidgetGaugeEditTitle">
+                                        <h7 class="textNote">@Messages("manage.group.org.30char")</h7>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="header-center">
+                                        <label for="idWidgetGaugeEditUnit" class="col-form-label">Đơn vị</label>
+                                        <input type="text" class="form-control" id="idWidgetGaugeEditUnit" name="idWidgetGaugeEditUnit">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="header-center">
+                                        <label for="idWidgetGaugeEditMax" class="col-form-label">Giá trị lớn nhất</label>
+                                        <input type="number" value="100" min="0" class="form-control" id="idWidgetGaugeEditMax" name="idWidgetGaugeEditMax">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 mt-3" style="background: #858687; padding: 8px">
+                            <span style="color: white; margin-left: 25px">@Messages("DỮ LIỆU")</span>
+                        </div>
+                        <div class="col-md-12 mt-3" style="border: 1px solid #858687;">
+                            <div class="row p-3">
+                                <div class="col-md-6">
+                                    <div class="header-center">
+                                        <label for="idWidgetGaugeEditOption" class="col-sm-6 col-form-label">@Messages("Bộ lọc")</label>
+                                        <select class="form-select mb-3" id="idWidgetGaugeEditOption" name="idWidgetGaugeEditOption" onchange="changeOptionWidgetGaugeEdit(this)">
+                                            <option value="" disabled>Chọn</option>
+                                            <option value="org">Tổ chức</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="header-center filter" id="idWidgetGaugeOrg" style="display: none">
+                                        <label for="selectWidgetGaugeEditOrg" class="col-sm-6 col-form-label">@Messages("Tổ chức")</label>
+                                        <select class="form-select mb-3" id="selectWidgetGaugeEditOrg" name="selectWidgetGaugeEditOrg" onchange="changeOrgWidgetGaugeEdit(this)">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" style="display: inline-flex; justify-content: center;">
+                                    <div class="table-loading"></div>
+                                </div>
+                                <div id="idWidgetGaugeTable" style="overflow: auto;"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-1"></div>
+
+                </form>
+
+            </div>
+            <div class="modal-header" style="background-color: white">
+                <button type="button" class="btn btn-success" onclick="confirmWidgetGauge()">@Messages("btnComfirm")</button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="gauge-edit-table-template" type="x-tmpl-mustache">
+<input type="hidden" name="widgetGaugeTableCheckbox" id="widgetGaugeTableCheckbox"/>
+    <table class="table table-bordered table-nowrap">
+        <thead class="thead-light">
+            <tr>
+                <th>Thiết bị</th>
+                <th colspan=100 style="text-align: center;vertical-align: middle;">Thuộc tính</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            {{#devices}}
+                <tr>
+                    <td data-id={{id}}>{{name}}</td>
+                    {{#vars}}
+                        <td>
+                            <input {{disabled}} name="{{wid}}" type="radio" data-id={{id}} data-name={{name}} id="{{wid}}-{{attribute_key}}" attribute-key={{attribute_key}} attribute-type={{attribute_type}} value-type={{value_type}}>
+                            <label for="{{wid}}-{{id}}">{{attribute_key}}</label>
+                        </td>
+                    {{/vars}}
+                </tr>
+            {{/devices}}
+        </tbody>
+    </table>
+</script>

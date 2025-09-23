@@ -1,0 +1,252 @@
+@import helper._
+@import vn.m2m.common.models.User
+@import vn.m2m.models.Group
+@import vn.m2m.utils.UserHelper
+@(currentUser:User, listGroupJson: List[Group], currentGroup: Group, listOtherGroups:List[Group])
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("Manage Groups")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/iot.png")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <link href="@routes.Assets.versioned("stylesheets/views/group/style.min.css")" rel="stylesheet" />
+    <link rel="stylesheet" href="@routes.Assets.versioned("assets/js/wizard/css/jquery.steps.css")">
+    <link type="text/css" rel="stylesheet" href="@routes.Assets.versioned("assets/js/wizard/jquery.stepy.css")" />
+    <link href="@routes.Assets.versioned("assets/js/tabs/acc-wizard.min.css")" rel="stylesheet">
+
+    <style type="text/css">
+      .modal-dialog-aside {
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+            .modal .modal-dialog-aside{
+              width: 350px;
+              max-width:80%; height: 100%; margin:0;
+              transform: translate(0); transition: transform .2s;
+            }
+            .modal .modal-dialog-aside .modal-content{  height: inherit; border:0; border-radius: 0;}
+            .modal .modal-dialog-aside .modal-content .modal-body{ overflow-y: auto }
+            /*.modal.fixed-left .modal-dialog-aside{ margin-left:auto;  transform: translateX(100%); }*/
+            .modal.fixed-right .modal-dialog-aside{ margin-right:auto; transform: translateX(-100%); }
+            .modal.show .modal-dialog-aside{ transform: translateX(0);  }
+    </style>
+
+  </head>
+  <body>
+      <!-- Preloader -->
+    <div id="preloader">
+      <div id="status">&nbsp;</div>
+    </div>
+
+    <nav role="navigation" class="navbar navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle" type="button">
+            <span class="entypo-menu"></span>
+          </button>
+          <button class="navbar-toggle toggle-menu-mobile toggle-left" type="button">
+            <span class="entypo-list-add"></span>
+          </button>
+
+          <div id="logo-mobile" class="visible-xs">
+            <h1>IoT Platform
+              <span>v1.1</span>
+            </h1>
+          </div>
+        </div>
+
+        @views.html.dashboard.Navbar(currentUser)
+      </div>
+    </nav>
+
+    @views.html.dashboard.SideMenu(currentUser)
+
+      <!--  PAPER WRAP -->
+    <div class="wrap-fluid">
+      <div class="container-fluid paper-wrap bevel tlbr">
+          <!-- CONTENT -->
+        @views.html.dashboard.Title(currentUser, Messages("Manage Groups"))
+
+          <!--  DEVICE MANAGER -->
+        <div class="content-wrap">
+          <div class="row">
+            <div class="col-sm-12">
+
+              <div class="col-md-3" >
+                <div class="panel" style="height: 40em; background-color: white">
+                  <div class="panel-heading" >
+                    <h4 class="panel-title">
+                      <div class="row" style="padding: 10px">
+                        <div class="col-md-10" >
+                          <input id="search-input" class="search-input" style="border-radius: 20px; width: 100%" placeholder=" ...Search Group">
+                        </div>
+                        <div class="col-md-2">
+                          <a href="javascript:void(0)" style="display: inline; width: 50px; color: #0b75c9" data-toggle='modal' data-target='#addGroupRootModal'>
+                            <i style="float: right; font-size: 20px;" class="fa fa-plus-square" aria-hidden="true"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </h4>
+                  </div>
+                  <div class="panel-body" style="padding: 2px 2px 2px 2px; overflow-y: auto; max-height: 700px" >
+                    <div style="background-color: white; width: 100%; height: 43em; overflow: auto">
+                      <div id="jstree" style="background-color: white;">
+                        @*sideBar jstree in here...*@
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-9" style="background-color: white;">
+                <div class="nest" id="tabClose">
+                  @*<div class="title-alt">*@
+                    @*<h6>*@
+                      @*Tabs</h6>*@
+                    @*<div class="titleToggle">*@
+                      @*<a class="nav-toggle-alt" href="#tab">*@
+                        @*<span class="entypo-up-open"></span>*@
+                      @*</a>*@
+                    @*</div>*@
+
+                  @*</div>*@
+
+                  <div class="body-nest" id="tab">
+
+                    <div id="wizard-tab">
+                      <h2>@Messages("iot.manage.groupAis.UpdateGroupInfo")</h2>
+                      <section>@views.html.group.GroupList_tab_updateGroup()</section>
+
+                      <h2>@Messages("iot.manage.groupAis.addGroupChild")</h2>
+                      <section>@views.html.group.GroupList_tab_insertGroup()</section>
+
+                      <h2>@Messages("iot.manage.groupAis.AddRemoveUser")</h2>
+                      <section>@views.html.group.GroupList_tab_AddDelUser()</section>
+
+                      <h2 id="h2TabDevice">@Messages("iot.manage.groupAis.AddRemoveDevice")</h2>
+                      <section id="sectionTabDevice">@views.html.group.GroupList_tab_AddMoveDevice()</section>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+          <!--  / DEVICE MANAGER -->
+
+        <div class="content-wrap">
+          <div class="row">
+
+          </div>
+            <!-- /END OF CONTENT -->
+
+          @views.html.dashboard.Footer()
+
+        </div>
+      </div>
+    </div>
+      <!--  END OF PAPER WRAP -->
+
+
+    @views.html.dashboard.RightSlide()
+
+
+    <script src="@routes.Assets.versioned("javascripts/js/plugins/bootstrap-selectpicker.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/group/jstree.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/group/TreeGroup.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/group/UserGroup.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/group/DeviceGroup.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/group/TreeGroup_move.js")" type="text/javascript"></script>
+
+    <script>
+            $(function ($) {
+              // 6 create an instance when the DOM is ready
+              $('#jstree').jstree({
+                core: {
+                  data: [
+                    @for((group: Group) <- listGroupJson){
+                    {
+                      "id": '@group.getId()',
+                      @*"parent": '@group.getParent()',*@
+                      "text": '@group.getName'
+                    },
+                    }
+                  ],
+                  check_callback: true  // don't forget to set this param to true
+                },
+                "plugins": ["search", "sort"],
+                "search": {
+                  "case_sensitive": false,
+                  "show_only_matches": true
+                },
+                "sort" : function(a, b) {
+                  //What is the function of sorting
+                  a1 = this.get_node(a);
+                  b1 = this.get_node(b);
+                  if (a1.icon == b1.icon){
+                    return (a1.text > b1.text) ? 1 : -1;
+                  } else {
+                    return (a1.icon > b1.icon) ? 1 : -1;
+                  }
+                }
+              });
+              $('#jstree').jstree();
+              // 7 bind to events triggered on the tree
+              $('#jstree').on("changed.jstree", function (e, data) {
+                selectGroup(data.selected);
+              });
+              // 8 interact with the tree - either way is OK
+              $('button').on('click', function () {
+                $('#jstree').jstree(true).select_node('child_node_1');
+                $('#jstree').jstree('select_node', 'child_node_1');
+                $.jstree.reference('#jstree').select_node('child_node_1');
+              });
+
+              $('#jstree').on('loaded.jstree', function() {
+                //open tat ca cac node
+                $('#jstree').jstree('open_all');
+                //select node default
+                @if(listGroupJson!=null && listGroupJson.size()>0){
+                //select node default
+                @if(currentGroup!=null && currentGroup.getId()!=null){
+                $('#jstree').jstree('select_node', '@currentGroup.getId()');
+                }else{
+                $('#jstree').jstree('select_node', '@listGroupJson.get(0).getId()');
+                }
+                }
+              });
+              $(".search-input").keyup(function () {
+                var searchString = $(this).val();
+                $('#jstree').jstree('search', searchString);
+              });
+            });
+    </script>
+
+    <script type="text/javascript" src="@routes.Assets.versioned("assets/js/wizard/lib/jquery.cookie-1.3.1.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.versioned("assets/js/wizard/build/jquery.steps.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.versioned("assets/js/wizard/jquery.stepy.js")"></script>
+    <script>
+            $("#wizard-tab").steps({
+              headerTag: "h2",
+              bodyTag: "section",
+              transitionEffect: "none",
+              enableFinishButton: false,
+              enablePagination: false,
+              enableAllSteps: true,
+              titleTemplate: "#title#",
+              cssClass: "tabcontrol"
+            });
+    </script>
+
+  </body>
+</html>

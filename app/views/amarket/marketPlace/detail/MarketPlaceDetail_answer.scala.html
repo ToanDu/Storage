@@ -1,0 +1,44 @@
+<div class="modal fade" id="answerFormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">@Messages("Trả lời bình luận")</h4><br>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <div class="col-md-12">
+            <input id="parentId" type="text" class="form-control" readonly hidden>
+            <div class="row">
+              <label class="col-sm-12 col-form-label questionText">@Messages("Nội dung")</label>
+              <div class="col-sm-12">
+                <h6 id="questionContent"></h6>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <label class="col-sm-12 col-form-label questionText">@Messages("Câu trả lời")</label>
+              <div class="col-sm-12">
+                <textarea class="form-control" id="answerContent" placeholder="... nội dung tối đa 1000 kí tự" maxlength="1000" rows="5"></textarea>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <label class="col-sm-12 col-form-label questionText">@Messages("Tên")</label>
+              <div class="col-sm-12">
+                <input id="answerName" type="text" class="form-control " maxlength="50" autocomplete="off" placeholder="...tối đa 50 kí tự">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <label class="col-sm-12 col-form-label questionText">@Messages("Email")</label>
+              <div class="col-sm-12">
+                <input id="answerEmail" type="text" class="form-control " maxlength="50" autocomplete="off" placeholder="...tối đa 50 kí tự">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger text-white" onclick="proccessAnswer()" data-bs-dismiss="modal">@Messages("Gửi")</button>
+        <button type="button" class="btn btn-default text-white" data-bs-dismiss="modal">@Messages("btnClose")</button>
+      </div>
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

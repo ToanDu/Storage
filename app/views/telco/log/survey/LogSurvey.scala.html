@@ -1,0 +1,110 @@
+@import vn.m2m.utils.DateUtil
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("Khảo sát")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+
+    <link href="@routes.Assets.versioned("stylesheets/views/modal-right.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("assets/plugins/input-tags/css/tagsinput.css")" rel="stylesheet" />
+    @*<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >*@
+    <link href='@routes.Assets.versioned("stylesheets/fonts/roboto.css")' type='text/css'>
+    <link href="@routes.Assets.versioned("stylesheets/fonts/fonts.googleapis/fontsgoogleapis.css")" rel="stylesheet">
+    <link href="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.min.css")" rel="stylesheet" >
+
+    <link href="@routes.Assets.versioned("stylesheets/views/telco/telco.css")" rel="stylesheet" />
+
+  </head>
+  <body class="bg-theme">
+    @views.html.telco.role.Menu(currentUser)
+
+    @views.html.telco.role.Header(currentUser)
+
+    <div class="page-wrapper">
+      <div class="page-content">
+
+        @views.html.telco.log.survey.LogSurvey_search()
+
+        <div class="card">
+          <div class="table-responsive mb-3" style="border-radius: 8px;">
+            <table class="table table-striped" id="listLogsTable" style="width: 100%;">
+              <thead style="background-color: #FBCCD6;">
+                <tr>
+                  <th>@Messages("STT")</th>
+                  <th>@Messages("User")</th>
+                  <th>@Messages("Tên KH")</th>
+                  <th>@Messages("Người liên hệ")</th>
+                  <th>@Messages("Chức vụ")</th>
+                  <th>@Messages("Số TB")</th>
+                  <th>@Messages("Đánh giá CMP")</th>
+                  <th>@Messages("Mong muốn")</th>
+                  <th>@Messages("Thời gian")</th>
+                  <th>@Messages("Thao tác")</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <h5 id="notiNotData" style="text-align: center;"></h5>
+          </div>
+          <div class="material-datatables row row-cols-auto g-3" style="margin-bottom: 5px; margin-right: 10px;" id="divPagingTable">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="dropdown">
+                  <button class="btn dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="countPageSize" style="background-color: rgb(0 0 0 / 50%); margin-left: 5px;">15</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="javascript:ApplyFilter(1,15,true)">15</a></li>
+                    <li><a class="dropdown-item" href="javascript:ApplyFilter(1,50,true)">50</a></li>
+                    <li><a class="dropdown-item" href="javascript:ApplyFilter(1,100,true)">100</a></li>
+                    <li><a class="dropdown-item" href="javascript:ApplyFilter(1,200,true)">200</a></li>
+                    <li><a class="dropdown-item" href="javascript:ApplyFilter(1,500,true)">500</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="dataTables_paginate paging_full_numbers" id="pagingTable" style="cursor: pointer; right: 5px; position: absolute;"></div>
+              </div>
+            </div>
+
+            <input name="page" id="page" value="1" style="display: none">
+            <input name="pageSize" id="pageSize" value="15" style="display: none">
+            <input name="isResetPage" id="isResetPage" value="false" style="display: none">
+          </div>
+        </div>
+
+      </div>
+
+      @views.html.telco.log.survey.LogSurvey_editDel()
+
+      @views.html.telco.Loading()
+
+    </div>
+
+    @views.html.telco.mainJs()
+
+    <script>
+            var imgDefault = '@routes.Assets.versioned("images/market/default.png")';
+            var roleCmp = '@User.CmpRole.getNameByCode(currentUser.getCmpRole)';
+            console.log(roleCmp);
+            $(document).ready(function () {
+              $("#menu-logSurvey").addClass("mm-active");
+              $("#menu").metisMenu();
+            })
+    </script>
+    <script src="@routes.Assets.versioned("javascripts/exportfile/table3export.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/validateForm.js")" type="text/javascript"></script>
+
+    <script src="@routes.Assets.versioned("javascripts/views/telco/log/survey/Survey.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/log/survey/survey_getName.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("javascripts/views/telco/log/survey/survey_export.js")" type="text/javascript"></script>
+
+  </body>
+</html>

@@ -1,0 +1,6 @@
+.datetime-picker {
+    background-image: url(../views/telco/datepicker.svg);
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+}

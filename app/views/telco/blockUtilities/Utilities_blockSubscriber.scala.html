@@ -1,0 +1,28 @@
+<div class="accordion-body">
+  <div class="card-header-primary card-header-icon">
+    <div class="toolbar" style="float: left">
+      <button class="btn btn-title">
+        @Messages("blockUtilities.blockSubscriber")
+      </button>
+    </div>
+    <div class="toolbar" style="float: right">
+      <button class="btn px-4 button-light" id="buttonImportBlockSubs" data-bs-toggle="modal" data-bs-target="#importBlockSubsModal">
+        @Messages("blockUtilities.loadSubscriberList")
+      </button>
+      <button class="btn px-4 button-light" id="buttonProcessBlockSubs1" onclick="showComfirmBlockSubsModal(1)">
+        @Messages("blockUtilities.blockOneWayAction")
+      </button>
+      <button class="btn px-4 button-light" id="buttonProcessBlockSubs2" onclick="showComfirmBlockSubsModal(2)">
+      @Messages("blockUtilities.blockTwoWayAction")
+      </button>
+      <button class="btn px-4 button-light" id="buttonImportBlockSubs" onclick="exportResultListSubsBlock()">
+      @Messages("blockUtilities.export")
+      </button>
+    </div>
+  </div>
+  <div class="card-body mt-3" style="padding-right: 0px;">
+    <div class="" id="dataImportBlockSubs" style="float: left; width: 100%;">
+
+    </div>
+  </div>
+</div>

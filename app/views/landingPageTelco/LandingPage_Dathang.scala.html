@@ -1,0 +1,116 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<div class="section features-1" id="dathang" style="background: red;background-image: url(@routes.Assets.versioned("images/landingPageTelco/BG1_1.png"));background-repeat: no-repeat;  background-size: 100% 100%;">
+    <div class="container container-2">
+        <div class="card-body">
+            <div class="row g-0">
+                <div class="col-md-6">
+                    <iframe id="myVideo1" width="100%" height="456px" style="border-radius: 8px;" src="https://www.youtube.com/embed/2pxi6bSjLIo?si=eaF3PsE4EBmjKpgq?rel=1&amp;controls=1&amp;showinfo=0&amp;start=1&autoplay=0&enablejsapi=1"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <div class="description">
+                            <p class="descriptionss opacity-8" style="margin-left: -8px;">@Messages("landingPageTelco.dathang.title")</p>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <p class="order-2">@Messages("landingPageTelco.dathang.efficiency")</p>
+                    </div>
+                    <div class="description">
+                        <p class="order-2">@Messages("landingPageTelco.dathang.offer")</p>
+                    </div>
+                    <div class="description">
+                        <p class="order-2">@Messages("landingPageTelco.dathang.solution")</p>
+                    </div>
+                    <div class="description">
+                        <p class="order-2">@Messages("landingPageTelco.dathang.investment")</p>
+                    </div>
+                    <div class="info info-horizontal info-hover-primary">
+                        <div class="description">
+                            <a href="https://innoway.vn/login"  rel="nofollow" class="btn btn-danger-2" >@Messages("landingPageTelco.dathang.tryNow")<span style="margin-left: 4px;">&#8599;</span></a>
+                            <a href="https://innoway.gitbook.io/innoway/" target="_blank" class="btn btn-danger-2" >@Messages("landingPageTelco.dathang.userGuide")<span style="margin-left: 4px;">&#8599;</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section features-1" id="dathang1" style="background-repeat: no-repeat;  background-size: 100% 100%;">
+    <div class="container container-2" style="">
+        <div class="card-body">
+            <div class="row g-0">
+                <div class="col-md-6">
+                    <div class="description">
+                        <p class="descriptionss opacity-8" style="color: #44494D">@Messages("landingPageTelco.dathang.m2mtitle")</p>
+                    </div>
+                    <div class="description">
+                        <p class="order-2" style="color: #44494D">@Messages("landingPageTelco.dathang.m2mdescription")</p>
+                    </div>
+                    <div class="description">
+                        <p class="order-2" style="color: #44494D">@Messages("landingPageTelco.dathang.m2mfeatures")</p>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-md-6"  style="display: grid;">
+                            <div class="description">
+                                <img class="Vector" src="@routes.Assets.versioned("images/landingPageTelco/Vector.png")">
+                                <p class="order-3" style="color: #44494D">@Messages("landingPageTelco.dathang.m2msubscriber")</p>
+                            </div>
+                            <div class="description">
+                                <img class="Vector" src="@routes.Assets.versioned("images/landingPageTelco/Vector.png")">
+                                <p class="order-3" style="color: #44494D">@Messages("landingPageTelco.dathang.m2morder")</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6"  style="display: grid;">
+                            <div class="description">
+                                <img class="Vector" src="@routes.Assets.versioned("images/landingPageTelco/Vector.png")">
+                                <p class="order-3" style="color: #44494D">@Messages("landingPageTelco.dathang.m2mcontract")</p>
+                            </div>
+                            <div class="description">
+                                <img class="Vector" src="@routes.Assets.versioned("images/landingPageTelco/Vector.png")">
+                                <p class="order-3" style="color: #44494D">@Messages("landingPageTelco.dathang.m2mpayment")</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6"  style="display: grid;">
+                            <div class="description">
+                                <img class="Vector" src="@routes.Assets.versioned("images/landingPageTelco/Vector.png")">
+                                <p class="order-3" style="color: #44494D">@Messages("landingPageTelco.dathang.m2mlocationtracking")</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info info-horizontal info-hover-primary">
+                        <div class="description">
+                            @if(currentUser != null){
+                                @if(currentUser.getCmpRole == User.CmpRole.ADMIN.getCode() || currentUser.getCmpRole == User.CmpRole.SUPER_ENTERPRISE.getCode()|| currentUser.getCmpRole == User.CmpRole.SUPER_ADMIN.getCode() ){
+                                    <a  href="@routes.TelcoRoleAccountController.accountList()" rel = "nofollow" target="_blank" class="btn btn-danger-2" style="background: #EA0033;color: #FFFFFF">@Messages("landingPageTelco.dathang.tryNow")<span style="margin-left: 4px;">&#8599;</span></a>
+                                } else {
+                                    @if(currentUser.getProfileStatus || currentUser.getCmpRole== User.CmpRole.ENTERPRISE_LV2.getCode()){
+                                        <a href="@routes.TelcoDashboardController.telcoDashboard(currentUser.getId)"  rel="nofollow" target="_blank" class="btn btn-danger-2" style="background: #EA0033;color: #FFFFFF">@Messages("landingPageTelco.dathang.tryNow")<span style="margin-left: 4px;">&#8599;</span></a>
+                                    }else{
+                                        <a href="@routes.TelcoAccountController.accountInfo(currentUser.getId)"  rel="nofollow" target="_blank" class="btn btn-danger-2" style="background: #EA0033;color: #FFFFFF">@Messages("landingPageTelco.dathang.tryNow")<span style="margin-left: 4px;">&#8599;</span></a>
+                                    }
+                                }
+                            } else {
+                                <a href="@routes.Application.login()" rel="nofollow" target="_blank" class="btn btn-danger-2" style="background: #EA0033;color: #FFFFFF">@Messages("landingPageTelco.dathang.tryNow")<span style="margin-left: 4px;">&#8599;</span></a>
+                            }
+@*                            @if(currentUser != null){*@
+@*                                <a  href="@routes.Application.authenticateDemo()" rel="nofollow" class="btn btn-danger-2" style="display:none;background: #EA0033;color: #FFFFFF">@Messages("landingPageTelco.dathang.freeTrial")<span style="margin-left: 4px;">&#8599;</span></a>*@
+@*                            } else {*@
+@*                                <a  href="@routes.Application.authenticateDemo()" rel="nofollow" class="btn btn-danger-2" style="background: #EA0033;color: #FFFFFF">@Messages("landingPageTelco.dathang.freeTrial")<span style="margin-left: 4px;">&#8599;</span></a>*@
+@*                            }*@
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="img-center">
+                        <img class="" style="z-index: 21;max-width: 500px;  position: absolute; bottom: -30px;" src="@routes.Assets.versioned("images/landingPageTelco/m2m_1.png")">
+                        <img class="" style="position: absolute;z-index: 20;max-width: 500px;left: 150px;top:-30px;" src="@routes.Assets.versioned("images/landingPageTelco/m2m_2.png")">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

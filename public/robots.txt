@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /readme.html
+Disallow: /license.txt
+Disallow: /search/?q=*
+Disallow: /?s=*
+Disallow: /search/*
+Sitemap: https://iot.viettel.vn/sitemap_index.xml

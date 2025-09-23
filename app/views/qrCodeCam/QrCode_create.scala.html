@@ -1,0 +1,49 @@
+<div class="modal fade" id="addConfirmModal" data-bs-backdrop="static"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalLabel" >@Messages("btnAdd")</h5>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <div class="col-md-12" hidden>
+            <input id="idDevice">
+          </div>
+          <div class="col-md-12" style="text-align: center">
+            <label class="form-label"  id="titleComfirmImport">@Messages("")</label>
+
+            <div class="sm-9" style="margin-left: 13%; padding: 0pt; height: 238pt; width: 510.4pt;" >
+              <div style="width: 100%; height: 100%; border-radius: 12pt; border: 0.5px solid #000000; background-color: #FFFFFF" id="imgQrCode">
+                <div class="" style="height: 50.4pt; border-bottom: 0.5px solid #000000;">
+                  <span style="float: left; margin-left: 17.2pt; font-size: 32pt; color: #333333; font-weight: 600; margin-top: 2.4pt;">@Messages("Home Hub")</span>
+                  <img src="@routes.Assets.versioned("images/cam/viettel3x.png")" alt="..." class="" style="height: 29.6pt; width: 151.6pt; float: right; margin-right: 24pt; margin-top: 10.4pt;">
+                </div>
+                <div class="">
+                  <span class="form-label" style="font-size: 20pt; float: left; margin-top: 12.8pt; margin-left: 13.2pt; color: #333333; font-weight: 600">@Messages("Model: VHUB-Y04")</span>
+                  <span style="font-size: 20pt; float: left; margin-top: 51.2pt; margin-left: -174.8pt; color: #333333; font-weight: 600">@Messages("INPUT: 48V - 0.5A")</span>
+                  <span style="font-size: 20pt; float: left; margin-top: 89.6pt; margin-left: -175.4pt; color: #333333; font-weight: 600" id="serialQr">@Messages("S/N: TWFX000012")</span>
+                  <span style="font-size: 20pt; float: left; margin-top: 126.4pt; margin-left: -174.8pt; color: #333333; font-weight: 600" id="macQr">@Messages("MAC: 00:02:D1:94:72:E9")</span>
+                  <img src="@routes.Assets.versioned("images/cam/re3x.png")" alt="..." class="" style="height: 55.2pt; width: 52.4pt; margin-top: 27.2px; margin-left: -48pt;">
+                  <img src="@routes.Assets.versioned("images/cam/ro3x.png")" alt="..." class="" style="height: 31.6pt; width: 78.4pt; position: absolute; margin-top: 115.2px; margin-left: -67.2pt;">
+                  <div class="" style="width: 166pt; height: 166pt; border-radius: 5pt; border: 0.5px solid #000000; float: right; margin-right: 8.4pt; margin-top: 7.6pt;" id="id_qrcode">
+                    <img src="@routes.Assets.versioned("images/cam/qr3x.png")" alt="..." class="" style="height: 128pt; width: 128pt; margin-top: 12.8pt;">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+      <div class="modal-body" style="max-height: 500px; overflow: auto" id="divTableImport">
+        <table id="tableImport" class="table" style="width: 100%;">
+          <tbody align="left" class=""></tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" id="buttonSubmitQrCode" onclick="submitQrCodeCam(1)">@Messages("btnComfirm")</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal" onclick="cancleImportCSV()">@Messages("btnClose")</button>
+      </div>
+    </div>
+  </div>
+</div>

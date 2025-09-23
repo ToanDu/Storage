@@ -1,0 +1,25 @@
+<div class="accordion-body">
+  <div class="card-header-primary card-header-icon">
+    <div class="toolbar" style="float: left">
+      <button class="btn btn-title">
+      @Messages("blockUtilities.unblockTwoWaySubscriber")
+      </button>
+    </div>
+    <div class="toolbar" style="float: right">
+      <button class="btn px-4 button-light" id="buttonImportOpenSubs" data-bs-toggle="modal" data-bs-target="#importOpenSubsModal2">
+      @Messages("blockUtilities.loadSubscriberList")
+      </button>
+      <button class="btn px-4 button-light" id="buttonProcessOpenSubs2" onclick="showComfirmOpenSubsModal2()">
+      @Messages("blockUtilities.unblockTwoWayAction")
+      </button>
+      <button class="btn px-4 button-light" id="buttonImportOpenSubs" onclick="exportResultListSubsOpen2()">
+      @Messages("Export")
+      </button>
+    </div>
+  </div>
+  <div class="card-body mt-3" style="padding-right: 0px;">
+    <div class="" id="dataImportOpenSubs2" style="float: left; width: 100%;">
+
+    </div>
+  </div>
+</div>

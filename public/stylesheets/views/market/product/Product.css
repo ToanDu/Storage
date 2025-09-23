@@ -1,0 +1,29 @@
+.name-product {
+    word-wrap: break-word;
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.flex-height {
+    flex-grow: 1;
+    height: 3rem;
+}
+
+.product-discount {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 18px;
+    background-color: #aaa;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    top: 1rem;
+}

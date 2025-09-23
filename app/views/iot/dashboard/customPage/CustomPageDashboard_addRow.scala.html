@@ -1,0 +1,44 @@
+<div class="modal fade" id="addRowModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme14">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">@Messages("dashboard.design.addCol")</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <div class="col-md-12">
+            <label class="form-label">@Messages("dashboard.design.countCol")@Messages(" *")</label>
+            <select id="numberCol" style="width: 100%">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6">
+                <label class="form-label">@Messages("dashboard.design.heightCol")@Messages(" *")</label>
+                <input id="heightRow" type="number" class="form-control" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">@Messages("dashboard.design.dvHeightCol")@Messages(" *")</label>
+                <select id="dvCol" style="width: 100%">
+                  <option value="px">@Messages("px")</option>
+                  <option value="vh">@Messages("%")</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="createRow()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+      </div>
+    </div>
+  </div>
+</div>

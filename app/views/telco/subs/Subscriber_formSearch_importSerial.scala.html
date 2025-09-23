@@ -1,0 +1,35 @@
+<div class="modal fade" id="importSearchSerialModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+  <span class="modal-title" id="exampleModalLabel">@Messages("subscriber.modal.import.serial.title")</span>
+        @*<a class="close cursor-pointer" data-bs-dismiss="modal" aria-hidden="true" style="float: right; font-size: 20px;">×</a>*@
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row mb-3">
+              <span class="col-sm-4 col-form-label">@Messages("subscriber.modal.import.serial.uploadList")</span>
+              <div class="col-sm-8">
+                <input type="file" id="filesSearchSerial" name="files" style="background-color: #aaa; width: 100%;"/>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("subscriber.modal.import.sampleFile")</span>
+              <span class="col-sm-3 col-form-label">@Messages("subscriber.modal.import.serial.sampleName")</span>
+              <div class="col-sm-5 col-form-label">
+                <a style="color: #EA0033; cursor: pointer;" onclick="downloadTemplateSearchSerial()"><i class="bx bx-download"></i> @Messages("subscriber.modal.download")</a>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cancle" data-bs-dismiss="modal">@Messages("btnCancle")</button>
+              <button type="button" class="btn btn-red" data-bs-dismiss="modal" onclick="comfirmListSerialImport()">@Messages("btnComfirm")</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

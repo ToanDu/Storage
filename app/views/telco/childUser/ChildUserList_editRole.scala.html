@@ -1,0 +1,317 @@
+<div class="modal fade" id="roleChildUserModal" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: red; border-radius: 16px 16px 0px 0px;">
+        <span class="modal-title text-white" id="myModalLabel">@Messages("Quản lý vai trò")</span>
+      </div>
+      <div class="modal-body">
+        <div class="row align-items-center">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-6" style="text-align: left;">
+            <label class="col-form-label title-section-2">@Messages("Chức năng")</label>
+          </div>
+          <div class="col-sm-4" style="text-align: left;">
+            <label class="col-form-label title-section-2">@Messages("Quyền")</label>
+          </div>
+        </div>
+        <hr>
+
+        <div class="row">
+          <input type="text" id="idChildUserUpdateRole" readonly hidden>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <div class="accordion-header" id="headingOne">
+                <div class="row">
+                  <div class="col-md-8">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							@Messages("Dashboard")
+                    </button>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 7px;" class="" id="dashboard" onchange="checkAllDashboard(this)">
+                  </div>
+                </div>
+              </div>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Tổng số thuê bao")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role" id="view_dashboard_total_sub" onchange="onchangeCheckboxTabDashboard()" checked disabled>
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Trạng thái thuê bao")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role" id="view_dashboard_status_sub" onchange="onchangeCheckboxTabDashboard()" checked disabled>
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Loại hình thuê bao")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role" id="view_dashboard_paytype_sub" onchange="onchangeCheckboxTabDashboard()" checked disabled>
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Thuê bao lũy kế theo tháng")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role" id="view_dashboard_monthly_sub" onchange="onchangeCheckboxTabDashboard()" checked disabled>
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Cảnh báo")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role" id="view_dashboard_warning" onchange="onchangeCheckboxTabDashboard()" checked disabled>
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Tiền cước")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role dashboard" id="view_dashboard_debit" onchange="onchangeCheckboxTabDashboard()">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+        <div class="row">
+          <div class="accordion" id="accordion_2">
+            <div class="accordion-item">
+              <div class="accordion-header" id="headingSubs">
+                <div class="row">
+                  <div class="col-md-8">
+                    <label class="accordion-button collapsed" type="text" data-bs-toggle="collapse" data-bs-target="#collapseSubs" aria-expanded="true" aria-controls="collapseSubs">@Messages("Quản lý thuê bao")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 7px;" class="" id="sub" onchange="checkAllSub(this)">
+                  </div>
+                </div>
+              </div>
+              <div id="collapseSubs" class="accordion-collapse collapse" aria-labelledby="headingSubs" data-bs-parent="#accordion_2">
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Xem thuê bao")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role" id="view_sub" onchange="onchangeCheckboxTabSub()" checked disabled>
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Xuất file")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role sub" id="export_sub" onchange="onchangeCheckboxTabSub()">
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Xem chi tiết từng thuê bao")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role sub" id="view_detail_sub" onchange="onchangeCheckboxTabSub()">
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Kiểm tra lưu lượng từng thuê bao")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role sub" id="view_data_sub" onchange="onchangeCheckboxTabSub()">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+        <div class="row">
+          <div class="accordion" id="accordion_3">
+            <div class="accordion-item">
+              <div class="accordion-header" id="headingContract">
+                <div class="row">
+                  <div class="col-md-8">
+                    <label class="accordion-button collapsed" type="text" data-bs-toggle="collapse" data-bs-target="#collapseContract" aria-expanded="true" aria-controls="collapseContract">@Messages("Quản lý hợp đồng")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 7px;" class="" id="contract" onchange="checkAllContract(this)">
+                  </div>
+                </div>
+              </div>
+              <div id="collapseContract" class="accordion-collapse collapse " aria-labelledby="headingContract" data-bs-parent="#accordion_3">
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Xem hợp đồng")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role contract" id="view_contract" onchange="onchangeCheckboxTabContract()">
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Xuất file")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role contract" id="export_contract" onchange="onchangeCheckboxTabContract()">
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Xem chi tiết hợp đồng")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role contract" id="view_detail_contract" onchange="onchangeCheckboxTabContract()">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+        <div class="row">
+          <div class="accordion" id="accordion_4">
+            <div class="accordion-item">
+              <div class="accordion-header" id="headingInvoices">
+                <div class="row">
+                  <div class="col-md-8">
+                    <label class="accordion-button collapsed" type="text" data-bs-toggle="collapse" data-bs-target="#collapseInvoices" aria-expanded="true" aria-controls="collapseInvoices">@Messages("Quản lý hóa đơn")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 7px;" class="" id="invoices" onchange="checkAllInvoice(this)">
+                  </div>
+                </div>
+              </div>
+              <div id="collapseInvoices" class="accordion-collapse collapse " aria-labelledby="headingInvoices" data-bs-parent="#accordion_4">
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Xem hóa đơn")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role invoices" id="view_invoice" onchange="onchangeCheckboxTabInvoice()">
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Tải hóa đơn")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role invoices" id="download_invoice" onchange="onchangeCheckboxTabInvoice()">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="accordion" id="accordion_5">
+            <div class="accordion-item">
+              <div class="accordion-header" id="headingUtilities">
+                <div class="row">
+                  <div class="col-md-8">
+                    <label class="accordion-button collapsed" type="text" data-bs-toggle="collapse" data-bs-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">@Messages("Quản lý tiện ích")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 7px;" class="" id="utilities" onchange="checkAllUtilities(this)">
+                  </div>
+                </div>
+              </div>
+              <div id="collapseUtilities" class="accordion-collapse collapse " aria-labelledby="headingUtilities" data-bs-parent="#accordion_5">
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Đăng ký gói")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role utilities" id="register_vas" onchange="onchangeCheckboxTabUtilities()">
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Hủy gói")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role utilities" id="unregister_vas" onchange="onchangeCheckboxTabUtilities()">
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Hủy gia hạn")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role utilities" id="cancel_extend" onchange="onchangeCheckboxTabUtilities()">
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Nạp tiền")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role utilities" id="top_up" onchange="onchangeCheckboxTabUtilities()">
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Chặn chiều")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role utilities" id="block_sub" onchange="onchangeCheckboxTabUtilities()">
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-sm-2"></div>
+                  <div class="col-md-6">
+                    <label>@Messages("Mở chiều")</label>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="checkbox" style="margin-top: 3px;" class="checked_role utilities" id="open_sub" onchange="onchangeCheckboxTabUtilities()">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-cancle" data-bs-dismiss="modal">@Messages("btnCancle")</button>
+        <button type="button" class="btn btn-red" onclick="processUpdateRoleChildUser()">@Messages("btnComfirm")</button>
+      </div>
+    </div>
+  </div>
+</div>

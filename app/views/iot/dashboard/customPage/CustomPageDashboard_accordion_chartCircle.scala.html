@@ -1,0 +1,19 @@
+<div class="accordion-body">
+  <div id="divChartCircle" >
+    <li class="draggable" style="height: 100%;" id="chartCircle0" onclick="clickEditDetail(this, 2)">
+      <img src="@routes.Assets.versioned("images/dashboard/chartCircle.png")" width="100%" height="100%" alt="" />
+      <div class="col" style="margin-top: 12px">
+        <div class="btn-group" role="group" aria-label="Basic example" style="display: flex;justify-content: center;align-items: center;">
+          <button type="button" class="btn btn-light"><i class="bx bx-edit"></i>
+          </button>
+          <button type="button" class="btn btn-light" onclick="removeLiID('chartCircle0')"><i class="bx bx-x"></i>
+          </button>
+        </div>
+      </div>
+    </li>
+  </div>
+  <hr>
+  <button class="btn btn-primary" onclick="createLiChartCircle()">
+    <i class="bx bx-plus" aria-hidden="true"></i> @Messages("dashboard.design.create")
+  </button>
+</div>

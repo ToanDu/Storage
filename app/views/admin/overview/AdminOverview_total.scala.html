@@ -1,0 +1,152 @@
+<div class="col-md-12">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-5 row-group g-0">
+    <div class="col" style="padding-right: 15px; cursor: pointer;">
+      <div class="card-body card radius-10" style="border: 1px solid #EE0033;" id="tabTotalDevice" onclick="changeChartTotal(1)">
+        <div class="d-flex align-items-center">
+          <h5 class="mb-0" id="totalDevice">0</h5>
+          <div class="ms-auto">
+            <i class='bx bx-chip fs-3'></i>
+          </div>
+        </div>
+        <div class="progress my-3" style="height:3px; background-color: #aaa;">
+          <div class="progress-bar" role="progressbar" style="width: 25%; background-color: #0d6efd;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="d-flex align-items-center">
+          <p class="mb-0">@Messages("Tổng số thiết bị")</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col" style="padding-right: 15px; cursor: pointer;">
+      <div class="card-body card radius-10" id="tabTotalProject" onclick="changeChartTotal(2)">
+        <div class="d-flex align-items-center">
+          <h5 class="mb-0" id="totalProject">0</h5>
+          <div class="ms-auto">
+            <i class='bx bx-folder-open fs-3'></i>
+          </div>
+        </div>
+        <div class="progress my-3" style="height:3px; background-color: #aaa;">
+          <div class="progress-bar" role="progressbar" style="width: 15%; background-color: #0d6efd;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="d-flex align-items-center">
+          <p class="mb-0">@Messages("Tổng số dự án")</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col" style="padding-right: 15px; cursor: pointer;">
+      <div class="card-body card radius-10" id="tabTotalUser" onclick="changeChartTotal(3)">
+        <div class="d-flex align-items-center">
+          <h5 class="mb-0" id="totalUser">0</h5>
+          <div class="ms-auto">
+            <i class='bx bx-group fs-3'></i>
+          </div>
+        </div>
+        <div class="progress my-3" style="height:3px; background-color: #aaa;">
+          <div class="progress-bar" role="progressbar" style="width: 15%; background-color: #0d6efd;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="d-flex align-items-center">
+          <p class="mb-0">@Messages("Tổng số developer")</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col" style="padding-right: 15px; cursor: pointer;">
+      <div class="card-body card radius-10" id="tabTotalDevelopActive" onclick="changeChartTotal(5)">
+        <div class="d-flex align-items-center">
+          <h5 class="mb-0" id="totalDevelopActive">0</h5>
+          <div class="ms-auto">
+            <i class='bx bx-group fs-3'></i>
+          </div>
+        </div>
+        <div class="progress my-3" style="height:3px; background-color: #aaa;">
+          <div class="progress-bar" role="progressbar" style="width: 10%; background-color: #0d6efd;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="d-flex align-items-center">
+          <p class="mb-0">@Messages("Tổng số developer active")</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col" style="cursor: pointer;">
+      <div class="card-body card radius-10" id="tabTotalCustomer" onclick="changeChartTotal(4)">
+        <div class="d-flex align-items-center">
+          <h5 class="mb-0" id="totalCustomer">0</h5>
+          <div class="ms-auto">
+            <i class='bx bx-user-circle fs-3'></i>
+          </div>
+        </div>
+        <div class="progress my-3" style="height:3px; background-color: #aaa;">
+          <div class="progress-bar" role="progressbar" style="width: 20%; background-color: #0d6efd;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="d-flex align-items-center">
+          <p class="mb-0">@Messages("Tổng số Khách hàng")</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-lg-12 d-flex">
+      <div class="card radius-10 w-100">
+        <div class="card-body" id="chartTotalOverview">
+        </div>
+
+        <div class="card-body">
+          @fromTime = @{
+            import java.util.Calendar
+            import java.text.SimpleDateFormat
+
+            val today = Calendar.getInstance
+            today.add(Calendar.DATE,-0);
+            val curTimeFormat = new SimpleDateFormat("MM-yyyy")
+            curTimeFormat.format(today.getTime)
+          }
+          @toTime = @{
+            import java.util.Calendar
+            import java.text.SimpleDateFormat
+            //import java.util.TimeZone
+
+            val today = Calendar.getInstance()
+            // today.setTimeZone(TimeZone.getTimeZone("GMT+7"))
+            val curTimeFormat = new SimpleDateFormat("dd-MM-yyyy")
+            curTimeFormat.setTimeZone(TimeZone.getTimeZone("GMT+7"));
+            curTimeFormat.format(today.getTime)
+          }
+
+          <div class="row">
+            <div class="form-group col-md-4">
+              <div class="row">
+                <label class="col-md-3 col-form-label" style="text-align: center">@Messages("Từ ")</label>
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <input class="result form-control" type="text" id="date_timepicker_start" value="01-@fromTime">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-md-4">
+              <div class="row">
+                <label class="col-md-3 col-form-label" style="text-align: center">@Messages("Đến ")</label>
+                <div class="col-md-8">
+                  <div class="form-group has-default">
+                    <input class="result form-control" type="text" id="date_timepicker_end" value="@toTime">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="btn-group col-md-4" role="group">
+              <a type="button" class="btn btn-primary" id="buttonGetDataChart" onclick="getDataChartDevice()" style="width: 48%">@Messages("Áp dụng ")</a>
+              <a type="button" class="btn btn-success" id="buttonDataDevelopExport" onclick="exportDataDevelopActive()" style="width: 48%; display: none;">@Messages("Export file")</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

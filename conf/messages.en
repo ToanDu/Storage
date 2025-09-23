@@ -1,0 +1,1122 @@
+# Common keys
+Total=Total
+entries=entries
+entries.per.page=Entries/page
+
+# History Order/SIM Management - English
+history.order.sim.title=Order/ SIM Change History
+history.table.no=No.
+history.table.order.code=Order Code
+history.table.order.type=Order Type
+history.table.company.name=Company Name
+history.table.representative=Representative
+history.table.phone.number=Phone Number
+history.table.status=Status
+history.table.time=Time
+history.table.actions=Actions
+history.total=Total
+history.records=records
+history.records.per.page=Records/page
+
+# History Modal - English
+history.modal.order.details=Order Details
+history.modal.order.code=Order Code
+history.modal.order.time=Order Time
+history.modal.representative=Representative
+history.modal.order.type=Order Type
+history.modal.receive.method=Delivery Method
+history.modal.phone.number=Phone Number
+history.modal.status=Status
+history.modal.company=Company
+history.modal.delivery.address=Delivery Address
+history.modal.product.list=Product List
+
+# History Search Form - English
+history.search.info=Search Information
+history.search.order.code=Order Code
+history.search.order.type=Order Type
+history.search.order.type.order=Order
+history.search.order.type.change=Change SIM
+history.search.time=Time
+history.search.status=Status
+history.search.placeholder.enter.content=Enter content
+history.search.select.choose=--Select--
+history.search.placeholder.from.date=From date
+history.search.placeholder.to.date=To date
+history.search.status.success=Success
+history.search.status.failed=Failed
+history.search.button.search=Search
+history.search.button.reset=Reset
+
+# Common buttons
+btnClose=Close
+Export=Export
+
+# JavaScript messages for ManageOrder
+history.js.order.type.buy=Buy
+history.js.order.type.change=Change
+history.js.order.type.recharge=Recharge
+history.js.date.validation.error=Please select a valid time range (from date must be less than to date)
+history.js.no.data.display=No data to display
+history.js.no.data.found=No data found
+history.js.error.get.order.detail=Error getting order detail information
+history.js.status.success=Success
+history.js.button.detail=Detail
+history.js.receive.company=Pick up at company
+history.js.receive.home=Home delivery
+history.js.no.products=No products
+history.js.table.no=No.
+history.js.table.package=Package
+history.js.table.sim.quantity=SIM Quantity
+history.js.no.phone.numbers=No phone numbers
+history.js.table.phone.number=Phone Number
+history.js.total=Total
+history.js.records=records
+
+# History Mi Addon messages
+history.miaddon.title=Mi Package, Add-on History
+history.miaddon.table.gpkd=GPKD
+history.miaddon.table.isdn=ISDN
+history.miaddon.table.package=Package
+history.miaddon.table.time=Time
+history.miaddon.search.info=Search Information
+history.miaddon.search.gpkd.number=GPKD Number
+history.miaddon.search.subscriber=Subscriber
+history.miaddon.search.placeholder.content=Enter content
+history.miaddon.search.time=Time
+history.miaddon.search.from.date=From date
+history.miaddon.search.to.date=To date
+history.miaddon.search.action=Action
+history.miaddon.search.register.package=Register package
+history.miaddon.search.cancel.package=Cancel package
+history.miaddon.search.cancel.renewal=Cancel renewal
+history.miaddon.search.change.package=Change package
+
+# JavaScript messages for HistoryMiAddon
+history.miaddon.js.date.validation.error=Start time must not be greater than end time
+history.miaddon.js.no.data.display=No information to display
+history.miaddon.js.table.old.package=Old Package
+history.miaddon.js.table.new.package=New Package
+history.miaddon.js.table.description=Description
+history.miaddon.js.table.reason=Reason
+history.miaddon.js.status.failed=Failed
+history.miaddon.js.change.package.success=Package change successful
+history.miaddon.js.register.failed=Registration failed
+history.miaddon.js.unregister.failed=Unregistration failed
+history.miaddon.js.subscriber.not.eligible=Subscriber not eligible
+
+# History Prepay Charges messages
+history.prepay.title=Prepaid Payment History
+history.prepay.table.transaction.code=Transaction Code
+history.prepay.table.subscriber.number=Subscriber Number
+history.prepay.table.promotion=Promotion
+history.prepay.table.months=Months
+history.prepay.table.bonus=Bonus
+history.prepay.table.amount=Amount
+history.prepay.table.description=Description
+history.prepay.search.transaction.code=Transaction Code
+
+# JavaScript messages for History Prepay Charges
+history.prepay.js.date.validation.error="From date" must be less than or equal to "To date"!
+history.prepay.js.status.failed=Failed
+history.prepay.js.bonus=Bonus
+history.prepay.js.months=months
+history.prepay.js.promotion=Promotion
+history.prepay.js.no.data.display=No information to display
+history.prepay.js.export.error=Error retrieving data
+history.records.per.page=Records per page
+
+# History Post Paid Bill messages
+history.postpaid.title=Post-paid Bill Payment History
+history.postpaid.transaction.code=Transaction Code
+history.postpaid.contract.number=Contract Number
+history.postpaid.contract.code=Contract Code
+history.postpaid.amount=Amount
+history.postpaid.status=Status
+history.postpaid.description=Description
+history.postpaid.time=Time
+
+# JavaScript messages for History Post Paid Bill
+history.postpaid.js.no.data=No data
+history.postpaid.js.date.validation.error=Start time must not be greater than end time!
+history.postpaid.js.status.failed=Failed
+history.postpaid.js.no.data.display=No information to display
+history.postpaid.js.export.error=Error getting data
+history.postpaid.js.no.export.data=No data to export
+history.postpaid.js.excel.export.error=Error exporting Excel file
+
+# History Deposit messages
+history.deposit.title=Deposit History
+history.deposit.order.id=Order ID
+history.deposit.subscriber.number=Subscriber Number
+history.deposit.subscriber=Subscriber
+history.deposit.action=Action
+history.deposit.amount=Amount
+history.deposit.total.amount=Total Amount
+history.deposit.status=Status
+history.deposit.description=Description
+history.deposit.time=Time
+
+# JavaScript messages for History Deposit
+history.deposit.js.action.recharge=Recharge
+history.deposit.js.status.failed=Failed
+history.deposit.js.no.data.display=No information to display
+history.deposit.js.export.error=Error getting data
+history.deposit.js.no.export.data=No data to export
+history.deposit.js.excel.export.error=Error exporting Excel file
+
+# History Block/Unblock messages
+history.blockunblock.title=Block/Unblock Subscriber History
+history.blockunblock.subscriber.number=Subscriber Number
+history.blockunblock.subscriber=Subscriber
+history.blockunblock.action=Action
+history.blockunblock.action.type=Action Type
+history.blockunblock.result=Result
+history.blockunblock.reason=Reason
+history.blockunblock.time=Time
+history.blockunblock.select.action.type=-- Select Action Type --
+history.blockunblock.open.one.way=Open One Way
+history.blockunblock.block.one.way=Block One Way
+history.blockunblock.open.two.way=Open Two Way
+history.blockunblock.block.two.way=Block Two Way
+
+# JavaScript messages for History Block/Unblock
+history.blockunblock.js.no.data=No data
+history.blockunblock.js.status.failed=Failed
+history.blockunblock.js.no.data.display=No information to display
+history.blockunblock.js.action.connect.sim=Connect SIM
+history.blockunblock.js.action.recharge=Recharge
+history.blockunblock.js.action.pay.contract=Pay Contract
+history.blockunblock.js.action.register.vas=Register VAS Service
+history.blockunblock.js.action.cancel.vas=Cancel VAS Service
+history.blockunblock.js.action.cancel.renewal=Cancel Renewal
+history.blockunblock.js.action.unknown=Unknown
+history.blockunblock.js.export.error=Error getting data
+history.blockunblock.js.no.export.data=No data to export
+history.blockunblock.js.excel.export.error=Error exporting Excel file
+
+# History APN messages
+history.apn.title=APN Assign/Cancel History
+history.apn.subscriber.number=Subscriber Number
+history.apn.action=Action
+history.apn.action.type=Action Type
+history.apn.apn=APN
+history.apn.ip=IP
+history.apn.start.date=Start Date
+history.apn.end.date=End Date
+history.apn.result=Result
+history.apn.failure.reason=Failure Reason
+history.apn.time=Time
+history.apn.select.action.type=-- Select Action Type --
+history.apn.assign.default.apn=Assign Default APN
+history.apn.assign.private.apn=Assign Private APN/IP
+history.apn.cancel.default.apn=Cancel Default APN
+history.apn.cancel.private.apn=Cancel Private APN/IP
+
+# JavaScript messages for History APN
+history.apn.js.date.validation.error=Start time must not be greater than end time
+history.apn.js.dynamic.ip=Dynamic IP
+history.apn.js.status.failed=Failed
+history.apn.js.no.data.display=No information to display
+history.apn.js.export.error=Error getting data
+history.apn.js.no.export.data=No data to export
+history.apn.js.excel.export.error=Error exporting Excel file
+
+# Feedback messages
+feedback.title=Feedback
+feedback.dear.customer=Dear valued customers,
+feedback.thank.you.message=We sincerely thank you for your trust in choosing to use the CMP system. We always listen to feedback and suggestions from customers to improve system quality and serve customers better.
+feedback.fullname.required=Full Name *
+feedback.company.name.required=Company Name *
+feedback.field.required=Field *
+feedback.comment.required=Feedback *
+feedback.satisfaction.level=Satisfaction Level
+feedback.placeholder.enter.content=Enter content
+feedback.placeholder.enter.max.chars=Enter content up to 1000 characters
+feedback.select.business.field=--- Select your business field ---
+feedback.field.industrial.iot=Industrial IoT
+feedback.field.ai=Artificial Intelligence (AI)
+feedback.field.smart.home=Smart Home Systems
+feedback.field.wearable.devices=Smart Wearable Devices
+feedback.field.healthcare=Healthcare
+feedback.field.agriculture=Agriculture
+feedback.field.utilities=Utilities (Electricity, Water)
+feedback.field.transportation=Transportation
+feedback.field.other=Other Fields
+feedback.select.satisfaction.level=--- Select your satisfaction level with CMP system ---
+feedback.very.satisfied=Very Satisfied
+feedback.satisfied=Satisfied
+feedback.normal=Normal
+feedback.somewhat.dissatisfied=Somewhat Dissatisfied
+feedback.completely.dissatisfied=Completely Dissatisfied
+feedback.confirm.send=Confirm Send
+
+# JavaScript messages for Feedback
+feedback.js.fullname.required=Full name is required
+feedback.js.company.name.required=Company name is required
+feedback.js.field.not.selected=Please select your business field
+feedback.js.content.required=Feedback content is required
+
+# Red Baring Statistical Report messages
+redbaring.title=Statistical Report
+redbaring.subscriber.number=Subscriber Number
+redbaring.contract.code=Contract Code
+redbaring.credit.limit=Credit Limit
+redbaring.incurred.charges=Incurred Charges
+redbaring.billing.period=Billing Period
+redbaring.block.type=Block Type
+redbaring.update.time=Update Time
+
+# JavaScript messages for Red Baring
+redbaring.js.block.type.normal=Normal
+redbaring.js.block.type.roaming=Roaming
+redbaring.js.subscriber.number.only=Subscriber number can only contain numbers!
+redbaring.js.contract.code.only=Contract code can only contain numbers!
+redbaring.js.no.export.data=No data to export
+
+# Dashboard Table Headers
+dashboard.table.subscriber.number=Subscriber Number
+dashboard.table.usage.gb=Usage (GB)
+
+# Dashboard Modal Messages
+dashboard.modal.lowBalance.title=List of subscribers with root account < 1000 VND
+dashboard.modal.subscriber.number=Subscriber Number
+dashboard.modal.root.account=Root Account
+dashboard.modal.block.status=Block Status
+dashboard.modal.activity.status=Activity Status
+dashboard.modal.update.time=Update Time
+dashboard.modal.contract.code=Contract Code
+dashboard.modal.redAlert.title=List of red alert warning subscribers
+dashboard.modal.redAlert.note=Note: If reaching 95% consumption limit, subscriber will be blocked one-way (Data updated every 1 hour)
+dashboard.modal.consumption.threshold=Consumption Threshold Exceeded
+dashboard.modal.prepaidExpired.title=List of prepaid expired subscribers
+dashboard.modal.prepaidExpired.note=Note: Data is collected on the 7th of each month. If you have already made prepaid payment, please ignore this list!
+dashboard.modal.prepaid.expiry.date=Prepaid Expiry Date
+
+# Zalo Chat Widget
+zalo.welcome.message=Nice to meet you! How can I help you today?
+
+# Subscriber Export Additional Fields
+subscriber.hybridAmount=Hybrid Amount
+subscriber.miAddonPromotion=MI-Addon Package, Promotion
+subscriber.debtStartPeriod=Debt at Start of Period
+subscriber.paidCharges=Paid Charges
+subscriber.remainingDebt=Remaining Debt
+subscriber.adjustmentAmount=Adjustment Amount
+subscriber.hotChargeEstimate=Hot Charge Estimate
+subscriber.promotionName=Promotion Name
+subscriber.promotionEffectiveDate=Promotion Effective Date
+subscriber.promotionExpiryDate=Promotion Expiry Date
+subscriber.promotionDescription=Promotion Description
+subscriber.remainingData=Remaining Data
+subscriber.title=Subscriber Management
+subscriber.systemAlert=CMP system is recording service interruption due to high load on CM subsystem in BCCS system. Technical team is handling urgently.
+subscriber.advancedSearch=Advanced Search
+subscriber.remainingSMS=Remaining SMS
+subscriber.remainingVoice=Remaining Voice
+subscriber.rootAccount=Root Account
+subscriber.noDataToDisplay=No data to display
+subscriber.checkDataUsage=Check Data Usage
+subscriber.dataUsed=Used Data
+subscriber.dataRemaining=Remaining Data
+subscriber.error.dataFetchFailed=Failed to fetch data
+subscriber.status.active=Active
+subscriber.status.cancelled=Cancelled
+subscriber.promotionAccount=Promotion Account
+subscriber.internalPromoAccount=Internal Promo Account
+subscriber.otherAccount=Other Account
+subscriber.updateDate=Update Date
+subscriber.subscriberStatus=Subscriber Status
+
+# Subscriber Import Messages
+subscriber.import.max.500.error=Search for more than 500 subscribers is not supported
+subscriber.import.no.valid.numbers=No valid subscriber numbers found
+subscriber.import.file.format.error=File is not in correct xlsx format
+subscriber.import.file.insufficient.data=File does not contain sufficient data
+subscriber.import.no.valid.contracts=No valid contract numbers found
+
+# Subscriber Status Choices
+subscriber.status.choose=-- Choose --
+subscriber.status.chooseServiceType=-- Please choose service type --
+subscriber.status.block_2way_debt=Block 2-way due to debt
+subscriber.status.block_1way_debt=Block 1-way due to debt
+subscriber.status.not_activated=Not activated
+subscriber.status.block_1way_customer=Block 1-way customer request
+subscriber.status.block_1way_customer_1way_debt=Block 1-way customer request, block 1-way due to debt
+subscriber.status.block_1way_customer_2way_debt=Block 1-way customer request, block 2-way due to debt
+subscriber.status.block_2way_customer=Block 2-way customer request
+subscriber.status.block_2way_customer_2way_debt=Block 2-way customer request, block 2-way due to debt
+subscriber.status.block_2way_customer_1way_debt=Block 2-way customer request, block 1-way due to debt
+subscriber.status.block_1way_customer_1way_system=Block 1-way customer request, block 1-way by system
+subscriber.status.block_1way_customer_2way_system=Block 1-way customer request, block 2-way by system
+subscriber.status.block_2way_customer_1way_system=Block 2-way customer request, block 1-way by system
+subscriber.status.block_2way_customer_2way_system=Block 2-way customer request, block 2-way by system
+
+# BuySim Error Messages
+buySim.error.stepContainerNotFound=Could not find step-container for groupID
+
+# Common BuySim Messages
+buySim.productName=Product Name
+buySim.quantity=Quantity
+buySim.result=Result
+buySim.reason=Reason
+buySim.close=Close
+buySim.orderResult=Order Result
+buySim.successfulOrders=Successful Orders
+buySim.failedOrders=Failed Orders
+buySim.finish=Finish
+buySim.chooseSubscriber=Choose subscriber
+buySim.randomSubscriber=Get random subscriber
+buySim.subscribersNeeded=Number of subscribers needed
+buySim.searchSubscriber=Search subscriber number
+buySim.searchPlaceholder=Please enter at least 4 digits
+buySim.search=Search
+buySim.chooseSubscriberForPlan=1. Choose subscriber number for plan A
+
+# PrepayCharges Messages
+prepayCharges.title=Prepay Charges
+prepayCharges.info=Prepay Charges Information
+prepayCharges.noData=No data available!
+prepayCharges.phoneNumber=Phone Number
+prepayCharges.package=Service Package
+prepayCharges.promotionCode=Promotion Code
+prepayCharges.monthsToPrepay=Months to Prepay
+prepayCharges.priceIncludesBonus=*Price includes promotion percentage
+prepayCharges.payment=Payment
+prepayCharges.totalPayment=Total Payment:
+prepayCharges.payButton=Pay
+prepayCharges.confirmTitle=Confirm Prepay Charges for Subscriber
+prepayCharges.confirmQuestion1=Are you sure you want to
+prepayCharges.confirmQuestion2=prepay {0} months for subscriber {1}?
+prepayCharges.cancel=Cancel
+prepayCharges.confirm=Confirm
+prepayCharges.successMessage=Please confirm after successful payment!
+prepayCharges.confirmQuestion2=prepay
+prepayCharges.confirmMonths=months
+prepayCharges.confirmForSubscriber=for subscriber
+prepayCharges.months=Months
+prepayCharges.bonus=Bonus
+prepayCharges.promotion=Promotion
+prepayCharges.subtitle=Prepay Charges for Postpaid Subscribers
+prepayCharges.search=Search
+prepayCharges.enterSubscriber=Enter postpaid subscriber
+prepayCharges.notePostpaid=*Note: Only perform prepay charges for postpaid subscribers.
+
+# Location History List Modal
+location.historyList.title=Subscriber Location History
+location.historyList.subscriber=Subscriber
+location.historyList.fromDate=From Date
+location.historyList.toDate=To Date
+location.historyList.fromDatePlaceholder=From date
+location.historyList.toDatePlaceholder=To date
+location.historyList.searchButton=Search
+location.historyList.serialNumber=No.
+location.historyList.subscriberNumber=Subscriber Number
+location.historyList.time=Time
+location.historyList.location=Location
+location.historyList.coordinates=Coordinates
+location.historyList.closeButton=Close
+
+# Location List ISDN Modal
+location.listIsdn.title=Subscriber List
+location.listIsdn.totalSubscribers=Total Subscribers: 
+location.listIsdn.address=Address: 
+location.listIsdn.subscriberNumber=Subscriber Number: 
+location.listIsdn.searchPlaceholder=Enter content
+location.listIsdn.serialNumber=No.
+location.listIsdn.subscriberCol=Subscriber Number
+location.listIsdn.package=Package
+location.listIsdn.status=Status
+location.listIsdn.traffic=Traffic
+location.listIsdn.locationHistory=Location History
+
+# Location System
+location.title=Monitoring Map
+location.searchPlaceholder=Enter content
+location.resetButton=Reset
+location.searchButton=Search
+location.serialNumber=No.
+location.subscriberNumber=Subscriber Number
+
+# PayPostpaidBill JavaScript Messages
+payPostpaidBill.js.enterContractCode=Please enter contract code
+payPostpaidBill.js.contractNotFound=Contract information not found!
+payPostpaidBill.js.noData=No data available!
+payPostpaidBill.js.enterPaymentAmount=Please enter payment amount
+payPostpaidBill.js.cannotPayMoreThanDebt=Cannot pay more than total debt because contract status is Cancelled
+payPostpaidBill.js.paymentReason=Postpaid bill payment
+payPostpaidBill.js.paymentLinkFailed=Failed to get payment link
+payPostpaidBill.js.cannotGetIsdn=Cannot get ISDN
+payPostpaidBill.js.cannotGetOrderId=Cannot get order ID
+payPostpaidBill.js.paymentFailed=Payment failed, please try again
+payPostpaidBill.js.statusSuccess=Success
+payPostpaidBill.js.statusFailed=Failed
+payPostpaidBill.js.zeroAmount=0 VND
+
+# PayPostpaidBill Detail Page
+payPostpaidBill.detail.title=Postpaid Subscriber Bill Payment
+payPostpaidBill.detail.pageHeader=Postpaid Subscriber Bill Payment
+payPostpaidBill.detail.contractNumber=Contract Number
+payPostpaidBill.detail.totalDebt=Total Debt
+payPostpaidBill.detail.paymentAmount=Payment Amount
+payPostpaidBill.detail.status=Status
+payPostpaidBill.detail.reason=Reason
+payPostpaidBill.detail.executionTime=Execution Time
+payPostpaidBill.detail.historyButton=Bill Payment History
+payPostpaidBill.detail.continueButton=Continue Bill Payment
+
+# PayPostpaidBill FormSearch
+payPostpaidBill.formSearch.title=Postpaid Bill Payment
+payPostpaidBill.formSearch.contractCode=Contract Code
+payPostpaidBill.formSearch.contractPlaceholder=Enter contract code
+payPostpaidBill.formSearch.searchButton=Search
+payPostpaidBill.formSearch.resetButton=Reset
+
+# PayPostpaidBill Page
+payPostpaidBill.title=Postpaid Bill Payment
+payPostpaidBill.noData=No data available!
+payPostpaidBill.paymentInfo=Bill Payment Information
+payPostpaidBill.contractNumber=Contract Number
+payPostpaidBill.totalDebt=Total Debt
+payPostpaidBill.payment=Payment
+payPostpaidBill.paymentPlaceholder=Enter payment amount
+payPostpaidBill.paymentNotice=* For contracts that are blocked due to outstanding bills, please pay the exact required amount. If you overpay, the excess amount will not be refunded.
+payPostpaidBill.paymentInfoBox=Payment Information
+payPostpaidBill.totalPayment=Total Payment:
+payPostpaidBill.payButton=Pay
+payPostpaidBill.confirmTitle=Confirm Bill Payment
+payPostpaidBill.confirmQuestion1=Are you sure you want to
+payPostpaidBill.confirmQuestion2=pay the outstanding bill
+payPostpaidBill.confirmQuestion3=for contract number
+payPostpaidBill.confirmButton=Confirm
+payPostpaidBill.cancelButton=Cancel
+payPostpaidBill.successMessage=Please confirm after successful payment!
+payPostpaidBill.confirmButtonSuccess=Confirm
+
+# PrepayCharges Bill Page
+prepayCharges.bill.title=Prepaid Billing Information for Subscriber
+prepayCharges.bill.pageHeader=Prepaid Billing Information for Subscriber
+prepayCharges.bill.subscriberNumber=Subscriber Number
+prepayCharges.bill.packageCode=Package
+prepayCharges.bill.promotionCode=Promotion Code
+prepayCharges.bill.prepaidMonths=Prepaid Months
+prepayCharges.bill.promotion=Promotion
+prepayCharges.bill.paymentAmount=Payment Amount
+prepayCharges.bill.status=Status
+prepayCharges.bill.reason=Reason
+prepayCharges.bill.executionTime=Execution Time
+prepayCharges.bill.historyButton=Prepaid Billing History
+prepayCharges.bill.continueButton=Continue Prepaid Billing
+
+# PrepayCharges JavaScript Messages
+prepayCharges.js.enterPostpaidNumber=Please enter a postpaid subscriber number
+prepayCharges.js.invalidPostpaidNumber=Invalid subscriber, please enter a postpaid subscriber number!
+prepayCharges.js.invalidSubscriber=Invalid subscriber number entered
+prepayCharges.js.noPromotionProgram=No prepay information available as subscriber has no promotion program!
+prepayCharges.js.paymentLinkFailed=Failed to get payment link
+prepayCharges.js.orderIdFailed=Cannot get orderId
+prepayCharges.js.prepayFailed=Prepay failed, please try again
+prepayCharges.js.month=Month
+prepayCharges.js.success=Successful
+prepayCharges.js.failed=Failed
+prepayCharges.js.paymentFailed=Payment failed
+
+# APN Cancel Modal Messages
+apn.cancel.cancelDefaultAPN=Cancel Default APN
+apn.cancel.confirmCancelDefault=Are you sure you want to cancel default APN?
+apn.cancel.networkWarning=This action may change the current network connection of the device!
+apn.cancel.cancelPrivateAPN=Cancel Private APN
+apn.cancel.confirmCancelPrivate=Are you sure you want to cancel the APN below?
+apn.cancel.apnName=APN Name
+apn.cancel.ipAddress=IP
+apn.cancel.cancelReason=Cancel Reason
+apn.cancel.required=*
+apn.cancel.customerRequest=KHYC – Customer Request
+apn.cancel.cancelButton=Cancel
+apn.cancel.confirmButton=Confirm
+
+# APN Modal Messages
+apn.modal.assignDefaultAPN=Assign Default APN
+apn.modal.confirmDefaultAPN=Are you sure you want to assign default APN?
+apn.modal.networkWarning=This action may change the current network connection of the device!
+apn.modal.assignAPNIP=Assign APN and IP
+apn.modal.cancelButton=Cancel
+apn.modal.confirmButton=Confirm
+apn.modal.apnName=APN
+apn.modal.required=*
+apn.modal.chooseAPN=Choose APN
+apn.modal.fromDate=From Date
+
+# APN Management System
+# Common Messages
+common.yes=Yes
+common.no=No
+common.cancel=Cancel
+common.confirm=Confirm
+
+# APN Messages
+apn.title=APN Management
+apn.noData=No data available!
+apn.chooseAPN=Choose APN
+apn.noDataAvailable=No data available
+apn.searchInfo=Search Information
+apn.subscriberNumber=Subscriber Number
+apn.searchPlaceholder=Enter content
+apn.searchButton=Search
+apn.exportButton=Export APN
+apn.resetButton=Reset
+apn.contractDetailInfo=Contract Detail Information
+apn.serialSim=Serial SIM
+apn.gpkd=GPKD
+apn.serviceType=Service Type
+apn.mainPackage=Main Package
+apn.blockStatus=Block Status
+apn.activationDate=Activation Date
+apn.connectionDate=Connection Date
+apn.subscriberAPNList=Subscriber APN List
+apn.assignDefaultAPN=+ Assign Default APN
+apn.assignAPNIP=+ Assign APN/IP
+apn.defaultAPNNote=** For default APN type, the APN Name, IP, Start Date, End Date, Reason fields will have no data.
+apn.serialNumber=No.
+apn.apnType=APN Type
+apn.apnName=APN
+apn.ipAddress=IP
+apn.startDate=Start Date
+apn.endDate=End Date
+apn.actions=Action
+
+# APN Cancel Messages
+apn.cancel.customerRequest=KHYC – Customer Request
+
+# APN Export Messages
+apn.export.title=Export Excel File
+apn.export.recordsPerFile=Number of records per file
+apn.export.maxRecordsNote=** Maximum 1000 records per file
+apn.export.createDataFile=Create Data File
+apn.export.downloadAll=Download All
+apn.export.serialNumber=No.
+apn.export.file=File
+apn.export.action=Action
+apn.export.noData=No data available
+
+# APN JavaScript Messages
+apn.js.chooseAPN=Choose APN
+apn.js.chooseIP=Choose IP
+apn.js.default=Default
+apn.js.private=Private
+apn.js.clickToCancelAPN=Click to cancel APN
+apn.js.dynamicIp=Dynamic IP
+apn.js.noFiles=files
+apn.js.noData=No data
+apn.js.getDataFailed=Failed to get data
+apn.js.dataNotAvailable=Data not available
+apn.js.exportDataError=Error when exporting data
+apn.js.phoneNumber=Phone Number
+apn.js.serialSim=Serial Sim
+apn.js.serviceType=Service Type
+apn.js.package=Package
+apn.js.contractCode=Contract Code
+apn.js.customerCode=Customer Code
+apn.js.defaultAPN=Default APN
+apn.js.privateAPNIP=Private APN/IP Name
+apn.js.dateRange=Start Date - End Date
+apn.js.yes=Yes
+apn.js.no=No
+
+# APN Validation Messages
+apn.validation.selectAPN=Please select APN
+apn.validation.selectIP=Please select IP
+apn.validation.selectStartDate=Please select start date
+apn.validation.startDateFuture=Please select start date greater than current date
+apn.validation.startDateBeforeEnd=Please select start date less than end date
+apn.validation.selectEndDate=Please select end date
+apn.validation.endDateFuture=Please select end date greater than current date
+apn.validation.endDateAfterStart=Please select end date greater than start date
+apn.validation.selectReason=Please select reason
+apn.validation.enterPhoneNumber=Please enter phone number
+apn.validation.invalidPhoneNumber=Invalid phone number
+apn.validation.recordsRange=Records per file minimum 1 and maximum 1000
+
+# APN Add Modal English Messages
+apn.add.default.success=APN assignment successful!
+apn.add.default.error=Default APN assignment failed
+apn.add.error=APN assignment failed
+apn.add.success=APN assignment successful!
+apn.add.private.error=Private APN/IP assignment failed
+apn.add.private.selectIP=Please select IP
+apn.add.private.success=Private APN/IP assignment successful!
+apn.add.private.error=Private APN/IP assignment failed
+apn.add.endDate=End Date
+apn.add.chooseIP=Choose IP
+apn.add.customerRequest=KHYC – Customer Request
+apn.add.reason=Reason
+apn.add.ip=IP
+apn.add.dynamicIP=Dynamic IP
+apn.add.note=** Note: If APN is not displayed in the assignment list (because APN is not for sale), please contact Viettel sales channel for support.
+
+# APN Export Messages
+apn.export.title=Export List
+apn.export.subscribers=subscribers
+apn.export.file=File
+apn.export.action=Action
+apn.export.download=Download
+apn.export.downloading=Downloading...
+apn.export.downloadAll=Download All
+apn.export.downloadComplete=Download Complete
+apn.export.total=Total 
+apn.export.files= files
+apn.export.serialNumber=Serial No.
+apn.export.error=Error exporting data
+
+# APN Table Column Headers
+apn.table.stt=No.
+apn.table.subscriberNumber=Subscriber Number
+apn.table.simSerial=SIM Serial
+apn.table.serviceType=Service Type
+apn.table.servicePackage=Service Package
+apn.table.contractCode=Contract Code
+apn.table.customerCode=Customer Code
+apn.table.defaultAPN=Default APN
+apn.table.privateAPNIP=Private APN/IP Name
+apn.table.startEndDate=Start Date - End Date
+
+# Utilities Messages
+utilities.title=Utilities
+utilities.addDataPackage=Register Additional Data Package
+utilities.cancelDataPackage=Cancel Data Package
+utilities.cancelRenewal=Cancel Package Renewal
+utilities.changePackage=Change Package
+utilities.loadSubscriberList=Load Subscriber List
+utilities.register=Register
+utilities.cancelPackage=Cancel Package
+utilities.cancelRenewalDataPackage=Cancel Data Package Renewal
+utilities.cancelRenewalAction=Cancel Renewal
+
+# Utilities Detailed Messages
+utilities.postpaid=Postpaid
+utilities.prepaid=Prepaid
+utilities.packageName=Package Name
+utilities.type=Type
+utilities.details=Details
+utilities.select=Select
+utilities.code=Code
+utilities.enterPackageName=Enter package name..
+utilities.unregisterOldPackage=Cancel Old Package
+utilities.registerNewPackage=Register New Package
+utilities.back=Back
+utilities.registerMiAddon=Register MI, Add-on Package
+utilities.confirmRegisterMiAddon=Are you sure you want to register MI, Add-on package?
+utilities.unregisterMiAddon=Cancel MI, Add-on Package
+utilities.confirmUnregisterMiAddon=Are you sure you want to cancel MI, Add-on package?
+utilities.confirmOpenSubs1=Confirm One-way Subscriber Opening
+utilities.confirmPayment=Please click confirm after payment is completed successfully!
+utilities.recharge=Recharge
+utilities.rechargeHistory=Recharge History
+utilities.rechargeInfo=Recharge Information
+utilities.account=Account
+utilities.telcoAccount=Telecom Account
+utilities.amountPerSubscriber=Amount (per subscriber)
+utilities.enterAmount=Enter payment amount minimum 5,000 VND
+utilities.loadList=Load List
+utilities.payment=Payment
+utilities.numberOfSubscribers=Number of Subscribers
+utilities.confirmChangePackage=Are you sure you want to cancel - change package for
+utilities.subscribers=subscribers
+utilities.oldPackage=Old Package
+utilities.newPackage=New Package
+utilities.cancel=Cancel
+utilities.totalPayment=Total Payment
+utilities.payNow=Pay Now
+utilities.importOpenSubs2=Import Two-way Subscriber Opening List
+utilities.importRechargeList=Import Subscriber Recharge List
+utilities.rechargeSubscriber=Recharge Subscriber
+utilities.note=Note
+utilities.changePackageNote=The system will cancel the selected package before registering a new one. If new package registration fails (due to insufficient funds, etc.), the subscriber will have the selected package cancelled. Please ensure sufficient account balance for successful package change.
+utilities.subscriber=Subscriber
+utilities.action=Action
+utilities.amount=Amount
+utilities.totalAmount=Total Amount
+utilities.status=Status
+utilities.description=Description
+utilities.time=Time
+
+# Block Utilities System
+blockUtilities.title=Block/Unblock Subscriber
+blockUtilities.blockOneWay=Block One-way Subscriber
+blockUtilities.unblockOneWay=Unblock One-way Subscriber
+blockUtilities.unblockTwoWay=Unblock Two-way Subscriber
+blockUtilities.blockSubscriber=Block Subscriber
+blockUtilities.loadSubscriberList=Load Subscriber List
+blockUtilities.blockOneWayAction=Block One-way
+blockUtilities.blockTwoWayAction=Block Two-way
+blockUtilities.export=Export
+blockUtilities.unblockOneWaySubscriber=Unblock One-way Subscriber
+blockUtilities.unblockTwoWaySubscriber=Unblock Two-way Subscriber
+blockUtilities.unblockOneWayAction=Unblock One-way
+blockUtilities.unblockTwoWayAction=Unblock Two-way
+blockUtilities.importBlockSubsList=Import Block Subscriber List
+blockUtilities.importSubscriberList=Import List
+blockUtilities.downloadTemplateFile=Download Template File
+blockUtilities.templateFileName=List_Subs.xlsx
+blockUtilities.validSubscribers=Valid Subscribers
+blockUtilities.invalidSubscribers=Invalid Subscribers
+blockUtilities.fileWrongFormat=File format is incorrect, requires xlsx
+blockUtilities.fileInsufficientData=File has insufficient data
+blockUtilities.subscriberNumber=Subscriber Number
+blockUtilities.action=Action
+blockUtilities.result=Result
+blockUtilities.reason=Reason
+blockUtilities.totalCount=Total:
+blockUtilities.confirmBlockOneWay=Confirm Block One-way Subscriber
+blockUtilities.confirmBlockTwoWay=Confirm Block Two-way Subscriber
+blockUtilities.importUnblockOneWayList=Import Unblock One-way Subscriber List
+blockUtilities.importUnblockTwoWayList=Import Unblock Two-way Subscriber List
+blockUtilities.importBlockSubsList=Import Block Subscriber List
+blockUtilities.importSubscriberList=Import List
+blockUtilities.downloadTemplateFile=Download Template File
+blockUtilities.templateFileName=List_Subs.xlsx
+blockUtilities.validSubscribers=Valid Subscribers
+blockUtilities.invalidSubscribers=Invalid Subscribers
+
+# Common Messages Extended
+common.stt=No.
+common.noResultsFound=No results found
+common.showingPage=Showing page _PAGE_ of _PAGES_
+common.first=First
+common.last=Last
+common.next=Next
+common.previous=Previous
+common.showEntries=Show _MENU_ entries
+common.noData=No data available
+
+# Account System
+account.title=Account
+account.updateBusinessInfo=Update Business Information
+account.personalInfo=1. Personal Information
+account.businessInfo=2. Business Information
+account.fullName=Full Name
+account.email=Email
+account.phoneNumber=Phone Number
+account.idNumber=ID Number/CCCD
+account.businessName=Business Name
+account.businessLicense=Business License Number
+account.companyAddress=Company Address
+account.idCardPhoto=ID Card Photo of Representative
+account.businessLicensePhoto=Business License Photo
+account.uploadImage=Upload image
+account.dragDropFile=Drag and drop image file or open file
+account.here=here
+account.fileRequirement=File jpg, png,... file size not exceeding 3mb
+account.agreementText=Individuals and Businesses commit to using the subscriber information management account for the right purpose and take full responsibility for all information related to the enterprise's subscribers as well as usage details of subscribers that the Business is named and managed (displayed in the requested account).
+account.termsDetail=Terms of use details
+account.required=*
+account.verifyPhone=Verify Phone Number
+account.enterOtpCode=Enter OTP activation code
+account.getOtpCode=Get OTP Code
+account.error.avatarWrongFormat=Avatar image file format is incorrect
+account.error.avatarTooLarge=Avatar image file size must not exceed 3mb
+account.error.idCardFrontWrongFormat=ID card front image file format is incorrect
+account.error.idCardFrontTooLarge=ID card front image file size must not exceed 3mb
+account.error.idCardBackWrongFormat=ID card back image file format is incorrect
+account.error.idCardBackTooLarge=ID card back image file size must not exceed 3mb
+account.error.businessLicenseWrongFormat=Business license image file format is incorrect
+account.error.businessLicenseTooLarge=Business license image file size must not exceed 3mb
+account.error.authorizationWrongFormat=Authorization letter image file format is incorrect
+account.error.authorizationTooLarge=Authorization letter image file size must not exceed 3mb
+account.error.registrationFormWrongFormat=Registration form image file format is incorrect
+account.error.registrationFormTooLarge=Registration form image file size must not exceed 3mb
+account.status.approved=*Personal information has been approved!
+
+# Common Export Message
+common.export=Export
+common.download=Download
+account.error.businessLicenseWrongFormat=Business license image format is invalid
+account.error.businessLicenseTooLarge=Business license image file size cannot exceed 3MB
+account.error.authorizationWrongFormat=Authorization letter image format is invalid
+account.error.authorizationTooLarge=Authorization letter image file size cannot exceed 3MB
+account.error.registrationFormWrongFormat=Account registration form image format is invalid
+account.error.registrationFormTooLarge=Account registration form image file size cannot exceed 3MB
+account.error.businessLicenseWrongFormat=Business license image format is invalid
+account.error.businessLicenseTooLarge=Business license image file size cannot exceed 3MB
+account.error.authorizationWrongFormat=Authorization letter image format is invalid
+account.error.authorizationTooLarge=Authorization letter image file size cannot exceed 3MB
+account.error.registrationFormWrongFormat=Account registration form image format is invalid
+account.error.registrationFormTooLarge=Account registration form image file size cannot exceed 3MB
+account.error.businessNameRequired=Please enter complete business name
+account.error.taxCodeRequired=Please enter complete tax code
+account.error.businessLicenseNumberRequired=Please enter complete business license number
+account.error.establishmentDateRequired=Please enter complete establishment date
+account.error.establishmentDateInvalid=Establishment date cannot be greater than current date
+account.error.businessPhoneInvalid=Business phone number format is invalid
+account.error.businessEmailInvalid=Business email format is invalid
+account.error.addressRequired=Please select address Province/City, District and Ward
+account.error.detailAddressRequired=Please enter complete detailed address
+account.error.businessLicenseImageRequired=Please upload complete business license image
+account.error.businessLicenseDuplicate=Business license is duplicated. Please check again
+account.error.phoneInvalid=Phone number format is invalid
+account.error.otpRequired=You have not entered OTP code
+account.success.businessDeleteRequest=Business information deletion request successful - 
+account.status.approved=*Personal information has been approved!
+account.status.pending=*Personal information is under review!
+account.status.rejected=* Account information has been rejected! Please contact customer service for support!
+account.selectRepresentativePhone=Select representative phone number
+account.otpInstructionUpdate=Please enter the OTP sent to the business representative phone number to confirm information update
+account.confirmDeleteEnterprise=Are you sure you want to request deletion?
+account.enterprise=Enterprise
+account.businessLicenseNumber=Business License Number
+account.businessInfo=2. Business Information
+
+common.confirm=Confirm
+common.enterCode=Enter Code
+survey.title=Survey
+survey.description=To serve you better, we kindly request your service quality survey information
+survey.question1=1. What difficulties does your business encounter monthly in the following activities
+survey.option.topup=Top up money for SIM
+survey.option.checkStatus=Check SIM status (block/cut, remaining data...)
+survey.option.newConnection=Connect new SIM
+survey.option.blockUnblock=Block / restore SIM operations
+survey.option.buySim=Buy new SIM
+survey.option.invoiceManagement=Invoice management
+survey.option.contractManagement=Contract management
+
+common.close=Close
+
+# APN JS Messages
+apn.js.noDataAvailable=No data available
+
+# Management Menu Keys
+manage.group.bill=Invoice Management
+
+# Invoice Management Messages
+invoice.service.title=Service Invoice
+invoice.fee.title=Fee Payment Invoice
+invoice.search.info=Search Information
+
+# Invoice Search Form
+invoice.search.invoiceNumber=Invoice Number
+invoice.search.invoiceNumberPlaceholder=Enter invoice number
+invoice.search.serviceInvoiceType=Service Invoice Type
+invoice.search.feeInvoiceType=Fee Invoice Type
+invoice.search.selectInvoiceType=Select invoice type
+invoice.search.contractCode=Contract Code
+invoice.search.contractCodePlaceholder=Enter contract code
+invoice.search.invoiceDate=Invoice Date
+invoice.search.fromDate=From date
+invoice.search.toDate=To date
+invoice.search.lookup=Search
+invoice.search.reset=Reset
+
+# Invoice Types - Service
+invoice.type.service.topup=Top up
+invoice.type.service.unblock1=Unblock one-way
+invoice.type.service.unblock2=Unblock two-way
+
+# Invoice Types - Fee
+invoice.type.fee.generated=Generated fee invoice
+invoice.type.fee.surplus=Surplus invoice
+invoice.type.fee.prepaid=Prepaid fee invoice
+invoice.type.fee.adjustment=Adjustment invoice
+
+# Invoice Table Columns
+invoice.table.stt=No.
+invoice.table.invoiceNumber=Invoice Number
+invoice.table.serviceInvoiceType=Service Invoice Type
+invoice.table.feeInvoiceType=Fee Invoice Type
+invoice.table.contractCode=Contract Code
+invoice.table.totalAmount=Total Amount
+invoice.table.invoiceDate=Invoice Date
+invoice.table.actions=Actions
+invoice.table.totalRecordsPrefix=Total
+invoice.table.totalRecordsSuffix=records
+
+# Invoice JavaScript Messages
+invoice.js.dateValidation=Start date cannot be greater than end date
+invoice.js.timeValidation=Start time cannot be greater than end time.
+invoice.js.convertOrderType.topup=Top up
+invoice.js.convertOrderType.unblock1=Unblock one-way
+invoice.js.convertOrderType.unblock2=Unblock two-way
+invoice.js.convertInvoiceType.ready=Ready-made invoice
+invoice.js.convertInvoiceType.surplus=Surplus invoice
+invoice.js.convertInvoiceType.prepaid=Prepaid bill invoice
+invoice.js.convertInvoiceType.adjustment=Adjustment invoice
+
+# Contract Management Messages
+contract.title=Contract Management
+contract.search.info=Search Information
+contract.search.contractNumber=Contract Number
+contract.search.contractCode=Contract Code
+contract.search.placeholder=Enter content
+contract.search.export=Export
+contract.search.reset=Reset
+contract.search.lookup=Search
+
+contract.table.stt=No.
+contract.table.contractCode=Contract Code
+contract.table.contractNumber=Contract Number
+contract.table.status=Status
+contract.table.effectiveDate=Effective Date
+contract.table.representativeNumber=Representative Number
+contract.table.address=Address
+contract.table.actions=Actions
+contract.table.totalRecordsPrefix=Total
+contract.table.totalRecordsSuffix=records
+
+# Contract JavaScript Messages
+contract.js.dataFetchFailed=Failed to fetch data
+contract.js.checkInvoice=Check Invoice
+
+# Contract Info Modal
+contract.info.title=Contract Details
+contract.info.detailsHeader=Contract Detail Information
+contract.info.contractCode=Contract Code
+contract.info.contractNumber=Contract Number
+contract.info.status=Status
+contract.info.beginningDebt=Beginning Period Debt
+contract.info.paidAmount=Paid Amount
+contract.info.adjustmentAmount=Adjustment Amount
+contract.info.remainingDebt=Remaining Debt
+contract.info.hotChargeEstimated=Estimated Hot Charge
+contract.info.contractExcessCash=Contract Excess Cash
+
+# Invoice Contract Page
+invoice.contract.title=Contract:
+invoice.contract.listTitle=Contract Invoice List
+invoice.contract.contractNumber=Contract Number
+invoice.contract.selectMonth=Select Month
+invoice.contract.monthPlaceholder=Select month to check invoices
+invoice.contract.exportCSV=Export CSV
+invoice.contract.lookup=Search
+
+# Invoice Contract Table Headers
+invoice.contract.table.stt=No.
+invoice.contract.table.invoiceNumber=Invoice Number
+invoice.contract.table.type=Type
+invoice.contract.table.beforeTax=Pre-tax Amount
+invoice.contract.table.afterTax=After-tax Amount
+invoice.contract.table.assignDate=Assign Date
+invoice.contract.table.actions=Actions
+
+# Invoice Contract JavaScript Messages
+invoice.contract.js.contractNotFound=Contract code not found
+invoice.contract.js.monthNotSelected=You have not selected a month to check invoices
+invoice.contract.js.noInvoices=No invoices available
+invoice.contract.js.invoicesNotFound=Invoices not found
+invoice.contract.js.noInvoicesInMonth=No invoices in the selected month
+invoice.contract.js.noDownloadFile=No download file available
+invoice.contract.js.noDataToDisplay=No data to display
+
+# Invoice Types
+invoice.contract.type.unknown=Unknown
+invoice.contract.type.hdis=Generated Fee Invoice
+invoice.contract.type.hddc=Adjustment Invoice
+invoice.contract.type.hdcdt=Prepaid Fee Invoice
+invoice.contract.type.hdtt=Overpayment Invoice
+invoice.contract.type.hdt=Consolidated Invoice
+invoice.contract.type.hdktgd=Non-transaction Invoice
+
+# Statistical Report - Expirated Package
+report.expirated.title=Statistical Report
+report.expirated.noData=No data available!
+report.expirated.noDataTable=No data available
+report.expirated.noDataExport=No data available yet
+
+# Statistical Report Table Headers
+report.expirated.table.stt=No.
+report.expirated.table.subscriberNumber=Subscriber Number
+report.expirated.table.contractCode=Contract Code
+report.expirated.table.subscriberType=Subscriber Type
+report.expirated.table.packageType=Package Type
+report.expirated.table.expiredDate=Package Expiry Date
+
+# Pagination
+report.expirated.totalRecordsPrefix=Total
+report.expirated.totalRecordsSuffix=records
+report.expirated.recordsPerPage=Records/page
+
+# Statistical Report JavaScript Messages
+report.expirated.js.noData=No data available
+report.expirated.js.noDataToExport=No data available to export
+report.expirated.js.dateRangeError=Please select From date greater than To date!
+report.expirated.js.subscriberNumberError=Subscriber number must contain only numbers!
+report.expirated.js.contractIdError=Contract ID must contain only numbers!
+report.expirated.js.subscriberTypeNormal=Normal
+
+# Account Management Messages
+account.title=Account
+account.info.tab=Account Information
+account.management.level2=Level 2 Account Management
+account.info.notice=** Please update account information to use subscriber management functions
+account.info.section1=1. Account Information
+account.info.fullName=Full Name
+account.info.idNumber=ID Number
+account.info.phone=Phone
+account.info.birthDate=Birth Date
+account.info.nationality=Nationality
+account.info.vietnam=Vietnam
+account.info.address=Address
+account.info.province=Province/City
+account.info.district=District
+account.info.ward=Ward
+account.info.detailAddress=Detailed address
+account.info.gender=Gender
+account.info.male=Male
+account.info.female=Female
+account.info.avatar=Avatar
+account.info.idCard=ID Card Photo
+account.info.authorization=Authorization Letter
+account.info.registrationForm=Account Registration Form
+account.info.uploadImage=Upload image
+account.info.dragDropFile=Drag and drop or open file
+account.info.clickHere=here
+account.info.fileRequirement=JPG, PNG files... file size not exceeding 3MB
+account.info.downloadTemplate=Download template file
+account.info.dragDropImageFile=Drag and drop image file or open file
+account.contact.other=***Other Contact Information
+account.contact.email=Contact Email
+account.contact.phone=Contact Phone
+account.contact.emailPlaceholder=Enter contact email
+account.contact.phonePlaceholder=Enter contact phone
+account.contact.notice=Note: System alerts will be sent to the main account's Email, Phone and other contact information. Please enter accurate contact information.
+account.enterprise.section2=2. Enterprise Information
+account.enterprise.name=Enterprise Name
+account.enterprise.taxCode=Tax Code
+account.enterprise.licenseNumber=Business License Number
+account.enterprise.establishDate=Establishment Date
+account.enterprise.phone=Enterprise Phone
+account.enterprise.email=Enterprise Email
+account.enterprise.field=Field
+account.enterprise.deviceType=Device Type
+account.enterprise.licenseImage=Business License Image
+account.enterprise.add=Add Enterprise
+account.table.stt=No.
+account.table.fullName=Full Name
+account.table.email=Email
+account.table.phone=Phone
+account.table.permission=Permissions
+account.table.resetPassword=Reset Password
+account.table.delete=Delete
+
+# Account JavaScript Error Messages
+account.error.avatarWrongFormat=Avatar format is incorrect
+account.error.avatarTooLarge=Avatar file is too large
+account.error.idCardFrontWrongFormat=ID card front image format is incorrect
+account.error.idCardFrontTooLarge=ID card front image is too large
+account.error.idCardBackWrongFormat=ID card back image format is incorrect
+account.error.idCardBackTooLarge=ID card back image is too large
+account.error.businessLicenseWrongFormat=Business license image format is incorrect
+account.error.businessLicenseTooLarge=Business license image is too large
+account.error.authorizationWrongFormat=Authorization document format is incorrect
+account.error.authorizationTooLarge=Authorization document is too large
+account.error.registrationFormWrongFormat=Registration form format is incorrect
+account.error.registrationFormTooLarge=Registration form is too large
+
+# Additional Account Messages
+account.enterprise.taxCode=Tax Code
+account.enterprise.licenseNumber=Business License Number
+account.enterprise.establishDate=Establishment Date
+account.enterprise.phone=Enterprise Phone
+account.enterprise.email=Enterprise Email
+account.enterprise.field=Field
+account.enterprise.deviceType=Device Type
+account.enterprise.licenseImage=Business License Image
+account.enterprise.add=Add Enterprise

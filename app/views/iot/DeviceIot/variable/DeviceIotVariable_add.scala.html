@@ -1,0 +1,37 @@
+<div class="modal fade" id="addConfirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("btnAdd")</h5>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <div class="col-md-12">
+            <label class="form-label text-darker">@Messages("device.variable.name")@Messages(" *")</label>
+            <input id="nameVariableAdd" name="name" type="text" class="form-control" maxlength="50" autocomplete="off" required>
+          </div>
+          <div class="col-md-12">
+            <div class="mb-3">
+              <label class="form-label text-darker">@Messages("device.variable.type")@Messages(" *")</label><br>
+              <select id="typeVariableAdd" class="single-select form-control" onchange="chooseTypeVariable()" style="width: 100%">
+                <option value="0">@Messages("device.variable.choose")</option>
+                <option value="string">@Messages("Text")</option>
+                <option value="number">@Messages("Number")</option>
+              </select>
+            </div>
+
+          </div>
+          <div class="col-md-12" id="divValueVariable">
+            @*<label class="form-label">@Messages("device.variable.value")@Messages(" *")</label>*@
+            @*<input id="valueVariableAdd" name="name" type="text" class="form-control" maxlength="50" autocomplete="off" required>*@
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="postDataAddVariable()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+      </div>
+    </div>
+  </div>
+</div>

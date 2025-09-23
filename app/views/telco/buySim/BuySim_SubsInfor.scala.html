@@ -1,0 +1,44 @@
+<div class="col-lg-11 col-md-8 text-start">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <span class="display-4 title-section-1 text-darker">@Messages("subscriber.change.info")</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+          <div class="row mb-3">
+            <span class="col-sm-4 col-form-label">@Messages("subscriber.change.upload")</span>
+            <div class="col-sm-4">
+              <input type="file" id="filesMiAddOnSubs" name="files" style="background-color: #aaa; width: 100%;" hidden/>
+              <input type="text" class="form-control input-form" id="nameFileMiAddOnSubs" readonly/>
+            </div>
+            <label class="col-sm-4 col-form-label title-section-2" style="text-align: left; cursor: pointer; color: #EA0033;" onclick="importFileMiAddOnSubs()">
+              <i class="bx bx-upload"></i> @Messages("subscriber.change.uploadList")
+            </label>
+          </div>
+          <div class="row mb-1">
+            <span class="col-sm-4 col-form-label">@Messages("subscriber.change.sampleFile")</span>
+            <span class="col-sm-4 col-form-label align-items-center">@Messages("subscriber.change.sampleFileName")</span>
+            <div class="col-sm-4 col-form-label">
+              <a style="color: #EA0033; cursor: pointer;" onclick="downloadTemplateBlockSubs()"><i class="bx bx-download"></i> @Messages("subscriber.modal.download")</a>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <span class="col-sm-4 col-form-label">@Messages("subscriber.change.validCount")</span>
+            <span class="col-sm-4 col-form-label align-items-center" id="countMiAddonSubsTrue">@Messages("subscriber.import.zeroCount")</span>
+            <div class="col-sm-4 col-form-label">
+              <a style="color: #EA0033; cursor: pointer;" onclick="exportListSubsMiAddonTrue()"><i class="bx bx-download"></i> @Messages("subscriber.modal.download")</a>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <span class="col-sm-4 col-form-label">@Messages("subscriber.change.invalidCount")</span>
+            <span class="col-sm-4 col-form-label align-items-center" id="countMiAddonSubsFalse">@Messages("subscriber.import.zeroCount")</span>
+            <div class="col-sm-4 col-form-label">
+              <a style="color: #EA0033; cursor: pointer;" onclick="exportListSubsMiAddonFalse()"><i class="bx bx-download"></i> @Messages("subscriber.modal.download")</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</div>

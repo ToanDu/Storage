@@ -1,0 +1,43 @@
+<header>
+    <div class="topbar d-flex align-items-center" style="background: #585757; border-radius: 8px 0px 0px 0px;">
+        <nav class="navbar navbar-expand">
+            <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
+            </div>
+
+            <div class="top-menu ms-auto">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item dropdown dropdown-large">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative text-white" href="https://hoangpm11.gitbook.io/innoway" target="_blank" style="font-size: 18px">
+                            <i class='bx bx-notepad'></i>@Messages("Hướng dẫn sử dụng")
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item dropdown dropdown-large" style="margin-left: 10px">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative text-white" style="font-size: 18px">
+                            <img src="@routes.Assets.versioned("images/overview/config.svg")"> <span>@Messages("Cài đặt")</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown dropdown-large" style="margin-left: 10px">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative text-white" style="font-size: 18px">
+                            <img src="@routes.Assets.versioned("images/overview/cskh.svg")"> <span>@Messages("Hỗ trợ")</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="user-box dropdown">
+                <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="@routes.Assets.versioned("images/avatar_small2x.jpg")" class="user-img" alt="user avatar">
+                    <div class="user-info ps-3">
+                        <p class="user-name mb-0 text-white">admin</p>
+@*                        <p class="designattion mb-0">@currentUser.getToken</p>*@
+                    </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="@routes.LandingPageController.home()"><i class="bx bx-home"></i><span>@Messages("Trang chủ")</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>

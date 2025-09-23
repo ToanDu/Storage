@@ -1,0 +1,105 @@
+<div class="modal fade" id="infoContract" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display : none ;">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title" id="myModalLabel">@Messages("contract.info.title")</span>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="row">
+            <span style="font-weight: 700;font-size: 16px;">@Messages("contract.info.detailsHeader")</span>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row mt-3">
+                  <label class="col-sm-4 col-form-label title-section-2">@Messages("contract.info.contractCode")</label>
+                  <div class="col-sm-8">
+                    <input id="accountIdDetail" type="text" class="form-control form-info" readonly>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row mt-3">
+                  <label class="col-sm-4 col-form-label title-section-2">@Messages("contract.info.contractNumber")</label>
+                  <div class="col-sm-8">
+                    <input id="accountNoDetail" type="text" class="form-control form-info" readonly>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row mt-3">
+                  <label class="col-sm-4 col-form-label title-section-2">@Messages("contract.info.status")</label>
+                  <div class="col-sm-8">
+                    <input id="accountStatus" type="text" class="form-control form-info" value="" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+
+          @*TODO 2*@
+          <div class="row">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row mt-3">
+                  <label class="col-sm-4 col-form-label title-section-2">@Messages("contract.info.beginningDebt")</label>
+                  <div class="col-sm-8">
+                    <input id="staOfCycleContract" type="text" class="form-control form-info" readonly>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row mt-3">
+                  <label class="col-sm-4 col-form-label title-section-2">@Messages("contract.info.paidAmount")</label>
+                  <div class="col-sm-8">
+                    <input id="paymentContract" type="text" class="form-control form-info" readonly>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row mt-3">
+                  <label class="col-sm-4 col-form-label title-section-2">@Messages("contract.info.adjustmentAmount")</label>
+                  <div class="col-sm-8">
+                    <input id="adjustAmountContract" type="text" class="form-control form-info" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row mt-3">
+                  <label class="col-sm-4 col-form-label title-section-2">@Messages("contract.info.remainingDebt")</label>
+                  <div class="col-sm-8">
+                    <input id="remainAmountContract" type="text" class="form-control form-info" value="" readonly>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row mt-3">
+                  <label class="col-sm-4 col-form-label title-section-2">@Messages("contract.info.hotChargeEstimated")</label>
+                  <div class="col-sm-8">
+                    <input id="hotChargeContract" type="text" class="form-control form-info" readonly>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row mt-3">
+                  <label class="col-sm-4 col-form-label title-section-2">@Messages("contract.info.contractExcessCash")</label>
+                  <div class="col-sm-8">
+                    <input id="excessCashContract" type="text" class="form-control form-info" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="modal fade" id="addConfirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="theme14">
+            <div class="modal-header">
+                <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("btnAdd")</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label text-white">@Messages("user.add.email")@Messages(" *")</label>
+                        <input id="emailUserAdd" name="email" type="text" class="form-control" maxlength="50" autocomplete="off" required>
+                        <hr>
+                        <label for="inputChoosePassword" class="text-darker">@Messages("login.Password")@Messages(" *")</label>
+                        <div class="input-group" id="show_hide_password">
+                            <input type="password" name="password" class="form-control border-end-0" id="inputCreateNewPassword" required>
+                            <a id="iconHidePass" onclick="showPassword1()" class="input-group-text"><i class='bx bx-hide'></i></a>
+                        </div>
+                        <hr>
+                        <label for="inputRePassword" class="text-darker">@Messages("login.RePassword")@Messages(" *")</label>
+                        <div class="input-group" id="show_hide_password">
+                            <input type="password" name="passwordRepeat" class="form-control border-end-0" id="inputCreateNewRePassword" required>
+                            <a id="iconHideRePass" onclick="showRePassword1()" class="input-group-text"><i class='bx bx-hide'></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="organizationAdd" name="name" type="text" class="form-control" maxlength="50" autocomplete="off" hidden>
+                        <label class="form-label text-white">@Messages("Organizations")@Messages(" *")</label>
+                        <div class="ms-9">
+                            <input type="hidden" id="itype" name="itype" value="0" >
+                            <input type="hidden" id="orgIdMoveAdd">
+                            <div class="input-group">
+                                <a class="input-group-text"><i class='bx bx-search'></i></a>
+                                <input id="search-selectOrgAdd"  class="search-input form-control border-start-0">
+                            </div>
+
+                            <hr>
+                            <div id="selectOrganizationsAdd" style="overflow: auto"></div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="postDataCreateUser()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+        </div>
+    </div>
+</div>

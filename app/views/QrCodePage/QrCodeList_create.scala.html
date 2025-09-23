@@ -1,0 +1,34 @@
+<div class="modal fade" id="addConfirmModal" data-bs-backdrop="static"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme14">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalLabel" >@Messages("btnAdd")</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="cancleImportCSV()"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <div class="col-md-12" hidden>
+            <input id="idDevice">
+          </div>
+          <div class="col-md-12" style="text-align: center">
+            <label class="form-label text-white"  id="titleComfirmImport">@Messages("")</label>
+            <div class="ms-9" id="id_qrcode"></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-body" style="max-height: 500px; overflow: auto" id="divTableImport">
+        <table id="tableImport" class="table" style="width: 100%;">
+          @*<thead>*@
+            @*<th>@Messages("NumOrder")</th>*@
+            @*<th data-field="account">@Messages("ID")</th>*@
+          @*</thead>*@
+          <tbody align="left" class="text-white"></tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" id="buttonSubmitQrCode" onclick="submitQrCode(1)">@Messages("btnComfirm")</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal" onclick="cancleImportCSV()">@Messages("btnClose")</button>
+      </div>
+    </div>
+  </div>
+</div>

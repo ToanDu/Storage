@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>@Messages("Login")</title>
+        <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <meta name="viewport" content="width=device-width" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="@routes.Assets.versioned("assets/css/pace.min.css")" rel="stylesheet" />
+            <!-- Bootstrap CSS -->
+        <link href="@routes.Assets.versioned("assets/css/bootstrap.min.css")" rel="stylesheet">
+        <link href="@routes.Assets.versioned("assets/css/app.css")" rel="stylesheet">
+        <link href="@routes.Assets.versioned("assets/css/icons.css")" rel="stylesheet">
+        <link rel="stylesheet" href="@routes.Assets.versioned("assets/plugins/notifications/css/lobibox.min.css")" />
+        <link href="@routes.Assets.versioned("stylesheets/views/login/loginTelco.css")" rel="stylesheet">
+    </head>
+    <body class="bg-theme " style="background-image: url(@routes.Assets.versioned("images/landingPageTelco/banner_1.jpg"));    background-repeat: no-repeat;  background-size: 100% 100%;">
+
+        <div class="wrapper">
+            <div class="col-12 col-lg-8 mx-auto">
+                <div class="logo">
+                    <a class="navbar-brand mr-lg-5" href="@routes.LandingPageController.home()">
+                        <img class="imglogo" src="@routes.Assets.versioned("images/landingPageTelco/Logo_Viettel.svg")" >
+                    </a>
+                </div>
+            </div>
+            <div class="authentication-reset-password d-flex align-items-center justify-content-center">
+                <div class="row">
+                    <div class="col-12 col-lg-8 mx-auto">
+                        <div class="">
+                            <div class="row g-0" style="border-radius: 14px;box-shadow: 0 0 30px 0 rgba(129, 137, 152, 0.4);background-color: #ffffff;">
+
+                                <div class="col-lg-7" style="background-image: url(/assets/images/landingPageTelco/Rectangle_29.png);  background-repeat: no-repeat;  background-size: 100% 100%;">
+                                    <div class="text-center">
+                                        <p class="texth">@Messages("Dịch vụ Sim Data truyền tải dữ liệu")</p>
+                                    </div>
+                                    @*                                    <img src="@routes.Assets.versioned("images/landingPageTelco/Rectangle_29.jpg")" class="img-login">*@
+                                </div>
+                                <div class="col-lg-5 border-end">
+                                    <div class="card-body mb-1">
+                                        <div class="p-6 mt-3">
+                                            <form class="row g-3" action="@routes.Application.authenticate()" id="form-login" method="post" autocomplete="off">
+                                                <div class="col-12" style="text-align: center">
+                                                    <h4 class="hello">@Messages("Chào mừng bạn!")</h4>
+                                                    <h4 class="dangnhap" style="">@Messages("login.login")</h4>
+                                                    <h4 class="" style="font-weight: 400; font-size: 16px; line-height: 21px; color: #727272;">@Messages("Để trải nghiệm dịch vụ của chúng tôi")</h4>
+                                                </div>
+                                                <div class="col-12">
+                                                    @*<label for="inputEmailAddress" class="form-label">@Messages("login.username")</label>*@
+                                                <div class="input-group">
+                                                    <a class="input-group-text"><i class='bx bx-user'></i></a>
+                                                    <input type="text" id="inputEmail" name="username" class="form-control" maxlength="50" placeholder="Email*">
+                                                </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    @*<label for="inputChoosePassword" class="form-label">@Messages("login.Password")</label>*@
+                                                <div class="input-group" id="show_hide_password">
+                                                    <a id="iconHidePass" onclick="showPassword()" class="input-group-text"><i class='bx bx-hide'></i></a>
+                                                    <input type="password" name="password"  class="form-control" id="inputChoosePassword" maxlength="50" placeholder="Mật khẩu*">
+                                                </div>
+                                                </div>
+
+
+                                                <div class="col-12">
+                                                    <div class="d-grid">
+                                                        <a href="@routes.Application.forgotPassPage()" style="font-weight: bold; color: #EA0033;text-align: right;font-weight: 600;  font-size: 14px;  line-height: 18px;">@Messages("Quên mật khẩu?")</a>
+                                                    </div>
+                                                    <div class="col-12" style="text-align: -webkit-center">
+                                                        <div class="d-grid" style="width: 50%;padding-top: 15px;">
+                                                            @*<button type="button" id="loginButton" style="background: #EA0033;  border-radius: 8px 8px 8px 0px; color: #FFFFFF" class="btn" onclick="checkIpLogin()">@Messages("Đăng nhập")<span style="margin-left: 4px;">&#8599;</span></button>*@
+                                                            <button type="submit" id="loginButton" style="background: #EA0033;  border-radius: 8px 8px 8px 0px; color: #FFFFFF" class="btn" >@Messages("Đăng nhập")<span style="margin-left: 4px;">&#8599;</span></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="p-6" style="padding: 0rem;">
+                                            <div class="col-12 mt-5">
+                                                <div class="d-grid ">
+                                                    <div class="d-grid " >
+                                                        <p style="margin-bottom: 0.5rem;">@Messages("Bạn chưa có tài khoản?")</p>
+                                                        <a href="@routes.Application.register()" style="font-weight: bold;font-weight: 400;  font-size: 16px;  line-height: 21px;  align-items: center;  text-align: center;"><span style="color: #ee0033">@Messages("Đăng kí tại đây.")</span></a>
+                                                        <a href="https://vht-iot.gitbook.io/huong-dan-su-dung-cmp/" target="_blank" style="font-weight: 400;  font-size: 16px;  line-height: 21px;  align-items: center;  text-align: center; margin-top: 15px;">
+                                                            <span style="color: #ee0033">@Messages("Hướng dẫn sử dụng")</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-top: 1px solid #4D4D4D; margin: 20px auto;">
+            <div class="container">
+                <div class="row" id="footer-menu">
+                    <div class="col-md-6" style="text-align: left;">
+                        <span class="footer-text-4">@Messages("Copyright Viettel Telecom 2022")</span>
+                    </div>
+                    <div class="col-md-6" id="center_footer">
+                        <span class="footer-text-4">@Messages("Follow us: ")</span>
+                        <a href="https://www.facebook.com/innoway.vn/" class="fa fa-facebook-square" target="_blank" style="font-size: 23px; color: #B1B1B1; "></a>
+                        <a href="https://twitter.com/VInnoway" class="fa fa-twitter-square" target="_blank" style="font-size: 23px; color: #B1B1B1; margin-left: 10px;"></a>
+                        <a href="https://www.instagram.com/innoway.vn/" class="fa fa-instagram" target="_blank" style="font-size: 23px; color: #B1B1B1; margin-left: 10px;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @views.html.login.LoginTelco_opt()
+        @views.html.Loading()
+    </body>
+
+    <script type="text/javascript" src="@routes.JsController.jsMessages()"></script>
+    <script type="text/javascript" src="@routes.JsController.javascriptRoutes"></script>
+    <script src="@routes.Assets.versioned("javascripts/js/core/jquery.min.js")" type="text/javascript"></script>
+
+    <script type="text/javascript" src="@routes.Assets.versioned("assets/js/jquery.min.js")"></script>
+        <!--notification js -->
+    <script src="@routes.Assets.versioned("assets/plugins/notifications/js/lobibox.min.js")"></script>
+    <script src="@routes.Assets.versioned("assets/plugins/notifications/js/notifications.min.js")"></script>
+    <script src="@routes.Assets.versioned("assets/plugins/notifications/js/notification-custom-script.js")"></script>
+
+    <script src="@routes.Assets.versioned("javascripts/ShowNotification.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+            $(document).ready(function(){
+                @if(flash.containsKey("success")) {
+                showNotification('success','@flash.get("success")');
+                }
+                @if(flash.containsKey("failed")) {
+                showNotification('danger','@flash.get("failed")');
+                }
+            });
+    </script>
+    <script src="@routes.Assets.versioned("javascripts/plugins/moment.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("assets/js/bootstrap.bundle.min.js")"></script>
+
+    <script src="@routes.Assets.versioned("javascripts/views/login/login.js")" type="text/javascript"></script>
+
+</html>

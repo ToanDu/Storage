@@ -1,0 +1,71 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<div class="card" id="formSearch">
+  <div class="card-body">
+    <span class="text-search">@Messages("Thông tin tìm kiếm")</span>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-6 m-t-3">
+            <div class="row m-b-4">
+              <div class="col-sm-1"></div>
+              <label class="col-sm-3 col-form-label title-section-2">@Messages("Email")</label>
+              <div class="col-sm-8 input-icons">
+                <input id="email" type="text" class="form-control input-form" placeholder="Nhập nội dung" maxlength="50" required>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 m-t-3">
+            <div class="row m-b-4">
+              <div class="col-sm-1"></div>
+              <label class="col-sm-3 col-form-label title-section-2">@Messages("Quyền tài khoản")</label>
+              <div class="col-sm-8">
+                <select id="roleCmp" type="text" class="form-select">
+                  <option value="" selected>@Messages("-- Chọn --")</option>
+@*                  <option value="SUPER_ADMIN">@Messages("Super Admin")</option>*@
+                  @if(currentUser.getCmpRole == User.CmpRole.SUPER_ADMIN.getCode()){
+                    <option value="ADMIN">@Messages("Admin")</option>
+                  }
+                  @if(currentUser.getCmpRole == User.CmpRole.SUPER_ADMIN.getCode() || currentUser.getCmpRole == User.CmpRole.ADMIN.getCode()){
+                    <option value="SUPER_ENTERPRISE">@Messages("Đại lý")</option>
+                  }
+                  <option value="ENTERPRISE">@Messages("Doanh nghiệp")</option>
+                  <option value="ENTERPRISE_LV2">@Messages("Doanh nghiệp cấp 2")</option>
+                  <option value="ENTERPRISE_VIEW">@Messages("TK trải nghiệm")</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          @*<div class="col-md-6 m-t-3">*@
+            @*<div class="row m-b-4">*@
+              @*<div class="col-sm-1"></div>*@
+              @*<label class="col-sm-3 col-form-label title-section-2">@Messages("Tên doanh nghiệp")</label>*@
+              @*<div class="col-sm-8 input-icons">*@
+                @*<input id="nameDN" type="text" class="form-control input-form" placeholder="Nhập nội dung" maxlength="50" required>*@
+              @*</div>*@
+            @*</div>*@
+          @*</div>*@
+          @*<div class="col-md-6 m-t-3">*@
+            @*<div class="row m-b-4">*@
+              @*<div class="col-sm-1"></div>*@
+              @*<label class="col-sm-3 col-form-label title-section-2">@Messages("GPDN")</label>*@
+              @*<div class="col-sm-8 input-icons">*@
+                @*<input id="gpdn" type="text" class="form-control input-form" placeholder="Nhập nội dung" maxlength="50" required>*@
+              @*</div>*@
+            @*</div>*@
+          @*</div>*@
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column align-items-center text-center">
+      <div class="">
+        @if(currentUser.getCmpRole == User.CmpRole.SUPER_ADMIN.getCode() || currentUser.getCmpRole == User.CmpRole.ADMIN.getCode()){
+          <button type="button" class="btn mt-3 btn-telco" style="background: #FFFFFF; color: #EA0033; width: 180px;" onclick="addAccount()" data-bs-toggle="modal" data-bs-target="#addAccountModal">@Messages("Thêm tài khoản")</button>
+        }
+        <button type="button" class="btn mt-3 btn-telco" style="background: #FFFFFF; color: #EA0033; width: 180px;" onclick="exportAccountList(1)">@Messages("Export")</button>
+        <button type="button" class="btn mt-3 btn-telco" style="background: #EA0033; color: #FFFFFF; width: 180px;" onclick="onlickButtonSearch()">@Messages("Tra cứu")</button>
+      </div>
+    </div>
+  </div>
+</div>

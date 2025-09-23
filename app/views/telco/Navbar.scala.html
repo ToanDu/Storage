@@ -1,0 +1,85 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<!-- Navbar -->
+<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light py-2 text-white background-red">
+  <div class="col-md-12">
+    <div class="row navbar-container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbar_global">
+        <div class="navbar-collapse-header">
+          <div class="row">
+            <div class="col-9 collapse-brand">
+              <a style="font-weight: bold; color: red">
+                @Messages("M2M Viettel")
+              </a>
+            </div>
+            <div class="col-3 collapse-close">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+          <li class="nav-item dropdown navbar-logo nav-item-hide">
+            <a class="navbar-brand mr-lg-5" href="@routes.LandingPageController.home()">
+              <img src="@routes.Assets.versioned("images/telco/logo.svg")" style="height: 36px;">
+            </a>
+          </li>
+          <li class="nav-item dropdown nav-item-hide">
+            <a class="nav-link" role="button">
+              <span class="nav-link-inner--text">@Messages("")</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown nav-item-hide">
+            <a class="nav-link" role="button">
+              <span class="nav-link-inner--text">@Messages("")</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown nav-item-hide">
+            <a class="nav-link" role="button">
+              <span class="nav-link-inner--text">@Messages("")</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" role="button" href="@routes.LandingPageController.home()">
+              <span class="nav-link-inner--text">@Messages("Giới thiệu")</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" role="button" href="@routes.LandingPageController.landingPage()" target="_blank">
+              <span class="nav-link-inner--text">@Messages("IoT Platform")</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" role="button" href="@routes.TelcoSubscriberController.subscriberManage(currentUser.getId)">
+              <span class="nav-link-inner--text">@Messages("Quản lý thuê bao")</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" role="button" href="@routes.ProjectController.project()" target="_blank">
+              <span class="nav-link-inner--text">@Messages("Quản lý dự án")</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link" data-toggle="dropdown" role="button">
+              <span class="nav-link-inner--text">@Messages("")@currentUser.getUsername</span> <i class="bx bx-caret-down text-black"></i>
+            </a>
+            <div class="dropdown-menu" style="z-index: 999;">
+              @if(currentUser.getSystemRole == User.SystemRole.SYSTEM_ADMIN.getCode()){
+                <a href="@routes.AdminOverviewController.adminOverview()" class="dropdown-item">@Messages("Quản trị hệ thống ")</a>
+              } else {
+                <a href="@routes.ProductListController.productList(currentUser.getId)" class="dropdown-item">@Messages("Quản lý sản phẩm ")</a>
+              }
+              <a href="@routes.Application.logout()" class="dropdown-item">@Messages("Đăng xuất ")</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+  <!-- End Navbar -->

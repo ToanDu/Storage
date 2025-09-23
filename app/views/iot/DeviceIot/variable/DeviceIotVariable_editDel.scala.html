@@ -1,0 +1,42 @@
+<div class="modal fade" id="editConfirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title text-darker" id="exampleModalLabel">@Messages("btnEdit")</h5>
+        <hr>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <div class="col-md-12" hidden>
+            <input id="idVariableEdit" name="id" type="text" class="form-control" maxlength="50" autocomplete="off" required>
+          </div>
+          <div class="col-md-12">
+            <label class="form-label text-darker">@Messages("device.variable.name")@Messages(" *")</label>
+            <input id="nameVariableEdit" name="name" type="text" class="form-control" maxlength="50" autocomplete="off" required>
+          </div>
+          <div class="col-md-12">
+            <div class="mb-3">
+              <label class="form-label text-darker">@Messages("device.variable.type")@Messages(" *")</label><br>
+              <select id="typeVariableEdit" class="single-select" onchange="chooseEditTypeVariable()" style="width: 100%">
+                <option value="0">@Messages("device.variable.choose")</option>
+                <option value="text">@Messages("Text")</option>
+                <option value="number">@Messages("Number")</option>
+              </select>
+            </div>
+
+          </div>
+          <div class="col-md-12" id="divEditVariable">
+            <label class="form-label text-darker">@Messages("device.variable.value")@Messages(" *")</label>
+            <input id="valueVariableEdit" name="name" type="text" class="form-control" maxlength="50" autocomplete="off" required>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        @*<button type="button" class="btn btn-success" onclick="" data-bs-dismiss="modal">@Messages("btnEdit")</button>*@
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+        <button type="button" class="btn btn-danger" onclick="postDelVariable()" data-bs-dismiss="modal">@Messages("btnDelete")</button>
+      </div>
+    </div>
+  </div>
+</div>

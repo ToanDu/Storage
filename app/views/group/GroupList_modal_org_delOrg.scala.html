@@ -1,0 +1,19 @@
+<div class="modal fade" id="deleteOrgConfirm" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h4 class="modal-title text-white">@Messages("group.removeOrg")</h4>
+      </div>
+      <div class="modal-body">
+        <h5 class="modal-body text-darker align-items-center" id="myModalbody">@Messages("noti.confirmDeletebody")</h5>
+        <div class="form-group" hidden>
+          <input id="delIdOrg" class="form-control" name="id" >
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="delOrgWithId()">@Messages("btnDelete")</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnCancel")</button>
+      </div>
+    </div>
+  </div>
+</div>

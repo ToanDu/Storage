@@ -1,0 +1,102 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<div class="wrapper">
+    <div class="sidebar-wrapper" data-simplebar="true" style="background-image: url(@routes.Assets.versioned("images/telco/menu.png")">
+        <div class="sidebar-header" style="background-color: #940e15;">
+            <a class="cursor-pointer" href="@routes.LandingPageController.home()">
+                <img src="@routes.Assets.versioned("images/telco/viettel2.svg")" class="logo-icon" alt="logo icon" style="width: 150px; margin-left: 35px;">
+            </a>
+            <div class="toggle-icon ms-auto" id="arrowMenu" style="display: none"><i class='bx bx-arrow-to-left'></i>
+            </div>
+        </div>
+            <!--navigation-->
+        <ul class="metismenu" id="menu">
+            @if(currentUser.getCmpRole == User.CmpRole.SUPER_ADMIN.getCode()){
+                <li id="menu-accountList">
+                    <a href="@routes.TelcoRoleAccountController.accountList()" class="text-white">
+                        <div class="parent-icon">
+                            <img src="@routes.Assets.versioned("images/telco/tb.svg")" class="logo-icon" alt="logo icon" style="">
+                        </div>
+                        <div class="menu-title">@Messages("Quản lý tài khoản")</div>
+                    </a>
+                </li>
+            } else {
+                <li id="menu-infoAccountList">
+                    <a href="@routes.TelcoRoleAccountController.infoAccountCmp(currentUser.getId)" class="text-white">
+                        <div class="parent-icon">
+                            <img src="@routes.Assets.versioned("images/telco/hd.svg")" class="logo-icon" alt="logo icon" style="">
+                        </div>
+                        <div class="menu-title">@Messages("Thông tin tài khoản")</div>
+                    </a>
+                </li>
+                @if(currentUser.getCmpRole == User.CmpRole.ADMIN.getCode() || currentUser.getCmpRole == User.CmpRole.SUPER_ENTERPRISE.getCode()){
+                    <li id="menu-accountList">
+                        <a href="@routes.TelcoRoleAccountController.accountList()" class="text-white">
+                            <div class="parent-icon">
+                                <img src="@routes.Assets.versioned("images/telco/tb.svg")" class="logo-icon" alt="logo icon" style="">
+                            </div>
+                            <div class="menu-title">@Messages("Quản lý tài khoản")</div>
+                        </a>
+                    </li>
+                }
+                <li id="menu-qrCodeList">
+                    <a href="@routes.TelcoQrcodeController.qrcodeList()" class="text-white">
+                        <div class="parent-icon">
+                            <img src="@routes.Assets.versioned("images/telco/setting.svg")" class="logo-icon" alt="logo icon" style="">
+                        </div>
+                        <div class="menu-title">@Messages("Quản lý QR Code")</div>
+                    </a>
+                </li>
+
+            }
+
+            @if(currentUser.getCmpRole == User.CmpRole.SUPER_ADMIN.getCode() || currentUser.getCmpRole == User.CmpRole.ADMIN.getCode()){
+                <li id="menu-companyManage">
+                    <a href="@routes.AdminTelcoController.approvedInfoCompanyTelco()" class="text-white">
+                        <div class="parent-icon">
+                            <img src="@routes.Assets.versioned("images/telco/setting.svg")" class="logo-icon" alt="logo icon" style="">
+                        </div>
+                        <div class="menu-title">@Messages("Duyệt thông tin KH")</div>
+                    </a>
+                </li>
+            }
+
+            @if(currentUser.getCmpRole == User.CmpRole.SUPER_ADMIN.getCode()){
+                <li id="menu-logFeedback">
+                    <a href="@routes.TelcoFeedbackController.logFeedback()" class="text-white">
+                        <div class="parent-icon">
+                            <img src="@routes.Assets.versioned("images/telco/hd.svg")" class="logo-icon" alt="logo icon" style="">
+                        </div>
+                        <div class="menu-title">@Messages("Quản lý góp ý")</div>
+                    </a>
+                </li>
+
+                <li id="menu-logCmp">
+                    <a href="@routes.TelcoLogController.logCmp()" class="text-white">
+                        <div class="parent-icon">
+                            <img src="@routes.Assets.versioned("images/telco/logAPI.svg")" class="logo-icon" alt="logo icon" style="">
+                        </div>
+                        <div class="menu-title">@Messages("Log API CMP")</div>
+                    </a>
+                </li>
+
+                <li id="menu-logSurvey">
+                    <a href="@routes.TelcoLogController.logCustomerSurvey()" class="text-white">
+                        <div class="parent-icon">
+                            <img src="@routes.Assets.versioned("images/telco/khaosat.svg")" class="logo-icon" alt="logo icon" style="">
+                        </div>
+                        <div class="menu-title">@Messages("Khảo sát khách hàng")</div>
+                    </a>
+                </li>
+            }
+
+            <li>
+                <a href="@routes.Application.logout()" class="text-white">
+                    <div class="parent-icon"><i class='bx bx-log-out'></i>
+                    </div>
+                    <div class="menu-title">@Messages("manage.logout")</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

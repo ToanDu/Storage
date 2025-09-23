@@ -1,0 +1,121 @@
+<style>
+    option:disabled{
+        color: red;
+    }
+</style>
+<div class="modal fade" id="editWidgetMapModal" data-widget-id="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="theme16">
+            <div class="modal-header">
+                <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("widget.editWidgetMap")</h5>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="col-md-12" style="background: #858687; padding: 8px">
+                            <span style="color: white; margin-left: 25px">@Messages("HIỂN THỊ")</span>
+                        </div>
+                        <div class="col-md-12 mt-3" style="border: 1px solid #858687;">
+                            <div class="row p-3">
+                                <div class="col-md-6">
+                                    <div class="header-center">
+                                        <label for="idWidgetMapEditTitle" class="col-form-label">@Messages("Tiêu đề *")</label>
+                                        <input type="text" class="form-control col-sm-6" id="idWidgetMapEditTitle" name="idWidgetMapEditTitle">
+                                        <h7 class="textNote">@Messages("manage.group.org.30char")</h7>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="header-center">
+                                        <label for="idWidgetMapEditTitle" class="col-form-label">@Messages("Loại bản đồ")</label>
+                                        <select id="typeWidgetMapEdit" class="form-select mb-3">
+                                            <option value="" disabled>@Messages("Chọn loại bản đồ")</option>
+                                            <option value="1">@Messages("Google Map")</option>
+                                            <option value="2">@Messages("MapBox")</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 mt-3" style="background: #858687; padding: 8px">
+                            <span style="color: white; margin-left: 25px">@Messages("DỮ LIỆU")</span>
+                        </div>
+                        <div class="col-md-12 mt-3" style="border: 1px solid #858687;">
+                            <div class="row p-3">
+                                <div class="col-md-6">
+                                    <div class="header-center">
+                                        <label for="idWidgetMapEditOption" class="col-sm-6 col-form-label">@Messages("Bộ lọc")</label>
+                                        <select class="form-select mb-3" id="idWidgetMapEditOption" name="idWidgetMapEditOption" onchange="changeOptionWidgetMapEdit(this)">
+                                            <option value="" disabled>Chọn</option>
+                                            <option value="org">Tổ chức</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="header-center filter" id="idWidgetMapOrg" style="display: none">
+                                        <label for="idWidgetMapEditOption" class="col-sm-6 col-form-label">@Messages("Tổ chức")</label>
+                                        <select class="form-select mb-3" id="selectWidgetMapEditOrg" name="selectWidgetMapEditOrg" onchange="changeOrgWidgetMapEdit(this)">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" style="display: inline-flex; justify-content: center;">
+                                    <div class="table-loading"></div>
+                                </div>
+                                <div id="idWidgetMapTable" style="overflow: auto;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+
+                </form>
+            </div>
+            <div class="modal-header" style="background-color: white">
+                <button type="button" class="btn btn-success" onclick="confirmWidgetMap()">@Messages("btnComfirm")</button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="map-edit-table-template" type="x-tmpl-mustache">
+    <input type="hidden" name="widgetMapTableSelect" id="widgetMapTableSelect"/>
+    <table class="table table-bordered table-nowrap">
+        <thead class="thead-light">
+            <tr>
+                <th>Thiết bị</th>
+                <th>Vĩ độ (latitude)</th>
+                <th>Kinh độ (longitude)</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            {{#devices}}
+                <tr>
+                    <td data-id={{id}} data-active={{isActive}} >{{name}}</td>
+                    <td>
+                        <select class="form-control lat" name="widgetMapTableSelectLat" {{disabled}}>
+                        {{#isActive}}
+                        <option value="">Chọn</option>
+                        {{/isActive}}
+                        {{#vars}}
+                            <option value="{{attribute_key}}" attribute-type={{attribute_type}} value-type={{value_type}} {{latSelected}} {{disabled}}>{{attribute_key}} ({{value_type}})</option>
+                        {{/vars}}
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-control long" name="widgetMapTableSelectLong" {{disabled}}>
+                        {{#isActive}}
+                        <option value="">Chọn</option>
+                        {{/isActive}}
+                        {{#vars}}
+                            <option value="{{attribute_key}}" attribute-type={{attribute_type}} value-type={{value_type}} {{longSelected}} {{disabled}}>{{attribute_key}}   ({{value_type}})</option>
+                        {{/vars}}
+                        </select>
+                    </td>
+                </tr>
+            {{/devices}}
+        </tbody>
+
+    </table>
+</script>

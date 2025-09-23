@@ -1,0 +1,53 @@
+<div class="modal fade" id="importOpenSubsModal2" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <span class="modal-title" id="exampleModalLabel">@Messages("Import danh sách thuê bao mở 2 chiều")</span>
+        <a class="close cursor-pointer" data-bs-dismiss="modal" aria-hidden="true" style="float: right; font-size: 20px;">×</a>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row mb-3">
+              <span class="col-sm-4 col-form-label">@Messages("Tải danh sách TB")</span>
+              <div class="col-sm-4">
+                <input type="file" id="filesOpenSubs2" name="files" style="background-color: #aaa; width: 100%;" hidden/>
+                <input type="text" class="form-control input-form" id="nameFileOpenSubs2" readonly/>
+              </div>
+              <label class="col-sm-4 col-form-label title-section-2" style="text-align: left; cursor: pointer; color: #EA0033;" onclick="importFileOpenSubs2()">
+                <i class="bx bx-upload"></i> @Messages("Import danh sách")
+              </label>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("Tải file mẫu")</span>
+              <span class="col-sm-4 col-form-label align-items-center">@Messages("List_Subs.xlsx")</span>
+              <div class="col-sm-4 col-form-label">
+                <a style="color: #EA0033; cursor: pointer;" onclick="downloadTemplateBlockSubs()"><i class="bx bx-download"></i> @Messages("Download")</a>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("Số TB hợp lệ")</span>
+              <span class="col-sm-4 col-form-label align-items-center" id="countOpenSubsTrue2">@Messages("0")</span>
+              <div class="col-sm-4 col-form-label">
+                <a style="color: #EA0033; cursor: pointer;" onclick="exportListSubsOpenTrue2()"><i class="bx bx-download"></i> @Messages("Download")</a>
+              </div>
+            </div>
+            <div class="row mb-1">
+              <span class="col-sm-4 col-form-label">@Messages("Số TB không hợp lệ")</span>
+              <span class="col-sm-4 col-form-label align-items-center" id="countOpenSubsFalse2">@Messages("0")</span>
+              <div class="col-sm-4 col-form-label">
+                <a style="color: #EA0033; cursor: pointer;" onclick="exportListSubsOpenFalse2()"><i class="bx bx-download"></i> @Messages("Download")</a>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cancle" onclick="cancleImportFileOpen2()">@Messages("btnCancle")</button>
+              <button type="button" class="btn btn-red" onclick="comfirmTableListSubsOpen2()" data-bs-dismiss="modal">@Messages("btnComfirm")</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

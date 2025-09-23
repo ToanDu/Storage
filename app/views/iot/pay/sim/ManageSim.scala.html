@@ -1,0 +1,87 @@
+@import helper._
+@import vn.m2m.common.models.User
+@(currentUser:User, projectId:String)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("Manage Sim")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    @views.html.iot.tags.Main_css()
+
+  </head>
+  <body class="bg-theme">
+      @views.html.iot.tags.Menu(currentUser, projectId)
+
+      @views.html.iot.tags.Header(currentUser)
+
+      <div class="page-wrapper">
+          <div class="page-content">
+
+              <div class="card">
+                  <div class="card-header card-header-primary card-header-icon">
+                      <div class="toolbar" style="float: left;">
+                          <sp>@Messages("DANH SÁCH SIM")</sp>
+                      </div>
+                  </div>
+
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table id="listSimTable" class="table align-middle mb-0 table-responsive table-striped" style='width: 100%;'>
+                              <thead>
+                                  <th>@Messages("STT")</th>
+                                  <th>@Messages("SimNB")</th>
+                                  <th>@Messages("IMSI")</th>
+                                  <th>@Messages("Gói cước")</th>
+                                  <th>@Messages("Số dư")</th>
+                                  <th>@Messages("TT thuê bao")</th>
+                                  <th>@Messages("TT chặn cắt")</th>
+                                  <th>@Messages("Ngày hết hạn")</th>
+                                  <th>@Messages("Thao tác")</th>
+                              </thead>
+                              <tbody>
+
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="material-datatables mt-3 mb-3">
+                  <input name="page" id="page" value="1" style="display: none">
+                  <input name="pageSize" id="pageSize" value="20" style="display: none">
+                  <input name="isResetPage" id="isResetPage" value="false" style="display: none">
+                  <div class="dataTables_paginate paging_full_numbers" id="pagingTable" style="cursor: pointer;"></div>
+              </div>
+
+          </div>
+      </div>
+    <!--  END OF PAPER WRAP -->
+    @views.html.Loading()
+
+  </body>
+
+  @views.html.admin.mainJs()
+
+    <script>
+            var projectId = '@projectId';
+
+          $(document).ready(function () {
+            $("#menu-sim").addClass("mm-active");
+            $("#menu").metisMenu();
+          });
+
+          var iconDefault = "@routes.Assets.versioned("images/login/logo.svg")";
+  </script>
+  <script src="@routes.Assets.versioned("javascripts/views/admin/adminOverview/multiselect.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/exportfile/table3export.js")" type="text/javascript"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/views/admin/manageSim/ManageSim.js")" type="text/javascript"></script>
+
+
+</html>

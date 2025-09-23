@@ -1,0 +1,58 @@
+@import vn.m2m.common.models.User
+@import vn.m2m.utils.UserHelper
+@(currentUser: User)
+
+<div class="card">
+  <div class="card-body">
+    <span class="text-search font-weight-bold">@Messages("subscriber.searchInfo")</span>
+
+    <div class="row mt-3">
+
+      <!-- Cột bên trái -->
+      <div class="col-md-6">
+        <div class="form-group row mb-3">
+          <label class="col-sm-4 col-form-label">@Messages("history.postpaid.transaction.code")</label>
+          <div class="col-sm-8">
+            <input id="orderId" type="text" class="form-control input-form" placeholder="@Messages("subscriber.inputPlaceholder")" maxlength="250">
+          </div>
+        </div>
+        <div class="form-group row mb-3">
+          <label class="col-sm-4 col-form-label">@Messages("history.postpaid.contract.code")</label>
+          <div class="col-sm-8">
+            <input id="contractId" type="text" class="form-control input-form" placeholder="@Messages("subscriber.inputPlaceholder")" maxlength="250">
+          </div>
+        </div>
+      </div>
+
+      <!-- Cột bên phải -->
+      <div class="col-md-6">
+        <div class="form-group row mb-3">
+          <label class="col-sm-3 col-form-label">@Messages("filter.logDate")</label>
+          <div class="col-sm-4 mb-3">
+            <input id="from" type="text" class="form-control input-form datetimepicker" placeholder="@Messages("subscriber.fromDate")">
+          </div>
+          <div class="col-sm-4 mb-3">
+            <input id="to"  type="text" class="form-control input-form datetimepicker" placeholder="@Messages("subscriber.toDate")">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="text-center mt-4">
+      @if(UserHelper.isFeatureRole(currentUser, "view_contract")) {
+        <button type="button" class="btn btn-danger mr-2 mb-3 btn-telco" onclick="getListHistoryPostPaidBillAction()">
+          @Messages("subscriber.search")
+        </button>
+      }
+      @if(UserHelper.isFeatureRole(currentUser, "export_contract")) {
+        <button type="button" class="btn btn-outline-danger mr-2 mb-3 btn-telco" id="export_data" onclick="onlickButtonExport()">
+          @Messages("Export")
+        </button>
+      }
+      <button type="button" class="btn btn-outline-danger btn-telco mb-3" onclick="resetFormSearch()">
+        @Messages("Reset")
+      </button>
+    </div>
+  </div>
+</div>

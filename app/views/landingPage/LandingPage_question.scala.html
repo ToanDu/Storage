@@ -1,0 +1,28 @@
+<div class="modal fade" id="questionModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: inherit;">
+        <h5 class="modal-title" id="exampleModalLabel" style="font-weight: 500; color: #000000;">@Messages("Đặt câu hỏi?")</h5>
+        <i class="bx bx-x btn-close" data-bs-dismiss="modal" aria-label="Close" style="font-size: 20px; cursor: pointer;"></i>
+      </div>
+      <div class="modal-body">
+        <h6 class="modal-title" style="font-weight: 400; color: #000000;">@Messages("Thông tin của bạn")</h6>
+        <div class="row mt-3">
+          <input type="text" id="" class="form-control" maxlength="100" autocomplete="off" placeholder="Họ và tên*">
+        </div>
+        <div class="row mt-3">
+          <input type="number" id="" class="form-control" maxlength="11" autocomplete="off" placeholder="Số di động*">
+        </div>
+        <div class="row mt-3">
+          <input type="text" id="" class="form-control" maxlength="100" autocomplete="off" placeholder="Email*">
+        </div>
+        <div class="row mt-3">
+          <textarea type="text" id="" class="form-control" maxlength="255" autocomplete="off" placeholder="Nội dung cần hỏi*" rows="5"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick="success_noti('Gửi câu hỏi thành công!')" data-bs-dismiss="modal">@Messages("Gửi câu hỏi ngay")</button>
+      </div>
+    </div>
+  </div>
+</div>

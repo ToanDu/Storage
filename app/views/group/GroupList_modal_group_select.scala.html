@@ -1,0 +1,26 @@
+<div id="move-tree-view" class="modal fixed-left fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-aside" role="document">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("Chuyển thiết bị")</h5>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3">
+          <input type="text" id="idMove" readonly hidden>
+          <input type="text" id="groupIdMove" readonly hidden>
+          <div class="input-group">
+            <span class="input-group-text" onclick=""><i class='bx bx-search-alt'></i></span>
+            <input id="search-selectOrgMove" class="search-input form-control border-start-0" placeholder="" maxlength="30">
+          </div>
+          <hr>
+          <div id="tabListOrgMove" style=""></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="processMoveUser()" id="buttonMoveUser" style="display: none">@Messages("btnSave")</button>
+        <button type="button" class="btn btn-success" onclick="processMoveDevice()" id="buttonMoveDevice">@Messages("btnSave")</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+      </div>
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

@@ -1,0 +1,33 @@
+@import vn.m2m.iot.models.Organization
+@(organizationList: List[Organization])
+
+<div class="modal fade" id="setUserOrg" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="theme16">
+            <div class="modal-header">
+                <h5 class="modal-title text-darker" id="exampleModalLabel">
+                    @Messages("event.title.org.change")
+                </h5>
+                <hr>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3">
+                    <div class="col-md-12">
+                        <label class="form-label text-darker">@Messages("event.column.title.organization")</label>
+                        <select id="listOrgUser" class="form-select">
+                        @for((org: Organization)<- organizationList) {
+                            <option value="@org.getId">@org.getName</option>
+                        }
+                        </select>
+
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="changeUserOrganization()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+        </div>
+    </div>
+</div>

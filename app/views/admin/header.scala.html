@@ -1,0 +1,43 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<header>
+    <div class="topbar d-flex align-items-center" style="background: #10375C; border-radius: 8px 0px 0px 0px;">
+
+        <nav class="navbar navbar-expand">
+            <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
+            </div>
+
+            <div class="top-menu ms-auto">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item dropdown dropdown-large">
+                        @*<a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative text-white" href="https://hoangpm11.gitbook.io/innoway" target="_blank" style="font-size: 18px">*@
+                            @*<i class='bx bx-notepad'></i>@Messages("Hướng dẫn sử dụng")*@
+                        @*</a>*@
+                    </li>
+                </ul>
+            </div>
+            <div class="user-box dropdown">
+                <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="@routes.Assets.versioned("images/avatar_small2x.jpg")" class="user-img" alt="user avatar">
+                    <div class="user-info ps-3">
+                        <p class="user-name mb-0 text-white">@currentUser.getUsername</p>
+                    </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="@routes.LandingPageController.home()" target="_blank"><i class="bx bx-home"></i><span>@Messages("Trang chủ")</span></a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="@routes.AdminTelcoController.approvedInfoCompanyTelco()" target="_blank">
+                            <i class="bx bx-list-ol"></i><span>@Messages("Quản lý doanh nghiệp")</span>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="dropdown-divider mb-0"></div>
+                    </li>
+                    <li><a class="dropdown-item" href="@routes.Application.logout()"><i class='bx bx-log-out-circle'></i><span>Logout</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>

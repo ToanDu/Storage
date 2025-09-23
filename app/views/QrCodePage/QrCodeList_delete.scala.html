@@ -1,0 +1,20 @@
+<div class="modal fade" id="deleteQrConfirm" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content bg-danger">
+      <div class="modal-header">
+        <h5 class="modal-title text-white">@Messages("qr.delete")</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-white">
+        <h4 class="modal-body text-white" id="myModalbody">@Messages("noti.confirmDeletebody")</h4>
+        <div class="form-group" hidden>
+          <input id="idDelete" class="form-control" name="id" >
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal" onclick="processDeleteQr()">@Messages("btnDelete")</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnCancel")</button>
+      </div>
+    </div>
+  </div>
+</div>

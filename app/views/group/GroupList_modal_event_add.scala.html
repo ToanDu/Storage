@@ -1,0 +1,219 @@
+<div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("event.title.addNewEvent")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-6">
+            <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+              <span class="input-group-text" style="width: 100%; background-color:#858687; color: #FFFFFF; text-transform: uppercase;">@Messages("event.title.default")</span>
+            </div>
+
+            <div class="card" style="padding: 10px; border: 1px solid #858687;">
+              <div class="row mb-2">
+                <div class="col-sm-4">
+                  <label class="col-sm-12 col-form-label" style="text-align: center">@Messages("event.title.name")</label>
+                  <input id="nameEventNew" type="text" class="form-control" maxlength="50" autocomplete="off" required>
+                  <h7 class="textNote">@Messages("manage.group.org.30char")</h7>
+                </div>
+                <div class="col-sm-4">
+                  <label class="col-sm-12 col-form-label" style="text-align: center">@Messages("event.title.under")</label>
+                  <select id="chooseGroupEventAdd" class="form-select mb-3" aria-label="Default select example"></select>
+                </div>
+                <div class="col-sm-4">
+                  <label class="col-sm-12 col-form-label" style="text-align: center">@Messages("event.title.status")</label>
+                  <select id="chooseStatusEventAdd" class="form-select mb-3" aria-label="Default select example">
+                    <option value="true">@Messages("event.title.statusActive")</option>
+                    <option value="false">@Messages("event.title.statusUnactive")</option>
+                  </select>
+                </div>
+                <div class="col-sm-4">
+                  <label class="col-sm-12 col-form-label" style="text-align: center">@Messages("Onclick")</label>
+                  <select id="chooseOnclickAdd" class="form-select mb-3" onchange="selectTypeOnclick(this)">
+                    <option value="true">@Messages("Có")</option>
+                    <option value="false" selected>@Messages("Không")</option>
+                  </select>
+                </div>
+                <div class="col-sm-4">
+                  <label class="col-sm-12 col-form-label" style="text-align: center">@Messages("Kiểu sự kiện")</label>
+                  <select id="chooseTypeEventAdd" class="form-select mb-3" onchange="selectTypeEvent(this)">
+                    <option value="event" selected>@Messages("Sự kiện event")</option>
+                    <option value="schedule">@Messages("Lập lịch schedule")</option>
+                  </select>
+                </div>
+                <div class="col-sm-4">
+                  <label class="col-sm-12 col-form-label" style="text-align: center">@Messages("Số lần lặp lại")</label>
+                  <input id="retryAdd" type="number" class="form-control" required>
+                </div>
+              </div>
+            </div>
+
+            <div id="tabConditionAdd">
+              <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+                <span class="input-group-text" style="width: 100%; background-color:#858687; color: #FFFFFF; text-transform: uppercase;">@Messages("event.title.condition")</span>
+              </div>
+
+              <div class="card" style="padding: 10px; border: 1px solid #858687;">
+                <div id="conditionList">
+                  <div class="row mb-2">
+                    <div class="col-sm-11">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <label class="col-sm-12 col-form-label" style="text-align: center">@Messages("event.title.device")</label>
+                          <select id="listDevice1" onchange="getListAttrDevice(1)" class="form-select mb-3 device-list" aria-label="Default select example"></select>
+                        </div>
+                        <div class="col-sm-3">
+                          <label class="col-sm-12 col-form-label" style="text-align: center">@Messages("event.title.attr")</label>
+                          <select id="listAttributeDevice1" class="form-select mb-3 var-list" aria-label="Default select example"></select>
+                        </div>
+                        <div class="col-sm-3">
+                          <label class="col-sm-12 col-form-label" style="text-align: center">@Messages("event.title.condition1")</label>
+                          <select id="listConditionDevice1" class="form-select mb-3 op-list" aria-label="Default select example">
+                            <option value="=">@Messages("event.operator.equal")</option>
+                            <option value=">">@Messages("event.operator.greater")</option>
+                            <option value="<">@Messages("event.operator.less")</option>
+                          </select>
+                        </div>
+                        <div class="col-sm-3">
+                          <label class="col-sm-12 col-form-label" style="text-align: center">@Messages("event.title.value")</label>
+                          <input id="valueConditionDevice1" type="text" class="form-control input-threshold" autocomplete="off" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-1">
+                      <div class="col-sm-12">
+                        <label class="col-sm-12 col-form-label" style="text-align: center">@Messages(" ")</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-11">
+                  <button type="button" class="btn btn-dark" style="font-size: 24px; cursor: pointer; float: right" id="addMoreCondition">
+                    <i class="bx bx-plus me-0"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+              <span class="input-group-text" style="width: 100%; background-color:#858687; color: #FFFFFF; text-transform: uppercase;">@Messages("event.column.title.action")</span>
+            </div>
+
+            <div class="card" style="padding: 10px; border: 1px solid #858687;">
+              <div id="actionList">
+                <div class="row mb-2">
+                  <div class="col-sm-11">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <label class="col-sm-12 col-form-label" style="text-align: center">@Messages("event.column.title.hd")</label>
+                        <select id="listAction" class="form-select mb-3 actionType-list" aria-label="Default select example">
+                          <option value="email">Email</option>
+                          <option value="sms">Sms</option>
+                          <option value="mqtt">Mqtt</option>
+                        </select>
+                      </div>
+                      <div class="col-sm-3">
+                        <label class="col-sm-12 col-form-label" style="text-align: center">@Messages("event.column.title.address")</label>
+                        <input id="addressAction" type="text" class="form-control input-receiver" autocomplete="off" required>
+                      </div>
+                      <div class="col-sm-3">
+                        <label class="col-sm-12 col-form-label" style="text-align: center">@Messages("event.column.title.title")</label>
+                        <input id="titleAction" type="text" class="form-control input-subject" autocomplete="off" required>
+                      </div>
+                      <div class="col-sm-3">
+                        <label class="col-sm-12 col-form-label" style="text-align: center">@Messages("event.column.title.content")</label>
+                        <input id="contentAction" type="text" class="form-control input-message" autocomplete="off" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-1">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-11">
+                <button type="button" class="btn btn-dark" style="font-size: 24px; cursor: pointer; float: right" id="addMoreAction">
+                  <i class="bx bx-plus me-0"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+              <span class="input-group-text" style="width: 100%; background-color:#858687; color: #FFFFFF; text-transform: uppercase;">@Messages("event.column.title.time")</span>
+            </div>
+
+            <div class="card" style="padding: 10px; border: 1px solid #858687;">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="row">
+                    <div class="col-md-4 mb-3">
+                      <input type="checkbox" class="btn-check" id="monday" name="weekdays" value="monday" autocomplete="off"/>
+                      <label style="width: 100%;" class="btn btn-danger btn-weekday" for="monday">Thứ Hai</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <input type="checkbox" class="btn-check" id="tuesday" name="weekdays" value="tuesday" autocomplete="off"/>
+                      <label style="width: 100%;" class="btn btn-danger btn-weekday" for="tuesday">Thứ Ba</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <input type="checkbox" class="btn-check" id="wednesday" name="weekdays" value="wednesday" autocomplete="off"/>
+                      <label style="width: 100%;" class="btn btn-danger btn-weekday" for="wednesday">Thứ Tư</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <input type="checkbox" class="btn-check" id="thursday" name="weekdays" value="thursday" autocomplete="off"/>
+                      <label style="width: 100%;" class="btn btn-danger btn-weekday" for="thursday">Thứ Năm</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <input type="checkbox" class="btn-check" id="friday" name="weekdays" value="friday" autocomplete="off"/>
+                      <label style="width: 100%;" class="btn btn-danger btn-weekday" for="friday">Thứ Sáu</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <input type="checkbox" class="btn-check" id="saturday" name="weekdays" value="saturday" autocomplete="off"/>
+                      <label style="width: 100%;" class="btn btn-danger btn-weekday" for="saturday">Thứ Bảy</label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <input type="checkbox" class="btn-check" id="sunday" name="weekdays" value="sunday" autocomplete="off"/>
+                      <label style="width: 100%;" class="btn btn-danger btn-weekday" for="sunday">Chủ nhật</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="row" style="">
+                    @*<div class="col-sm-12">*@
+                      @*<div class="circle" id="circleCount">15:59</div>*@
+                    @*</div>*@
+                    <div class="col-sm-6 mt-4 align-items-center">
+                      <label class="form-label text-darker text-center">@Messages("event.start")</label>
+                      <input value="08:00" style="padding: .375rem .5rem;" id="startTime" name="startTime" type="time" class="form-control" autocomplete="off" required>
+                    </div>
+                    <div class="col-sm-6 mt-4 align-items-center" id="tabTimeEnd">
+                      <label class="form-label text-darker text-center">@Messages("event.end")</label>
+                      <input value="23:59" style="padding: .375rem .5rem;" id="endTime" name="endTime" type="time" class="form-control" autocomplete="off" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-1"></div>
+
+          <div class="col-md-12">
+            <div class="d-flex flex-column align-items-center text-center">
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="postCreateEvent()" id="buttonCreateEvent">@Messages("Tạo event")</button>
+                <button type="button" class="btn btn-success" onclick="postCreateSchedule()" id="buttonCreateSchedule" style="display: none;">@Messages("Tạo schedule")</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

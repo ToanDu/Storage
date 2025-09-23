@@ -1,0 +1,232 @@
+@import helper._
+@import vn.m2m.common.models.User
+@(currentUser:User, userId:String)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Messages("Đấu nối")</title>
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.jpg")">
+    @*<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />*@
+    @*<meta name="viewport" content="width=device-width" />*@
+
+    <link href="@routes.Assets.versioned("stylesheets/landingPage/argon-design-system.css?v=1.2.2")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("assets/plugins/notifications/css/lobibox.min.css")" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="@routes.Assets.versioned("assets/css/icons.css")" rel="stylesheet">
+
+    @*<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >*@
+    <link href='@routes.Assets.versioned("stylesheets/fonts/roboto.css")' type='text/css'>
+    <link href="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.min.css")" rel="stylesheet" >
+
+    <link href="@routes.Assets.versioned("stylesheets/views/datatable.css")" rel="stylesheet" />
+
+    <link href="@routes.Assets.versioned("stylesheets/views/telco/account/account.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("stylesheets/views/telco/telco2.css")" rel="stylesheet" />
+    <link href="@routes.Assets.versioned("stylesheets/views/telco/order/Order.css")" rel="stylesheet" />
+
+  </head>
+
+  <body class="landing-page">
+    <div class="wrapper">
+
+      <div class="" style="background-color: #EA0033; padding: 2rem;">
+        <div class="row">
+          <div class="col-md-7 mx-auto text-center">
+            <a class="navbar-brand mr-lg-5" href="@routes.LandingPageController.home()">
+              <img src="@routes.Assets.versioned("images/telco/logo.svg")" style="height: 100%;">
+            </a>
+            <a class="mr-lg-5">
+              <img src="@routes.Assets.versioned("images/telco/connectSim.svg")" style="height: 100%;">
+            </a>
+          </div>
+          <div class="col-md-5 mx-auto text-left">
+
+          </div>
+        </div>
+      </div>
+
+      <div class=" features-1 content-1" style="padding-bottom: 0px;">
+        <div class="col-md-12">
+          <div class="main-content ">
+            <div class="row justify-content-center" style="padding-top: 2rem;" id="wizardRow">
+              <div class="col-md-11 text-center">
+                <div class="wizard-form py-4 my-2">
+                  <ul id="progressBar" class="progressbar px-lg-5 px-0">
+                    <li id="progressList-1" class="d-inline-block fw-bold w-20 position-relative text-center float-start progressbar-list active" style="z-index: 4;">@Messages("Sim số điện thoại")</li>
+                    <li id="progressList-2" class="d-inline-block fw-bold w-20 position-relative text-center float-start progressbar-list" style="z-index: 3;"> @Messages("Thông tin khách hàng")</li>
+                    <li id="progressList-3" class="d-inline-block fw-bold w-20 position-relative text-center float-start progressbar-list" style="z-index: 2;"> @Messages("Chọn số thuê bao")</li>
+                    <li id="progressList-4" class="d-inline-block fw-bold w-20 position-relative text-center float-start progressbar-list" style="z-index: 1;"> @Messages("Thanh toán")</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section features-1">
+        <div class="col-lg-12 text-center">
+          <div class="main-content">
+
+            <div class="row justify-content-center" id="cardSection">
+              @views.html.telco.order.OrderSubscriber_sim_haveSim()
+
+              <div class="col-lg-9 col-md-8 mt-5">
+                <button type="button" class="btn btn-telco float-end next" value="1" onclick="" style="background: #EA0033; color: #FFFFFF;">@Messages("Tiếp theo")</button>
+              </div>
+            </div>
+
+            <div class="row justify-content-center" style="display: none;">
+              @views.html.telco.order.OrderSubscriber_sim_infoKH(currentUser)
+
+              <div class="col-lg-9 col-md-8 mt-3">
+                <button type="button" class="btn btn-telco float-start back" style="background: #FFFFFF; color: #EA0033; border: 1px solid #EA0033;">@Messages("Quay lại")</button>
+                <button type="button" class="btn btn-telco float-end next" value="2" style="background: #EA0033; color: #FFFFFF;">@Messages("Tiếp theo")</button>
+              </div>
+            </div>
+
+            <div class="row justify-content-center" style="display: none;">
+              @views.html.telco.order.OrderSubscriber_sim_haveSim_chooseTB()
+
+              <div class="col-lg-9 col-md-8 mt-3">
+                <button type="button" class="btn btn-telco float-start back" style="background: #FFFFFF; color: #EA0033; border: 1px solid #EA0033;">@Messages("Quay lại")</button>
+                <button type="button" class="btn btn-telco float-end next" value="3" style="background: #EA0033; color: #FFFFFF;">@Messages("Tiếp theo")</button>
+              </div>
+            </div>
+
+            <div class="row justify-content-center" style="display: none;">
+              @views.html.telco.order.OrderSubscriber_sim_pay()
+
+              <div class="col-lg-9 col-md-8 mt-3">
+                <button type="button" class="btn btn-telco float-start back" style="background: #FFFFFF; color: #EA0033; border: 1px solid #EA0033;">@Messages("Quay lại")</button>
+                <button type="button" class="btn btn-telco float-end" id="buttonConnectSim" onclick="connectSubscriberSimPay()" style="background: #EA0033; color: #FFFFFF;" disabled>@Messages("Đấu nối")</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      @views.html.telco.order.OrderSubscriber_searchSubsInStock()
+      @views.html.telco.order.OrderSubscriber_finish(currentUser, userId)
+      @views.html.telco.order.OrderSubscriber_sim_infoKH_zoomImg()
+
+      @views.html.telco.Footer()
+
+      @views.html.telco.Loading()
+
+    </div>
+  </body>
+  <script type="text/javascript" src="@routes.JsController.jsMessages()"></script>
+  <script type="text/javascript" src="@routes.JsController.javascriptRoutes"></script>
+  <script src="@routes.Assets.versioned("assets/js/jquery.min.js")" type="text/javascript"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/landingPage/popper.min.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/landingPage/bootstrap.min.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("assets/js/bootstrap.bundle.min.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/landingPage/argon-design-system.js?v=1.2.2")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/datatable/js/jquery.dataTables.min.js")"></script>
+
+  <script src="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/js/moment.min.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.min.js")"></script>
+
+  <script src="@routes.Assets.versioned("assets/plugins/notifications/js/lobibox.min.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/notifications/js/notifications.min.js")"></script>
+  <script src="@routes.Assets.versioned("assets/plugins/notifications/js/notification-custom-script.js")"></script>
+  <script src="@routes.Assets.versioned("javascripts/ShowNotification.js")" type="text/javascript"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/importExcel/xlsx.full.min.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/importExcel/jszip.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/exportfile/table3export.js")" type="text/javascript"></script>
+
+  <script src="@routes.Assets.versioned("javascripts/views/telco/order/orderValidateForm.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/order/order_sim.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/order/order_sim_have.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/order/order_sim_have_chooseTB.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/order/order_sim_searchSubs.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/views/telco/order/order_pay.js")" type="text/javascript"></script>
+
+  @views.html.BackToTop()
+
+  <script type="text/javascript">
+          var userId = '@userId';
+          var roleCmp = '@User.CmpRole.getNameByCode(currentUser.getCmpRole)';
+          console.log(roleCmp);
+          var imgDefault = '@routes.Assets.versioned("images/market/default.png")';
+
+          $(document).ready(function () {
+            $('.date_timepicker').bootstrapMaterialDatePicker({
+              format: 'DD/MM/YYYY',
+              time: false
+            });
+//            $("#notificationModal").modal('show');
+            document.getElementById('filesConnectHaveSim').addEventListener('change', uploadFilesConnectHaveSim, false);
+
+            // next button
+            $(".next").on({
+              click: function () {
+                if(this.value == 1){
+                  if(listSerialTrue.length == 0){
+                    showNotification('danger',Messages("Bạn chưa tải lên danh sách serial sim hợp lệ"));
+                    return;
+                  }
+                } else if(this.value == 2){
+                  var checkForm = validateFormInfoCustomer();
+                  if(!checkForm){
+                    return;
+                  }
+                } else if(this.value == 3){
+                  var check = checkComfirmConnect();
+                  if(!check){
+                    return;
+                  }
+                  appendDataPayConnectSim();
+
+                  uploadImgCt();
+                }
+
+                $("#progressBar").find(".active").next().addClass("active");
+                $(this).parents(".row").fadeOut("slow", function () {
+                  $(this).next(".row").fadeIn("slow");
+                });
+              }
+            });
+            // back button
+            $(".back").on({
+              click: function () {
+                $("#progressBar .active").last().removeClass("active");
+                $(this).parents(".row").fadeOut("slow", function () {
+                  $(this).prev(".row").fadeIn("slow");
+                });
+              }
+            });
+            //finish button
+            $(".submit-button").on({
+              click: function () {
+                $("#wizardRow").fadeOut(300);
+                $(this).parents(".row").children("#successForm").fadeOut(300);
+                $(this).parents(".row").children("#successMessage").fadeIn(3000);
+              }
+            });
+            //Active card on click function
+//            $(".card").on({
+//              click: function () {
+//                $(this).toggleClass("active-card");
+//                $(this).parent(".col").siblings().children(".card").removeClass("active-card");
+//                $(this).find(".form-check-input").attr("checked", true);
+//                $(this).parent(".col").siblings().children(".card").find(".form-check-input").attr("checked", false);
+//              }
+//            });
+            //back to wizard
+            $(".back-to-wizard").on({
+              click: function () {
+                location.reload(true);
+              }
+            });
+          });
+  </script>
+
+
+</html>

@@ -1,0 +1,22 @@
+<div class="row mt-4" id="weather-aep" style="display: none;">
+  <div class="col-md-6">
+    <h6>@Messages("Request:")</h6><br>
+
+    <textarea style="width: 100%;" rows="10" id="editorRequestWeather" name="code">
+      {
+        "lat": 21.021502,
+        "lon": 105.8313135
+      }
+    </textarea>
+  </div>
+
+  <div class="col-md-6">
+    <h6>@Messages("Response:")</h6><br>
+
+    <textarea style="width: 100%;" rows="10" id="editorResponseWeather"></textarea>
+  </div>
+
+  <div class="col-md-12 mx-auto text-center mt-2 mb-2">
+    <button type="button" class="btn btn-exp" style="width: 160px;" onclick="submitWeather()">@Messages("Submit")</button>
+  </div>
+</div>

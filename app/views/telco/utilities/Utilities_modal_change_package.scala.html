@@ -1,0 +1,76 @@
+<div class="modal fade" id="modal_change_package" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">@Messages("utilities.changePackagePlan")</h6>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; right: 1rem; top: 1rem; filter: grayscale(100%) brightness(60%) contrast(100%);"></button>
+      </div>
+      <div class="modal-body text-darker">
+        <div class="row justify-content-center">
+          <div class="col-md-11 text-center">
+            <div class="step-container" data-group-id="orderSim">
+              <div class="step active">
+                <div class="circle">1</div>
+                <span class="fw-bold step-title">@Messages("utilities.unregisterOldPackage")</span>
+              </div>
+              <div class="arrow"><i class='bx bx-chevron-right'></i></div>
+              <div class="step">
+                <div class="circle">2</div>
+                <span class="fw-bold step-title">@Messages("utilities.registerNewPackage")</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3">
+          <p class="fst-italic"><Strong>@Messages("utilities.note"):</Strong> @Messages("utilities.changePackageNote")</p>
+        </div>
+        <!-- Step 1 -->
+        <div class="step-content step-1">
+          <div id="cancel_pack_list"></div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-content step-2" style="display: none;">
+          <div id="register_pack_list"></div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <!-- Step 1 buttons -->
+        <div class="footer-step step-1">
+          <button type="button" class="btn btn-cancle" data-bs-dismiss="modal">@Messages("btnCancel")</button>
+          <button type="button" class="btn btn-red" onclick="nextProcess()">@Messages("utilities.continue")</button>
+        </div>
+
+        <!-- Step 2 buttons -->
+        <div class="footer-step step-2" style="display: none;">
+          <button type="button" class="btn btn-cancle" onclick="backProcess()">@Messages("utilities.back")</button>
+          <button type="button" class="btn btn-red"  onclick="openConfirmModalChangePackage()">@Messages("utilities.confirm")</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal xác nhận -->
+<div class="modal fade" id="modal_confirm_change_package" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="box-shadow:none">
+    <div class="modal-content text-center p-4">
+      <div class="modal-header border-0">
+        <h5 class="modal-title w-100">@Messages("utilities.changePackage")</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute; right: 1rem; top: 1rem; filter: grayscale(100%) brightness(60%) contrast(100%);"></button>
+      </div>
+
+      <div class="modal-body">
+        <p>@Messages("utilities.confirmChangePackage") <span id="subscriber_count">0</span> @Messages("utilities.subscribers")?</p>
+        <strong>@Messages("utilities.oldPackage") <span id="pkgNameUnRegister"></span> <i class='bx bx-right-arrow-alt'></i> @Messages("utilities.newPackage") <span id="pkgNameRegister"></span></strong>
+      </div>
+
+      <div class="modal-footer justify-content-center border-0">
+        <button type="button" class="btn btn-outline-danger" id="cancelConfirmChangeBtn">@Messages("utilities.cancel")</button>
+        <button type="button" class="btn btn-danger" id="confirmChangeBtn">@Messages("utilities.confirm")</button>
+      </div>
+    </div>
+  </div>
+</div>

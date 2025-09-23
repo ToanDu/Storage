@@ -1,0 +1,113 @@
+<div class="modal fade" id="editWidgetRoundSwitchModal" data-widget-id="" tabindex="-1" aria-labelledby="editRoundSwitchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="theme16">
+            <div class="modal-header">
+                <h5 class="modal-title text-white" id="editRoundSwitchModalLabel">@Messages("Sửa widget công tắc")</h5>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3">
+
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        @*<div class="col-md-12" style="background: #858687; padding: 8px">*@
+                            @*<span style="color: white; margin-left: 25px">@Messages("HIỂN THỊ")</span>*@
+                        @*</div>*@
+                        @*<div class="col-md-12 mt-3" style="border: 1px solid #858687;">*@
+                            @*<div class="row p-3">*@
+                                @*<div class="col-md-6">*@
+                                    @*<div class="header-center">*@
+                                        @*<label for="idWidgetRoundSwitchEditTitle" class="col-form-label">@Messages("Tiêu đề *")</label>*@
+                                        @*<input type="text" class="form-control col-sm-6" id="idWidgetRoundSwitchEditTitle" name="idWidgetRoundSwitchEditTitle">*@
+                                        @*<h7 class="textNote">@Messages("manage.group.org.30char")</h7>*@
+                                    @*</div>*@
+                                @*</div>*@
+                            @*</div>*@
+                        @*</div>*@
+
+                        <div class="col-md-12 mt-3" style="background: #858687; padding: 8px">
+                            <span style="color: white; margin-left: 25px">@Messages("DỮ LIỆU")</span>
+                        </div>
+                        <div class="col-md-12 mt-3" style="border: 1px solid #858687;">
+                            <div class="row p-3">
+                                <div class="col-md-6">
+                                    <div class="header-center">
+                                        <label for="idWidgetRoundSwitchEditOption" class="col-sm-6 col-form-label">@Messages("Bộ lọc")</label>
+                                        <select class="form-select mb-3" id="idWidgetRoundSwitchEditOption" name="idWidgetRoundSwitchEditOption" onchange="changeOptionWidgetRoundSwitchEdit(this)">
+                                            <option value="" disabled>Chọn</option>
+                                            <option value="org">Tổ chức</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="header-center filter" id="idWidgetRoundSwitchOrg" style="display: none">
+                                        <label for="idWidgetRoundSwitchEditOption" class="col-sm-6 col-form-label">@Messages("Tổ chức")</label>
+                                        <select class="form-select mb-3" id="selectWidgetRoundSwitchEditOrg" name="selectWidgetRoundSwitchEditOrg" onchange="changeOrgWidgetRoundSwitchEdit(this)">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" style="display: inline-flex; justify-content: center;">
+                                    <div class="table-loading"></div>
+                                </div>
+                                <div class="col-md-12 filter" id="idWidgetRoundSwitchTable"></div>
+
+                                <div class="col-md-4">
+                                    <div class="modal-header" style="background: #858687;">
+                                        <h6 class="modal-title text-white">@Messages("Topic")</h6>
+                                    </div>
+                                    <input class="form-control " id="widgetRoundSwitchTopic">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="modal-header" style="background: #858687;">
+                                        <h5 class="modal-title text-white">Bật TB</h5>
+                                    </div>
+                                    <textarea class="form-control " id="widgetRoundSwitchOn"></textarea>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="modal-header" style="background: #858687;">
+                                        <h5 class="modal-title text-white">Tắt TB</h5>
+                                    </div>
+                                    <textarea class="form-control " id="widgetRoundSwitchOff"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="confirmWidgetRoundSwitch()">@Messages("btnComfirm")</button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script id="round-switch-edit-template" type="x-tmpl-mustache">
+    <input type="hidden" name="widgetRoundSwitchCheckbox" id="widgetRoundSwitchCheckbox"/>
+    <table class="table table-bordered table-nowrap">
+        <thead class="thead-light">
+            <tr>
+                <th>Thiết bị</th>
+                <th colspan=100 style="text-align: center;vertical-align: middle;">Thuộc tính trạng thái TB</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            {{#devices}}
+                <tr>
+                    <td data-id={{id}}>{{name}}</td>
+                    {{#vars}}
+                        <td>
+                            <input {{disabled}} name="{{wid}}" type="radio" data-id={{id}} data-name={{name}} id="{{wid}}-{{attribute_key}}" attribute-key={{attribute_key}} attribute-type={{attribute_type}} value-type={{value_type}}>
+                            <label for="{{wid}}-{{id}}">{{attribute_key}}</label>
+                        </td>
+                    {{/vars}}
+                </tr>
+            {{/devices}}
+        </tbody>
+    </table>
+</script>

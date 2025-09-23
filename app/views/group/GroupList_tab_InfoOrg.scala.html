@@ -1,0 +1,40 @@
+<div >
+  <div class="card" style="height: 36px;background: #EC1B2E;opacity: 0.85;border-radius: 0px 4px 0px 0px; width: 100%">
+    <span class="input-group-text" style="width: 100%; background-color:#EC1B2E; color: #FFFFFF; text-transform: uppercase; ">@Messages("manage.org.overview")</span>
+  </div>
+
+  <div class="card">
+    <div class="col-md-12" style="padding: 15px; border: 1px solid #858687;">
+      <div class="row">
+        <div class="col-md-3">
+          <img src="@routes.Assets.versioned("images/org/building.png")" id="imageInfoOrg" width="100%">
+        </div>
+        @*<div class="col-md-1"></div>*@
+        <div class="col-md-9">
+          <table class="table mb-0">
+            <thead>
+            </thead>
+            <tbody>
+              <tr>
+                <th style="width: 150px">@Messages("ID")</th>
+                <th id="infoIdOrg">@Messages("")</th>
+              </tr>
+              <tr>
+                <th style="width: 150px">@Messages("Tên")</th>
+                <th id="infoNameOrg">@Messages("")</th>
+              </tr>
+              <tr>
+                <th style="width: 150px">@Messages("Mô tả")</th>
+                <th id="infoContentOrg">@Messages("")</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card table-responsive" id="tabAttribute" style="padding: 10px; display: none; border: 1px solid #858687;">
+    <span class="input-group-text" style="width: 100%; background-color:#EC1B2E; color: #FFFFFF; text-transform: uppercase; ">@Messages("Danh sách thuộc tính")</span>
+  </div>
+</div>

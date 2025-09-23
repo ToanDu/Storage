@@ -1,0 +1,177 @@
+<div class="modal fade" id="addConfirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("widget.choose")</h5>
+      </div>
+      <div class="modal-body" style="background-color: #FFFFFF;">
+        <form class="row g-3">
+          <div class="col-md-12">
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="col-md-12" style="background-color: #F4F5F6">
+                    <div class="row">
+                      <div class="col-md-6" style="padding: 10px;">
+                        <div style="padding: 15px; margin-left: 15px; background-color: white;">
+                          <img src="@routes.Assets.versioned("images/widget/chartLineIcon.png")" width="100%" alt="" />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="lineChart" onchange="change_widget_action(this)" value="4" style="float: right; margin-right: 10px;">
+                        </div>
+                        <label class="form-check-label" for="lineChart" style="margin-top: 10px; font-weight: bold; margin-right: 10px">Biểu đồ đường</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="col-md-12" style="background-color: #F4F5F6">
+                    <div class="row">
+                      <div class="col-md-6" style="padding: 10px;">
+                        <div style="padding: 15px; margin-left: 15px; background-color: white;">
+                          <img src="@routes.Assets.versioned("images/widget/chartColumnIcon.png")" width="100%" alt="" />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="columnChart" onchange="change_widget_action(this)" value="3" style="float: right; margin-right: 10px;">
+                        </div>
+                        <label class="form-check-label" for="columnChart" style="margin-top: 10px; font-weight: bold; margin-right: 10px">Biểu đồ cột</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="col-md-12" style="background-color: #F4F5F6">
+                    <div class="row">
+                      <div class="col-md-6" style="padding: 10px;">
+                        <div style="padding: 15px; margin-left: 15px; background-color: white;">
+                          <img src="@routes.Assets.versioned("images/widget/gauseIcon.png")" width="100%" alt="" />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="gauseChart" onchange="change_widget_action(this)" value="5" style="float: right; margin-right: 10px;">
+                        </div>
+                        <label class="form-check-label" for="gauseChart" style="margin-top: 10px; font-weight: bold; margin-right: 10px">Biểu đồ máy đo</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="col-md-12" style="background-color: #F4F5F6">
+                    <div class="row">
+                      <div class="col-md-6" style="padding: 10px;">
+                        <div style="padding: 15px; margin-left: 15px; background-color: white;">
+                          <img src="@routes.Assets.versioned("images/widget/mapIcon.png")" width="100%" alt="" />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="ggMap" onchange="change_widget_action(this)" value="1" style="float: right; margin-right: 10px;">
+                        </div>
+                        <label class="form-check-label" for="ggMap" style="margin-top: 10px; font-weight: bold; margin-right: 10px">Bản đồ</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="col-md-12" style="background-color: #F4F5F6">
+                    <div class="row">
+                      <div class="col-md-6" style="padding: 10px;">
+                        <div style="padding: 15px; margin-left: 15px; background-color: white;">
+                          <img src="@routes.Assets.versioned("images/widget/dataIcon.png")" width="100%" alt="" />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="tableData" onchange="change_widget_action(this)" value="2" style="float: right; margin-right: 10px;">
+                        </div>
+                        <label class="form-check-label" for="tableData" style="margin-top: 10px; font-weight: bold; margin-right: 10px">Bảng dữ liệu</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="col-md-12" style="background-color: #F4F5F6">
+                    <div class="row">
+                      <div class="col-md-6" style="padding: 10px;">
+                        <div style="padding: 15px; margin-left: 15px; background-color: white;">
+                          <img src="@routes.Assets.versioned("images/dashboard/switch.png")" width="100%" alt="" />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="tableSwitch" onchange="change_widget_action(this)" value="6" style="float: right; margin-right: 10px;">
+                        </div>
+                        <label class="form-check-label" for="tableSwitch" style="margin-top: 10px; font-weight: bold; margin-right: 10px">Công tắc</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="col-md-12" style="background-color: #F4F5F6">
+                    <div class="row">
+                      <div class="col-md-6" style="padding: 10px;">
+                        <div style="padding: 15px; margin-left: 15px; background-color: white;">
+                          <img src="@routes.Assets.versioned("images/dashboard/data.png")" width="100%" alt="" />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="tableData" onchange="change_widget_action(this)" value="7" style="float: right; margin-right: 10px;">
+                        </div>
+                        <label class="form-check-label" for="tableData" style="margin-top: 10px; font-weight: bold; margin-right: 10px">Dữ liệu</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="col-md-12" style="background-color: #F4F5F6">
+                    <div class="row">
+                      <div class="col-md-6" style="padding: 10px;">
+                        <div style="padding: 15px; margin-left: 15px; background-color: white;">
+                          <img src="@routes.Assets.versioned("images/widget/command.png")" width="100%" alt="" />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="commandData" onchange="change_widget_action(this)" value="8" style="float: right; margin-right: 10px;">
+                        </div>
+                        <label class="form-check-label" for="commandData" style="margin-top: 10px; font-weight: bold; margin-right: 10px">Command</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-12" id="bodyWidget"></div>
+        </form>
+
+      </div>
+      <div class="modal-header" style="background-color: white">
+        <button type="button" class="btn btn-success" onclick="addNewWidget()">@Messages("btnComfirm")</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+      </div>
+    </div>
+  </div>
+</div>

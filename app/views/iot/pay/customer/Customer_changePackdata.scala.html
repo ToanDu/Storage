@@ -1,0 +1,157 @@
+<div class="modal fade" id="changePackDataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content" id="theme16">
+      <div class="modal-header" style="text-align: center; display: block">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("packdata.change")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="card" style="padding: 15px; height: 100%; overflow: auto; max-height: 71vh;">
+                  <div class="input-group mt-2">
+                    <span class="input-group-text" onclick=""><i class='bx bx-search-alt'></i></span>
+                    <input id="searchPackChange" class="search-input form-control border-start-0" placeholder="" maxlength="30">
+                  </div>
+                  <div class="panel-body" style="padding: 2px 2px 2px 2px; overflow-y: auto;" >
+                    <div style="width: 100%; overflow: auto; height: 100%;padding: 10px;" id="listPackData">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-9">
+                <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+                  <span class="input-group-text" style="width: 100%; background-color:#aaa; color: #FFFFFF; text-transform: uppercase; font-weight: normal;">@Messages("Thông tin gói cước")</span>
+                </div>
+                <div class="card" style="padding: 15px; border: 1px solid #858687;">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="row mb-1">
+                        <h4 class="col-sm-12 col-form-label" id="idPackDataInfoNew">@Messages("ID: ")</h4>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="row mb-1">
+                        <h4 class="col-sm-12 col-form-label" id="namePackDataInfoNew">@Messages("packdata.name")</h4>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="row mb-1">
+                        <h4 class="col-sm-12 col-form-label" id="typePackDataInfoNew">@Messages("Loại gói")</h4>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="row mb-1">
+                        <h4 class="col-sm-12 col-form-label" id="statusPackDataInfoNew">@Messages("Trạng thái")</h4>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="row mb-1">
+                        <h4 class="col-sm-12 col-form-label" id="contentPackDataInfoNew">@Messages("packdata.content")</h4>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="row mb-1">
+                        <h4 class="col-sm-12 col-form-label" id="datePackDataInfoNew">@Messages("Ngày tạo")</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card" style="padding: 15px; border: 1px solid #858687;">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="row mb-1">
+                        <label class="col-sm-5 col-form-label" >@Messages("Loại dịch vụ")</label>
+                        <div class="col-sm-7">
+                          <input id="serviceTypeNew" type="text" class="form-control" autocomplete="off" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="row mb-1">
+                        <label class="col-sm-5 col-form-label" >@Messages("Số lượng đăng kí")</label>
+                        <div class="col-sm-7" id="planLvNew">
+                          <input id="registerNew" type="number" class="form-control" autocomplete="off" value="0" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card" style="height: 36px; opacity: 0.85;border-radius: 4px; width: 100%">
+                  <span class="input-group-text" style="width: 100%; background-color:#aaa; color: #FFFFFF; text-transform: uppercase; font-weight: normal;">@Messages("So sánh với gói cước hiện tại")</span>
+                </div>
+                <div class="card" style="padding: 15px; border: 1px solid #858687;">
+                  <div class="card-body">
+                    <div class="table-responsive" id="divTablePackdata">
+                      <table class="table mb-0 table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col"></th>
+                            <th scope="col" id="namePackCurrent">@Messages("Gói hiện tại: Chưa có")</th>
+                            <th scope="col" id="namePackNew">@Messages("Gói mới: Chưa chọn")</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>@Messages("Phương thức thanh toán")</th>
+                            <th id="paymentTypeCurrent">@Messages("")</th>
+                            <th id="paymentTypeNew">@Messages("")</th>
+                          </tr>
+                          <tr>
+                            <th>@Messages("Loại chu kỳ tính tiền")</th>
+                            <th id="typePeriodCurrent">@Messages("")</th>
+                            <th id="typePeriodNew">@Messages("")</th>
+                          </tr>
+                          <tr>
+                            <th>@Messages("Chu kì tính tiền")</th>
+                            <th id="periodCurrent">@Messages("")</th>
+                            <th id="periodNew">@Messages("")</th>
+                          </tr>
+                          <tr>
+                            <th>@Messages("Chi phí cố định hàng kỳ")</th>
+                            <th id="fixCostCurrent">@Messages("")</th>
+                            <th id="fixCostNew">@Messages("")</th>
+                          </tr>
+                          <tr>
+                            <th>@Messages("Đơn vị tính")</th>
+                            <th id="chargingUnitCurrent">@Messages("")</th>
+                            <th id="chargingUnitNew">@Messages("")</th>
+                          </tr>
+                          <tr>
+                            <th>@Messages("Phương pháp định giá")</th>
+                            <th id="estimateCurrent">@Messages("")</th>
+                            <th id="estimateNew">@Messages("")</th>
+                          </tr>
+                          <tr>
+                            <th>@Messages("Số tiền")</th>
+                            <th id="priceCurrent">@Messages("")</th>
+                            <th id="priceNew">@Messages("")</th>
+                          </tr>
+                          <tr>
+                            <th>@Messages("Số lượng miễn phí")</th>
+                            <th id="numberFreeCurrent">@Messages("")</th>
+                            <th id="numberFreeNew">@Messages("")</th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" onclick="processChangePackdataForUser()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- modal-bialog .// -->
+</div>

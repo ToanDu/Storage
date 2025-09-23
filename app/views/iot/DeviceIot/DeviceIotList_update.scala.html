@@ -1,0 +1,81 @@
+<div id="updateConfirmModal" class="modal fixed-left fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content" id="theme16">
+
+            <div class="modal-header">
+                <h5 class="modal-title text-darker" id="exampleModalLabel">@Messages("device.update")</h5><hr>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12" hidden>
+                    <input id="idDeviceUpdate" name="id" type="text" class="form-control" maxlength="50" autocomplete="off" required>
+                </div>
+                <div class="row row-cols-1 row-cols-lg-3" style="height: 100%;">
+
+                    <div class="col">
+                        <div class="card radius-10 border-danger" style="height: 100%; border: 1px solid #f41127">
+                            <div class="card-body" >
+                                <div class="d-flex ">
+                                    <div class="ms-3">
+                                        <h6 class="mb-0 text-darker">@Messages("filter.organization")</h6>
+                                    </div>
+                                    <div class="ms-9" style="margin-left: 15px">
+                                        <input type="hidden" id="itype" name="itype" value="0" >
+                                        <input type="hidden" id="orgIdMove">
+                                        <div class="input-group">
+                                            <a class="input-group-text"><i class='bx bx-search'></i></a>
+                                            <input id="search-selectOrg"  class="search-input form-control border-start-0">
+                                        </div>
+
+                                        <hr>
+                                        <div id="selectOrganizations" style="overflow: auto"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card radius-10" style="height: 100%; border: 1px solid #f41127">
+                            <div class="card-body">
+                                <div class="d-flex ">
+                                    <div class="ms-3">
+                                        <h6 class="mb-0 text-darker">@Messages("filter.group")</h6>
+                                    </div>
+                                    <div class="ms-9" style="margin-left: 15px">
+                                        <input type="hidden" id="itype" name="itype" value="0" >
+                                        <input type="hidden" id="groupIdMove">
+                                        <div class="input-group">
+                                            <a class="input-group-text"><i class='bx bx-search'></i></a>
+                                            <input id="search-selectGroup"  class="search-input form-control border-start-0">
+                                        </div>
+
+                                        <hr>
+                                        <div id="selectGroups" style="overflow: auto"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card radius-10" style="height: 100%; border: 1px solid #f41127">
+                            <div class="card-body ">
+                                <div class="d-flex ">
+                                    <div class="ms-3">
+                                        <h6 class="mb-0 text-darker">@Messages("filter.type")</h6>
+                                    </div>
+                                    <div class="ms-9" id="listDeviceTypes" style="margin-left: 15px">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="typeIdMove">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="processUpdateDevice()" data-bs-dismiss="modal">@Messages("btnSave")</button>
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">@Messages("btnClose")</button>
+            </div>
+        </div>
+    </div> <!-- modal-bialog .// -->
+</div>

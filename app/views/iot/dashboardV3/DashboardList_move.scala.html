@@ -1,0 +1,26 @@
+<div id="move-tree-view" class="modal fixed-left fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-aside" role="document">
+    <div class="modal-content" style="background-color: white">
+
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="exampleModalLabel">@Messages("Gán dashboard vào tổ chức")</h5>
+      </div>
+      <div class="modal-body">
+        <div class="panel-body" style="padding: 5px 2px 2px 2px; overflow-y: auto;  background-color: #EAEBEB; height: 100%;" >
+          <div style="width: 100%; overflow: auto; height: 100%; padding: 5px;">
+            <input type="hidden" id="itype" name="itype" value="0" >
+            <input type="hidden" id="idDashboard" name="idDashboard" >
+            <input type="hidden" id="orgIdMove" name="orgId" >
+            <input type="" id="orgNameMove" name="orgName" style="width:100%; padding: 5px;">
+            <div id="tabListOrg" style="overflow: auto; background-color: #EAEBEB; height: 90%;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="processMoveDashboardToOrg()">@Messages("btnSave")</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Messages("btnClose")</button>
+      </div>
+
+    </div>
+  </div>
+</div>

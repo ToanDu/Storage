@@ -1,0 +1,44 @@
+@import vn.m2m.common.models.User
+@(currentUser:User)
+<header>
+    <div class="topbar d-flex align-items-center" style="background-color: #940e15;">
+        <nav class="navbar navbar-expand" style="border-radius: 0px 0px 0px 0px; background-color: #ffffff;">
+            <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
+            </div>
+            <div class="top-menu ms-auto">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item dropdown dropdown-large">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative text-white" style="font-size: 18px">
+
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="user-box dropdown">
+                <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="@routes.Assets.versioned("images/avatarDefault.png")" class="user-img" alt="user avatar">
+                    <div class="user-info ps-3">
+                        <p class="user-name mb-0 text-black">@currentUser.getUsername</p>
+                    </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="@routes.LandingPageController.home()" target="_blank"><i class="bx bx-home"></i><span>@Messages("header.nav.home")</span></a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="@routes.ProjectController.project()" target="_blank"><i class="bx bx-cog"></i><span> @Messages("header.nav.projectManagement")</span></a>
+                    </li>
+                    <li>
+                        <a href="@routes.TelcoSubscriberController.subscriberManage(currentUser.getId)" target="_blank" class="dropdown-item"><i class="bx bx-credit-card"></i> @Messages("header.nav.telcoManagement")</a>
+                    </li>
+                    <li>
+                        <a href="@routes.ProductListController.productList(currentUser.getId)" target="_blank" class="dropdown-item"><i class="bx bx-devices"></i> @Messages("header.nav.productManagement")</a>
+                    </li>
+                    <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-vector'></i><span>@Messages("header.info.version")@currentUser.getVersion</span></a>
+                    </li>
+                    <li><a class="dropdown-item" href="@routes.Application.logout()"><i class='bx bx-log-out-circle'></i><span>@Messages("header.user.logout")</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
