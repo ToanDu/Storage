@@ -2571,7 +2571,6 @@ landingPageTelco.customerCarePhone=198
 landingPageTelco.copyright=Copyright Viettel Telecom 2022
 landingPageTelco.followUs=Follow us:
 
-<<<<<<< HEAD
 telco.dashboard=Dashboard
 telco.invoice=Hóa đơn
 telco.subscriberManagement=Quản lý thuê bao
@@ -2602,8 +2601,6 @@ telco.accountInfo=Thông tin tài khoản
 telco.feedback=Đóng góp ý kiến
 telco.searchPlaceholder=Nhập từ khóa để tra cứu
 
-=======
->>>>>>> f1084ab5d52eb715319917745a3637a94261272f
 #Landingpage Telco Labels
 landingPageTelco.faq1.answer1=- Để quản lý được thông tin liên quan tới thuê bao của doanh nghiệp một cách dễ dàng, anh/chị cần đăng ký tài khoản ở trên nền tảng IoT Innoway, đăng nhập và bổ sung thông tin GPKD của doanh nghiệp
 landingPageTelco.faq1.answer2=- Để nhận được sự hỗ trợ chi tiết, vui lòng gọi số ...
